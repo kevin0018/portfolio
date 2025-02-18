@@ -5,16 +5,16 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@tailwindcss/postcss": "^4.0.7",
     "@testing-library/jest-dom": "^6.6.3",
-    "cra-template-typescript": "1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
     "web-vitals": "^4.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -37,10 +37,16 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.2.17",
     "@types/css-modules": "^1.0.5",
     "@types/jest": "^29.5.14",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "@types/testing-library__react": "^10.0.1"
+    "@types/testing-library__react": "^10.0.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^4.0.7",
+    "vite": "^6.1.0"
   }
 }

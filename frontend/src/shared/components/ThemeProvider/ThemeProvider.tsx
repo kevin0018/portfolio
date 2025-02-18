@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
-import './ThemeProvider.module.css';
+import '@/index.css';
 
 interface ThemeContextType {
     isDarkMode: boolean;
@@ -18,7 +18,6 @@ export const useTheme = (): ThemeContextType => {
 
 const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({children}) => {
     const [isDarkMode, setIsDarkMode] = useState(() => {
-        // Verifica el tema guardado en localStorage o usa la preferencia del sistema
         const savedTheme = localStorage.getItem('isDarkMode');
         const initialMode = savedTheme ? JSON.parse(savedTheme) : window.matchMedia('(prefers-color-scheme: dark)').matches;
         console.log('Initial isDarkMode:', initialMode);
@@ -40,20 +39,13 @@ const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({children}) => {
         if (isDarkMode) {
             document.body.classList.add('dark-mode');
             document.body.classList.remove('light-mode');
-            document.body.style.backgroundColor = 'black';
-            document.body.style.color = 'white';
         } else {
             document.body.classList.add('light-mode');
             document.body.classList.remove('dark-mode');
-            document.body.style.backgroundColor = 'white';
-            document.body.style.color = 'black';
         }
-        // Verifica las clases aplicadas al body
         console.log('Body classes:', document.body.classList);
-        // Verifica el color de fondo del body
         const bodyBackgroundColor = window.getComputedStyle(document.body).backgroundColor;
         console.log('Body background color:', bodyBackgroundColor);
-        // Guarda la preferencia del usuario en localStorage
         localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode));
     }, [isDarkMode]);
 

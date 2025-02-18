@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {useTheme} from '../../shared/components/ThemeProvider/ThemeProvider';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSun, faMoon} from '@fortawesome/free-solid-svg-icons';
-import styles from './Home.module.css';
 
 const Home: React.FC = () => {
     const {isDarkMode, toggleDarkMode} = useTheme();
@@ -12,16 +11,19 @@ const Home: React.FC = () => {
     }, [isDarkMode]);
 
     return (
-        <div className={`${styles.container} ${!isDarkMode ? styles.lightMode : ''}`}>
-            <button className={styles.iconButton} onClick={toggleDarkMode}>
-                <FontAwesomeIcon
-                    icon={isDarkMode ? faSun : faMoon}
-                    className={isDarkMode ? styles.sunIcon : ''}
-                />
-            </button>
-            <h1 className={styles.title}>Bienvenido a mi Portafolio</h1>
-            <p className={styles.description}>En este portafolio estoy utilizando React, TypeScript, Django, DDD, TDD,
-                CQRS y Arquitectura Hexagonal.</p>
+        <div
+            className={`min-h-screen flex flex-col items-center justify-center ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
+            <div className="absolute top-4 right-4">
+                <button className="p-2" onClick={toggleDarkMode}>
+                    <FontAwesomeIcon
+                        icon={isDarkMode ? faSun : faMoon}
+                        className="text-2xl"
+                    />
+                </button>
+            </div>
+            <div className="text-center">
+                <h1 className="text-4xl font-bold mt-4">Hola! Me llamo Kevin y soy un programador full stack junior</h1>
+            </div>
         </div>
     );
 };
