@@ -1,10 +1,10 @@
-module.exports = {
-    content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-    darkMode: 'class', // or 'media' or 'class'
+// tailwind.config.js
+export default {
+    content: [
+        './src/**/*.{js,jsx,ts,tsx}',
+        './public/index.html',
+    ],
     theme: {
-        extend: {},
-    },
-    variants: {
         extend: {},
     },
     plugins: [],
