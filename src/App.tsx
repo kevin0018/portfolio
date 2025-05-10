@@ -46,7 +46,6 @@ function App() {
                     <div>
                         <Sidebar
                             idioma={idioma}
-                            setIdioma={setIdioma}
                             onInicioClick={handleGoHero}
                         />
                         <MainContent idioma={idioma} setShowMain={setShowMain} />

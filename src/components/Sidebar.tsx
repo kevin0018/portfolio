@@ -82,7 +82,7 @@ const Sidebar: React.FC<SidebarProps> = ({ idioma, onInicioClick }) => {
 
     return (
         <>
-            {/* Botón menú hamburguesa SOLO en móvil */}
+            {/* Botón menú hamburguesa */}
             <button
                 className="fixed top-4 left-4 z-50 p-2 bg-teal-500 rounded-full shadow-lg md:hidden"
                 onClick={() => setOpen(true)}
@@ -93,7 +93,7 @@ const Sidebar: React.FC<SidebarProps> = ({ idioma, onInicioClick }) => {
                 </svg>
             </button>
 
-            {/* Sidebar deslizable SOLO en móvil */}
+            {/* Sidebar deslizable */}
             {open && (
                 <>
                     {/* Overlay */}
@@ -152,7 +152,7 @@ const Sidebar: React.FC<SidebarProps> = ({ idioma, onInicioClick }) => {
                 </>
             )}
 
-            {/* Sidebar ESTÁTICO SOLO en PC/tablet */}
+            {/* Sidebar PC/tablet */}
             <aside
                 className={`
                     hidden
