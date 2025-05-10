@@ -1,4 +1,4 @@
-# Portafolio Web - [Kevin Hernández]
+# Portafolio Web - Kevin Hernández
 
 Este es mi portafolio web personal, desarrollado en React + TypeScript + Tailwind CSS y desplegado en **GitHub Pages**.
 
