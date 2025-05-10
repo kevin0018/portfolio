@@ -95,7 +95,7 @@ const Hero: React.FC<HeroProps> = ({idioma, setIdioma, onDownClick}) => {
                     <div
                         className="w-32 h-32 rounded-full overflow-hidden border-4 border-teal-400 shadow-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center">
                         <img
-                            src="/assets/images/avatar.jpg"
+                            src={`${import.meta.env.BASE_URL}assets/images/avatar.jpg`}
                             alt="Avatar"
                             className="object-cover w-full h-full"
                         />
