@@ -138,7 +138,7 @@ const Hero: React.FC<HeroProps> = ({idioma, setIdioma, onDownClick}) => {
                     </div>
                     {/* Botón CV */}
                     <a
-                        href="/assets/files/CV_Kevin_Hernandez_Deras.pdf"
+                        href={`${import.meta.env.BASE_URL}assets/files/CV_Kevin_Hernandez_Deras.pdf`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-teal-600 dark:bg-teal-500 hover:bg-teal-700 dark:hover:bg-teal-400 text-white px-6 py-2 rounded shadow-lg font-semibold transition"
