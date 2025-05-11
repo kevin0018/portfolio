@@ -60,12 +60,16 @@ const MainContent = ({
             onWheel={handleMainWheel}
         >
             {/* Sobre mí */}
-            <section id="sobremi" className="min-h-screen flex flex-col justify-center items-center snap-start px-4">
-                <div className="w-full max-w-2xl mx-auto text-center">
+            <section
+                id="sobremi"
+                className="min-h-screen flex flex-col md:flex-row justify-center items-center snap-start px-4"
+            >
+                {/* Columna izquierda: Sobre mí / About Me */}
+                <div className="flex-1 flex flex-col justify-center items-start max-w-xl">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600 dark:text-teal-400">
                         {idioma === "es" ? "Sobre mí" : "About Me"}
                     </h2>
-                    <p className="text-base md:text-lg text-gray-700 dark:text-gray-300">
+                    <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 text-left">
                         {idioma === "es" ? (
                             <>
                                 <strong>Responsable, eficaz y trabajador.</strong> Con capacidad de adaptación y
@@ -77,11 +81,92 @@ const MainContent = ({
                             <>
                                 <strong>Responsible, efficient, and hardworking.</strong> Adaptable and eager to learn,
                                 resourceful and with good social skills. Focused on best practices such as TDD and DDD.
-                                I am seeking opportunities to continue improving my skills and contribute to the
+                                I am looking for opportunities to keep improving my skills and contribute to the
                                 development of scalable applications.
                             </>
                         )}
                     </p>
+                </div>
+
+                {/* Columna derecha: Formación y Experiencia, cada una con timeline */}
+                <div
+                    className="flex-1 flex flex-col justify-center items-start bg-gray-100 dark:bg-neutral-800 rounded-xl p-8 shadow-lg mt-12 md:mt-0 md:ml-12 w-full max-w-lg">
+                    {/* Timeline Formación */}
+                    <h3 className="text-2xl font-semibold text-teal-500 mb-6 text-left">
+                        {idioma === "es" ? "Formación" : "Education"}
+                    </h3>
+                    <ol className="relative border-l-2 border-teal-500 mb-8">
+                        <li className="mb-10 ml-6">
+                <span
+                    className="absolute -left-3 flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full ring-8 ring-gray-100 dark:ring-neutral-800"></span>
+                            <h4 className="font-bold text-gray-900 dark:text-white text-left">
+                                {idioma === "es"
+                                    ? "Ciclo Formativo de Grado Superior, Desarrollo de Aplicaciones Web"
+                                    : "Higher Vocational Training, Web Application Development"}
+                            </h4>
+                            <p className="text-gray-600 dark:text-gray-400 text-left">
+                                Escola del Treball ({idioma === "es" ? "sept. 2022 - may. 2024" : "Sep 2022 - May 2024"})
+                            </p>
+                        </li>
+                        <li className="mb-10 ml-6">
+                <span
+                    className="absolute -left-3 flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full ring-8 ring-gray-100 dark:ring-neutral-800"></span>
+                            <h4 className="font-bold text-gray-900 dark:text-white text-left">
+                                {idioma === "es"
+                                    ? "Ciclo Formativo de Grado Medio, Sistemas Microinformáticos y Redes"
+                                    : "Intermediate Vocational Training, Microcomputer Systems and Networks"}
+                            </h4>
+                            <p className="text-gray-600 dark:text-gray-400 text-left">
+                                Escola del Treball ({idioma === "es" ? "sept. 2020 - jun. 2022" : "Sep 2020 - Jun 2022"})
+                            </p>
+                        </li>
+                    </ol>
+
+                    {/* Timeline Experiencia */}
+                    <h3 className="text-2xl font-semibold text-teal-500 mb-6 text-left">
+                        {idioma === "es" ? "Experiencia" : "Experience"}
+                    </h3>
+                    <ol className="relative border-l-2 border-teal-500">
+                        <li className="mb-10 ml-6">
+                <span
+                    className="absolute -left-3 flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full ring-8 ring-gray-100 dark:ring-neutral-800"></span>
+                            <h4 className="font-bold text-gray-900 dark:text-white text-left">
+                                Full Stack Developer
+                            </h4>
+                            <p className="text-gray-600 dark:text-gray-400 text-left">
+                                Coneptum ({idioma === "es" ? "jul. 2024 - feb. 2025" : "Jul 2024 - Feb 2025"})
+                            </p>
+                            <ul className="list-disc pl-5 mt-2 text-gray-600 dark:text-gray-400 text-left">
+                                {idioma === "es" ? (
+                                    <>
+                                        <li>Desarrollo y mantenimiento de proyectos backend con Django Rest Framework.
+                                        </li>
+                                        <li>Desarrollo y mantenimiento de proyectos frontend con Vue.js.</li>
+                                        <li>Implementación de soluciones escalables en Python, C# y TypeScript,
+                                            aplicando metodologías como DDD (Domain-Driven Design), TDD (Test-Driven
+                                            Development) con pytest y unittest, así como CQRS (Command Query
+                                            Responsibility Segregation) para mejorar la arquitectura y calidad del
+                                            software.
+                                        </li>
+                                        <li>Gestión y optimización de bases de datos, principalmente PostgreSQL.</li>
+                                    </>
+                                ) : (
+                                    <>
+                                        <li>Development and maintenance of backend projects with Django Rest
+                                            Framework.
+                                        </li>
+                                        <li>Development and maintenance of frontend projects with Vue.js.</li>
+                                        <li>Implementation of scalable solutions in Python, C# and TypeScript, applying
+                                            methodologies such as DDD (Domain-Driven Design), TDD (Test-Driven
+                                            Development) with pytest and unittest, as well as CQRS (Command Query
+                                            Responsibility Segregation) to improve software architecture and quality.
+                                        </li>
+                                        <li>Database management and optimization, mainly PostgreSQL.</li>
+                                    </>
+                                )}
+                            </ul>
+                        </li>
+                    </ol>
                 </div>
             </section>
 
@@ -96,19 +181,24 @@ const MainContent = ({
                         {proyectos.map((proyecto, i) => (
                             <div
                                 key={i}
-                                className="bg-gray-100 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-xl shadow-md flex flex-col h-full overflow-hidden max-w-xs mx-auto"
+                                className="bg-white dark:bg-neutral-900
+                               border border-gray-200 dark:border-neutral-700
+                               rounded-2xl shadow-lg
+                               flex flex-col h-full overflow-hidden max-w-xs mx-auto
+                               transition-all"
                             >
-                                <img src={proyecto.imagen} alt={proyecto.nombre} className="w-full h-36 object-cover"/>
+                                <img src={proyecto.imagen} alt={proyecto.nombre}
+                                     className="w-full h-36 object-cover rounded-t-2xl"/>
                                 <div className="p-4 flex flex-col flex-1">
-                                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-teal-300">{proyecto.nombre}</h3>
+                                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-teal-500">{proyecto.nombre}</h3>
                                     <div className="flex flex-wrap items-center gap-4 mb-6">
                                         {proyecto.lenguajes.map((nombre, idx) => {
                                             const h = habilidadesPorNombre[nombre];
                                             return h ? (
                                                 <span key={idx} style={{color: h.color}} title={h.nombre}
                                                       className="w-7 h-7">
-                                                    {h.icono}
-                                                </span>
+                                        {h.icono}
+                                    </span>
                                             ) : (
                                                 <span key={idx}>{nombre}</span>
                                             );
@@ -120,9 +210,8 @@ const MainContent = ({
                                                 href={proyecto.enlaceWeb}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-teal-400 hover:underline flex items-center gap-2 text-base md:text-lg"
+                                                className="text-teal-500 hover:underline flex items-center gap-2 text-base md:text-lg"
                                             >
-                                                {/* Icono globo terráqueo SVG */}
                                                 <svg className="w-6 h-6" fill="none" stroke="currentColor"
                                                      viewBox="0 0 24 24">
                                                     <circle cx="12" cy="12" r="10" strokeWidth="2"/>
@@ -136,18 +225,17 @@ const MainContent = ({
                                             href={proyecto.enlaceGithub}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-teal-400 hover:underline flex items-center gap-2 text-base md:text-lg"
+                                            className="text-teal-500 hover:underline flex items-center gap-2 text-base md:text-lg"
                                         >
-                                            {/* Icono GitHub */}
                                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M12 2C6.476 2 2 6.486 2 12.021c0 4.426 2.868 8.185 6.839 9.504.5.092.682-.217.682-.482
-                                                     0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.157-1.11-1.466-1.11-1.466
-                                                     -.908-.62.069-.608.069-.608 1.004.07 1.533 1.034 1.533 1.034.893 1.532 2.341 1.09 2.91.833.092-.647.35-1.09.636-1.342
-                                                     -2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.27.098-2.647
-                                                     0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295
-                                                     2.748-1.025 2.748-1.025.546 1.377.202 2.394.1 2.647.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337
-                                                     4.695-4.566 4.944.359.31.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .267.18.579.688.481C19.135
-                                                     20.203 22 16.444 22 12.021 22 6.486 17.523 2 12 2z"/>
+                                         0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.157-1.11-1.466-1.11-1.466
+                                         -.908-.62.069-.608.069-.608 1.004.07 1.533 1.034 1.533 1.034.893 1.532 2.341 1.09 2.91.833.092-.647.35-1.09.636-1.342
+                                         -2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.27.098-2.647
+                                         0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295
+                                         2.748-1.025 2.748-1.025.546 1.377.202 2.394.1 2.647.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337
+                                         4.695-4.566 4.944.359.31.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .267.18.579.688.481C19.135
+                                         20.203 22 16.444 22 12.021 22 6.486 17.523 2 12 2z"/>
                                             </svg>
                                             GitHub
                                         </a>
