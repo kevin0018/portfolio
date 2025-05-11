@@ -56,14 +56,32 @@ const Hero: React.FC<HeroProps> = ({idioma, setIdioma, onDownClick}) => {
             className="relative flex flex-col min-h-screen w-full bg-white text-black dark:bg-black dark:text-white justify-center items-center transition-colors duration-500">
             {/* Botones arriba derecha */}
             <div className="absolute top-8 right-12 flex gap-4 z-20">
-                {/* Botón idioma */}
-                <button
-                    onClick={() => setIdioma(idioma === "es" ? "en" : "es")}
-                    className="p-2 rounded-full border border-teal-400 text-teal-700 dark:text-white hover:bg-teal-500 transition"
-                    aria-label="Cambiar idioma"
-                >
-                    {idioma === "es" ? "EN" : "ES"}
-                </button>
+                {/* Selector de idioma */}
+                <div className="flex items-center gap-1 text-lg">
+                    <button
+                        onClick={() => setIdioma("es")}
+                        disabled={idioma === "es"}
+                        className={`transition px-2 py-1 rounded
+                        ${idioma === "es"
+                            ? "font-extrabold text-teal-600 dark:text-teal-400 bg-teal-100 dark:bg-teal-900 cursor-default"
+                            : "text-gray-600 dark:text-gray-300 hover:text-teal-600"}`}
+                        aria-label="Cambiar a español"
+                    >
+                        ES
+                    </button>
+                    <span className="text-gray-400 select-none">|</span>
+                    <button
+                        onClick={() => setIdioma("en")}
+                        disabled={idioma === "en"}
+                        className={`transition px-2 py-1 rounded
+                        ${idioma === "en"
+                            ? "font-extrabold text-teal-600 dark:text-teal-400 bg-teal-100 dark:bg-teal-900 cursor-default"
+                            : "text-gray-600 dark:text-gray-300 hover:text-teal-600"}`}
+                        aria-label="Switch to English"
+                    >
+                        EN
+                    </button>
+                </div>
                 {/* Botón tema */}
                 <button
                     className="p-2 rounded-full border border-yellow-400 text-yellow-700 dark:text-white hover:bg-yellow-500 transition flex items-center justify-center"
@@ -71,7 +89,7 @@ const Hero: React.FC<HeroProps> = ({idioma, setIdioma, onDownClick}) => {
                     onClick={toggleTheme}
                 >
                     {isDark ? (
-                        // Sol (tema claro)
+                        // (tema claro)
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
                             <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2"/>
@@ -79,7 +97,7 @@ const Hero: React.FC<HeroProps> = ({idioma, setIdioma, onDownClick}) => {
                                   d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
                         </svg>
                     ) : (
-                        // Luna (tema oscuro)
+                        // (tema oscuro)
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
                             <path stroke="currentColor" strokeWidth={2}

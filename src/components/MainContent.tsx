@@ -1,14 +1,20 @@
 import {useRef} from "react";
-import habilidades from "../data/habilidades";
 import proyectos from "../data/proyectos";
-import {habilidadesPorNombre} from "../data/habilidades";
+import {habilidadesPorNombre, habilidadesPorGrupo} from "../data/habilidades";
+import type {GrupoHabilidad} from "../data/habilidades";
 
 const correo = "akevin.2215@gmail.com";
 
+const grupos: { grupo: GrupoHabilidad; titulo: string; color: string }[] = [
+    {grupo: "frontend", titulo: "Frontend", color: "border-cyan-500 dark:border-cyan-400"},
+    {grupo: "backend", titulo: "Backend", color: "border-purple-600 dark:border-purple-400"},
+    {grupo: "otras", titulo: "Otras", color: "border-amber-500 dark:border-amber-400"},
+];
+
 const MainContent = ({
-    idioma,
-    setShowMain
-}: {
+                         idioma,
+                         setShowMain
+                     }: {
     idioma: "es" | "en",
     setShowMain: (show: boolean) => void
 }) => {
@@ -62,11 +68,17 @@ const MainContent = ({
                     <p className="text-base md:text-lg text-gray-700 dark:text-gray-300">
                         {idioma === "es" ? (
                             <>
-                                <strong>Responsable, eficaz y trabajador.</strong> Con capacidad de adaptación y aprendizaje, resolutivo y con buenas habilidades sociales. Enfocado en buenas prácticas como TDD y DDD. Busco oportunidades para seguir mejorando mis habilidades y contribuir en el desarrollo de aplicaciones escalables.
+                                <strong>Responsable, eficaz y trabajador.</strong> Con capacidad de adaptación y
+                                aprendizaje, resolutivo y con buenas habilidades sociales. Enfocado en buenas prácticas
+                                como TDD y DDD. Busco oportunidades para seguir mejorando mis habilidades y contribuir
+                                en el desarrollo de aplicaciones escalables.
                             </>
                         ) : (
                             <>
-                                <strong>Responsible, efficient, and hardworking.</strong> Adaptable and eager to learn, resourceful and with good social skills. Focused on best practices such as TDD and DDD. I am seeking opportunities to continue improving my skills and contribute to the development of scalable applications.
+                                <strong>Responsible, efficient, and hardworking.</strong> Adaptable and eager to learn,
+                                resourceful and with good social skills. Focused on best practices such as TDD and DDD.
+                                I am seeking opportunities to continue improving my skills and contribute to the
+                                development of scalable applications.
                             </>
                         )}
                     </p>
@@ -74,7 +86,8 @@ const MainContent = ({
             </section>
 
             {/* Proyectos */}
-            <section id="proyectos" className="min-h-screen flex flex-col justify-center items-center snap-start px-2 sm:px-4">
+            <section id="proyectos"
+                     className="min-h-screen flex flex-col justify-center items-center snap-start px-2 sm:px-4">
                 <div className="w-full max-w-5xl">
                     <h2 className="text-3xl md:text-4xl font-bold mb-8 text-teal-600 dark:text-teal-400 text-center">
                         {idioma === "es" ? "Proyectos" : "Projects"}
@@ -147,17 +160,38 @@ const MainContent = ({
             </section>
 
             {/* Habilidades */}
-            <section id="habilidades" className="min-h-screen flex flex-col justify-center items-center snap-start px-4">
+            <section id="habilidades"
+                     className="min-h-screen flex flex-col justify-center items-center snap-start px-4"
+            >
                 <h2 className="text-3xl md:text-4xl font-bold mb-8 text-teal-600 dark:text-teal-400 text-center">
                     {idioma === "es" ? "Habilidades" : "Skills"}
                 </h2>
-                <div className="flex flex-wrap justify-center gap-6 sm:gap-8 max-w-3xl">
-                    {habilidades.map((h, i) => (
-                        <div key={i} className="flex flex-col items-center">
-                            <span style={{color: h.color}} className="w-10 h-10">
+                <div className="w-full max-w-3xl flex flex-col gap-12">
+                    {grupos.map(({grupo, titulo, color}) => (
+                        <div key={grupo}>
+                            <div className={`flex items-center gap-2 mb-6`}>
+                                <div className={`h-8 border-l-4 ${color} mr-2`}/>
+                                <h3 className="text-xl font-bold text-left tracking-wide">
+                                    {titulo}
+                                </h3>
+                            </div>
+                            <div className="flex flex-wrap justify-start gap-8">
+                                {habilidadesPorGrupo[grupo].map((h) => (
+                                    <div
+                                        key={h.nombre}
+                                        className="flex flex-col items-center bg-white dark:bg-black border border-gray-100 dark:border-gray-800 rounded-2xl shadow-lg p-6 min-w-[110px] transition hover:scale-105 hover:shadow-xl"
+                                    >
+                            <span style={{color: h.color}}
+                                  className="w-12 h-12 flex items-center justify-center">
                                 {h.icono}
                             </span>
-                            <span className="text-base md:text-lg text-gray-700 dark:text-gray-300 mt-2">{h.nombre}</span>
+                                        <span
+                                            className="text-base md:text-lg text-gray-700 dark:text-gray-300 mt-3 text-center">
+                                {h.nombre}
+                            </span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -185,6 +219,19 @@ const MainContent = ({
                         >
                             {idioma === "es" ? "Copiar correo" : "Copy Email"}
                         </button>
+                        <a
+                            href="http://linkedin.com/in/kevin-hern%C3%A1ndez-deras-218b03205"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition w-full flex items-center justify-center gap-2"
+                        >
+                            {/* Icono de LinkedIn SVG */}
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11.5 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.8-1.75-1.73s.79-1.73 1.75-1.73c.97 0 1.75.8 1.75 1.73s-.78 1.73-1.75 1.73zm13.5 11.27h-3v-5.4c0-1.29-.02-2.96-1.8-2.96-1.8 0-2.07 1.4-2.07 2.85v5.51h-3v-10h2.89v1.36h.04c.4-.76 1.38-1.56 2.85-1.56 3.05 0 3.61 2.01 3.61 4.62v5.58z"/>
+                            </svg>
+                            {idioma === "es" ? "LinkedIn" : "LinkedIn"}
+                        </a>
                     </div>
                 </div>
             </section>
