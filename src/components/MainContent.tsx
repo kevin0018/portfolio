@@ -65,24 +65,38 @@ const MainContent = ({
                 className="min-h-screen flex flex-col md:flex-row justify-center items-center snap-start px-4"
             >
                 {/* Columna izquierda: Sobre mí / About Me */}
-                <div className="flex-1 flex flex-col justify-center items-start max-w-xl">
+                <div className="flex-1 flex flex-col justify-center items-center max-w-xl">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-teal-600 dark:text-teal-400">
                         {idioma === "es" ? "Sobre mí" : "About Me"}
                     </h2>
                     <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 text-left">
                         {idioma === "es" ? (
                             <>
-                                <strong>Responsable, eficaz y trabajador.</strong> Con capacidad de adaptación y
-                                aprendizaje, resolutivo y con buenas habilidades sociales. Enfocado en buenas prácticas
-                                como TDD y DDD. Busco oportunidades para seguir mejorando mis habilidades y contribuir
-                                en el desarrollo de aplicaciones escalables.
+                                Soy una persona <b>responsable</b>, <b>eficaz</b> y con gran capacidad de adaptación.
+                                Intento aprender cada día algo nuevo y disfruto afrontando tanto el
+                                desarrollo <b>frontend</b> como <b>backend</b>, aplicando buenas prácticas
+                                como <b>TDD</b> y los principios <b>SOLID</b> para lograr aplicaciones sólidas y
+                                mantenibles. Además, tengo conocimientos en <b>DDD</b> (Domain-Driven Design) y
+                                experiencia implementando patrones como <b>CQRS</b> (Command Query Responsibility
+                                Segregation), lo que me permite abordar proyectos con arquitecturas limpias y
+                                escalables. Me gusta trabajar en equipo, compartir ideas y contribuir al desarrollo de
+                                proyectos de calidad, siempre con una actitud resolutiva y colaborativa.<br/><br/>
+                                Busco oportunidades donde pueda seguir desarrollando mis habilidades <b>Full Stack</b> y
+                                contribuir en el diseño, desarrollo y despliegue de aplicaciones innovadoras.
                             </>
                         ) : (
                             <>
-                                <strong>Responsible, efficient, and hardworking.</strong> Adaptable and eager to learn,
-                                resourceful and with good social skills. Focused on best practices such as TDD and DDD.
-                                I am looking for opportunities to keep improving my skills and contribute to the
-                                development of scalable applications.
+                                <b>Responsible</b> and <b>efficient</b> professional with strong adaptability and a
+                                constant drive to learn something new every day. Experienced in
+                                both <b>frontend</b> and <b>backend</b> development, consistently applying best
+                                practices such as <b>TDD</b> and <b>SOLID</b> principles to deliver robust and
+                                maintainable applications. Knowledgeable in <b>DDD</b> (Domain-Driven Design) and
+                                experienced in implementing patterns like <b>CQRS</b> (Command Query Responsibility
+                                Segregation), enabling the development of clean and scalable architectures. Thrive in
+                                team environments, sharing ideas and contributing to high-quality projects with a
+                                proactive and collaborative approach.<br/><br/>
+                                Seeking opportunities to further develop <b>Full Stack</b> skills and contribute to the
+                                design, development, and deployment of innovative applications.
                             </>
                         )}
                     </p>
@@ -182,13 +196,17 @@ const MainContent = ({
                             <div
                                 key={i}
                                 className="bg-white dark:bg-neutral-900
-                               border border-gray-200 dark:border-neutral-700
-                               rounded-2xl shadow-lg
-                               flex flex-col h-full overflow-hidden max-w-xs mx-auto
-                               transition-all"
+                                border border-gray-200 dark:border-neutral-700
+                                rounded-2xl shadow-lg
+                                flex flex-col h-full w-80 overflow-hidden mx-auto
+                                transition-all"
                             >
-                                <img src={proyecto.imagen} alt={proyecto.nombre}
-                                     className="w-full h-36 object-cover rounded-t-2xl"/>
+                                <img
+                                    src={proyecto.imagen}
+                                    alt={proyecto.nombre}
+                                    className="w-full h-36 object-cover rounded-t-2xl bg-neutral-800"
+                                    style={{minHeight: "144px", maxHeight: "144px"}}
+                                />
                                 <div className="p-4 flex flex-col flex-1">
                                     <h3 className="text-xl md:text-2xl font-bold mb-4 text-teal-500">{proyecto.nombre}</h3>
                                     <div className="flex flex-wrap items-center gap-4 mb-6">
