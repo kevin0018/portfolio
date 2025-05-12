@@ -65,29 +65,6 @@ Este es mi portafolio web personal, desarrollado en React + TypeScript + Tailwin
     ```powershell
     npm run deploy
     ```
-
----
-
-## 📂 Estructura principal
-
-```
-public/
-    favicon.ico
-    cv-kevin.pdf
-src/
-    components/
-        Hero.tsx
-        Sidebar.tsx
-        MainContent.tsx
-    data/
-        proyectos.ts
-        habilidades.ts
-    App.tsx
-    main.tsx
-vite.config.js
-package.json
-```
-
 ---
 
 ## 📄 Licencia
