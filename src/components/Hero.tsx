@@ -24,7 +24,6 @@ const textos = {
 const Hero: React.FC<HeroProps> = ({idioma, setIdioma, onDownClick}) => {
     const [isDark, setIsDark] = useState(false);
 
-    // Sincroniza el tema con localStorage y prefers-color-scheme
     useEffect(() => {
         const theme = localStorage.getItem("theme");
         if (
@@ -143,7 +142,7 @@ const Hero: React.FC<HeroProps> = ({idioma, setIdioma, onDownClick}) => {
                             </svg>
                         </a>
                         {/* LinkedIn */}
-                        <a href="http://linkedin.com/in/kevin-hern%C3%A1ndez-deras-218b03205"
+                        <a href="http://linkedin.com/in/kevin-hernandez-deras"
                            className="text-teal-600 dark:text-teal-400 hover:text-teal-500 dark:hover:text-teal-300"
                            aria-label="LinkedIn"
                            target={"_blank"}
@@ -165,7 +164,7 @@ const Hero: React.FC<HeroProps> = ({idioma, setIdioma, onDownClick}) => {
                     </a>
                 </div>
             </div>
-            {/* Botón chevron abajo */}
+            {/* Botón abajo */}
             <button
                 onClick={onDownClick}
                 className="absolute bottom-12 left-1/2 -translate-x-1/2 bg-gray-200 dark:bg-white/10 hover:bg-teal-500 dark:hover:bg-teal-500 transition-colors text-teal-700 dark:text-white rounded-full p-4 shadow-lg"
