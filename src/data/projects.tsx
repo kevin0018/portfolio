@@ -1,10 +1,24 @@
 const projects = [
     {
+        name: "wikiLoL",
+        image: `${import.meta.env.BASE_URL}assets/images/wikiLoL.png`,
+        languages: ["Node.js", "Tailwind CSS", "Express", "HTML5", "JavaScript"],
+        webLink: "https://wikilol-client.vercel.app/",
+        githubLink: "https://github.com/kevin0018/wikiLoL"
+    },
+    {
         name: "Blog de Viaje",
         image: `${import.meta.env.BASE_URL}assets/images/blog_de_viajes.png`,
         languages: ["Nuxt", "Vue.js", "Tailwind CSS"],
         webLink: "https://kevin0018.github.io/Blog-de-Viajes/",
         githubLink: "https://github.com/kevin0018/Blog-de-Viajes"
+    },
+    {
+        name: "Instrumento virtual",
+        image: `${import.meta.env.BASE_URL}assets/images/instrumento_virtual.png`,
+        languages: ["HTML5", "CSS", "JavaScript"],
+        webLink: "https://kevin0018.github.io/Instrumento-virtual/",
+        githubLink: "https://github.com/kevin0018/Instrumento-virtual"
     },
     {
         name: "LiveChat GPT",
