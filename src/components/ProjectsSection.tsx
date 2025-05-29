@@ -52,6 +52,12 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                                     <h3 className="text-xl md:text-2xl font-bold mb-4 text-teal-500">
                                         {project.name}
                                     </h3>
+
+                                    {/* Añadido: Descripción del proyecto */}
+                                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                                        {language === "es" ? project.description?.es : project.description?.en}
+                                    </p>
+
                                     <div className="flex flex-wrap items-center gap-4 mb-6">
                                         {project.languages.map((lang, idx) => {
                                             const skill = skillsByName[lang];
