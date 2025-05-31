@@ -6,8 +6,8 @@ const projects = [
         webLink: "https://wikilol-client.vercel.app/",
         githubLink: "https://github.com/kevin0018/wikiLoL",
         description: {
-            es: "Aplicación web que consume la API de Riot Games para buscar jugadores, mostrar sus campeones favoritos junto con su historia y aspectos disponibles.",
-            en: "Web application that consumes the Riot Games API to search for players, display their favorite champions along with their lore and available skins."
+            es: "Aplicación web que consume la API de Riot Games para buscar jugadores, mostrar campeones junto con su historia y aspectos disponibles.",
+            en: "Web application that consumes the Riot Games API to search for players, display champions along with their lore and available skins."
         }
     },
     {
