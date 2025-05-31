@@ -4,7 +4,11 @@ const projects = [
         image: `${import.meta.env.BASE_URL}assets/images/wikiLoL.png`,
         languages: ["Node.js", "Tailwind CSS", "Express", "HTML5", "JavaScript"],
         webLink: "https://wikilol-client.vercel.app/",
-        githubLink: "https://github.com/kevin0018/wikiLoL"
+        githubLink: "https://github.com/kevin0018/wikiLoL",
+        description: {
+            es: "Aplicación web que consume la API de Riot Games para buscar jugadores, mostrar sus campeones favoritos junto con su historia y aspectos disponibles.",
+            en: "Web application that consumes the Riot Games API to search for players, display their favorite champions along with their lore and available skins."
+        }
     },
     {
         name: "Blog de Viaje",
@@ -22,7 +26,11 @@ const projects = [
         image: `${import.meta.env.BASE_URL}assets/images/instrumento_virtual.png`,
         languages: ["HTML5", "CSS", "JavaScript"],
         webLink: "https://kevin0018.github.io/Instrumento-virtual/",
-        githubLink: "https://github.com/kevin0018/Instrumento-virtual"
+        githubLink: "https://github.com/kevin0018/Instrumento-virtual",
+        description: {
+            es: "Aplicación web interactiva desarrollada en equipo que permite a los usuarios tocar piano y guitarra virtualmente mediante una interfaz intuitiva.",
+            en: "Interactive web application developed as a team that allows users to play piano and guitar virtually through an intuitive interface."
+        }
     },
     {
         name: "LiveChat GPT",
