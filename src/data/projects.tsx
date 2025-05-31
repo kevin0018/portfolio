@@ -39,8 +39,8 @@ const projects = [
         webLink: "",
         githubLink: "https://github.com/kevin0018/robot-maze-java",
         description: {
-            es: "Algoritmo de navegación para resolver laberintos con un robot virtual en Java.",
-            en: "Navigation algorithm to solve mazes with a virtual robot in Java."
+            es: "Algoritmo de navegación para resolver laberintos con un robot en Java.",
+            en: "Navigation algorithm to solve mazes with a robot in Java."
         }
     },
     {
