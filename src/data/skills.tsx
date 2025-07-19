@@ -76,6 +76,30 @@ const skills: Skill[] = [
         group: "frontend"
     },
     {
+        name: "React Native",
+        color: "#61DAFB",
+        icon: (
+            <img src={`${import.meta.env.BASE_URL}assets/images/react-native.svg`} alt="React Native" className="w-10 h-10" />
+        ),
+        group: "frontend"
+    },
+    {
+        name: "Firebase Database",
+        color: "#FFC400",
+        icon: (
+            <img src={`${import.meta.env.BASE_URL}assets/images/firebase_database.svg`} alt="Firebase Database" className="w-10 h-10" />
+        ),
+        group: "backend"
+    },
+    {
+        name: "Firebase Auth",
+        color: "#FF9100",
+        icon: (
+            <img src={`${import.meta.env.BASE_URL}assets/images/firebase_authentication.svg`} alt="Firebase Auth" className="w-10 h-10" />
+        ),
+        group: "backend"
+    },
+    {
         name: "Vue.js",
         color: "#4FC08D",
         icon: (

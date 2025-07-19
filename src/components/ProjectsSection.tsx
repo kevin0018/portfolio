@@ -41,11 +41,11 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                             <div
                                 className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-2xl shadow-lg flex flex-col h-[500px] w-full mx-auto transition-all"
                             >
-                                <div className="w-full h-[160px] overflow-hidden rounded-t-2xl">
+                                <div className="w-full h-[160px] flex items-center justify-center bg-white dark:bg-neutral-900 rounded-t-2xl">
                                     <img
                                         src={project.image}
                                         alt={project.name}
-                                        className="w-full h-full object-cover"
+                                        className="max-w-full max-h-full object-contain"
                                     />
                                 </div>
                                 <div className="p-4 flex flex-col flex-1">

@@ -1,5 +1,16 @@
 const projects = [
     {
+        name: "LiftPath",
+        image: `${import.meta.env.BASE_URL}assets/images/lift_path.png`,
+        languages: ["React Native", "Tailwind CSS", "TypeScript", "Firebase Database", "Firebase Auth"],
+        webLink: "https://github.com/kevin0018/LiftPath/releases/tag/v1.0.0",
+        githubLink: "https://github.com/kevin0018/LiftPath",
+        description: {
+            es: "Aplicación móvil para seguimiento y planificación de entrenamientos de fitness. Permite a los usuarios registrar su progreso diario, planificar su semana de entrenamiento y gestionar rutinas totalmente personalizadas.",
+            en: "Mobile application for tracking and planning fitness workouts. It allows users to log their daily progress, plan their training week, and manage fully customized routines."
+        }
+    },
+    {
         name: "wikiLoL",
         image: `${import.meta.env.BASE_URL}assets/images/wikiLoL.png`,
         languages: ["Node.js", "Tailwind CSS", "Express", "HTML5", "JavaScript"],
