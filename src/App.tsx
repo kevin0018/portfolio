@@ -2,9 +2,11 @@ import {useEffect, useState} from "react";
 import Hero from "./components/Hero";
 import Sidebar from "./components/Sidebar";
 import MainContent from "./components/MainContent";
+import AllProjectsPage from "./components/AllProjectsPage";
 
 function App() {
     const [showMain, setShowMain] = useState(false);
+    const [showAllProjects, setShowAllProjects] = useState(false);
     const [fade, setFade] = useState(false);
     const [idioma, setIdioma] = useState<"es" | "en">("es");
 
@@ -25,7 +27,13 @@ function App() {
         }
     }, [showMain]);
 
-    const handleGoHero = () => setShowMain(false);
+    const handleGoHero = () => {
+        setShowMain(false);
+        setShowAllProjects(false);
+    };
+
+    const handleShowAllProjects = () => setShowAllProjects(true);
+    const handleBackFromAllProjects = () => setShowAllProjects(false);
 
     return (
         <div className="bg-white text-black dark:bg-black dark:text-white min-h-screen transition-colors duration-500">
@@ -42,13 +50,21 @@ function App() {
                             }, 350);
                         }}
                     />
+                ) : showAllProjects ? (
+                    <AllProjectsPage
+                        language={idioma}
+                        onBack={handleBackFromAllProjects}
+                    />
                 ) : (
                     <div>
                         <Sidebar
                             idioma={idioma}
                             onInicioClick={handleGoHero}
                         />
-                        <MainContent idioma={idioma} />
+                        <MainContent 
+                            idioma={idioma} 
+                            onShowAllProjects={handleShowAllProjects}
+                        />
                     </div>
                 )}
             </div>

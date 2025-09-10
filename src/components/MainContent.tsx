@@ -14,9 +14,11 @@ const grupos: { group: groupSkills; title: string; color: string }[] = [
 ];
 
 const MainContent = ({
-                         idioma
+                         idioma,
+                         onShowAllProjects
                      }: {
-    idioma: "es" | "en"
+    idioma: "es" | "en";
+    onShowAllProjects?: () => void;
 }) => {
     // Copiar correo
     const copiarCorreo = () => {
@@ -94,6 +96,7 @@ const MainContent = ({
             {/* Proyectos */}
             <ProjectsSection
                 language={idioma}
+                onShowAllProjects={onShowAllProjects}
             />
 
             {/* Habilidades */}

@@ -4,10 +4,12 @@ import {skillsByName} from "../data/skills.tsx";
 
 type ProjectsSectionProps = {
     language: "es" | "en";
+    onShowAllProjects?: () => void;
 };
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({
     language,
+    onShowAllProjects,
 }) => {
     // Get featured projects: wikiLoL, Blog de Viaje, Huellas
     const featuredProjects = [projects[2], projects[3], projects[0]]; // wikiLoL, Blog de Viaje, Huellas
@@ -178,14 +180,17 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     </div>
                 </div>
                 
-                {/* View More Projects Button - Simplified */}
+                {/* View More Projects Button - Functional */}
                 <div className="text-center">
-                    <div className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 cursor-pointer transition-colors">
+                    <button 
+                        onClick={onShowAllProjects}
+                        className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 cursor-pointer transition-colors bg-transparent border-none p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800"
+                    >
                         <span className="text-lg font-medium">{language === "es" ? "Más proyectos" : "More projects"}</span>
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
-                    </div>
+                    </button>
                 </div>
             </div>
         </section>
