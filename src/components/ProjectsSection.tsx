@@ -14,7 +14,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
     return (
         <section
             id="projects"
-            className="min-h-screen flex flex-col justify-center items-center snap-start px-4 sm:px-6 lg:px-8"
+            className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8"
         >
             <div className="w-full max-w-7xl">
                 <h2 className="text-3xl md:text-4xl font-bold mb-12 text-teal-600 dark:text-teal-400 text-center">

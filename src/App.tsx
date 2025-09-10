@@ -48,7 +48,7 @@ function App() {
                             idioma={idioma}
                             onInicioClick={handleGoHero}
                         />
-                        <MainContent idioma={idioma} setShowMain={setShowMain} />
+                        <MainContent idioma={idioma} />
                     </div>
                 )}
             </div>

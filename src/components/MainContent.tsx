@@ -14,11 +14,9 @@ const grupos: { group: groupSkills; title: string; color: string }[] = [
 ];
 
 const MainContent = ({
-                         idioma,
-                         setShowMain
+                         idioma
                      }: {
-    idioma: "es" | "en",
-    setShowMain: (show: boolean) => void
+    idioma: "es" | "en"
 }) => {
     // Copiar correo
     const copiarCorreo = () => {
@@ -34,37 +32,22 @@ const MainContent = ({
     // Referencia al contenedor principal
     const mainRef = useRef<HTMLDivElement>(null);
 
-    function handleMainWheel(e: React.WheelEvent<HTMLDivElement>) {
-        if (mainRef.current) {
-            const scrollTop = mainRef.current.scrollTop;
-            const sectionHeight = window.innerHeight;
-            const currentSection = Math.round(scrollTop / sectionHeight);
-
-            if (currentSection === 0 && scrollTop === 0 && e.deltaY < 0) {
-                setShowMain(false);
-                e.preventDefault();
-            }
-        }
-    }
-
     return (
         <main
             className="
                 md:ml-64
                 h-screen
                 overflow-y-scroll
-                snap-y snap-mandatory
                 bg-white text-black dark:bg-black dark:text-white
                 transition-colors duration-500
                 block
                 "
             ref={mainRef}
-            onWheel={handleMainWheel}
         >
             {/* Sobre mí */}
             <section
                 id="sobremi"
-                className="min-h-screen flex flex-col md:flex-row justify-center items-center snap-start px-4"
+                className="min-h-screen flex flex-col md:flex-row justify-center items-center px-4"
             >
                 {/* Columna izquierda: Sobre mí */}
                 <div className="flex-1 flex flex-col justify-center items-center max-w-xl">
@@ -121,7 +104,7 @@ const MainContent = ({
             />
 
             {/* Contacto */}
-            <section id="contacto" className="min-h-screen flex flex-col justify-center items-center snap-start px-4">
+            <section id="contacto" className="min-h-screen flex flex-col justify-center items-center px-4">
                 <h2 className="text-3xl md:text-4xl font-bold mb-8 text-teal-600 dark:text-teal-400 text-center">
                     {idioma === "es" ? "Contacto" : "Contact"}
                 </h2>
