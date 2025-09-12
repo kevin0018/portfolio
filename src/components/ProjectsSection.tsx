@@ -1,128 +1,197 @@
 import React from "react";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Navigation, Pagination} from "swiper/modules";
-
-import 'swiper/swiper-bundle.css';
-
 import projects from "../data/projects.tsx";
 import {skillsByName} from "../data/skills.tsx";
 
 type ProjectsSectionProps = {
     language: "es" | "en";
+    onShowAllProjects?: () => void;
 };
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({
     language,
+    onShowAllProjects,
 }) => {
+    // Get featured projects: wikiLoL, Blog de Viaje, Huellas
+    const featuredProjects = [projects[2], projects[3], projects[0]]; // wikiLoL, Blog de Viaje, Huellas
+
     return (
         <section
             id="projects"
-            className="min-h-screen flex flex-col justify-center items-center snap-start px-2 sm:px-4"
+            className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8"
         >
-            <div className="w-full max-w-5xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-teal-600 dark:text-teal-400 text-center">
-                    {language === "es" ? "Proyectos" : "Projects"}
+            <div className="w-full max-w-6xl">
+                <h2 className="text-3xl md:text-4xl font-bold mb-12 text-teal-600 dark:text-teal-400 text-center">
+                    {language === "es" ? "Proyectos Destacados" : "Featured Projects"}
                 </h2>
-                <Swiper
-                    modules={[Navigation, Pagination]}
-                    spaceBetween={32}
-                    slidesPerView={1}
-                    navigation
-                    pagination={{clickable: true}}
-                    breakpoints={{
-                        640: {slidesPerView: 1},
-                        900: {slidesPerView: 2},
-                        1200: {slidesPerView: 3},
-                    }}
-                    className="pb-10"
-                >
-                    {projects.map((project, i) => (
-                        <SwiperSlide key={i}>
-                            <div
-                                className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-2xl shadow-lg flex flex-col h-[500px] w-full mx-auto transition-all"
-                            >
-                                <div className="w-full h-[160px] flex items-center justify-center bg-white dark:bg-neutral-900 rounded-t-2xl">
-                                    <img
-                                        src={project.image}
-                                        alt={project.name}
-                                        className="max-w-full max-h-full object-contain"
-                                    />
-                                </div>
-                                <div className="p-4 flex flex-col flex-1">
-                                    <h3 className="text-xl md:text-2xl font-bold mb-2 text-teal-500">
-                                        {project.name}
-                                    </h3>
-
-                                    <div className="h-[120px] overflow-y-auto mb-4">
-                                        <p className="text-sm text-gray-600 dark:text-gray-300">
-                                            {language === "es" ? project.description?.es : project.description?.en}
-                                        </p>
-                                    </div>
-
-                                    <div className="flex flex-wrap items-center gap-4 mb-4 h-[60px] overflow-y-auto">
-                                        {project.languages.map((lang, idx) => {
-                                            const skill = skillsByName[lang];
-                                            return skill ? (
-                                                <span
-                                                    key={idx}
-                                                    style={{color: skill.color}}
-                                                    title={skill.name}
-                                                    className="w-7 h-7"
-                                                >
-                                                    {skill.icon}
-                                                </span>
-                                            ) : (
-                                                <span key={idx}>{lang}</span>
+                
+                {/* Bento Grid Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    {/* Top Row - Two smaller projects */}
+                    {featuredProjects.slice(0, 2).map((project, index) => (
+                        <div key={index} className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                            {/* Project Image */}
+                            <div className="relative overflow-hidden bg-gray-50 dark:bg-neutral-800 flex items-center justify-center">
+                                <img
+                                    src={project.image}
+                                    alt={project.name}
+                                    className="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
+                            
+                            {/* Project Content */}
+                            <div className="p-6">
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                                    {project.name}
+                                </h3>
+                                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed text-sm">
+                                    {project.description[language]}
+                                </p>
+                                
+                                {/* Technologies */}
+                                <div className="mb-6">
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.languages.slice(0, 4).map((tech, techIndex) => {
+                                            const skill = skillsByName[tech];
+                                            return (
+                                                <div key={techIndex} className="flex items-center gap-2 bg-gray-100 dark:bg-neutral-800 px-3 py-1 rounded-lg text-xs">
+                                                    {skill?.icon && (
+                                                        <span
+                                                            style={{color: skill.color}}
+                                                            className="w-3 h-3 flex items-center justify-center"
+                                                        >
+                                                            {skill.icon}
+                                                        </span>
+                                                    )}
+                                                    <span className="text-gray-700 dark:text-gray-300 font-medium">{tech}</span>
+                                                </div>
                                             );
                                         })}
-                                    </div>
-
-                                    <div className="flex flex-row flex-wrap items-center gap-4 mt-auto">
-                                        {project.webLink && (
-                                            <a
-                                                href={project.webLink}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-teal-500 hover:underline flex items-center gap-2 text-base md:text-lg"
-                                            >
-                                                <svg
-                                                    className="w-6 h-6" fill="none" stroke="currentColor"
-                                                    viewBox="0 0 24 24"
-                                                >
-                                                    <circle cx="12" cy="12" r="10" strokeWidth="2"/>
-                                                    <path
-                                                        strokeWidth="2"
-                                                        d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"
-                                                    />
-                                                </svg>
-                                                Web
-                                            </a>
+                                        {project.languages.length > 4 && (
+                                            <div className="bg-gray-100 dark:bg-neutral-800 px-3 py-1 rounded-lg text-xs text-gray-700 dark:text-gray-300">
+                                                +{project.languages.length - 4}
+                                            </div>
                                         )}
-                                        <a
-                                            href={project.githubLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-teal-500 hover:underline flex items-center gap-2 text-base md:text-lg"
-                                        >
-                                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                                <path
-                                                    d="M12 2C6.476 2 2 6.486 2 12.021c0 4.426 2.868 8.185 6.839 9.504.5.092.682-.217.682-.482
-                                                0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.157-1.11-1.466-1.11-1.466
-                                                -.908-.62.069-.608.069-.608 1.004.07 1.533 1.034 1.533 1.034.893 1.532 2.341 1.09 2.91.833.092-.647.35-1.09.636-1.342
-                                                -2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.27.098-2.647
-                                                0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295
-                                                2.748-1.025 2.748-1.025.546 1.377.202 2.394.1 2.647.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337
-                                                4.695-4.566 4.944.359.31.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .267.18.579.688.481C19.135
-                                                20.203 22 16.444 22 12.021 22 6.486 17.523 2 12 2z"/>
-                                            </svg>
-                                            GitHub
-                                        </a>
                                     </div>
                                 </div>
+                                
+                                {/* Action Buttons */}
+                                <div className="flex gap-3">
+                                    <a
+                                        href={project.webLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex-1 bg-teal-600 hover:bg-teal-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-colors inline-flex items-center justify-center gap-2"
+                                    >
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                                            <path strokeWidth="2" d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/>
+                                        </svg>
+                                        {language === "es" ? "Web" : "Web"}
+                                    </a>
+                                    <a
+                                        href={project.githubLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-gray-800 dark:bg-gray-700 hover:bg-gray-900 dark:hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2"
+                                    >
+                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                        GitHub
+                                    </a>
+                                </div>
                             </div>
-                        </SwiperSlide>
+                        </div>
                     ))}
-                </Swiper>
+                    
+                    {/* Bottom Row - Large featured project */}
+                    <div className="lg:col-span-2 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                        <div className="flex flex-col lg:flex-row">
+                            {/* Project Image */}
+                            <div className="lg:w-2/5 relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-neutral-800 dark:to-neutral-700 flex items-center justify-center p-1">
+                                <img
+                                    src={featuredProjects[2].image}
+                                    alt={featuredProjects[2].name}
+                                    className="w-full h-auto min-h-64 lg:min-h-72 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                                />
+                            </div>
+                            
+                            {/* Project Content */}
+                            <div className="lg:w-3/5 p-8 flex flex-col justify-between">
+                                <div>
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                                        {featuredProjects[2].name}
+                                    </h3>
+                                    <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                                        {featuredProjects[2].description[language]}
+                                    </p>
+                                    
+                                    {/* Technologies */}
+                                    <div className="mb-6">
+                                        <div className="flex flex-wrap gap-2">
+                                            {featuredProjects[2].languages.map((tech, techIndex) => {
+                                                const skill = skillsByName[tech];
+                                                return (
+                                                    <div key={techIndex} className="flex items-center gap-2 bg-gray-100 dark:bg-neutral-800 px-3 py-2 rounded-lg text-sm">
+                                                        {skill?.icon && (
+                                                            <span
+                                                                style={{color: skill.color}}
+                                                                className="w-4 h-4 flex items-center justify-center"
+                                                            >
+                                                                {skill.icon}
+                                                            </span>
+                                                        )}
+                                                        <span className="text-gray-700 dark:text-gray-300 font-medium">{tech}</span>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                {/* Action Buttons */}
+                                <div className="flex gap-4">
+                                    <a
+                                        href={featuredProjects[2].webLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex-1 bg-teal-600 hover:bg-teal-700 text-white py-3 px-6 rounded-lg font-medium text-center transition-colors inline-flex items-center justify-center gap-2"
+                                    >
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                                            <path strokeWidth="2" d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/>
+                                        </svg>
+                                        {language === "es" ? "Web" : "Web"}
+                                    </a>
+                                    <a
+                                        href={featuredProjects[2].githubLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-gray-800 dark:bg-gray-700 hover:bg-gray-900 dark:hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2"
+                                    >
+                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {/* View More Projects Button - Functional */}
+                <div className="text-center">
+                    <button 
+                        onClick={onShowAllProjects}
+                        className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 cursor-pointer transition-colors bg-transparent border-none p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800"
+                    >
+                        <span className="text-lg font-medium">{language === "es" ? "Más proyectos" : "More projects"}</span>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
     );

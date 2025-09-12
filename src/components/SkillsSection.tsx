@@ -32,7 +32,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
     return (
         <section
             id="skills"
-            className="min-h-screen flex flex-col justify-center items-center snap-start px-4"
+            className="min-h-screen flex flex-col justify-center items-center px-4"
         >
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-teal-600 dark:text-teal-400 text-center">
                 {language === "es" ? "Habilidades" : "Skills"}

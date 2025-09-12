@@ -1,5 +1,16 @@
 const projects = [
     {
+        name: "Huellas",
+        image: `${import.meta.env.BASE_URL}assets/images/huellas.png`,
+        languages: ["React", "Tailwind CSS", "TypeScript", "MySQL", "Node.js", "Express", "Prisma", "JWT", "Docker", "Redis"],
+        webLink: "https://huellas-frontend.vercel.app/",
+        githubLink: "https://github.com/kevin0018/Huellas",
+        description: {
+            es: "Esta aplicación es una plataforma de gestión de salud para dueños de mascotas, diseñada con perfiles individuales para cada dueño y sus mascotas para centralizar todas las opciones.",
+            en: "This application is a health management platform for pet owners, designed with individual profiles for each owner and their pets to centralize all options."
+        }
+    },
+    {
         name: "LiftPath",
         image: `${import.meta.env.BASE_URL}assets/images/lift_path.png`,
         languages: ["React Native", "Tailwind CSS", "TypeScript", "Firebase Database", "Firebase Auth"],
