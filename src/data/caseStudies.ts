@@ -8,7 +8,6 @@ export type CaseStudyStep = {
   title: LocalizedText;
   body: LocalizedText;
   evidence: LocalizedText;
-  traceNode: "interface" | "contract" | "application" | "infrastructure";
 };
 
 export type CaseStudy = {
@@ -22,6 +21,7 @@ export type CaseStudy = {
   demoUrl: string;
   repositoryUrl: string;
   stack: string[];
+  traceLabels: Record<Language, readonly string[]>;
   steps: CaseStudyStep[];
 };
 
@@ -45,6 +45,10 @@ export const wikiLolCaseStudy: CaseStudy = {
   demoUrl: "https://wiki-lol-k.vercel.app/",
   repositoryUrl: "https://github.com/kevin0018/wikiLoL",
   stack: ["React 19", "Express 5", "TypeScript", "Zod", "TanStack Query"],
+  traceLabels: {
+    es: ["Interfaz", "Contrato", "Aplicación", "Infraestructura"],
+    en: ["Interface", "Contract", "Application", "Infrastructure"],
+  },
   steps: [
     {
       id: "product",
@@ -61,7 +65,6 @@ export const wikiLolCaseStudy: CaseStudy = {
         es: "Interfaz bilingüe con preferencia persistida y URLs compartibles.",
         en: "Bilingual UI with a persisted preference and shareable URLs.",
       },
-      traceNode: "interface",
     },
     {
       id: "contracts",
@@ -78,7 +81,6 @@ export const wikiLolCaseStudy: CaseStudy = {
         es: "@wikilol/contracts · DTOs y esquemas compartidos.",
         en: "@wikilol/contracts · shared DTOs and schemas.",
       },
-      traceNode: "contract",
     },
     {
       id: "application",
@@ -95,7 +97,6 @@ export const wikiLolCaseStudy: CaseStudy = {
         es: "CQRS pragmático · value objects para región y cola.",
         en: "Pragmatic CQRS · value objects for region and queue.",
       },
-      traceNode: "application",
     },
     {
       id: "infrastructure",
@@ -112,7 +113,98 @@ export const wikiLolCaseStudy: CaseStudy = {
         es: "Express BFF · proxy de recursos · caché de versión.",
         en: "Express BFF · asset proxy · version cache.",
       },
-      traceNode: "infrastructure",
+    },
+  ],
+};
+
+export const travelBlogCaseStudy: CaseStudy = {
+  slug: "blog-de-viajes",
+  index: "02",
+  name: "Blog de Viajes",
+  descriptor: {
+    es: "Experiencia editorial · Planificador local",
+    en: "Editorial experience · Local-first planner",
+  },
+  summary: {
+    es: "Un blog estático convertido en producto: seis destinos filtrables, guías tipadas y un itinerario persistente y compartible que no necesita cuenta ni backend.",
+    en: "A static blog turned into a product: six filterable destinations, typed guides, and a persistent, shareable itinerary with no account or backend required.",
+  },
+  image: `${import.meta.env.BASE_URL}assets/images/blog-de-viajes-preview.jpg`,
+  imageAlt: {
+    es: "Portada actual de Blog de Viajes con una ruta trazada sobre un paisaje",
+    en: "Current Blog de Viajes home page with a route drawn over a landscape",
+  },
+  demoUrl: "https://kevin0018.github.io/Blog-de-Viajes/",
+  repositoryUrl: "https://github.com/kevin0018/Blog-de-Viajes",
+  stack: ["Nuxt 3", "Vue 3", "TypeScript", "Tailwind 4", "Playwright"],
+  traceLabels: {
+    es: ["Descubrir", "Contenido", "Itinerario", "Entrega"],
+    en: ["Discover", "Content", "Itinerary", "Delivery"],
+  },
+  steps: [
+    {
+      id: "discovery",
+      label: {es: "Descubrir", en: "Discover"},
+      title: {
+        es: "La inspiración empieza con restricciones reales",
+        en: "Inspiration starts with real constraints",
+      },
+      body: {
+        es: "Seis destinos pueden filtrarse por duración, temporada, presupuesto y estilo de viaje. La exploración conduce a guías de ciudad completas en lugar de terminar en una cuadrícula de fotografías.",
+        en: "Six destinations can be filtered by duration, season, budget, and travel style. Exploration leads into complete city guides instead of ending at a grid of photographs.",
+      },
+      evidence: {
+        es: "Filtros combinables · rutas dinámicas · estados vacíos propios.",
+        en: "Composable filters · dynamic routes · purposeful empty states.",
+      },
+    },
+    {
+      id: "content",
+      label: {es: "Contenido", en: "Content"},
+      title: {
+        es: "Una sola fuente tipada alimenta toda la experiencia",
+        en: "One typed source powers the whole experience",
+      },
+      body: {
+        es: "Artículos y destinos viven en módulos TypeScript compartidos. Listados, detalles, filtros, metadatos, sitemap y rutas generadas derivan de esos datos sin duplicar el contenido entre capas.",
+        en: "Articles and destinations live in shared TypeScript modules. Listings, details, filters, metadata, sitemap entries, and generated routes all derive from that data without duplication.",
+      },
+      evidence: {
+        es: "Tipos públicos · canonical · JSON-LD · sitemap sincronizado.",
+        en: "Public types · canonical URLs · JSON-LD · synchronized sitemap.",
+      },
+    },
+    {
+      id: "itinerary",
+      label: {es: "Estado", en: "State"},
+      title: {
+        es: "El itinerario viaja en la URL",
+        en: "The itinerary travels in the URL",
+      },
+      body: {
+        es: "El usuario crea rutas de 1, 3 o 5 días, reordena paradas y recupera su trabajo desde localStorage versionado. Al abrir un enlace compartido, la URL tiene prioridad y las ediciones posteriores sincronizan ambas representaciones.",
+        en: "Users build 1, 3, or 5-day routes, reorder stops, and restore their work from versioned localStorage. A shared URL takes precedence, then later edits synchronize both representations.",
+      },
+      evidence: {
+        es: "Utilidades puras separadas de Vue y del almacenamiento del navegador.",
+        en: "Pure utilities kept separate from Vue and browser storage.",
+      },
+    },
+    {
+      id: "delivery",
+      label: {es: "Entrega", en: "Delivery"},
+      title: {
+        es: "Todo se genera antes de que llegue el visitante",
+        en: "Everything is generated before the visitor arrives",
+      },
+      body: {
+        es: "Nuxt genera el sitio completo para GitHub Pages. La canalización produce imágenes AVIF responsivas con fallback WebP, mientras CI valida lint, tipos, unidades, componentes y cinco recorridos de navegador.",
+        en: "Nuxt generates the complete site for GitHub Pages. The pipeline produces responsive AVIF images with WebP fallbacks while CI validates lint, types, units, components, and five browser journeys.",
+      },
+      evidence: {
+        es: "Generación estática · Sharp · Vitest · Playwright · GitHub Actions.",
+        en: "Static generation · Sharp · Vitest · Playwright · GitHub Actions.",
+      },
     },
   ],
 };

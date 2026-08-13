@@ -6,11 +6,6 @@ type CaseStudySectionProps = {
   language: Language;
 };
 
-const traceLabels = {
-  es: ["Interfaz", "Contrato", "Aplicación", "Infraestructura"],
-  en: ["Interface", "Contract", "Application", "Infrastructure"],
-} as const;
-
 export function CaseStudySection({caseStudy, language}: CaseStudySectionProps) {
   const [activeStep, setActiveStep] = useState(0);
   const storyRef = useRef<HTMLDivElement>(null);
@@ -36,7 +31,7 @@ export function CaseStudySection({caseStudy, language}: CaseStudySectionProps) {
   }, []);
 
   return (
-    <section className="case-study" id={caseStudy.slug} aria-labelledby={`${caseStudy.slug}-title`}>
+    <section className={`case-study case-study--${caseStudy.slug}`} id={caseStudy.slug} aria-labelledby={`${caseStudy.slug}-title`}>
       <div className="case-study__intro page-shell">
         <div className="case-study__marker">
           <span>{caseStudy.index}</span>
@@ -67,7 +62,7 @@ export function CaseStudySection({caseStudy, language}: CaseStudySectionProps) {
           </figure>
 
           <ol className="system-trace" aria-label={language === "es" ? "Flujo del sistema" : "System flow"}>
-            {traceLabels[language].map((label, index) => (
+            {caseStudy.traceLabels[language].map((label, index) => (
               <li className={activeStep === index ? "is-active" : ""} key={label} aria-current={activeStep === index ? "step" : undefined}>
                 <span>{String(index + 1).padStart(2, "0")}</span>{label}
               </li>

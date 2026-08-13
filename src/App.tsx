@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {CaseStudySection} from "./components/CaseStudySection";
 import {HeroSection} from "./components/HeroSection";
 import {SiteHeader} from "./components/SiteHeader";
-import {wikiLolCaseStudy, type Language} from "./data/caseStudies";
+import {travelBlogCaseStudy, wikiLolCaseStudy, type Language} from "./data/caseStudies";
 
 function getInitialLanguage(): Language {
   const stored = window.localStorage.getItem("portfolio-language");
@@ -24,6 +24,7 @@ function App() {
       <main>
         <HeroSection language={language} />
         <CaseStudySection caseStudy={wikiLolCaseStudy} language={language} />
+        <CaseStudySection caseStudy={travelBlogCaseStudy} language={language} />
       </main>
       <footer className="site-footer" id="contacto">
         <div className="page-shell site-footer__inner">

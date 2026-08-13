@@ -355,6 +355,15 @@ img {
     color: var(--color-project-ink);
 }
 
+.case-study--blog-de-viajes {
+    --color-paper-deep: var(--color-ink-muted);
+    --color-project-accent: var(--color-travel-accent);
+    --color-project-accent-soft: var(--color-travel-accent-soft);
+    --color-project-ink: var(--color-ink);
+    --color-rule-dark: var(--color-travel-rule);
+    background: var(--color-travel-paper);
+}
+
 .case-study__intro {
     display: grid;
     min-width: 0;
@@ -688,6 +697,15 @@ img {
         position: sticky;
         top: calc(var(--size-header) + var(--space-8));
         display: block;
+    }
+
+    .case-study--blog-de-viajes .case-study__evidence {
+        grid-column: 2;
+    }
+
+    .case-study--blog-de-viajes .case-study__steps {
+        grid-column: 1;
+        grid-row: 1;
     }
 
     .story-step__mobile-visual {
