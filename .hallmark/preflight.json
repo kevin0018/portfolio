@@ -1,0 +1,11 @@
+{
+  "scannedAt": "2026-08-13",
+  "framework": "React 19 with Vite 8",
+  "styling": "Tailwind CSS 4 through the Vite plugin",
+  "fontStack": "Arial and system sans-serif",
+  "palette": "Utility-class light and dark neutrals with teal accents",
+  "motion": "motion-cut; no animation library installed",
+  "spacing": "Tailwind default spacing scale",
+  "preserved": ["React/Vite implementation boundary", "native document scroll", "bilingual content intent"],
+  "introduced": ["Feature Stack macrostructure", "portable OKLCH tokens", "editorial technical case-study system"]
+}

@@ -1,0 +1,62 @@
+/* Hallmark · macrostructure: Feature Stack · tone: editorial-technical · anchor hue: verification blue · theme: custom · vibe: cold-paper engineering trace · axes: cold-paper / condensed-display / blue-accent */
+:root {
+  color-scheme: light;
+
+  --color-paper: oklch(0.97 0.008 235);
+  --color-paper-deep: oklch(0.925 0.014 235);
+  --color-paper-raised: oklch(0.985 0.006 235);
+  --color-ink: oklch(0.19 0.025 245);
+  --color-ink-soft: oklch(0.27 0.026 245);
+  --color-ink-muted: oklch(0.47 0.024 245);
+  --color-rule: oklch(0.82 0.018 235);
+  --color-rule-dark: oklch(0.38 0.025 245);
+  --color-accent: oklch(0.55 0.18 245);
+  --color-accent-hover: oklch(0.48 0.18 245);
+  --color-accent-soft: oklch(0.9 0.04 245);
+  --color-project-accent: oklch(0.78 0.15 80);
+  --color-project-accent-soft: oklch(0.9 0.07 80);
+  --color-project-ink: oklch(0.955 0.012 235);
+  --color-error: oklch(0.53 0.2 28);
+  --color-success: oklch(0.52 0.13 150);
+
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "IBM Plex Sans", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --size-content: 76rem;
+  --size-copy: 42rem;
+  --size-header: 4.5rem;
+  --size-touch: 2.75rem;
+  --radius-control: 0.25rem;
+  --radius-media: 0.5rem;
+  --rule: 1px solid var(--color-rule);
+  --rule-dark: 1px solid var(--color-rule-dark);
+  --shadow-focus: 0 0 0 3px var(--color-accent-soft);
+  --shadow-media: 0 1.5rem 4rem oklch(0.08 0.025 245 / 0.2);
+
+  --text-display: clamp(3.5rem, 15vw, 7.4rem);
+  --text-display-project: clamp(4.4rem, 17vw, 9rem);
+  --text-section: clamp(2.5rem, 9vw, 4.5rem);
+  --text-body-lg: clamp(1.05rem, 2vw, 1.25rem);
+  --text-case-body: clamp(1.05rem, 2vw, 1.2rem);
+  --text-footer: clamp(3rem, 12vw, 6.5rem);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
