@@ -3,10 +3,10 @@
 
 ## Intent
 
-This portfolio is a recruiter-facing engineering document, not a gallery of
-technology logos. It should let a hiring manager understand Kevin's product
-judgement quickly, then give a technical reviewer enough evidence to inspect
-the decisions behind each project.
+This portfolio is a recruiter-facing professional introduction, not a gallery
+of technology logos. It should let a hiring manager understand Kevin's role,
+current experience, and primary stack quickly, then give a technical reviewer
+enough evidence to inspect the decisions behind each project.
 
 ## Visual thesis
 
@@ -16,7 +16,8 @@ implementation. The interface avoids dashboard cards, fake browser chrome,
 ambient gradients, and scroll hijacking.
 
 - **Audience:** recruiters, engineering managers, and senior developers.
-- **Primary action:** inspect a case study and open its live demo or source.
+- **Primary action:** understand Kevin's professional profile and continue into
+  his experience or selected work.
 - **Voice:** direct, specific, bilingual, and defensible.
 - **Macrostructure:** feature stack with one continuous native document scroll.
 - **Navigation:** compact edge-aligned identity, language control, and contact.
@@ -26,7 +27,9 @@ ambient gradients, and scroll hijacking.
 ## Composition
 
 The hero is left-biased and content-led. It establishes Kevin as a full-stack
-developer who can explain how product and architecture support each other.
+developer working from Python/Django domain logic through integrations to
+Vue/TypeScript interfaces. A system trace animates those three connected areas
+as the single expressive moment on entry.
 Projects then become full-width editorial chapters. On larger screens, each
 chapter pairs sticky visual evidence with scrolling technical decisions. On
 small screens, evidence and explanation stay in the same linear reading flow.
@@ -54,11 +57,12 @@ carrier of state.
 
 ## Motion and interaction
 
-Motion only clarifies state: links shift by a few pixels, the active trace node
-changes, and visual framing follows the active story step. All transitions use
-short opacity/transform timing. `prefers-reduced-motion` removes animation and
-smooth scrolling. Touch targets are at least 44px, focus is visible, and no
-essential affordance depends on hover.
+Motion only clarifies structure: the hero copy reveals once, its professional
+trace draws from backend to frontend, links shift by a few pixels, and visual
+framing follows the active story step. All transitions use opacity and
+transform. `prefers-reduced-motion` presents the complete hero immediately and
+removes smooth scrolling. Touch targets are at least 44px, focus is visible, and
+no essential affordance depends on hover.
 
 ## Responsive behaviour
 

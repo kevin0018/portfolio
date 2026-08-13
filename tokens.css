@@ -1,4 +1,5 @@
 /* Hallmark · macrostructure: Feature Stack · tone: editorial-technical · anchor hue: verification blue · theme: custom · vibe: cold-paper engineering trace · axes: cold-paper / condensed-display / blue-accent */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R4 V4 · contrast: pass (40–41) · nav: N9 · footer: Ft5 · mobile: pass (34, 49, 50–57) */
 :root {
   color-scheme: light;
 
@@ -11,6 +12,7 @@
   --color-rule: oklch(0.82 0.018 235);
   --color-rule-dark: oklch(0.38 0.025 245);
   --color-accent: oklch(0.55 0.18 245);
+  --color-accent-ink: oklch(0.985 0.006 235);
   --color-accent-hover: oklch(0.48 0.18 245);
   --color-accent-soft: oklch(0.9 0.04 245);
   --color-project-accent: oklch(0.78 0.15 80);
@@ -45,6 +47,10 @@
   --size-copy: 42rem;
   --size-header: 4.5rem;
   --size-touch: 2.75rem;
+  --size-trace-dot: 0.6rem;
+  --size-trace-signal: 0.5rem;
+  --size-trace-offset: 0.25rem;
+  --size-trace-travel: 10rem;
   --radius-control: 0.25rem;
   --radius-media: 0.5rem;
   --rule: 1px solid var(--color-rule);
@@ -60,6 +66,13 @@
   --text-footer: clamp(3rem, 12vw, 6.5rem);
   --dur-fast: 140ms;
   --dur-base: 220ms;
+  --dur-intro: 760ms;
+  --dur-trace: 1800ms;
+  --delay-intro-1: 80ms;
+  --delay-intro-2: 180ms;
+  --delay-intro-3: 360ms;
+  --delay-intro-4: 500ms;
+  --delay-intro-5: 640ms;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);

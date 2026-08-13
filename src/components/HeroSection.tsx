@@ -1,25 +1,26 @@
 import type {Language} from "../data/caseStudies";
+import {HeroSystemTrace} from "./HeroSystemTrace";
 
 type HeroSectionProps = {language: Language};
 
 const copy = {
   es: {
-    kicker: "Full-stack developer",
-    title: "Construyo productos que explican su ingeniería.",
-    body: "Trabajo entre producto, frontend y backend. Aquí enseño qué construí, qué decisiones lo sostienen y dónde viven los compromisos técnicos.",
-    work: "Ver caso destacado",
+    kicker: "Kevin Hernández · Full Stack Developer",
+    title: ["Del dominio", "a la interfaz"],
+    titleLabel: "Del dominio a la interfaz.",
+    body: "Construyo lógica de negocio con Python y Django, e interfaces con Vue.js y TypeScript. Actualmente desarrollo producto, integraciones y procesamiento de datos en Inmatic.",
+    work: "Explorar mi trabajo",
     cv: "Descargar CV",
-    availability: "Producto · Frontend · Backend",
-    trace: ["Interfaz", "Contrato", "Sistema"],
+    scope: "Python / Django · Vue / TypeScript · PostgreSQL",
   },
   en: {
-    kicker: "Full-stack developer",
-    title: "I build products that explain their engineering.",
-    body: "I work across product, frontend, and backend. Here I show what I built, which decisions hold it together, and where the technical trade-offs live.",
-    work: "View featured case",
+    kicker: "Kevin Hernández · Full Stack Developer",
+    title: ["From domain logic", "to interface"],
+    titleLabel: "From domain logic to interface.",
+    body: "I build business logic with Python and Django, and interfaces with Vue.js and TypeScript. I currently work on product development, integrations, and data processing at Inmatic.",
+    work: "Explore my work",
     cv: "Download résumé",
-    availability: "Product · Frontend · Backend",
-    trace: ["Interface", "Contract", "System"],
+    scope: "Python / Django · Vue / TypeScript · PostgreSQL",
   },
 } as const;
 
@@ -31,7 +32,13 @@ export function HeroSection({language}: HeroSectionProps) {
         <div className="hero__inner">
           <div className="hero__copy">
             <p className="hero__kicker">{text.kicker}</p>
-            <h1 id="hero-title">{text.title}</h1>
+            <h1 id="hero-title" aria-label={text.titleLabel}>
+              {text.title.map((line, index) => (
+                <span className={`hero-title__mask hero-title__mask--${index + 1}`} key={line} aria-hidden="true">
+                  <span>{line}{index === 1 && <span className="hero-title__stop">.</span>}</span>
+                </span>
+              ))}
+            </h1>
             <p className="hero__body">{text.body}</p>
             <div className="hero__actions">
               <a className="button button--primary" href="#wikilol">{text.work}</a>
@@ -43,20 +50,9 @@ export function HeroSection({language}: HeroSectionProps) {
                 {text.cv}<span aria-hidden="true">↓</span>
               </a>
             </div>
-            <p className="hero__scope">{text.availability}</p>
+            <p className="hero__scope">{text.scope}</p>
           </div>
-
-          <div className="hero-trace" aria-hidden="true">
-            <div className="hero-trace__index">KHD / 26</div>
-            <ol>
-              {text.trace.map((item, index) => (
-                <li key={item}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  {item}
-                </li>
-              ))}
-            </ol>
-          </div>
+          <HeroSystemTrace language={language} />
         </div>
     </section>
   );
