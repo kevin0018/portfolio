@@ -1,92 +1,137 @@
-# Portafolio Web - Kevin Hernández
+# Kevin Hernández — Portfolio
 
-Este es mi portafolio web personal, desarrollado con React, TypeScript y Tailwind CSS, desplegado en **GitHub Pages**.
+[Versión en español](./README.es.md)
 
-## 🚀 Vista previa
+[![Deploy portfolio](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml)
 
-[🔗 Ver portafolio online](https://kevin0018.github.io/portfolio/)
+An evidence-led portfolio that presents full-stack projects as engineering case
+studies: what the product solves, which boundaries support it, and where the
+important technical decisions live.
 
----
+[Live portfolio](https://kevin0018.github.io/portfolio/) ·
+[Download résumé](./public/assets/files/CV_Kevin_Hernandez_Deras.pdf)
 
-## 📋 Características
+[![Kevin Hernández portfolio preview](./docs/portfolio-preview.png)](https://kevin0018.github.io/portfolio/)
 
-- Diseño responsive y moderno
-- Secciones: Hero, Sobre mí, Proyectos, Habilidades, Contacto
-- Sidebar adaptable
-- Soporte para español e inglés
-- Descarga de CV en PDF
-- Animaciones suaves con Tailwind CSS
-- Carrusel de proyectos interactivo usando Swiper.js (con paginación, navegación y efecto coverflow)
-- Sección de habilidades plegable
-- Fácil despliegue en GitHub Pages
+## Highlights
 
----
+- Read the site as one native document without wheel or touch interception.
+- Switch between English and Spanish with browser detection and a persisted
+  manual preference.
+- Follow project decisions through a mobile-first linear story or a sticky
+  evidence view on larger screens.
+- Inspect verified case studies for
+  [wikiLoL](https://github.com/kevin0018/wikiLoL) and
+  [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes).
+- Open each live product, source repository, résumé, and contact route directly
+  from the page.
+- Use the interface with visible focus, 44px minimum targets, and a dedicated
+  reduced-motion mode.
 
-## 🛠️ Tecnologías usadas
+## Architecture
 
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Swiper.js](https://swiperjs.com/)
-- [Vite](https://vitejs.dev/)
-- [GitHub Pages](https://pages.github.com/)
+```mermaid
+flowchart LR
+  visitor["Visitor"] --> app["React application"]
+  app --> shell["Localized portfolio shell"]
+  app --> cases["Typed case-study data"]
+  cases --> story["Reusable scrollytelling section"]
+  observer["IntersectionObserver"] --> story
+  tokens["Portable design tokens"] --> shell
+  tokens --> story
+  vite["Vite build"] --> dist["Static /dist output"]
+  dist --> pages["GitHub Pages"]
+```
 
----
+The content model is separate from presentation. Each project supplies its own
+localized narrative, links, stack, trace labels, and visual evidence to one
+reusable case-study component. JavaScript only identifies the active story step;
+the document remains usable without scroll control or animation.
 
-## 📦 Instalación y desarrollo local
+### Decisions worth reviewing
 
-1. **Clonar el repositorio:**
-    ```powershell
-    git clone https://github.com/kevin0018/portfolio
-    cd portfolio
-    ```
+- Native document scroll replaces the previous wheel-triggered view switch.
+- The mobile layout keeps each screenshot beside its explanation; sticky media
+  is introduced only when the viewport has enough horizontal space.
+- `IntersectionObserver` updates the active architecture trace without handling
+  wheel, touch, or keyboard events.
+- Project URLs and local assets respect Vite's `BASE_URL`, keeping development
+  and the `/portfolio/` GitHub Pages deployment consistent.
+- Language detection falls back to the browser and stores only the explicit
+  `es` or `en` preference in local storage.
+- A portable OKLCH token layer defines colour, typography, spacing, timing,
+  rules, and responsive type independently from Tailwind utilities.
+- `prefers-reduced-motion` removes smooth scrolling and spatial transitions.
 
-2. **Instalar dependencias:**
-    ```powershell
-    npm install
-    ```
+## Stack
 
-3. **Iniciar el servidor local:**
-    ```powershell
-    npm run dev
-    ```
-   Luego abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+- **Application:** React 19 and TypeScript 6
+- **Build:** Vite 8
+- **Interface:** Tailwind CSS 4 plus a custom token-driven CSS system
+- **Content:** typed bilingual case-study modules
+- **Interaction:** native anchors and `IntersectionObserver`
+- **Delivery:** pnpm 11, GitHub Actions, and GitHub Pages
 
----
+## Project structure
 
-## 🚢 Despliegue en GitHub Pages
+```text
+portfolio/
+├── .github/workflows/        # Verified Pages deployment
+├── docs/                     # Planning and repository preview
+├── public/assets/            # CV and real project captures
+├── src/components/           # Shell and reusable story sections
+├── src/data/                 # Typed bilingual case studies
+├── design.md                 # Locked visual and interaction direction
+├── tokens.css                # Portable design tokens
+├── package.json
+└── vite.config.ts
+```
 
-1. **Configura la base en `vite.config.ts`**  
-   (Por ejemplo: `base: '/portfolio/'`)
+The previous components remain in the repository while the redesign is being
+completed, but the active application entry point uses the new case-study shell.
 
-2. **Agrega la URL de homepage en `package.json`:**
-    ```json
-    "homepage": "https://kevin0018.github.io/portfolio/"
-    ```
+## Local development
 
-3. **Despliega con:**
-    ```powershell
-    npm run deploy
-    ```
+Requirements:
 
----
+- Node.js 22.13 or newer
+- pnpm 11
 
-## 📝 Notas
+```bash
+git clone https://github.com/kevin0018/portfolio.git
+cd portfolio
+pnpm install --frozen-lockfile
+pnpm dev
+```
 
-- Puedes personalizar los datos en los archivos de la carpeta `/data`.
-- Para cambiar el idioma por defecto o añadir más, revisa la configuración del contexto de idioma.
-- La sección de habilidades es plegable para mejor experiencia en dispositivos móviles.
-- El carrusel de proyectos está implementado con Swiper.js e incluye navegación lateral y paginación personalizada.
-  Puedes ajustar el efecto (por ejemplo, coverflow) y los estilos en el componente correspondiente.
-- Para personalizar los estilos de Swiper, revisa el archivo `index.css` donde puedes modificar el color de las flechas
-  y el comportamiento de la paginación.
+Vite serves the project with the same base path used in production:
 
----
+```text
+http://localhost:5173/portfolio/
+```
 
-## 📄 Licencia
+## Commands
 
-Este proyecto es de uso libre para fines personales y educativos.
+```bash
+pnpm dev      # Start the development server
+pnpm lint     # Run ESLint
+pnpm build    # Typecheck and create the production build
+pnpm preview  # Preview the production output
+pnpm deploy   # Manual gh-pages fallback
+```
 
----
+## Deployment
 
-**Desarrollado por [Kevin Hernández](https://github.com/kevin0018)**
+Every push to `master` installs the frozen pnpm lockfile, runs lint and the
+production build, then publishes `dist/` through GitHub Pages. The workflow can
+also be started manually from GitHub Actions.
+
+The repository must use **GitHub Actions** as its Pages source. The manual
+`pnpm deploy` command remains available as a compatibility fallback.
+
+## Attribution
+
+The portfolio preview contains captures of Kevin's own projects. League of
+Legends imagery shown inside the wikiLoL capture belongs to Riot Games. wikiLoL
+is a non-commercial educational project and is not affiliated with, endorsed
+by, or sponsored by Riot Games.
