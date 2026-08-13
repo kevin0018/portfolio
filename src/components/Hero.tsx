@@ -21,33 +21,23 @@ const textos = {
     }
 };
 
+const getInitialDarkTheme = () => {
+    const theme = localStorage.getItem("theme");
+
+    return theme === "dark" ||
+        (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+};
+
 const Hero: React.FC<HeroProps> = ({idioma, setIdioma, onDownClick}) => {
-    const [isDark, setIsDark] = useState(false);
+    const [isDark, setIsDark] = useState(getInitialDarkTheme);
 
     useEffect(() => {
-        const theme = localStorage.getItem("theme");
-        if (
-            theme === "dark" ||
-            (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ) {
-            document.documentElement.classList.add("dark");
-            setIsDark(true);
-        } else {
-            document.documentElement.classList.remove("dark");
-            setIsDark(false);
-        }
-    }, []);
+        document.documentElement.classList.toggle("dark", isDark);
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+    }, [isDark]);
 
     const toggleTheme = () => {
-        if (document.documentElement.classList.contains("dark")) {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-            setIsDark(false);
-        } else {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-            setIsDark(true);
-        }
+        setIsDark((currentTheme) => !currentTheme);
     };
 
     return (

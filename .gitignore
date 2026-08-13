@@ -124,7 +124,6 @@ storybook-static
 # lockfiles
 package-lock.json
 yarn.lock
-pnpm-lock.yaml
 
 # EditorConfig
 .editorconfig
