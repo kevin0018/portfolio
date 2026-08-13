@@ -5,15 +5,102 @@
 ## Estado
 
 - Preparación técnica completada con pnpm, dependencias actualizadas y lockfile.
-- Rediseño visual todavía no iniciado.
-- Próximo paso: confirmar la dirección visual y comenzar el primer checkpoint de implementación.
+- Shell mobile-first, sistema visual y scroll nativo implementados.
+- Casos iniciales de wikiLoL y Blog de Viajes implementados con una primera
+  narrativa técnica.
+- README bilingüe y workflow de GitHub Pages actualizados.
+- Próximo foco: cambiar la jerarquía de **proyectos primero** a **perfil
+  profesional primero** y enriquecer cada caso con media específica por paso.
 
 ## Objetivo
 
-Transformar el portfolio actual en una experiencia mobile-first, bilingüe y
-orientada a contratación que demuestre el trabajo mediante dos casos de estudio
-principales. El scroll debe construir una narrativa, no actuar como navegación
-forzada ni como una colección de efectos.
+Transformar el portfolio en una presentación profesional mobile-first y
+bilingüe de Kevin. La página debe explicar primero quién es, qué hace actualmente
+y cuál es su especialidad; los proyectos seleccionados actúan después como
+evidencia de criterio de producto e ingeniería.
+
+El scroll debe construir una narrativa, no actuar como navegación forzada ni
+como una colección de efectos.
+
+## Revisión de enfoque — persona primero
+
+La tesis revisada es:
+
+> **El portfolio presenta a Kevin. La experiencia profesional establece su
+> identidad y los proyectos demuestran cómo piensa y construye.**
+
+Esto cambia la jerarquía sin quitar valor a los casos de estudio:
+
+1. **Identidad:** Full Stack Developer con experiencia profesional desde julio
+   de 2024.
+2. **Especialidad:** Python, Django y Django REST Framework en backend; Vue.js y
+   TypeScript en frontend; PostgreSQL como base de datos principal.
+3. **Trabajo actual:** desarrollo de producto, integraciones y procesamiento de
+   datos en Inmatic.
+4. **Forma de trabajar:** TDD, testing unitario, SOLID, DDD, CQRS y arquitectura
+   hexagonal cuando el contexto lo justifica.
+5. **Evidencia pública:** Blog de Viajes, wikiLoL y un archivo selectivo de otros
+   proyectos.
+6. **Trayectoria:** experiencia, estudios, aprendizaje continuo y contacto.
+
+Los proyectos no deben ocupar la primera lectura como si Kevin todavía tuviera
+que definirse únicamente por trabajo académico o personal. Su experiencia en
+Inmatic es ahora la señal profesional principal.
+
+## Perfil profesional verificado
+
+### Posicionamiento principal
+
+- **Rol:** Desarrollador Full Stack.
+- **Experiencia profesional:** desde julio de 2024.
+- **Stack principal:** Python · Django · Django REST Framework · Vue.js ·
+  TypeScript · PostgreSQL.
+- **Tecnologías complementarias:** C# · JavaScript · PHP · Laravel · MySQL.
+- **Ámbitos de trabajo:** backend, frontend, integraciones entre sistemas,
+  procesamiento de datos y reporting.
+
+No conviene presentar todas las tecnologías al mismo nivel. Python/Django y
+Vue/TypeScript construyen la identidad; PostgreSQL completa el núcleo técnico.
+El resto demuestra amplitud y capacidad de integración.
+
+### Experiencia actual
+
+**Full Stack Developer — Inmatic**
+
+Julio de 2024 – Actualidad · Barcelona · Presencial
+
+Las responsabilidades deben agruparse por problemas, no publicarse como una
+lista extensa de palabras clave:
+
+1. **Backend y dominio:** lógica de negocio con Python y Django, APIs REST,
+   modelado de casos de uso y aplicación de CQRS, DDD y arquitectura hexagonal.
+2. **Calidad:** desarrollo guiado por pruebas, pruebas unitarias y refactorización
+   orientada a mantenibilidad.
+3. **Frontend de producto:** interfaces con Vue.js y TypeScript, incluyendo
+   componentes reutilizables como tablas de datos y modales.
+4. **Integraciones y datos:** servicios entre plataformas, procesamiento de
+   facturas mediante APIs y XML, sincronización bidireccional en C#, reporting y
+   exportación a Excel.
+5. **Persistencia:** modelado de datos y optimización de consultas con PostgreSQL.
+
+La redacción pública deberá mantenerse a este nivel y no revelar reglas de
+negocio, clientes, volúmenes, arquitectura interna o resultados confidenciales
+que no estén aprobados para publicación.
+
+### Estudios y aprendizaje continuo
+
+- **Grado en Ingeniería Informática — Universitat Oberta de Catalunya.** Febrero
+  de 2026 – Actualidad. Ingeniería de software, arquitectura, diseño de sistemas
+  y fundamentos de informática.
+- **CFGS Desarrollo de Aplicaciones Web — Institut Escola del Treball.**
+  Noviembre de 2022 – Junio de 2024. Formación full-stack, bases de datos, Git,
+  metodologías ágiles y diseño mobile-first.
+- **Working With DevOps Mindset — University of California, Davis.**
+- **Introducing DevOps Concepts — University of California, Davis.**
+
+Los dos bootcamps quedan fuera de la narrativa principal por ahora. Solo se
+añadirán si aportan una especialización relevante que no esté ya mejor respaldada
+por la experiencia profesional o los estudios reglados.
 
 ## Contexto de diseño asumido
 
@@ -22,12 +109,13 @@ de cerrar el sistema visual:
 
 - **Audiencia:** recruiters, engineering managers y desarrolladores que evalúan
   experiencia full-stack.
-- **Acción principal:** entender rápidamente el nivel del trabajo y abrir un
-  proyecto, el CV o una vía de contacto.
+- **Acción principal:** entender rápidamente el perfil profesional de Kevin y,
+  desde ahí, profundizar en experiencia, proyectos, CV o contacto.
 - **Tono:** editorial y técnico; sobrio, directo y con personalidad propia.
 - **Estructura:** una página principal continua con scrollytelling concentrado
   en los proyectos destacados.
-- **Contenido principal:** wikiLoL y Blog de Viajes.
+- **Contenido principal:** perfil profesional, experiencia actual y dos pruebas
+  de trabajo seleccionadas: Blog de Viajes y wikiLoL.
 
 ## Principios no negociables
 
@@ -79,21 +167,47 @@ resumirlos para la lectura de un recruiter y enlazar a la documentación complet
 ### 1. Navegación compacta
 
 - Identidad de Kevin.
-- Enlaces a trabajo, perfil y contacto.
+- Enlaces a perfil, experiencia, trabajo y contacto.
 - Selector ES/EN accesible.
 - Estado visible al navegar con teclado.
 - Sin sidebar permanente en móvil.
 
 ### 2. Hero
 
-- Posicionamiento profesional específico, evitando frases genéricas sobre pasión
-  e innovación.
-- CTA principal hacia los casos de estudio.
+- Posicionamiento explícito: Full Stack Developer especializado en
+  Python/Django y Vue/TypeScript.
+- Línea de contexto breve: actualmente en Inmatic, con experiencia profesional
+  desde julio de 2024.
+- CTA principal hacia experiencia o perfil profesional.
 - CTA secundario hacia contacto o CV.
-- Resumen breve de especialidad y disponibilidad cuando esté verificado.
 - Altura definida por el contenido; no bloquear la primera vista a `100vh`.
 
-### 3. Caso de estudio: wikiLoL
+### 3. Experiencia profesional
+
+- Inmatic aparece antes que los proyectos personales.
+- Presentar periodo, rol y ubicación de forma directa.
+- Agrupar el trabajo en backend y dominio, frontend, integraciones, datos y
+  calidad.
+- Conectar tecnologías con tareas concretas, sin convertir la sección en una
+  nube de keywords.
+- No inventar métricas ni exponer información confidencial para compensar la
+  ausencia de capturas del trabajo profesional.
+
+### 4. Capacidades y forma de trabajar
+
+- **Núcleo:** Python · Django · Django REST Framework · Vue.js · TypeScript ·
+  PostgreSQL.
+- **Diseño de software:** SOLID · DDD · CQRS · arquitectura hexagonal.
+- **Calidad:** TDD · pruebas unitarias · refactorización.
+- **Integración:** APIs · XML · sincronización entre sistemas · procesamiento y
+  exportación de datos.
+- **Complementarias:** C# · JavaScript · PHP · Laravel · MySQL · Git.
+
+Esta sección debe demostrar jerarquía. No usar una pared uniforme de iconos ni
+dar el mismo peso visual a una tecnología principal y a otra usada de forma
+puntual.
+
+### 5. Caso de estudio: wikiLoL
 
 En móvil, cuatro bloques apilados. En escritorio, captura sticky y narrativa a
 su lado.
@@ -103,28 +217,36 @@ su lado.
 3. Cómo el BFF, los contratos compartidos y la caché estabilizan la aplicación.
 4. Demo, repositorio y acceso al caso técnico completo.
 
-### 4. Caso de estudio: Blog de Viajes
+### 6. Caso de estudio: Blog de Viajes
 
 1. De blog editorial a herramienta de planificación.
 2. Filtrado y construcción del itinerario.
 3. Prioridad del estado compartido por URL sobre la persistencia local.
 4. Generación estática, SEO, media responsive y enlaces finales.
 
-### 5. Otros proyectos
+El orden final de los dos casos queda por decidir. Abrir con Blog de Viajes
+reforzaría inmediatamente Vue; abrir con wikiLoL priorizaría arquitectura y
+complejidad de integración. En ambos casos, la experiencia en Inmatic ya habrá
+establecido antes el stack profesional principal.
+
+### 7. Otros proyectos
 
 - Archivo compacto en lugar de carrusel.
 - Mostrar nombre, categoría, año, rol, stack esencial y estado del proyecto.
 - Destacar únicamente proyectos con repositorio, demo o explicación defendible.
 - Verificar Huellas y el resto antes de redactar afirmaciones nuevas.
 
-### 6. Perfil y forma de trabajar
+### 8. Trayectoria y formación
 
-- Experiencia y formación resumidas.
-- Capacidades conectadas con evidencia de los proyectos.
-- Evitar una pared de logos de tecnologías.
-- Mantener el CV como documento complementario, no como contenido duplicado.
+- Mostrar UOC y CFGS con fechas y estado.
+- Las certificaciones DevOps pueden formar un bloque compacto de aprendizaje
+  continuo, sin competir con la experiencia laboral.
+- Omitir los bootcamps de la página principal mientras no aporten una
+  especialización diferencial.
+- Mantener el CV como documento complementario; el portfolio selecciona y
+  explica, no duplica todo el historial.
 
-### 7. Contacto y cierre
+### 9. Contacto y cierre
 
 - Correo, LinkedIn, GitHub y CV.
 - Cierre tipográfico, sin tarjeta genérica ni footer de cuatro columnas.
@@ -132,11 +254,34 @@ su lado.
 
 ## Estrategia de scrollytelling
 
+### Nombre del patrón
+
+La idea propuesta no es un carrusel tradicional. El término más preciso es
+**tour de producto dirigido por scroll** o **scrollytelling con escenario de
+media sticky**.
+
+Cada proyecto mantiene cuatro pasos narrativos y cada paso activa una evidencia
+visual diferente:
+
+1. **Producto:** portada o vista que explica qué puede hacer una persona.
+2. **Flujo:** captura de la interacción principal o una secuencia corta.
+3. **Ingeniería:** diagrama real, vista de datos o evidencia vinculada a la
+   decisión técnica explicada.
+4. **Calidad y entrega:** estado responsive, testing, accesibilidad, despliegue o
+   resultado final verificable.
+
+No se debe usar la misma captura recortada cuatro veces. Cada paso necesita una
+imagen, vídeo corto o diagrama que realmente añada información. Si un proyecto
+solo dispone de dos evidencias buenas, tendrá dos cambios de media en lugar de
+rellenar cuatro posiciones.
+
 ### Comportamiento base
 
 - El DOM conserva el orden de lectura completo.
 - Cada paso narrativo es contenido real, enlazable y seleccionable.
 - `IntersectionObserver` puede actualizar el paso activo sin controlar el scroll.
+- El usuario puede seguir leyendo aunque una imagen no cargue o JavaScript esté
+  desactivado.
 - Los hashes permiten navegar a `#wikilol`, `#blog-de-viajes`, `#perfil` y
   `#contacto`.
 
@@ -144,16 +289,35 @@ su lado.
 
 - Media sticky dentro de cada caso de estudio.
 - El texto avanza por pasos con una indicación de progreso discreta.
-- Una captura puede cambiar por otra mediante crossfade cuando el contenido lo
-  justifique.
+- La evidencia cambia mediante crossfade cuando el paso activo entra en la zona
+  de lectura.
+- El progreso indica cuál de los cuatro temas está activo, pero no funciona como
+  un control obligatorio.
 - El sticky termina dentro de su propia sección y nunca atrapa el viewport.
 
 ### Móvil y tablet estrecha
 
 - Contenido completamente apilado.
 - Sin sticky, parallax ni media dependiente del hover.
-- Captura inmediatamente asociada al texto que explica.
+- Cada captura aparece inmediatamente antes del texto que explica; no hay un
+  carrusel separado que obligue a recordar qué imagen correspondía a cada tema.
+- No depender de swipe horizontal, autoplay, drag ni pequeños indicadores.
 - Controles con área táctil mínima de 44 × 44 CSS px.
+
+### Riesgo mobile del tour
+
+El tour tiene un riesgo de interacción y rendimiento mayor que una sección
+estática: varias imágenes, estado activo y cambios visuales durante el scroll.
+La simplificación obligatoria es:
+
+- Web responsive para navegadores iOS y Android; React/Vite como implementación.
+- Navegación mediante documento y anchors, sin tabs, drawer ni gestos propios.
+- En móvil, media inline y lectura lineal; el escenario sticky solo existe en
+  escritorio amplio.
+- Imágenes responsive, carga diferida y dimensiones reservadas para evitar
+  saltos de layout.
+- El modo reducido elimina crossfades espaciales y cambios automáticos no
+  esenciales.
 
 ### Movimiento permitido
 
@@ -166,25 +330,41 @@ Máximo tres primitivas globales:
 Con movimiento reducido, las transiciones espaciales desaparecen y cualquier
 cambio visual se limita a una opacidad breve.
 
-## Sistema visual pendiente de confirmar
+## Sistema visual vigente
 
-Antes del primer componente deben quedar decididos y documentados:
+El sistema actual está documentado en `design.md` y `tokens.css`:
 
-- Paleta neutral del portfolio y reglas para los acentos de cada proyecto.
-- Pareja tipográfica display/body y posible tipografía mono para metadatos.
+- Paleta de papel frío, tinta azul-negra y acentos por proyecto.
+- Barlow Condensed para display, IBM Plex Sans para cuerpo e IBM Plex Mono para
+  metadatos.
 - Escala de espacios de 4 px.
 - Escala tipográfica fluida.
-- Radios, bordes, focus ring y voz de los CTA.
-- Tratamiento de capturas y fondos.
-- Si se mantiene un único tema visual o vuelve el selector claro/oscuro.
+- Scroll nativo, foco visible, objetivos táctiles mínimos y movimiento reducido.
+- Capturas reales sin navegador o dispositivo falsos.
 
-Las decisiones se exportarán como tokens antes de distribuir valores por los
-componentes. No se introducirán colores o fuentes aisladas dentro del render.
+La revisión persona-primero modifica la jerarquía y el contenido, no obliga a
+descartar esta identidad visual. Cualquier cambio posterior debe actualizar
+primero `design.md` y los tokens, no introducir valores aislados en componentes.
 
 ## Modelo de contenido propuesto
 
-La fuente `src/data/projects.tsx` debe evolucionar desde una lista de tarjetas a
-un modelo apto para casos de estudio:
+El contenido debe separar el perfil profesional de los proyectos:
+
+```text
+ProfessionalProfile
+├── headline.es / headline.en
+├── summary.es / summary.en
+├── primaryStack[]
+├── supportingStack[]
+├── practices[]
+├── currentRole
+├── experience[]
+├── education[]
+├── certifications[]
+└── contactLinks
+```
+
+Los casos de estudio mantienen un modelo propio:
 
 ```text
 ProjectCaseStudy
@@ -195,21 +375,27 @@ ProjectCaseStudy
 ├── role
 ├── summary.es / summary.en
 ├── problem.es / problem.en
-├── productSteps[]
+├── storySteps[]
+│   ├── theme
+│   ├── title.es / title.en
+│   ├── body.es / body.en
+│   ├── evidence.es / evidence.en
+│   └── media
 ├── engineeringDecisions[]
 ├── stack[]
-├── media[]
 ├── liveUrl
 ├── repositoryUrl
 └── featured
 ```
 
-Los textos de wikiLoL y Blog de Viajes se derivarán de sus repositorios
-verificados. Los demás proyectos mantendrán copy conservador hasta revisarlos.
+La información profesional parte únicamente del resumen facilitado por Kevin y
+de contenido aprobado para publicación. Los textos de wikiLoL y Blog de Viajes
+se derivan de sus repositorios verificados. Los demás proyectos mantendrán copy
+conservador hasta revisarlos.
 
 ## Plan de implementación
 
-### Checkpoint 1 — sistema y shell mobile-first
+### Checkpoint 1 — sistema y shell mobile-first — completado
 
 - Definir tokens, tipografías y estilos base.
 - Sustituir la máquina de estados que cambia Hero/Main por un documento continuo.
@@ -217,7 +403,7 @@ verificados. Los demás proyectos mantendrán copy conservador hasta revisarlos.
 - Mantener temporalmente los componentes antiguos sin borrarlos.
 - Verificar 320, 375, 414 y 768 px antes de continuar.
 
-### Checkpoint 2 — vertical slice de wikiLoL
+### Checkpoint 2 — vertical slice de wikiLoL — completado
 
 - Crear el modelo de datos de casos de estudio.
 - Implementar la sección completa de wikiLoL.
@@ -225,22 +411,32 @@ verificados. Los demás proyectos mantendrán copy conservador hasta revisarlos.
 - Validar teclado, touch, anchors y lectura sin JavaScript de animación.
 - Usar este checkpoint para confirmar el patrón antes de duplicarlo.
 
-### Checkpoint 3 — Blog de Viajes
+### Checkpoint 3 — Blog de Viajes — completado
 
 - Aplicar el patrón narrativo sin copiar exactamente la composición de wikiLoL.
 - Integrar fotografía y acento propio dentro del sistema común.
 - Redactar producto, estado, generación estática y media pipeline.
 - Verificar que ambos casos se sienten relacionados pero no clonados.
 
-### Checkpoint 4 — archivo, perfil y contacto
+### Checkpoint 4 — identidad y experiencia profesional — siguiente
 
+- Replantear hero, navegación y orden del documento alrededor de Kevin.
+- Crear el bloque de experiencia en Inmatic sin información confidencial.
+- Separar stack principal, prácticas de ingeniería y tecnologías
+  complementarias.
+- Integrar formación y certificaciones con una jerarquía secundaria.
+- Revisar copy ES/EN antes de implementar.
+
+### Checkpoint 5 — tours de producto, archivo y contacto
+
+- Reunir hasta cuatro evidencias visuales útiles para cada proyecto.
+- Asociar cada media a un paso concreto; eliminar repeticiones decorativas.
+- Implementar el cambio de media en escritorio y la secuencia inline en móvil.
 - Crear archivo compacto de proyectos secundarios.
-- Reescribir skills como capacidades respaldadas por proyectos.
-- Resumir experiencia y formación.
 - Sustituir `alert()` por feedback accesible al copiar el correo.
 - Construir el cierre y footer.
 
-### Checkpoint 5 — calidad y entrega
+### Checkpoint 6 — calidad y entrega
 
 - Añadir pruebas de interacción y smoke tests responsive.
 - Revisar accesibilidad, contraste, foco y reduced motion.
@@ -250,31 +446,28 @@ verificados. Los demás proyectos mantendrán copy conservador hasta revisarlos.
 - Actualizar README y README.es.md siguiendo el estándar de los proyectos.
 - Verificar lint, typecheck, build y despliegue de GitHub Pages.
 
-## Archivos previstos
+## Archivos probables para el siguiente checkpoint
 
-Esta lista es orientativa y debe cerrarse antes del primer edit de UI.
+Esta lista sigue siendo orientativa. No autoriza todavía cambios de código.
 
 ### Crear
 
-- `tokens.css`
-- `src/data/caseStudies.ts`
-- `src/components/layout/SiteHeader.tsx`
-- `src/components/sections/HeroSection.tsx`
-- `src/components/sections/CaseStudySection.tsx`
-- `src/components/sections/ProjectArchive.tsx`
-- `src/components/sections/ProfileSection.tsx`
-- `src/components/sections/ContactSection.tsx`
+- `src/data/profile.ts`
+- `src/components/ProfessionalProfileSection.tsx`
+- `src/components/ExperienceSection.tsx`
+- `src/components/ProjectArchive.tsx`
 - utilidades o hooks de progreso únicamente si son necesarios
 
 ### Modificar
 
 - `src/App.tsx`
+- `src/components/SiteHeader.tsx`
+- `src/components/HeroSection.tsx`
+- `src/components/CaseStudySection.tsx`
+- `src/data/caseStudies.ts`
 - `src/index.css`
-- `src/main.tsx` si necesita providers o comportamiento global
-- `src/data/projects.tsx` o su reemplazo explícito
-- `index.html`
-- `README.md`
-- `README.es.md`, que todavía debe crearse
+- `design.md` únicamente cuando se confirme la nueva jerarquía
+- `README.md` y `README.es.md` después de implementar el perfil
 
 ### Retirar después de validar el reemplazo
 
@@ -310,7 +503,14 @@ Estos archivos no deben eliminarse sin confirmación explícita:
 
 ### Contenido
 
+- La experiencia en Inmatic aparece antes de los proyectos personales.
+- Python/Django y Vue/TypeScript se leen como especialidad principal;
+  PostgreSQL completa el núcleo y el resto figura como complementario.
+- Responsabilidades, estudios y certificaciones coinciden con la información
+  facilitada y no revelan detalles confidenciales.
 - wikiLoL y Blog de Viajes reflejan sus stacks y arquitecturas actuales.
+- Cada cambio de media añade evidencia real al tema activo; no se repite una
+  captura solo para simular un tour.
 - No hay métricas o resultados inventados.
 - ES y EN contienen la misma información esencial.
 - Todos los enlaces de demo, repositorio, CV y contacto están comprobados.
