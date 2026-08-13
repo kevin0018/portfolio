@@ -21,15 +21,18 @@ ambient gradients, and scroll hijacking.
 - **Voice:** direct, specific, bilingual, and defensible.
 - **Macrostructure:** feature stack with one continuous native document scroll.
 - **Navigation:** compact edge-aligned identity, language control, and contact.
-- **Signature element:** a vertical system trace joining interface, contract,
-  application, and infrastructure evidence.
+- **Signature element:** a cinematic opening route that connects domain, data,
+  and interface before resolving into Kevin's identity; the vertical system
+  trace continues that same idea inside the page.
 
 ## Composition
 
-The hero is left-biased and content-led. It establishes Kevin as a full-stack
-developer working from Python/Django domain logic through integrations to
-Vue/TypeScript interfaces. A system trace animates those three connected areas
-as the single expressive moment on entry.
+The first visit opens with a brief dark technical field. Domain, data, and
+interface pass through one route, converge, and resolve into Kevin's name before
+the field moves away. The hero beneath is left-biased and content-led. It
+establishes Kevin as a full-stack developer working from Python/Django domain
+logic through integrations to Vue/TypeScript interfaces. A system trace
+animates those three connected areas as the continuation of the entry idea.
 Projects then become full-width editorial chapters. On larger screens, each
 chapter pairs sticky visual evidence with scrolling technical decisions. On
 small screens, evidence and explanation stay in the same linear reading flow.
@@ -57,12 +60,14 @@ carrier of state.
 
 ## Motion and interaction
 
-Motion only clarifies structure: the hero copy reveals once, its professional
-trace draws from backend to frontend, links shift by a few pixels, and visual
-framing follows the active story step. All transitions use opacity and
-transform. `prefers-reduced-motion` presents the complete hero immediately and
-removes smooth scrolling. Touch targets are at least 44px, focus is visible, and
-no essential affordance depends on hover.
+Motion is concentrated in one opening sequence: three professional layers move
+through a shared route and resolve into Kevin's identity. The hero copy then
+reveals once, its professional trace draws from backend to frontend, links shift
+by a few pixels, and visual framing follows the active story step. All
+transitions use opacity and transform. `prefers-reduced-motion` presents the
+complete hero immediately and removes smooth scrolling. Touch targets are at
+least 44px, focus is visible, and no essential affordance depends on hover. The
+opening is decorative and absent entirely when reduced motion is requested.
 
 ## Responsive behaviour
 
