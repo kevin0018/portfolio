@@ -274,7 +274,12 @@ img {
 .hero-role__track {
     display: flex;
     flex-direction: column;
-    animation: hero-role-roll var(--dur-role-roll) var(--ease-in-out) var(--delay-role-roll) both;
+    animation: hero-role-roll var(--dur-role-roll) var(--ease-in-out) var(--delay-role-roll) infinite alternate both;
+}
+
+.hero-role:hover .hero-role__track,
+.hero:focus-within .hero-role__track {
+    animation-play-state: paused;
 }
 
 .hero-role__track > span {
@@ -455,9 +460,7 @@ img {
     display: flex;
     min-height: var(--size-touch);
     align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
-    border-top: var(--rule);
+    justify-content: center;
     color: var(--color-ink);
     font-size: 0.7rem;
     font-weight: 500;
@@ -472,12 +475,8 @@ img {
     color: var(--color-accent);
 }
 
-.hero__scroll:active span:last-child {
+.hero__scroll:active .hero__scroll-arrow {
     transform: translateY(var(--space-1));
-}
-
-.hero__scroll span:last-child {
-    transition: transform var(--dur-fast) var(--ease-out);
 }
 
 .hero__scroll-arrow {
@@ -487,6 +486,7 @@ img {
     flex: 0 0 var(--size-touch);
     place-items: center;
     animation: hero-scroll-cue var(--dur-scroll-cue) var(--ease-in-out) infinite;
+    transition: transform var(--dur-fast) var(--ease-out);
 }
 
 .hero__scroll-arrow svg {

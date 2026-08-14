@@ -121,8 +121,7 @@ export function HeroSection({language}: HeroSectionProps) {
           </figure>
         </div>
 
-        <a className="hero__scroll" href="#wikilol">
-          <span>{text.next}</span>
+        <a className="hero__scroll" href="#wikilol" aria-label={text.next}>
           <span className="hero__scroll-arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="m6 9 6 6 6-6" />
