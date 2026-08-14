@@ -21,16 +21,17 @@ ambient gradients, and scroll hijacking.
 - **Voice:** direct, specific, bilingual, and defensible.
 - **Macrostructure:** feature stack with one continuous native document scroll.
 - **Navigation:** compact edge-aligned identity, language control, and contact.
-- **Signature element:** a full-height identity hero revealed by one physical
-  roller-blind motion. The effect reveals Kevin; it does not introduce a second
-  message before the page begins.
+- **Signature element:** a full-height identity hero pairing Kevin's original
+  monochrome illustration with one mechanical word roller for his three real
+  areas of work: backend, integrations, and frontend.
 
 ## Composition
 
 The first viewport belongs entirely to Kevin's identity: name, role, current
-company, primary stack, contact, and CV. A dark roller blind retracts once to
-reveal that content without adding transitional copy. A clear control at the
-bottom uses native smooth scrolling to move to the next document section.
+company, primary stack, contact, and CV. His original halftone illustration is
+treated as an editorial image rather than a circular avatar. A clipped word
+roller moves once through backend, integrations, and frontend with no overlap.
+A clear control at the bottom uses native smooth scrolling to move to the next document section.
 Projects then become full-width editorial chapters. On larger screens, each
 chapter pairs sticky visual evidence with scrolling technical decisions. On
 small screens, evidence and explanation stay in the same linear reading flow.
@@ -58,8 +59,8 @@ carrier of state.
 
 ## Motion and interaction
 
-Motion is concentrated in one opening action: a dark blind and its blue roller
-retract to reveal the hero. Links shift by a few pixels and visual framing
+Motion is concentrated in one opening action: three professional areas move
+through a clipped vertical word roller and settle on frontend. Links shift by a few pixels and visual framing
 follows the active story step. All transitions use opacity and transform.
 `prefers-reduced-motion` presents the complete hero immediately and removes
 smooth scrolling. Touch targets are at least 44px, focus is visible, and no

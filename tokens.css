@@ -52,8 +52,6 @@
   --size-trace-offset: 0.25rem;
   --size-trace-travel: 10rem;
   --size-hero: calc(100svh - var(--size-header));
-  --size-roller: 1rem;
-  --size-roller-travel: calc((var(--size-hero) - var(--size-roller)) * -1);
   --radius-control: 0.25rem;
   --radius-media: 0.5rem;
   --rule: 1px solid var(--color-rule);
@@ -62,6 +60,8 @@
   --shadow-media: 0 1.5rem 4rem oklch(0.08 0.025 245 / 0.2);
 
   --text-display: clamp(4rem, 18vw, 11.5rem);
+  --text-hero-name: clamp(4rem, 11vw, 8.75rem);
+  --text-hero-role: clamp(2rem, 6vw, 4rem);
   --text-display-project: clamp(4.4rem, 17vw, 9rem);
   --text-section: clamp(2.5rem, 9vw, 4.5rem);
   --text-body-lg: clamp(1.05rem, 2vw, 1.25rem);
@@ -71,9 +71,9 @@
   --dur-base: 220ms;
   --dur-intro: 760ms;
   --dur-trace: 1800ms;
-  --dur-roller: 1050ms;
-  --delay-roller: 60ms;
-  --delay-hero-start: 1660ms;
+  --dur-role-roll: 2400ms;
+  --delay-role-roll: 440ms;
+  --delay-hero-start: 0ms;
   --delay-intro-1: 80ms;
   --delay-intro-2: 180ms;
   --delay-intro-3: 360ms;
