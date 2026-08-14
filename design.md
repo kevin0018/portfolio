@@ -10,10 +10,12 @@ enough evidence to inspect the decisions behind each project.
 
 ## Visual thesis
 
-**Cold paper, engineering ink, visible evidence.** The site uses an editorial
-layout with a restrained technical trace that connects product claims to their
-implementation. The interface avoids dashboard cards, fake browser chrome,
-ambient gradients, and scroll hijacking.
+**Blue-grey paper, engineering ink, visible evidence.** The site uses an
+editorial layout with a restrained technical trace that connects product claims
+to their implementation. The paper surface is deliberately darker than a
+standard white screen to reduce glare without becoming a dark portfolio. The
+interface avoids dashboard cards, fake browser chrome, ambient gradients, and
+scroll hijacking.
 
 - **Audience:** recruiters, engineering managers, and senior developers.
 - **Primary action:** understand Kevin's professional profile and continue into
@@ -55,10 +57,10 @@ possible.
 
 ## Colour and material
 
-The base is cold off-white rather than pure white. Blue-black ink replaces pure
-black. Verification blue is the only site-wide accent. Each case study may add
-one scoped project accent; wikiLoL uses archive gold. Colour is never the sole
-carrier of state.
+The base is a medium-light blue-grey technical paper rather than white.
+Blue-black ink replaces pure black. Verification blue is the only site-wide
+accent. Each case study may add one scoped project accent; wikiLoL uses archive
+gold. Colour is never the sole carrier of state.
 
 ## Motion and interaction
 
@@ -114,7 +116,7 @@ The canonical implementation is [`tokens.css`](./tokens.css).
 {
   "color": {
     "$type": "color",
-    "paper": {"$value": "oklch(0.97 0.008 235)"},
+    "paper": {"$value": "oklch(0.935 0.014 235)"},
     "ink": {"$value": "oklch(0.19 0.025 245)"},
     "accent": {"$value": "oklch(0.55 0.18 245)"},
     "projectAccent": {"$value": "oklch(0.78 0.15 80)"}

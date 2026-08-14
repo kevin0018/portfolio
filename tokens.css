@@ -3,18 +3,18 @@
 :root {
   color-scheme: light;
 
-  --color-paper: oklch(0.97 0.008 235);
-  --color-paper-deep: oklch(0.925 0.014 235);
-  --color-paper-raised: oklch(0.985 0.006 235);
+  --color-paper: oklch(0.935 0.014 235);
+  --color-paper-deep: oklch(0.885 0.02 235);
+  --color-paper-raised: oklch(0.965 0.01 235);
   --color-ink: oklch(0.19 0.025 245);
   --color-ink-soft: oklch(0.27 0.026 245);
   --color-ink-muted: oklch(0.47 0.024 245);
-  --color-rule: oklch(0.82 0.018 235);
+  --color-rule: oklch(0.76 0.025 235);
   --color-rule-dark: oklch(0.38 0.025 245);
   --color-accent: oklch(0.55 0.18 245);
   --color-accent-ink: oklch(0.985 0.006 235);
   --color-accent-hover: oklch(0.48 0.18 245);
-  --color-accent-soft: oklch(0.9 0.04 245);
+  --color-accent-soft: oklch(0.84 0.055 245);
   --color-project-accent: oklch(0.78 0.15 80);
   --color-project-accent-soft: oklch(0.9 0.07 80);
   --color-project-ink: oklch(0.955 0.012 235);
