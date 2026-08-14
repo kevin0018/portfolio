@@ -9,6 +9,8 @@ type CaseStudySectionProps = {
 export function CaseStudySection({caseStudy, language}: CaseStudySectionProps) {
   const [activeStep, setActiveStep] = useState(0);
   const storyRef = useRef<HTMLDivElement>(null);
+  const hasMediaSequence = caseStudy.steps.every((step) => Boolean(step.media));
+  const activeMedia = caseStudy.steps[activeStep]?.media;
 
   useEffect(() => {
     const story = storyRef.current;
@@ -28,7 +30,7 @@ export function CaseStudySection({caseStudy, language}: CaseStudySectionProps) {
 
     elements.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
-  }, []);
+  }, [caseStudy.slug]);
 
   return (
     <section className={`case-study case-study--${caseStudy.slug}`} id={caseStudy.slug} aria-labelledby={`${caseStudy.slug}-title`}>
@@ -53,10 +55,30 @@ export function CaseStudySection({caseStudy, language}: CaseStudySectionProps) {
 
       <div className="case-study__story page-shell" ref={storyRef}>
         <div className="case-study__evidence">
-          <figure className={`project-visual project-visual--step-${activeStep + 1}`}>
-            <img src={caseStudy.image} alt={caseStudy.imageAlt[language]} loading="lazy" />
+          <figure className={`project-visual${hasMediaSequence ? " project-visual--sequence" : ""}`}>
+            <div className="project-visual__stage">
+              {hasMediaSequence ? caseStudy.steps.map((step, index) => {
+                const media = step.media!;
+
+                return (
+                  <img
+                    className={activeStep === index ? "is-active" : ""}
+                    src={media.src}
+                    width={media.width}
+                    height={media.height}
+                    alt={activeStep === index ? media.alt[language] : ""}
+                    aria-hidden={activeStep !== index}
+                    decoding="async"
+                    loading="lazy"
+                    key={step.id}
+                  />
+                );
+              }) : (
+                <img src={caseStudy.image} alt={caseStudy.imageAlt[language]} loading="lazy" />
+              )}
+            </div>
             <figcaption>
-              <span>{language === "es" ? "Interfaz actual · captura real" : "Current interface · real capture"}</span>
+              <span>{activeMedia?.caption[language] ?? (language === "es" ? "Interfaz actual · captura real" : "Current interface · real capture")}</span>
               <span>{String(activeStep + 1).padStart(2, "0")} / {String(caseStudy.steps.length).padStart(2, "0")}</span>
             </figcaption>
           </figure>
@@ -72,9 +94,16 @@ export function CaseStudySection({caseStudy, language}: CaseStudySectionProps) {
 
         <div className="case-study__steps">
           {caseStudy.steps.map((step, index) => (
-            <article className="story-step" data-story-step={index} key={step.id}>
+            <article className={`story-step${activeStep === index ? " is-active" : ""}`} data-story-step={index} key={step.id}>
               <div className="story-step__mobile-visual">
-                <img src={caseStudy.image} alt="" loading="lazy" />
+                <img
+                  src={step.media?.src ?? caseStudy.image}
+                  width={step.media?.width}
+                  height={step.media?.height}
+                  alt={step.media?.alt[language] ?? caseStudy.imageAlt[language]}
+                  decoding="async"
+                  loading="lazy"
+                />
                 <span>{String(index + 1).padStart(2, "0")} / {String(caseStudy.steps.length).padStart(2, "0")}</span>
               </div>
               <p className="story-step__label">{String(index + 1).padStart(2, "0")} · {step.label[language]}</p>

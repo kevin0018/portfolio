@@ -8,6 +8,13 @@ export type CaseStudyStep = {
   title: LocalizedText;
   body: LocalizedText;
   evidence: LocalizedText;
+  media?: {
+    src: string;
+    width: number;
+    height: number;
+    alt: LocalizedText;
+    caption: LocalizedText;
+  };
 };
 
 export type CaseStudy = {
@@ -65,6 +72,19 @@ export const wikiLolCaseStudy: CaseStudy = {
         es: "Interfaz bilingüe con preferencia persistida y URLs compartibles.",
         en: "Bilingual UI with a persisted preference and shareable URLs.",
       },
+      media: {
+        src: `${import.meta.env.BASE_URL}assets/images/wikilol/01-search.png`,
+        width: 1583,
+        height: 954,
+        alt: {
+          es: "Portada de wikiLoL con el formulario de búsqueda por Riot ID y región",
+          en: "wikiLoL home page with the Riot ID and region search form",
+        },
+        caption: {
+          es: "Buscar · Riot ID y región",
+          en: "Search · Riot ID and region",
+        },
+      },
     },
     {
       id: "contracts",
@@ -80,6 +100,19 @@ export const wikiLolCaseStudy: CaseStudy = {
       evidence: {
         es: "@wikilol/contracts · DTOs y esquemas compartidos.",
         en: "@wikilol/contracts · shared DTOs and schemas.",
+      },
+      media: {
+        src: `${import.meta.env.BASE_URL}assets/images/wikilol/02-champion-archive.png`,
+        width: 1578,
+        height: 1253,
+        alt: {
+          es: "Archivo de campeones de wikiLoL con búsqueda, filtros por rol y fichas resumidas",
+          en: "wikiLoL champion archive with search, role filters, and summary dossiers",
+        },
+        caption: {
+          es: "Archivo · modelos de campeón normalizados",
+          en: "Archive · normalized champion models",
+        },
       },
     },
     {
@@ -97,6 +130,19 @@ export const wikiLolCaseStudy: CaseStudy = {
         es: "CQRS pragmático · value objects para región y cola.",
         en: "Pragmatic CQRS · value objects for region and queue.",
       },
+      media: {
+        src: `${import.meta.env.BASE_URL}assets/images/wikilol/03-champion-detail.png`,
+        width: 1581,
+        height: 1255,
+        alt: {
+          es: "Ficha de Ekko en wikiLoL con lore, roles y una galería de aspectos",
+          en: "Ekko dossier in wikiLoL with lore, roles, and a skin gallery",
+        },
+        caption: {
+          es: "Ficha · lore, roles y galería",
+          en: "Dossier · lore, roles, and gallery",
+        },
+      },
     },
     {
       id: "infrastructure",
@@ -112,6 +158,19 @@ export const wikiLolCaseStudy: CaseStudy = {
       evidence: {
         es: "Express BFF · proxy de recursos · caché de versión.",
         en: "Express BFF · asset proxy · version cache.",
+      },
+      media: {
+        src: `${import.meta.env.BASE_URL}assets/images/wikilol/04-player-compare.png`,
+        width: 1570,
+        height: 1251,
+        alt: {
+          es: "Comparación de dos perfiles de League of Legends con rango, puntos y rendimiento",
+          en: "Comparison of two League of Legends profiles with rank, league points, and performance",
+        },
+        caption: {
+          es: "Comparar · dos perfiles en una URL",
+          en: "Compare · two profiles in one URL",
+        },
       },
     },
   ],

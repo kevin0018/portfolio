@@ -817,29 +817,52 @@ img {
     margin: 0;
 }
 
-.project-visual img,
+.project-visual__stage,
 .story-step__mobile-visual img {
     width: 100%;
-    aspect-ratio: 16 / 10;
     border: var(--rule-dark);
     border-radius: var(--radius-media);
+}
+
+.project-visual__stage {
+    overflow: clip;
+}
+
+.project-visual__stage > img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
     object-fit: cover;
     object-position: center;
 }
 
-.project-visual--step-2 img,
-.story-step:nth-child(2) .story-step__mobile-visual img {
-    object-position: center 64%;
+.project-visual--sequence .project-visual__stage {
+    position: relative;
+    aspect-ratio: 1.26;
+    background: var(--color-ink);
 }
 
-.project-visual--step-3 img,
-.story-step:nth-child(3) .story-step__mobile-visual img {
-    object-position: center 76%;
+.project-visual--sequence .project-visual__stage > img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    aspect-ratio: auto;
+    border: 0;
+    opacity: 0;
+    object-fit: contain;
+    transform: translateY(var(--space-2));
+    transition:
+        opacity var(--dur-base) var(--ease-out),
+        transform var(--dur-base) var(--ease-out);
 }
 
-.project-visual--step-4 img,
-.story-step:nth-child(4) .story-step__mobile-visual img {
-    object-position: center 88%;
+.project-visual--sequence .project-visual__stage > img.is-active {
+    z-index: 1;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.story-step__mobile-visual img {
+    height: auto;
 }
 
 .project-visual figcaption {
@@ -894,6 +917,23 @@ img {
     min-width: 0;
     padding-block: var(--space-8) var(--space-16);
     border-bottom: var(--rule-dark);
+}
+
+.story-step::before {
+    display: block;
+    width: var(--space-8);
+    height: 1px;
+    margin-bottom: var(--space-5);
+    background: var(--color-rule-dark);
+    content: "";
+    transform: scaleX(0.35);
+    transform-origin: left;
+    transition: transform var(--dur-base) var(--ease-out);
+}
+
+.story-step.is-active::before {
+    background: var(--color-project-accent);
+    transform: scaleX(1);
 }
 
 .story-step:first-child {
