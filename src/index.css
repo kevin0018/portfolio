@@ -841,6 +841,10 @@ img {
     background: var(--color-ink);
 }
 
+.case-study--blog-de-viajes .project-visual--sequence .project-visual__stage {
+    background: var(--color-travel-paper);
+}
+
 .project-visual--sequence .project-visual__stage > img {
     position: absolute;
     inset: 0;

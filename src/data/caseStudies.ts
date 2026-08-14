@@ -216,6 +216,19 @@ export const travelBlogCaseStudy: CaseStudy = {
         es: "Filtros combinables · rutas dinámicas · estados vacíos propios.",
         en: "Composable filters · dynamic routes · purposeful empty states.",
       },
+      media: {
+        src: `${import.meta.env.BASE_URL}assets/images/blog-de-viajes-preview.jpg`,
+        width: 1440,
+        height: 900,
+        alt: {
+          es: "Portada de Blog de Viajes con una ruta dibujada sobre un paisaje y accesos para comenzar a planificar",
+          en: "Blog de Viajes home page with a route drawn over a landscape and actions to start planning",
+        },
+        caption: {
+          es: "Portada · descubrir y comenzar una ruta",
+          en: "Home · discover and start a route",
+        },
+      },
     },
     {
       id: "content",
@@ -231,6 +244,19 @@ export const travelBlogCaseStudy: CaseStudy = {
       evidence: {
         es: "Tipos públicos · canonical · JSON-LD · sitemap sincronizado.",
         en: "Public types · canonical URLs · JSON-LD · synchronized sitemap.",
+      },
+      media: {
+        src: `${import.meta.env.BASE_URL}assets/images/blog-de-viajes/destinations.png`,
+        width: 1574,
+        height: 1262,
+        alt: {
+          es: "Catálogo de seis destinos con filtros de duración, temporada, presupuesto y estilo",
+          en: "Catalogue of six destinations with duration, season, budget, and travel-style filters",
+        },
+        caption: {
+          es: "Destinos · filtros sobre contenido tipado",
+          en: "Destinations · filters over typed content",
+        },
       },
     },
     {
@@ -248,6 +274,19 @@ export const travelBlogCaseStudy: CaseStudy = {
         es: "Utilidades puras separadas de Vue y del almacenamiento del navegador.",
         en: "Pure utilities kept separate from Vue and browser storage.",
       },
+      media: {
+        src: `${import.meta.env.BASE_URL}assets/images/blog-de-viajes/destination-preview.png`,
+        width: 1576,
+        height: 1248,
+        alt: {
+          es: "Vista rápida de Londres con duración recomendada, mejor temporada y un plan inicial",
+          en: "London quick view with a recommended stay, best season, and an initial plan",
+        },
+        caption: {
+          es: "Vista rápida · contexto antes de planificar",
+          en: "Quick view · context before planning",
+        },
+      },
     },
     {
       id: "delivery",
@@ -263,6 +302,19 @@ export const travelBlogCaseStudy: CaseStudy = {
       evidence: {
         es: "Generación estática · Sharp · Vitest · Playwright · GitHub Actions.",
         en: "Static generation · Sharp · Vitest · Playwright · GitHub Actions.",
+      },
+      media: {
+        src: `${import.meta.env.BASE_URL}assets/images/blog-de-viajes/journal.png`,
+        width: 1589,
+        height: 1258,
+        alt: {
+          es: "Portada editorial de Travel Journal con artículos de planificación y presupuesto",
+          en: "Travel Journal editorial page with planning and budget articles",
+        },
+        caption: {
+          es: "Revista · contenido prerenderizado",
+          en: "Journal · prerendered content",
+        },
       },
     },
   ],

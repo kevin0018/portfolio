@@ -3,6 +3,17 @@
     "date": "2026-08-14",
     "macrostructure": "Feature Stack",
     "theme": "custom",
+    "theme_axes": "warm-paper / condensed-display / amber-accent",
+    "vibe": "editorial travel product journey",
+    "enrichment": "real screenshot crossfade",
+    "nav": "N9 edge-aligned",
+    "footer": "Ft5 statement",
+    "brief": "Four-step Blog de Viajes tour with warm sticky evidence and inline mobile captures"
+  },
+  {
+    "date": "2026-08-14",
+    "macrostructure": "Feature Stack",
+    "theme": "custom",
     "theme_axes": "cold-paper / condensed-display / blue-accent",
     "vibe": "evidence-led wikiLoL product tour",
     "enrichment": "real screenshot crossfade",
