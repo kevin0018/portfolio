@@ -1449,6 +1449,7 @@ img {
 .site-footer__meta {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--space-3) var(--space-6);
     margin-top: var(--space-20);
     padding-top: var(--space-4);
@@ -1456,6 +1457,11 @@ img {
     color: var(--color-ink-muted);
     font-family: var(--font-mono);
     font-size: 0.68rem;
+}
+
+.site-footer__meta span,
+.site-footer__meta a {
+    line-height: 1;
 }
 
 .site-footer__meta a {
