@@ -77,15 +77,4 @@ export const projectArchive: ArchivedProject[] = [
     stack: ["Laravel", "PHP", "MySQL", "jQuery"],
     repositoryUrl: "https://github.com/kevin0018/jenkins",
   },
-  {
-    slug: "robot-maze",
-    name: "Robot Maze",
-    category: {es: "Ejercicio de robótica", en: "Robotics exercise"},
-    summary: {
-      es: "Algoritmo de navegación en Java para resolver laberintos con un robot Finch.",
-      en: "A Java navigation algorithm for solving mazes with a Finch robot.",
-    },
-    image: `${import.meta.env.BASE_URL}assets/images/finchRobot.jpg`,
-    stack: ["Java", "Finch Robot"],
-  },
 ];

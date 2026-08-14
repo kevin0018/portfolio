@@ -13,16 +13,14 @@ export function ProjectArchive({language}: ProjectArchiveProps) {
           <h2 id="project-register-title">{language === "es" ? "Otros proyectos" : "Other projects"}</h2>
           <p>
             {language === "es"
-              ? "Proyectos anteriores y experimentos que amplían el recorrido sin necesitar un caso de estudio completo."
-              : "Earlier projects and experiments that extend the record without requiring a full case study."}
+              ? "Una selección de proyectos anteriores que completa el recorrido."
+              : "A selection of earlier projects that completes the picture."}
           </p>
         </header>
 
         <ol className="project-register__list">
-          {projectArchive.map((project, index) => (
-            <li className="project-register__item" key={project.slug}>
-              <span className="project-register__index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-
+          {projectArchive.map((project) => (
+            <li className={`project-register__item project-register__item--${project.slug}`} key={project.slug}>
               <figure className="project-register__preview" aria-hidden="true">
                 <img src={project.image} alt="" loading="lazy" decoding="async" />
               </figure>
