@@ -1014,6 +1014,150 @@ img {
     content: "/";
 }
 
+.project-register {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    border-top: var(--rule);
+}
+
+.project-register__inner {
+    padding-block: var(--space-20);
+}
+
+.project-register__header {
+    display: grid;
+    min-width: 0;
+    gap: var(--space-6);
+    padding-bottom: var(--space-12);
+    border-bottom: var(--rule);
+}
+
+.project-register__header h2 {
+    min-width: 0;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-display-project);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.85;
+    overflow-wrap: anywhere;
+}
+
+.project-register__header p {
+    max-width: var(--size-copy);
+    margin: 0;
+    color: var(--color-ink-soft);
+    font-size: var(--text-case-body);
+}
+
+.project-register__list,
+.project-register__stack {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.project-register__item {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: var(--space-8) minmax(0, 1fr);
+    gap: var(--space-5);
+    padding-block: var(--space-10);
+    border-bottom: var(--rule);
+}
+
+.project-register__index,
+.project-register__category,
+.project-register__stack,
+.project-register__links {
+    font-family: var(--font-mono);
+}
+
+.project-register__index {
+    padding-top: var(--space-1);
+    color: var(--color-accent);
+    font-size: 0.7rem;
+}
+
+.project-register__preview {
+    display: none;
+    margin: 0;
+}
+
+.project-register__content {
+    min-width: 0;
+}
+
+.project-register__category {
+    margin: 0 0 var(--space-2);
+    color: var(--color-accent);
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.project-register__content h3 {
+    min-width: 0;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-section);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 0.96;
+    overflow-wrap: anywhere;
+}
+
+.project-register__summary {
+    max-width: 62ch;
+    margin: var(--space-4) 0 0;
+    color: var(--color-ink-soft);
+}
+
+.project-register__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    margin-top: var(--space-5);
+    color: var(--color-ink-muted);
+    font-size: 0.68rem;
+}
+
+.project-register__stack li::before {
+    margin-right: var(--space-2);
+    color: var(--color-accent);
+    content: "/";
+}
+
+.project-register__links {
+    display: flex;
+    grid-column: 2;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+}
+
+.project-register__links a {
+    display: inline-flex;
+    min-height: var(--size-touch);
+    align-items: center;
+    gap: var(--space-2);
+    border-bottom: 1px solid var(--color-rule);
+    color: var(--color-ink);
+    font-size: 0.72rem;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.project-register__links a:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.project-register__links a:active {
+    transform: translateY(1px);
+}
+
 .site-footer {
     background: var(--color-paper-deep);
 }
@@ -1087,6 +1231,36 @@ img {
 
     .story-step {
         padding-block: var(--space-16) var(--space-24);
+    }
+
+    .project-register__header {
+        grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.65fr);
+        align-items: end;
+    }
+
+    .project-register__item {
+        grid-template-columns: var(--space-8) minmax(8rem, 0.32fr) minmax(0, 1fr) auto;
+        align-items: center;
+        gap: var(--space-6);
+    }
+
+    .project-register__preview {
+        display: block;
+        overflow: clip;
+        border: var(--rule);
+        border-radius: var(--radius-media);
+        background: var(--color-paper-deep);
+    }
+
+    .project-register__preview img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
+    .project-register__links {
+        grid-column: auto;
+        justify-content: flex-end;
     }
 
     .hero__stage {

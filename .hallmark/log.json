@@ -1,6 +1,17 @@
 [
   {
     "date": "2026-08-14",
+    "macrostructure": "Project Register",
+    "theme": "custom",
+    "theme_axes": "cold-paper / condensed-display / blue-accent",
+    "vibe": "compact recruiter-facing work ledger",
+    "enrichment": "real thumbnail evidence from tablet",
+    "nav": "N9 edge-aligned",
+    "footer": "Ft5 statement",
+    "brief": "Compact bilingual archive for six secondary projects outside the featured scrollytelling"
+  },
+  {
+    "date": "2026-08-14",
     "macrostructure": "Feature Stack",
     "theme": "custom",
     "theme_axes": "warm-paper / condensed-display / amber-accent",
