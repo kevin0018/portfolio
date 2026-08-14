@@ -131,7 +131,7 @@ The repository must use **GitHub Actions** as its Pages source. The manual
 
 ## Attribution
 
-The portfolio preview contains captures of Kevin's own projects. League of
+The portfolio preview contains captures from projects I have built. League of
 Legends imagery shown inside the wikiLoL capture belongs to Riot Games. wikiLoL
 is a non-commercial educational project and is not affiliated with, endorsed
 by, or sponsored by Riot Games.

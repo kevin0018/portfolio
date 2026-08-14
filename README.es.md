@@ -130,7 +130,7 @@ manual `pnpm deploy` permanece como fallback de compatibilidad.
 
 ## Atribución
 
-La vista previa contiene capturas de proyectos propios de Kevin. Las imágenes
-de League of Legends que aparecen dentro de wikiLoL pertenecen a Riot Games.
-wikiLoL es un proyecto educativo no comercial y no está afiliado, respaldado ni
-patrocinado por Riot Games.
+La vista previa contiene capturas de proyectos que he desarrollado. Las
+imágenes de League of Legends que aparecen dentro de wikiLoL pertenecen a Riot
+Games. wikiLoL es un proyecto educativo no comercial y no está afiliado,
+respaldado ni patrocinado por Riot Games.
