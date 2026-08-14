@@ -4,6 +4,17 @@
     "macrostructure": "Feature Stack",
     "theme": "custom",
     "theme_axes": "cold-paper / condensed-display / blue-accent",
+    "vibe": "mobile-first two-area role handoff",
+    "enrichment": "Tier-A clipped word roller and scroll cue",
+    "nav": "N9 edge-aligned",
+    "footer": "Ft5 statement",
+    "brief": "Responsive hero refinement with backend-to-frontend reveal and wheel handoff"
+  },
+  {
+    "date": "2026-08-14",
+    "macrostructure": "Feature Stack",
+    "theme": "custom",
+    "theme_axes": "cold-paper / condensed-display / blue-accent",
     "vibe": "editorial portrait and mechanical role roller",
     "enrichment": "Tier-A clipped word roller",
     "nav": "N9 edge-aligned",

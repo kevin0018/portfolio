@@ -71,7 +71,8 @@
   --dur-base: 220ms;
   --dur-intro: 760ms;
   --dur-trace: 1800ms;
-  --dur-role-roll: 2400ms;
+  --dur-role-roll: 1500ms;
+  --dur-scroll-cue: 1100ms;
   --delay-role-roll: 440ms;
   --delay-hero-start: 0ms;
   --delay-intro-1: 80ms;

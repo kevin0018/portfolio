@@ -1,3 +1,4 @@
+import {useEffect, useRef} from "react";
 import type {Language} from "../data/caseStudies";
 import {HeroOpeningSequence} from "./HeroOpeningSequence";
 
@@ -10,8 +11,8 @@ const copy = {
     titleLabel: "Kevin Hernández.",
     currentLabel: "Actualmente",
     current: "Inmatic · julio de 2024 — presente",
-    roles: ["Backend", "Integraciones", "Frontend"],
-    rolesLabel: "Backend, integraciones y frontend",
+    roles: ["Backend", "Frontend"],
+    rolesLabel: "Backend y frontend",
     body: "Desarrollo soluciones de principio a fin: modelo la lógica de negocio y las APIs con Python y Django, conecto plataformas y datos, y construyo interfaces mantenibles con Vue.js y TypeScript.",
     portraitAlt: "Ilustración en blanco y negro de Kevin Hernández",
     contact: "Contactar",
@@ -24,8 +25,8 @@ const copy = {
     titleLabel: "Kevin Hernández.",
     currentLabel: "Currently",
     current: "Inmatic · July 2024 — present",
-    roles: ["Backend", "Integrations", "Frontend"],
-    rolesLabel: "Backend, integrations and frontend",
+    roles: ["Backend", "Frontend"],
+    rolesLabel: "Backend and frontend",
     body: "I build end-to-end solutions: I model business logic and APIs with Python and Django, connect platforms and data, and create maintainable interfaces with Vue.js and TypeScript.",
     portraitAlt: "Black and white illustration of Kevin Hernández",
     contact: "Contact me",
@@ -36,9 +37,46 @@ const copy = {
 
 export function HeroSection({language}: HeroSectionProps) {
   const text = copy[language];
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    let isNavigating = false;
+    let unlockTimer: number | undefined;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const handleWheel = (event: WheelEvent) => {
+      if (
+        !heroRef.current ||
+        isNavigating ||
+        event.ctrlKey ||
+        event.deltaY <= 12 ||
+        Math.abs(event.deltaY) <= Math.abs(event.deltaX) ||
+        window.scrollY > 2
+      ) return;
+
+      const nextSection = document.getElementById("wikilol");
+      if (!nextSection) return;
+
+      event.preventDefault();
+      isNavigating = true;
+      nextSection.scrollIntoView({
+        behavior: reducedMotion.matches ? "auto" : "smooth",
+        block: "start",
+      });
+      unlockTimer = window.setTimeout(() => {
+        isNavigating = false;
+      }, reducedMotion.matches ? 100 : 900);
+    };
+
+    window.addEventListener("wheel", handleWheel, {passive: false});
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+      if (unlockTimer) window.clearTimeout(unlockTimer);
+    };
+  }, []);
 
   return (
-    <section className="hero" id="inicio" aria-labelledby="hero-title">
+    <section ref={heroRef} className="hero" id="inicio" aria-labelledby="hero-title">
       <div className="hero__inner">
         <div className="hero__stage">
           <div className="hero__mast">
@@ -85,7 +123,11 @@ export function HeroSection({language}: HeroSectionProps) {
 
         <a className="hero__scroll" href="#wikilol">
           <span>{text.next}</span>
-          <span aria-hidden="true">↓</span>
+          <span className="hero__scroll-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </span>
         </a>
       </div>
     </section>

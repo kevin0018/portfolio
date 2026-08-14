@@ -198,14 +198,12 @@ img {
 .hero__stage {
     display: grid;
     min-width: 0;
-    grid-template-columns: minmax(0, 1fr) 5.5rem;
     align-items: center;
-    gap: 0 var(--space-3);
     padding-block: var(--space-4);
 }
 
 .hero__mast {
-    display: contents;
+    display: grid;
     min-width: 0;
     align-content: center;
 }
@@ -224,7 +222,6 @@ img {
 }
 
 .hero__kicker {
-    grid-column: 1 / -1;
     margin: 0 0 var(--space-3);
     color: var(--color-accent);
     font-size: 0.78rem;
@@ -234,7 +231,6 @@ img {
 }
 
 .hero h1 {
-    grid-column: 1 / -1;
     min-width: 0;
     margin: 0;
     font-family: var(--font-display);
@@ -318,7 +314,6 @@ img {
 .hero__introduction {
     display: grid;
     min-width: 0;
-    grid-column: 1 / -1;
     gap: var(--space-4);
     margin-top: var(--space-5);
 }
@@ -359,15 +354,7 @@ img {
 }
 
 .hero__portrait {
-    position: relative;
-    width: 5.5rem;
-    grid-column: 2;
-    grid-row: 3;
-    margin: 0;
-    justify-self: end;
-    border: 1px solid var(--color-ink);
-    background: #000;
-    animation: hero-portrait-reveal var(--dur-intro) var(--ease-out) var(--delay-intro-2) both;
+    display: none;
 }
 
 .hero__portrait img {
@@ -493,6 +480,26 @@ img {
     transition: transform var(--dur-fast) var(--ease-out);
 }
 
+.hero__scroll-arrow {
+    display: grid;
+    width: var(--size-touch);
+    height: var(--size-touch);
+    flex: 0 0 var(--size-touch);
+    place-items: center;
+    animation: hero-scroll-cue var(--dur-scroll-cue) var(--ease-in-out) infinite;
+}
+
+.hero__scroll-arrow svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    overflow: visible;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-width: 1.8;
+}
+
 .hero-system ol,
 .system-trace {
     margin: 0;
@@ -577,16 +584,22 @@ img {
 }
 
 @keyframes hero-role-roll {
-    0%, 24% {
+    0%, 38% {
         transform: translateY(0);
     }
 
-    38%, 62% {
+    68%, 100% {
         transform: translateY(-1em);
     }
+}
 
-    76%, 100% {
-        transform: translateY(-2em);
+@keyframes hero-scroll-cue {
+    0%, 100% {
+        transform: translateY(-0.15rem);
+    }
+
+    50% {
+        transform: translateY(0.2rem);
     }
 }
 
@@ -1045,10 +1058,15 @@ img {
     }
 
     .hero__portrait {
+        position: relative;
+        display: block;
         width: 100%;
         max-width: 25rem;
-        grid-column: auto;
-        grid-row: auto;
+        margin: 0;
+        justify-self: end;
+        border: 1px solid var(--color-ink);
+        background: var(--color-ink);
+        animation: hero-portrait-reveal var(--dur-intro) var(--ease-out) var(--delay-intro-2) both;
     }
 }
 
@@ -1133,7 +1151,8 @@ img {
     }
 
     .hero-role__window,
-    .hero-role__rule {
+    .hero-role__rule,
+    .hero__scroll-arrow {
         animation: none !important;
     }
 

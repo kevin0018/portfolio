@@ -22,23 +22,25 @@ ambient gradients, and scroll hijacking.
 - **Macrostructure:** feature stack with one continuous native document scroll.
 - **Navigation:** compact edge-aligned identity, language control, and contact.
 - **Signature element:** a full-height identity hero pairing Kevin's original
-  monochrome illustration with one mechanical word roller for his three real
-  areas of work: backend, integrations, and frontend.
+  monochrome illustration with one mechanical word roller for his two primary
+  areas of work: backend and frontend.
 
 ## Composition
 
 The first viewport belongs entirely to Kevin's identity: name, role, current
 company, primary stack, contact, and CV. His original halftone illustration is
-treated as an editorial image rather than a circular avatar. A clipped word
-roller moves once through backend, integrations, and frontend with no overlap.
+treated as an editorial image rather than a circular avatar on larger screens;
+mobile removes it to protect the reading hierarchy. A clipped word roller moves
+once from backend to frontend with no overlap.
 A clear control at the bottom uses native smooth scrolling to move to the next document section.
 Projects then become full-width editorial chapters. On larger screens, each
 chapter pairs sticky visual evidence with scrolling technical decisions. On
 small screens, evidence and explanation stay in the same linear reading flow.
 
-Only the hero uses a viewport-relative minimum height. No wheel, touch, or
-keyboard event is intercepted. The footer closes with a direct collaboration
-statement rather than a second sitemap.
+Only the hero uses a viewport-relative minimum height. One downward wheel gesture
+from the document top hands off to the next section; scrolling remains native
+everywhere else. Touch and keyboard events are never intercepted. The footer
+closes with a direct collaboration statement rather than a second sitemap.
 
 ## Typography
 
@@ -59,8 +61,9 @@ carrier of state.
 
 ## Motion and interaction
 
-Motion is concentrated in one opening action: three professional areas move
-through a clipped vertical word roller and settle on frontend. Links shift by a few pixels and visual framing
+Motion is concentrated in one opening action: backend moves through a clipped
+vertical word roller and settles on frontend. A small downward arrow supplies a
+continuous navigation cue. Links shift by a few pixels and visual framing
 follows the active story step. All transitions use opacity and transform.
 `prefers-reduced-motion` presents the complete hero immediately and removes
 smooth scrolling. Touch targets are at least 44px, focus is visible, and no
@@ -68,8 +71,9 @@ essential affordance depends on hover.
 
 ## Responsive behaviour
 
-- **320–767px:** single column; each decision carries its own nearby screenshot;
-  no sticky project media; header contact is available through the document.
+- **320–767px:** single-column hero without the portrait; each decision carries
+  its own nearby screenshot; no sticky project media; header contact remains
+  available through the document.
 - **768–1099px:** wider editorial rhythm; hero trace becomes more explicit.
 - **1100px and above:** sticky case-study evidence beside scrolling decisions.
 
