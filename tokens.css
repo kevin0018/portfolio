@@ -1,5 +1,5 @@
 /* Hallmark · macrostructure: Feature Stack · tone: editorial-technical · anchor hue: verification blue · theme: custom · vibe: cold-paper engineering trace · axes: cold-paper / condensed-display / blue-accent */
-/* Hallmark · pre-emit critique: P5 H5 E5 S5 R4 V5 · contrast: pass (40–41) · nav: N9 · footer: Ft5 · mobile: pass (34, 49, 50–57) */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · contrast: pass (40–41) · nav: N9 · footer: Ft5 · mobile: pass (34, 49, 50–57) */
 :root {
   color-scheme: light;
 
@@ -51,9 +51,9 @@
   --size-trace-signal: 0.5rem;
   --size-trace-offset: 0.25rem;
   --size-trace-travel: 10rem;
-  --size-opening-content: 86rem;
-  --size-opening-gutter: calc(var(--space-5) * 2);
-  --size-opening-signal-travel: calc(min(100vw - var(--size-opening-gutter), var(--size-opening-content)) - var(--space-3));
+  --size-hero: calc(100svh - var(--size-header));
+  --size-roller: 1rem;
+  --size-roller-travel: calc((var(--size-hero) - var(--size-roller)) * -1);
   --radius-control: 0.25rem;
   --radius-media: 0.5rem;
   --rule: 1px solid var(--color-rule);
@@ -61,9 +61,7 @@
   --shadow-focus: 0 0 0 3px var(--color-accent-soft);
   --shadow-media: 0 1.5rem 4rem oklch(0.08 0.025 245 / 0.2);
 
-  --text-display: clamp(3.5rem, 15vw, 7.4rem);
-  --text-opening: clamp(3.7rem, 20vw, 12rem);
-  --text-opening-name: clamp(3rem, 11vw, 8.5rem);
+  --text-display: clamp(4rem, 18vw, 11.5rem);
   --text-display-project: clamp(4.4rem, 17vw, 9rem);
   --text-section: clamp(2.5rem, 9vw, 4.5rem);
   --text-body-lg: clamp(1.05rem, 2vw, 1.25rem);
@@ -73,14 +71,8 @@
   --dur-base: 220ms;
   --dur-intro: 760ms;
   --dur-trace: 1800ms;
-  --dur-opening-stage: 720ms;
-  --dur-opening-route: 1050ms;
-  --dur-opening-exit: 680ms;
-  --delay-opening-1: 180ms;
-  --delay-opening-2: 430ms;
-  --delay-opening-3: 680ms;
-  --delay-opening-identity: 1080ms;
-  --delay-opening-exit: 1900ms;
+  --dur-roller: 1050ms;
+  --delay-roller: 60ms;
   --delay-hero-start: 1660ms;
   --delay-intro-1: 80ms;
   --delay-intro-2: 180ms;

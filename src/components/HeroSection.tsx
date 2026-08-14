@@ -1,27 +1,30 @@
 import type {Language} from "../data/caseStudies";
 import {HeroOpeningSequence} from "./HeroOpeningSequence";
-import {HeroSystemTrace} from "./HeroSystemTrace";
 
 type HeroSectionProps = {language: Language};
 
 const copy = {
   es: {
-    kicker: "Kevin Hernández · Full Stack Developer",
-    title: ["Del dominio", "a la interfaz"],
-    titleLabel: "Del dominio a la interfaz.",
-    body: "Construyo lógica de negocio con Python y Django, e interfaces con Vue.js y TypeScript. Actualmente desarrollo producto, integraciones y procesamiento de datos en Inmatic.",
-    work: "Explorar mi trabajo",
+    kicker: "Full Stack Developer · Barcelona",
+    title: ["Kevin", "Hernández"],
+    titleLabel: "Kevin Hernández.",
+    currentLabel: "Actualmente",
+    current: "Inmatic · julio de 2024 — presente",
+    body: "Desarrollo producto e integraciones con Python, Django, Vue.js y TypeScript.",
+    contact: "Contactar",
     cv: "Descargar CV",
-    scope: "Python / Django · Vue / TypeScript · PostgreSQL",
+    next: "Ver proyectos",
   },
   en: {
-    kicker: "Kevin Hernández · Full Stack Developer",
-    title: ["From domain logic", "to interface"],
-    titleLabel: "From domain logic to interface.",
-    body: "I build business logic with Python and Django, and interfaces with Vue.js and TypeScript. I currently work on product development, integrations, and data processing at Inmatic.",
-    work: "Explore my work",
-    cv: "Download résumé",
-    scope: "Python / Django · Vue / TypeScript · PostgreSQL",
+    kicker: "Full Stack Developer · Barcelona",
+    title: ["Kevin", "Hernández"],
+    titleLabel: "Kevin Hernández.",
+    currentLabel: "Currently",
+    current: "Inmatic · July 2024 — present",
+    body: "I build products and integrations with Python, Django, Vue.js and TypeScript.",
+    contact: "Contact me",
+    cv: "Download CV",
+    next: "View projects",
   },
 } as const;
 
@@ -30,9 +33,9 @@ export function HeroSection({language}: HeroSectionProps) {
 
   return (
     <section className="hero" id="inicio" aria-labelledby="hero-title">
-      <HeroOpeningSequence language={language} />
+      <HeroOpeningSequence />
       <div className="hero__inner">
-        <div className="hero__copy">
+        <div className="hero__mast">
           <p className="hero__kicker">{text.kicker}</p>
           <h1 id="hero-title" aria-label={text.titleLabel}>
             {text.title.map((line, index) => (
@@ -41,9 +44,16 @@ export function HeroSection({language}: HeroSectionProps) {
               </span>
             ))}
           </h1>
+        </div>
+
+        <div className="hero__lower">
+          <p className="hero__current">
+            <span>{text.currentLabel}</span>
+            <strong>{text.current}</strong>
+          </p>
           <p className="hero__body">{text.body}</p>
           <div className="hero__actions">
-            <a className="button button--primary" href="#wikilol">{text.work}</a>
+            <a className="button button--primary" href="mailto:akevin.2215@gmail.com">{text.contact}</a>
             <a
               className="button button--text"
               href={`${import.meta.env.BASE_URL}assets/files/CV_Kevin_Hernandez_Deras.pdf`}
@@ -52,9 +62,12 @@ export function HeroSection({language}: HeroSectionProps) {
               {text.cv}<span aria-hidden="true">↓</span>
             </a>
           </div>
-          <p className="hero__scope">{text.scope}</p>
         </div>
-        <HeroSystemTrace language={language} />
+
+        <a className="hero__scroll" href="#wikilol">
+          <span>{text.next}</span>
+          <span aria-hidden="true">↓</span>
+        </a>
       </div>
     </section>
   );
