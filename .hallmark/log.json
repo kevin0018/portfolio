@@ -1,6 +1,17 @@
 [
   {
     "date": "2026-08-14",
+    "macrostructure": "Long Document",
+    "theme": "custom",
+    "theme_axes": "cold-paper / condensed-display / blue-accent",
+    "vibe": "ruled professional record with dominant current role",
+    "enrichment": "none",
+    "nav": "N9 edge-aligned",
+    "footer": "Ft5 statement",
+    "brief": "Bilingual recruiter-facing experience and education record placed before personal work"
+  },
+  {
+    "date": "2026-08-14",
     "macrostructure": "Bento Grid",
     "theme": "custom",
     "theme_axes": "cold-paper / condensed-display / blue-accent",

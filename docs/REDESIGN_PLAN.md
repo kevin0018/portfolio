@@ -8,9 +8,13 @@
 - Shell mobile-first, sistema visual y scroll nativo implementados.
 - Casos iniciales de wikiLoL y Blog de Viajes implementados con una primera
   narrativa técnica.
+- Experiencia profesional, formación y certificaciones integradas antes de los
+  proyectos personales.
+- Archivo de proyectos secundarios retirado temporalmente del recorrido hasta
+  que sus proyectos tengan una revisión técnica y visual suficiente.
 - README bilingüe y workflow de GitHub Pages actualizados.
-- Próximo foco: cambiar la jerarquía de **proyectos primero** a **perfil
-  profesional primero** y enriquecer cada caso con media específica por paso.
+- Próximo foco: revisar el copy y el ritmo de la trayectoria profesional antes
+  de cerrar capacidades, contacto y entrega.
 
 ## Objetivo
 
@@ -39,8 +43,8 @@ Esto cambia la jerarquía sin quitar valor a los casos de estudio:
    datos en Inmatic.
 4. **Forma de trabajar:** TDD, testing unitario, SOLID, DDD, CQRS y arquitectura
    hexagonal cuando el contexto lo justifica.
-5. **Evidencia pública:** Blog de Viajes, wikiLoL y un archivo selectivo de otros
-   proyectos.
+5. **Evidencia pública:** Blog de Viajes y wikiLoL; el archivo secundario queda
+   aplazado hasta que sus proyectos estén a la altura del conjunto.
 6. **Trayectoria:** experiencia, estudios, aprendizaje continuo y contacto.
 
 Los proyectos no deben ocupar la primera lectura como si Kevin todavía tuviera
@@ -231,7 +235,9 @@ establecido antes el stack profesional principal.
 
 ### 7. Otros proyectos
 
-- Archivo compacto en lugar de carrusel.
+- Componente implementado pero oculto temporalmente.
+- Recuperarlo sólo después del refactor de los proyectos secundarios.
+- Mantener un archivo compacto en lugar de carrusel cuando vuelva al recorrido.
 - Mostrar nombre, categoría, año, rol, stack esencial y estado del proyecto.
 - Destacar únicamente proyectos con repositorio, demo o explicación defendible.
 - Verificar Huellas y el resto antes de redactar afirmaciones nuevas.
@@ -418,14 +424,14 @@ conservador hasta revisarlos.
 - Redactar producto, estado, generación estática y media pipeline.
 - Verificar que ambos casos se sienten relacionados pero no clonados.
 
-### Checkpoint 4 — identidad y experiencia profesional — siguiente
+### Checkpoint 4 — identidad y experiencia profesional — completado
 
 - Replantear hero, navegación y orden del documento alrededor de Kevin.
 - Crear el bloque de experiencia en Inmatic sin información confidencial.
 - Separar stack principal, prácticas de ingeniería y tecnologías
   complementarias.
 - Integrar formación y certificaciones con una jerarquía secundaria.
-- Revisar copy ES/EN antes de implementar.
+- Revisar copy ES/EN en contexto tras la primera implementación.
 
 ### Checkpoint 5 — tours de producto, archivo y contacto
 

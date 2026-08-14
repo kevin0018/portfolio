@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {CaseStudySection} from "./components/CaseStudySection";
 import {HeroSection} from "./components/HeroSection";
-import {ProjectArchive} from "./components/ProjectArchive";
+import {ProfessionalJourney} from "./components/ProfessionalJourney";
 import {SiteHeader} from "./components/SiteHeader";
 import {travelBlogCaseStudy, wikiLolCaseStudy, type Language} from "./data/caseStudies";
 
@@ -24,9 +24,9 @@ function App() {
       <SiteHeader language={language} onLanguageChange={setLanguage} />
       <main>
         <HeroSection language={language} />
+        <ProfessionalJourney language={language} />
         <CaseStudySection caseStudy={wikiLolCaseStudy} language={language} />
         <CaseStudySection caseStudy={travelBlogCaseStudy} language={language} />
-        <ProjectArchive language={language} />
       </main>
       <footer className="site-footer" id="contacto">
         <div className="page-shell site-footer__inner">

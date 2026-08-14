@@ -1017,6 +1017,243 @@ img {
     content: "/";
 }
 
+/* Hallmark · section macrostructure: Long Document · professional record · no enrichment */
+.professional-record {
+    border-top: var(--rule);
+    border-bottom: var(--rule);
+    background: var(--color-paper-raised);
+    color: var(--color-ink);
+}
+
+.professional-record__inner {
+    padding-block: var(--space-20);
+}
+
+.professional-record__header {
+    display: grid;
+    min-width: 0;
+    gap: var(--space-6);
+    padding-bottom: var(--space-16);
+}
+
+.professional-record__header h2 {
+    min-width: 0;
+    max-width: 10ch;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-record-display);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+}
+
+.professional-record__header > p {
+    max-width: var(--size-copy);
+    margin: 0;
+    color: var(--color-ink-soft);
+    font-size: var(--text-body-lg);
+}
+
+.employment {
+    display: grid;
+    min-width: 0;
+    padding-block: var(--space-8) var(--space-16);
+    border-top: var(--rule-dark);
+}
+
+.employment__meta {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-bottom: var(--space-8);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+}
+
+.employment__meta p,
+.employment__meta time,
+.employment__meta span {
+    margin: 0;
+}
+
+.employment__meta p {
+    color: var(--color-accent);
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.employment__meta time {
+    color: var(--color-ink);
+    font-weight: 500;
+}
+
+.employment__meta span {
+    color: var(--color-ink-muted);
+}
+
+.employment__body,
+.employment__heading,
+.employment__responsibilities,
+.employment__responsibilities dl {
+    min-width: 0;
+}
+
+.employment__heading {
+    padding-bottom: var(--space-12);
+}
+
+.employment__heading > p:first-child {
+    margin: 0 0 var(--space-3);
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.employment__heading h3 {
+    min-width: 0;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-section);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 0.96;
+    overflow-wrap: anywhere;
+}
+
+.employment__introduction {
+    max-width: 62ch;
+    margin: var(--space-5) 0 0;
+    color: var(--color-ink-soft);
+    font-size: var(--text-case-body);
+}
+
+.employment__responsibilities-label {
+    margin: 0 0 var(--space-4);
+    color: var(--color-ink-muted);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.employment__responsibilities dl {
+    margin: 0;
+    border-top: var(--rule);
+}
+
+.employment__responsibilities dl > div {
+    display: grid;
+    min-width: 0;
+    gap: var(--space-3);
+    padding-block: var(--space-5);
+    border-bottom: var(--rule);
+}
+
+.employment__responsibilities dt {
+    color: var(--color-ink);
+    font-weight: 600;
+}
+
+.employment__responsibilities dd {
+    max-width: 66ch;
+    margin: 0;
+    color: var(--color-ink-soft);
+}
+
+.education-record {
+    display: grid;
+    min-width: 0;
+    gap: var(--space-8);
+    padding-block: var(--space-12);
+    border-bottom: var(--rule-dark);
+}
+
+.education-record > h3,
+.certification-record h3 {
+    min-width: 0;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    overflow-wrap: anywhere;
+}
+
+.education-record__list {
+    min-width: 0;
+}
+
+.education-record__list article {
+    display: grid;
+    min-width: 0;
+    gap: var(--space-3);
+    padding-block: var(--space-6);
+    border-top: var(--rule);
+}
+
+.education-record__list time {
+    color: var(--color-ink-muted);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+}
+
+.education-record__list h4 {
+    min-width: 0;
+    margin: 0;
+    font-size: 1.05rem;
+    overflow-wrap: anywhere;
+}
+
+.education-record__list p {
+    max-width: 62ch;
+    margin: var(--space-3) 0 0;
+    color: var(--color-ink-soft);
+}
+
+.education-record__list .education-record__institution {
+    margin-top: var(--space-1);
+    color: var(--color-ink);
+    font-weight: 500;
+}
+
+.certification-record {
+    display: grid;
+    min-width: 0;
+    gap: var(--space-8);
+    padding-top: var(--space-12);
+}
+
+.certification-record > div > p {
+    margin: var(--space-2) 0 0;
+    color: var(--color-ink-muted);
+    font-size: 0.8rem;
+}
+
+.certification-record ul {
+    display: grid;
+    min-width: 0;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    border-top: var(--rule);
+    list-style: none;
+}
+
+.certification-record li {
+    min-width: 0;
+    padding-block: var(--space-4);
+    border-bottom: var(--rule);
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
 .project-register {
     background: var(--color-paper);
     color: var(--color-ink);
@@ -1256,6 +1493,24 @@ img {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .employment,
+    .education-record,
+    .certification-record {
+        grid-template-columns: minmax(10rem, 0.34fr) minmax(0, 1fr);
+        column-gap: var(--space-12);
+    }
+
+    .employment__body {
+        padding-left: var(--space-12);
+        border-left: var(--rule);
+    }
+
+    .employment__responsibilities dl > div,
+    .education-record__list article {
+        grid-template-columns: minmax(10rem, 0.34fr) minmax(0, 1fr);
+        column-gap: var(--space-8);
+    }
+
     .project-register__item--huellas {
         grid-column: 1 / -1;
     }
@@ -1290,6 +1545,11 @@ img {
 }
 
 @media (min-width: 68.75rem) {
+    .professional-record__header {
+        grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.55fr);
+        align-items: end;
+    }
+
     .project-register__header {
         grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.65fr);
         align-items: end;

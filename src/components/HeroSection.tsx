@@ -17,7 +17,7 @@ const copy = {
     portraitAlt: "Ilustración en blanco y negro de Kevin Hernández",
     contact: "Contactar",
     cv: "Descargar CV",
-    next: "Ver proyectos",
+    next: "Ver experiencia",
   },
   en: {
     kicker: "Full Stack Developer · Barcelona",
@@ -31,7 +31,7 @@ const copy = {
     portraitAlt: "Black and white illustration of Kevin Hernández",
     contact: "Contact me",
     cv: "Download CV",
-    next: "View projects",
+    next: "View experience",
   },
 } as const;
 
@@ -54,7 +54,7 @@ export function HeroSection({language}: HeroSectionProps) {
         window.scrollY > 2
       ) return;
 
-      const nextSection = document.getElementById("wikilol");
+      const nextSection = document.getElementById("experiencia");
       if (!nextSection) return;
 
       event.preventDefault();
@@ -121,7 +121,7 @@ export function HeroSection({language}: HeroSectionProps) {
           </figure>
         </div>
 
-        <a className="hero__scroll" href="#wikilol" aria-label={text.next}>
+        <a className="hero__scroll" href="#experiencia" aria-label={text.next}>
           <span className="hero__scroll-arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="m6 9 6 6 6-6" />
