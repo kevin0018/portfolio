@@ -31,7 +31,8 @@ The first viewport belongs entirely to Kevin's identity: name, role, current
 company, primary stack, contact, and CV. His original halftone illustration is
 treated as an editorial image rather than a circular avatar on larger screens;
 mobile removes it to protect the reading hierarchy. A clipped word roller
-alternates continuously between backend and frontend with no overlap.
+cycles continuously in one direction through backend, frontend, and an
+invisible backend duplicate that closes the loop without a visual jump.
 A clear control at the bottom uses native smooth scrolling to move to the next document section.
 Projects then become full-width editorial chapters. On larger screens, each
 chapter pairs sticky visual evidence with scrolling technical decisions. On
@@ -61,7 +62,7 @@ carrier of state.
 
 ## Motion and interaction
 
-Motion is concentrated in the role statement: backend and frontend alternate
+Motion is concentrated in the role statement: backend and frontend circulate
 continuously through a clipped vertical word roller. A small centred downward
 arrow supplies the navigation cue. Links shift by a few pixels and visual framing
 follows the active story step. All transitions use opacity and transform.

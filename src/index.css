@@ -274,7 +274,7 @@ img {
 .hero-role__track {
     display: flex;
     flex-direction: column;
-    animation: hero-role-roll var(--dur-role-roll) var(--ease-in-out) var(--delay-role-roll) infinite alternate both;
+    animation: hero-role-roll calc(var(--dur-role-roll) * 2) var(--ease-in-out) var(--delay-role-roll) infinite both;
 }
 
 .hero-role:hover .hero-role__track,
@@ -584,12 +584,16 @@ img {
 }
 
 @keyframes hero-role-roll {
-    0%, 38% {
+    0%, 20% {
         transform: translateY(0);
     }
 
-    68%, 100% {
+    40%, 60% {
         transform: translateY(-1em);
+    }
+
+    80%, 100% {
+        transform: translateY(-2em);
     }
 }
 
