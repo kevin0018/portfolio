@@ -30,7 +30,7 @@ function App() {
       </main>
       <footer className="site-footer" id="contacto">
         <div className="page-shell site-footer__inner">
-          <p>{language === "es" ? "¿Construimos algo que merezca ser explicado?" : "Shall we build something worth explaining?"}</p>
+          <p>{language === "es" ? "¿Buscas un desarrollador Full Stack? Hablemos." : "Looking for a Full Stack Developer? Let's talk."}</p>
           <a href="mailto:akevin.2215@gmail.com">akevin.2215@gmail.com<span aria-hidden="true">↗</span></a>
           <div className="site-footer__meta">
             <span>Kevin Hernández · 2026</span>
