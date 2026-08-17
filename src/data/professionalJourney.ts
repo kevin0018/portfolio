@@ -77,6 +77,9 @@ export const education: EducationItem[] = [
 ];
 
 export const certifications = [
+  "DevOps Culture and Mindset",
+  "Using DevOps to Speed Up Time to Market",
+  "Keeping Work Organized with DevOps",
   "Working With DevOps Mindset",
   "Introducing DevOps Concepts",
 ] as const;
