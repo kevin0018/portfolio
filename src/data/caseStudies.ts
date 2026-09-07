@@ -25,7 +25,9 @@ export type CaseStudy = {
   summary: LocalizedText;
   image: string;
   imageAlt: LocalizedText;
-  demoUrl: string;
+  demoUrl?: string;
+  videoUrl?: string;
+  contribution?: LocalizedText;
   repositoryUrl: string;
   stack: string[];
   traceLabels: Record<Language, readonly string[]>;
@@ -316,6 +318,59 @@ export const travelBlogCaseStudy: CaseStudy = {
           en: "Journal · prerendered content",
         },
       },
+    },
+  ],
+};
+
+export const huellasCaseStudy: CaseStudy = {
+  slug: "huellas",
+  index: "03",
+  name: "Huellas",
+  descriptor: {es: "Cuidado de mascotas · Proyecto en equipo", en: "Pet care · Team project"},
+  summary: {
+    es: "La salud de cada mascota, en un solo lugar: historial, citas y un plan preventivo que se calcula a partir de los cuidados registrados.",
+    en: "Every pet’s health in one place: records, appointments, and a preventive plan calculated from recorded care.",
+  },
+  contribution: {
+    es: "Proyecto de Kevin Hernández, Adriana Elias, Aroa Granja y Fernanda Montalvan. Mi aportación: arquitectura, pruebas y backend, además de la modernización posterior. Diseño y branding originales: Aroa Granja.",
+    en: "A project by Kevin Hernández, Adriana Elias, Aroa Granja, and Fernanda Montalvan. My contribution: architecture, testing, and backend, plus subsequent modernization. Original design and branding: Aroa Granja.",
+  },
+  image: `${import.meta.env.BASE_URL}assets/images/huellas/health-book.png`,
+  imageAlt: {es: "Cartilla de salud de Huellas con datos ficticios de demostración", en: "Huellas health book with fictional demonstration data"},
+  videoUrl: "https://github.com/kevin0018/Huellas/blob/main/docs/media/huellas-tour.mp4",
+  repositoryUrl: "https://github.com/kevin0018/Huellas",
+  stack: ["React 19", "TypeScript", "Express", "Prisma", "MySQL", "Redis", "Playwright"],
+  traceLabels: {es: ["Historial", "Prevención", "Privacidad"], en: ["Records", "Prevention", "Privacy"]},
+  steps: [
+    {
+      id: "health-book",
+      label: {es: "Historial", en: "Records"},
+      title: {es: "Una historia de cuidados que se puede consultar", en: "A care history you can actually follow"},
+      body: {
+        es: "Cada mascota reúne eventos de salud, alergias, medicación y citas en un perfil persistente. La cartilla admite documentos privados y un resumen exportable en HTML para llevar la información fuera de la aplicación.",
+        en: "Each pet brings health events, allergies, medication, and appointments together in a persistent profile. The health book supports private documents and an exportable HTML summary to take the information beyond the app.",
+      },
+      evidence: {es: "React · servicios de aplicación · Prisma y MySQL · interfaz ES / EN / CA.", en: "React · application services · Prisma and MySQL · ES / EN / CA interface."},
+    },
+    {
+      id: "preventive-plan",
+      label: {es: "Prevención", en: "Prevention"},
+      title: {es: "El siguiente cuidado nace del historial", en: "The next care action starts with the history"},
+      body: {
+        es: "El plan calcula fechas y estados a partir de los cuidados registrados, la edad, la recurrencia y las ventanas configuradas. Así, el historial y lo pendiente comparten una misma lógica en lugar de mantener estados editables que pueden contradecirse.",
+        en: "The plan derives dates and statuses from recorded care, age, recurrence, and configured windows. History and upcoming care share the same logic instead of relying on editable statuses that can contradict each other.",
+      },
+      evidence: {es: "Reglas de negocio aisladas · monolito modular · pruebas de recorridos principales.", en: "Isolated business rules · modular monolith · core user journey tests."},
+    },
+    {
+      id: "selective-sharing",
+      label: {es: "Privacidad", en: "Privacy"},
+      title: {es: "Compartir una parte, durante un tiempo", en: "Share a selection, for a limited time"},
+      body: {
+        es: "El propietario elige secciones y fechas del resumen y genera un enlace con caducidad que puede revocar. Los adjuntos permanecen privados; la autorización también se comprueba en el servidor para el chat autenticado.",
+        en: "Owners choose summary sections and date ranges, then create an expiring link they can revoke. Attachments remain private; authorization is also checked on the server for authenticated chat.",
+      },
+      evidence: {es: "Controles de acceso · enlaces revocables · Socket.IO autenticado.", en: "Access controls · revocable links · authenticated Socket.IO."},
     },
   ],
 };

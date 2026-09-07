@@ -1682,3 +1682,11 @@ img {
         display: none;
     }
 }
+
+.case-study__contribution {
+    grid-column: 1;
+    max-width: 68ch;
+    margin: 0;
+    color: var(--color-paper-deep);
+    font-size: 0.85rem;
+}

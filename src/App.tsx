@@ -3,7 +3,7 @@ import {CaseStudySection} from "./components/CaseStudySection";
 import {HeroSection} from "./components/HeroSection";
 import {ProfessionalJourney} from "./components/ProfessionalJourney";
 import {SiteHeader} from "./components/SiteHeader";
-import {travelBlogCaseStudy, wikiLolCaseStudy, type Language} from "./data/caseStudies";
+import {huellasCaseStudy, travelBlogCaseStudy, wikiLolCaseStudy, type Language} from "./data/caseStudies";
 
 function getInitialLanguage(): Language {
   const stored = window.localStorage.getItem("portfolio-language");
@@ -27,6 +27,7 @@ function App() {
         <ProfessionalJourney language={language} />
         <CaseStudySection caseStudy={wikiLolCaseStudy} language={language} />
         <CaseStudySection caseStudy={travelBlogCaseStudy} language={language} />
+        <CaseStudySection caseStudy={huellasCaseStudy} language={language} />
       </main>
       <footer className="site-footer" id="contacto">
         <div className="page-shell site-footer__inner">
