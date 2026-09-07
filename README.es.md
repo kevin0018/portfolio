@@ -27,7 +27,7 @@ viven sus decisiones técnicas importantes.
 - Explora una composición interactiva de capturas con profundidad al mover el
   cursor, un índice visual, entradas al hacer scroll y una banda de contacto animada.
   Las animaciones se pueden pausar desde la cabecera.
-- Abre las demos de wikiLoL y Blog de Viajes, el vídeo de Huellas, los repositorios,
+- Abre las demos de los tres proyectos, el vídeo de Huellas, los repositorios,
   el CV y las vías de contacto desde la página.
 - Usa la interfaz con foco visible, objetivos mínimos de 44px y un modo específico
   de movimiento reducido.
@@ -141,5 +141,4 @@ respaldado ni patrocinado por Riot Games.
 
 Huellas es un proyecto con Adriana Elias, Aroa Granja y Fernanda Montalvan. Mi
 aportación abarca arquitectura, pruebas, backend y modernización posterior. El
-diseño y branding originales son de Aroa. Se enlaza el vídeo del proyecto, sin
-presentarlo como un despliegue full stack público.
+diseño y branding originales son de Aroa. Se enlazan la [demo de Huellas](https://huellas-frontend.vercel.app/) y el vídeo del proyecto.

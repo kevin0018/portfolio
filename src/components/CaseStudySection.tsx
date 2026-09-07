@@ -26,8 +26,13 @@ export function CaseStudySection({caseStudy, language}: CaseStudySectionProps) {
         {caseStudy.contribution && <p className="case-study__contribution">{caseStudy.contribution[language]}</p>}
         <div className="case-study__links">
           <a className="button button--project" href={caseStudy.demoUrl ?? caseStudy.videoUrl} target="_blank" rel="noreferrer">
-            {caseStudy.videoUrl ? (language === "es" ? "Ver vídeo · 3:10" : "Watch tour · 3:10") : (language === "es" ? "Abrir demo" : "Open demo")}<span aria-hidden="true">↗</span>
+            {!caseStudy.demoUrl && caseStudy.videoUrl ? (language === "es" ? "Ver vídeo · 3:10" : "Watch tour · 3:10") : (language === "es" ? "Abrir demo" : "Open demo")}<span aria-hidden="true">↗</span>
           </a>
+          {caseStudy.demoUrl && caseStudy.videoUrl && (
+            <a className="button button--project-text" href={caseStudy.videoUrl} target="_blank" rel="noreferrer">
+              {language === "es" ? "Ver vídeo · 3:10" : "Watch tour · 3:10"}<span aria-hidden="true">↗</span>
+            </a>
+          )}
           <a className="button button--project-text" href={caseStudy.repositoryUrl} target="_blank" rel="noreferrer">
             {language === "es" ? "Ver código" : "View code"}<span aria-hidden="true">↗</span>
           </a>

@@ -25,7 +25,7 @@ The visual work index precedes the three case studies; professional experience
 follows them and remains directly accessible from the desktop navigation.
 Scroll remains native for mouse, touch, and keyboard. Project previews use real
 captures without invented browser chrome. Huellas carries visible team attribution
-and links to its recorded tour instead of an undocumented public demo.
+and links to its demo at https://huellas-frontend.vercel.app/ and recorded tour.
 
 ## Typography
 
@@ -132,4 +132,4 @@ Scroll-driven case-study sequences have been replaced by manual galleries. Each
 project offers three named screens and full-size image links, with technical
 decisions in a native disclosure. Huellas frames come from the repository tour
 at 1:18, 1:34, and 1:52. The hero name has no trailing punctuation and the role
-roller completes its cycle in four seconds.
+roller completes its cycle in three seconds.

@@ -337,6 +337,7 @@ export const huellasCaseStudy: CaseStudy = {
   },
   image: `${import.meta.env.BASE_URL}assets/images/huellas/health-book.png`,
   imageAlt: {es: "Cartilla de salud de Huellas con datos ficticios de demostración", en: "Huellas health book with fictional demonstration data"},
+  demoUrl: "https://huellas-frontend.vercel.app/",
   videoUrl: "https://github.com/kevin0018/Huellas/blob/main/docs/media/huellas-tour.mp4",
   repositoryUrl: "https://github.com/kevin0018/Huellas",
   stack: ["React 19", "TypeScript", "Express", "Prisma", "MySQL", "Redis", "Playwright"],

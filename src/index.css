@@ -1851,7 +1851,7 @@ img {
 [data-motion-paused="true"] .hero-role__window { display: none; }
 [data-motion-paused="true"] .hero-role__static { display: block; font-size: clamp(1.35rem, 5vw, 2.5rem); }
 html:has([data-motion-paused="true"]) { scroll-behavior: auto; }
-.hero { --dur-role-roll: 4s; }
+.hero { --dur-role-roll: 3s; }
 .case-study--huellas .system-trace li span { color: var(--color-huellas-muted); }
 @media (max-width: 767px) { .project-stage { width: min(100% - 2.5rem, 28rem); } }
 

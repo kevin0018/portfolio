@@ -26,7 +26,7 @@ important technical decisions live.
   [Huellas](https://github.com/kevin0018/Huellas).
 - Explore an interactive project deck with pointer-driven depth, a visual work
   index, scroll entrances, and a moving contact marquee. Pause motion from the header.
-- Open live demos for wikiLoL and Blog de Viajes, and the recorded tour for Huellas.
+- Open live demos for all three projects, plus the recorded tour for Huellas.
   Source repositories, résumé, and contact routes remain directly accessible.
 - Use the interface with visible focus, 44px minimum targets, and a dedicated
   reduced-motion mode.
@@ -136,8 +136,7 @@ The repository must use **GitHub Actions** as its Pages source. The manual
 The portfolio preview contains captures from personal and team projects. Huellas
 was built with Adriana Elias, Aroa Granja, and Fernanda Montalvan. My contribution
 covers architecture, testing, backend, and subsequent modernization; Aroa created
-the original design and branding. Huellas links to a recorded tour, with no claim
-of a public full-stack deployment. League of
+the original design and branding. Huellas links to its [live demo](https://huellas-frontend.vercel.app/) and recorded tour. League of
 Legends imagery shown inside the wikiLoL capture belongs to Riot Games. wikiLoL
 is a non-commercial educational project and is not affiliated with, endorsed
 by, or sponsored by Riot Games.
