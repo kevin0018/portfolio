@@ -23,11 +23,12 @@ viven sus decisiones técnicas importantes.
 - Revisa casos verificados de
   [wikiLoL](https://github.com/kevin0018/wikiLoL),
   [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes) y
-  [Huellas](https://github.com/kevin0018/Huellas).
+  [Huellas](https://github.com/kevin0018/Huellas) y
+  [PokeShop](https://github.com/kevin0018/PokeShop).
 - Explora una composición interactiva de capturas con profundidad al mover el
   cursor, un índice visual, entradas al hacer scroll y una banda de contacto animada.
   Las animaciones se pueden pausar desde la cabecera.
-- Abre las demos de los tres proyectos, el vídeo de Huellas, los repositorios,
+- Abre las demos de los cuatro proyectos, el vídeo de Huellas, los repositorios,
   el CV y las vías de contacto desde la página.
 - Usa la interfaz con foco visible, objetivos mínimos de 44px y un modo específico
   de movimiento reducido.
@@ -142,3 +143,7 @@ respaldado ni patrocinado por Riot Games.
 Huellas es un proyecto con Adriana Elias, Aroa Granja y Fernanda Montalvan. Mi
 aportación abarca arquitectura, pruebas, backend y modernización posterior. El
 diseño y branding originales son de Aroa. Se enlazan la [demo de Huellas](https://huellas-frontend.vercel.app/) y el vídeo del proyecto.
+
+PokeShop es una demo educativa independiente con precios y stock ficticios,
+sin pagos ni pedidos reales. Los nombres e ilustraciones de Pokémon pertenecen
+a sus titulares; los datos y recursos proceden de PokéAPI.

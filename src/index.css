@@ -1887,3 +1887,16 @@ html:has([data-motion-paused="true"]) { scroll-behavior: auto; }
 [data-motion-paused="true"] .project-gallery img { animation: none !important; }
 
 button.project-stage__screen { padding: 0; text-align: left; width: 100%; }
+
+/* Four projects share the same selectable deck and visual index. */
+.project-stage__screen--3 { transform: translate3d(-48px, -92px, -150px) rotate(-19deg); filter: brightness(.4); z-index: 0; cursor: pointer; }
+.project-stage__selector { flex-wrap: wrap; }
+.selected-work__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
+.work-link:nth-child(n) { margin-top: 0; }
+.work-link:nth-child(even) { margin-top: 3rem; }
+.case-study--pokeshop { --color-project-accent: var(--color-stage-accent); --color-project-accent-soft: var(--color-stage-ink); background: var(--color-stage-deep); }
+@media (max-width: 767px) {
+  .selected-work__list { grid-template-columns: minmax(0, 1fr); }
+  .work-link:nth-child(n) { margin-top: 0; }
+  .project-stage__deck { bottom: 28%; }
+}

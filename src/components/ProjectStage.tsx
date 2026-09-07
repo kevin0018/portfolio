@@ -1,10 +1,10 @@
 import {useRef, useState, type PointerEvent} from "react";
-import {huellasCaseStudy, travelBlogCaseStudy, wikiLolCaseStudy, type Language} from "../data/caseStudies";
+import {featuredCaseStudies, type Language} from "../data/caseStudies";
 
-const projects = [wikiLolCaseStudy, travelBlogCaseStudy, huellasCaseStudy];
+const projects = featuredCaseStudies;
 
 export function ProjectStage({language}: {language: Language}) {
-  const [selected, setSelected] = useState(2);
+  const [selected, setSelected] = useState(projects.length - 1);
   const stageRef = useRef<HTMLDivElement>(null);
 
   function move(event: PointerEvent<HTMLDivElement>) {
@@ -51,7 +51,7 @@ export function ProjectStage({language}: {language: Language}) {
 export function SelectedWork({language}: {language: Language}) {
   return (
     <section className="selected-work page-shell" id="proyectos" aria-labelledby="selected-work-title">
-      <div className="selected-work__heading"><h2 id="selected-work-title">{language === "es" ? "Ideas llevadas a la práctica." : "Ideas brought to life."}</h2><span>{language === "es" ? "Tres proyectos, por dentro" : "Inside three projects"} ↙</span></div>
+      <div className="selected-work__heading"><h2 id="selected-work-title">{language === "es" ? "Ideas llevadas a la práctica." : "Ideas brought to life."}</h2><span>{language === "es" ? "Cuatro proyectos, por dentro" : "Inside four projects"} ↙</span></div>
       <div className="selected-work__list">
         {projects.map(project => <a className={`work-link work-link--${project.slug}`} href={`#${project.slug}`} key={project.slug}>
           <figure><img src={project.image} alt={project.imageAlt[language]} loading="lazy" width="1440" height="900" /></figure>

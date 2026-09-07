@@ -23,10 +23,11 @@ important technical decisions live.
 - Inspect verified case studies for
   [wikiLoL](https://github.com/kevin0018/wikiLoL),
   [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes), and
-  [Huellas](https://github.com/kevin0018/Huellas).
+  [Huellas](https://github.com/kevin0018/Huellas), and
+  [PokeShop](https://github.com/kevin0018/PokeShop).
 - Explore an interactive project deck with pointer-driven depth, a visual work
   index, scroll entrances, and a moving contact marquee. Pause motion from the header.
-- Open live demos for all three projects, plus the recorded tour for Huellas.
+- Open live demos for all four projects, plus the recorded tour for Huellas.
   Source repositories, résumé, and contact routes remain directly accessible.
 - Use the interface with visible focus, 44px minimum targets, and a dedicated
   reduced-motion mode.
@@ -140,3 +141,7 @@ the original design and branding. Huellas links to its [live demo](https://huell
 Legends imagery shown inside the wikiLoL capture belongs to Riot Games. wikiLoL
 is a non-commercial educational project and is not affiliated with, endorsed
 by, or sponsored by Riot Games.
+
+PokeShop is an independent educational demo with fictional prices and stock,
+without payments or real orders. Pokémon names and artwork belong to their
+rights holders; data and assets come from PokéAPI.

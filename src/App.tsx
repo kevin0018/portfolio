@@ -5,7 +5,7 @@ import {ProfessionalJourney} from "./components/ProfessionalJourney";
 import {MotionEffects} from "./components/MotionEffects";
 import {SelectedWork} from "./components/ProjectStage";
 import {SiteHeader} from "./components/SiteHeader";
-import {huellasCaseStudy, travelBlogCaseStudy, wikiLolCaseStudy, type Language} from "./data/caseStudies";
+import {featuredCaseStudies, type Language} from "./data/caseStudies";
 
 function getInitialLanguage(): Language {
   const stored = window.localStorage.getItem("portfolio-language");
@@ -29,9 +29,7 @@ function App() {
       <main>
         <HeroSection language={language} />
         <SelectedWork language={language} />
-        <CaseStudySection caseStudy={wikiLolCaseStudy} language={language} />
-        <CaseStudySection caseStudy={travelBlogCaseStudy} language={language} />
-        <CaseStudySection caseStudy={huellasCaseStudy} language={language} />
+        {featuredCaseStudies.map(caseStudy => <CaseStudySection key={caseStudy.slug} caseStudy={caseStudy} language={language} />)}
         <ProfessionalJourney language={language} />
       </main>
       <footer className="site-footer" id="contacto">

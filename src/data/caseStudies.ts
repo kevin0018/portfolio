@@ -375,3 +375,49 @@ export const huellasCaseStudy: CaseStudy = {
     },
   ],
 };
+
+export const pokeShopCaseStudy: CaseStudy = {
+  slug: "pokeshop",
+  index: "04",
+  name: "PokeShop",
+  descriptor: {es: "Tienda Pokémon · Demo full stack", en: "Pokémon shop · Full-stack demo"},
+  summary: {
+    es: "Explora Pokémon, comparte tus filtros y conserva tu carrito. Una tienda de demostración con Vue, FastAPI y PostgreSQL, desplegada en una VPS con HTTPS.",
+    en: "Explore Pokémon, share your filters, and keep your cart. A demo shop built with Vue, FastAPI, and PostgreSQL, deployed on a VPS with HTTPS.",
+  },
+  contribution: {
+    es: "Demo educativa independiente, sin pagos ni pedidos reales. Los nombres y las ilustraciones de Pokémon pertenecen a sus titulares; los datos y recursos proceden de PokéAPI. Sin afiliación oficial.",
+    en: "Independent educational demo, without payments or real orders. Pokémon names and artwork belong to their rights holders; data and assets come from PokéAPI. No official affiliation.",
+  },
+  image: `${import.meta.env.BASE_URL}assets/images/pokeshop/home.png`,
+  imageAlt: {es: "Portada de PokeShop con Bulbasaur, Charmander y Squirtle", en: "PokeShop home with Bulbasaur, Charmander, and Squirtle"},
+  demoUrl: "https://pokeshop-app.duckdns.org",
+  repositoryUrl: "https://github.com/kevin0018/PokeShop",
+  stack: ["Vue 3", "TypeScript", "FastAPI", "PostgreSQL", "Pinia", "Docker", "Playwright"],
+  traceLabels: {es: ["Catálogo", "Carrito", "Despliegue"], en: ["Catalog", "Cart", "Deployment"]},
+  steps: [
+    {
+      id: "catalog-import",
+      label: {es: "Datos", en: "Data"},
+      title: {es: "El catálogo no depende de una petición a PokéAPI", en: "The catalog does not depend on a PokéAPI request"},
+      body: {es: "La tienda consulta PostgreSQL. Un importador reanudable incorpora los datos de PokéAPI con concurrencia limitada, reintentos y guardado por producto. Las sincronizaciones conservan precios y stock existentes.", en: "The shop queries PostgreSQL. A resumable importer brings in PokéAPI data with bounded concurrency, retries, and per-product commits. Synchronization preserves existing prices and stock."},
+      evidence: {es: "FastAPI · SQLAlchemy · importación idempotente", en: "FastAPI · SQLAlchemy · idempotent imports"},
+    },
+    {
+      id: "persistent-cart",
+      label: {es: "Estado", en: "State"},
+      title: {es: "Un carrito que sobrevive a los errores de red", en: "A cart that survives network errors"},
+      body: {es: "El carrito conserva sus entradas en el navegador y actualiza los precios desde la API. Los filtros viven en la URL; los cambios provisionales se aplican o descartan explícitamente y las consultas obsoletas se cancelan.", en: "The cart preserves its entries in the browser and refreshes prices from the API. Filters live in the URL; provisional changes are explicitly applied or discarded, and stale requests are cancelled."},
+      evidence: {es: "Pinia · URL compartible · recuperación de estado", en: "Pinia · shareable URL · state recovery"},
+    },
+    {
+      id: "vps-deployment",
+      label: {es: "Entrega", en: "Delivery"},
+      title: {es: "De la aplicación a una demo pública con HTTPS", en: "From application to public HTTPS demo"},
+      body: {es: "Docker Compose separa frontend, API y base de datos. Nginx sirve la aplicación y dirige /api al backend; PostgreSQL permanece en una red privada. Las pruebas de navegador cubren catálogo, carrito, idiomas y temas.", en: "Docker Compose separates frontend, API, and database. Nginx serves the app and routes /api to the backend; PostgreSQL stays on a private network. Browser tests cover the catalog, cart, languages, and themes."},
+      evidence: {es: "Docker · Nginx · HTTPS · Playwright", en: "Docker · Nginx · HTTPS · Playwright"},
+    },
+  ],
+};
+
+export const featuredCaseStudies = [wikiLolCaseStudy, travelBlogCaseStudy, huellasCaseStudy, pokeShopCaseStudy];

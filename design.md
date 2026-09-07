@@ -11,7 +11,7 @@ enough evidence to inspect the decisions behind each project.
 ## Visual thesis
 
 **Working software on a kinetic blue stage.** The opening pairs Kevin's name
-with real screenshots of all three featured projects. A selectable deck moves
+with real screenshots of all four featured projects. A selectable deck moves
 in perspective with the pointer; clicking a rear card brings it forward, just like
 the selector buttons; its active screenshot links into the case study.
 The existing Barlow Condensed / IBM Plex identity remains recognizable.
@@ -21,7 +21,7 @@ The existing Barlow Condensed / IBM Plex identity remains recognizable.
 - Navigation: N5 floating navigation with work, experience, language, and motion controls.
 - Footer: Ft8 kinetic contact marquee with direct email and social links.
 
-The visual work index precedes the three case studies; professional experience
+The visual work index precedes the four case studies; professional experience
 follows them and remains directly accessible from the desktop navigation.
 Scroll remains native for mouse, touch, and keyboard. Project previews use real
 captures without invented browser chrome. Huellas carries visible team attribution
@@ -57,7 +57,7 @@ Content remains visible if decorative observers are unavailable.
 
 - 320–767px: stacked introduction and project deck; a single-column work index;
   manual galleries pair each selected screenshot with a short product explanation.
-- 768–1099px: split hero and staggered three-project index.
+- 768–1099px: split hero and staggered four-project index.
 - 1100px and above: manual galleries place the selected capture beside its explanation.
 
 ## Component rules
