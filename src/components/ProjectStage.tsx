@@ -23,19 +23,23 @@ export function ProjectStage({language}: {language: Language}) {
     <div className="project-stage" ref={stageRef} onPointerMove={move} onPointerLeave={reset}>
       <div className="project-stage__orbit" aria-hidden="true"><span>FRONTEND</span><span>BACKEND</span></div>
       <div className="project-stage__deck">
-        {projects.map((project, index) => (
-          <a
-            href={`#${project.slug}`}
-            className={`project-stage__screen project-stage__screen--${(index - selected + projects.length) % projects.length}`}
-            key={project.slug}
-            tabIndex={selected === index ? 0 : -1}
-            aria-hidden={selected !== index}
-            aria-label={`${language === "es" ? "Explorar" : "Explore"} ${project.name}`}
-          >
+        {projects.map((project, index) => {
+          const active = selected === index;
+          const className = `project-stage__screen project-stage__screen--${(index - selected + projects.length) % projects.length}`;
+          const content = <>
             <img src={project.image} alt={project.imageAlt[language]} width="1440" height="900" />
-            <span className="project-stage__caption"><strong>{project.name}</strong><span>{language === "es" ? "Explorar proyecto" : "Explore project"} ↗</span></span>
-          </a>
-        ))}
+            <span className="project-stage__caption"><strong>{project.name}</strong><span>{active ? (language === "es" ? "Explorar proyecto" : "Explore project") : (language === "es" ? "Ver proyecto" : "Preview project")} ↗</span></span>
+          </>;
+          return active ? (
+            <a href={`#${project.slug}`} className={className} key={project.slug} aria-label={`${language === "es" ? "Explorar" : "Explore"} ${project.name}`}>
+              {content}
+            </a>
+          ) : (
+            <button type="button" className={className} key={project.slug} onClick={() => setSelected(index)} aria-label={`${language === "es" ? "Mostrar" : "Show"} ${project.name}`}>
+              {content}
+            </button>
+          );
+        })}
       </div>
       <div className="project-stage__selector" role="group" aria-label={language === "es" ? "Vista previa del proyecto" : "Project preview"}>
         {projects.map((project, index) => <button type="button" key={project.slug} aria-pressed={selected === index} onClick={() => setSelected(index)}>{project.name}</button>)}

@@ -12,7 +12,8 @@ enough evidence to inspect the decisions behind each project.
 
 **Working software on a kinetic blue stage.** The opening pairs Kevin's name
 with real screenshots of all three featured projects. A selectable deck moves
-in perspective with the pointer; its active screenshot links into the case study.
+in perspective with the pointer; clicking a rear card brings it forward, just like
+the selector buttons; its active screenshot links into the case study.
 The existing Barlow Condensed / IBM Plex identity remains recognizable.
 
 - Audience: recruiters, engineering managers, and technical interviewers.
@@ -47,7 +48,7 @@ for Huellas. All values live in `tokens.css`; state also uses labels and shape.
 
 The opening combines typography entrances with a pointer-responsive project deck.
 Project switching animates depth and rotation; section introductions enter once
-with the Web Animations API. The footer marquee pauses on hover and focus.
+with the Web Animations API. The footer marquee continues on hover and pauses on keyboard focus.
 A header toggle pauses CSS motion and cancels active entrance animations.
 Reduced-motion preferences disable spatial transitions and smooth scrolling.
 Content remains visible if decorative observers are unavailable.
