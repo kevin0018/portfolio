@@ -1,4 +1,5 @@
-import {useEffect, useRef, useState} from "react";
+import {useState} from "react";
+import {projectGallery} from "../data/projectGallery";
 import type {CaseStudy, Language} from "../data/caseStudies";
 
 type CaseStudySectionProps = {
@@ -8,29 +9,8 @@ type CaseStudySectionProps = {
 
 export function CaseStudySection({caseStudy, language}: CaseStudySectionProps) {
   const [activeStep, setActiveStep] = useState(0);
-  const storyRef = useRef<HTMLDivElement>(null);
-  const hasMediaSequence = caseStudy.steps.every((step) => Boolean(step.media));
-  const activeMedia = caseStudy.steps[activeStep]?.media;
-
-  useEffect(() => {
-    const story = storyRef.current;
-    if (!story || !("IntersectionObserver" in window)) return;
-
-    const elements = Array.from(story.querySelectorAll<HTMLElement>("[data-story-step]"));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visible) setActiveStep(Number((visible.target as HTMLElement).dataset.storyStep));
-      },
-      {rootMargin: "-28% 0px -44%", threshold: [0.1, 0.35, 0.6]},
-    );
-
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, [caseStudy.slug]);
+  const views = projectGallery[caseStudy.slug];
+  const activeView = views[activeStep];
 
   return (
     <section className={`case-study case-study--${caseStudy.slug}`} id={caseStudy.slug} aria-labelledby={`${caseStudy.slug}-title`}>
@@ -54,66 +34,33 @@ export function CaseStudySection({caseStudy, language}: CaseStudySectionProps) {
         </div>
       </div>
 
-      <div className="case-study__story page-shell" ref={storyRef}>
-        <div className="case-study__evidence">
-          <figure className={`project-visual${hasMediaSequence ? " project-visual--sequence" : ""}`}>
-            <div className="project-visual__stage">
-              {hasMediaSequence ? caseStudy.steps.map((step, index) => {
-                const media = step.media!;
-
-                return (
-                  <img
-                    className={activeStep === index ? "is-active" : ""}
-                    src={media.src}
-                    width={media.width}
-                    height={media.height}
-                    alt={activeStep === index ? media.alt[language] : ""}
-                    aria-hidden={activeStep !== index}
-                    decoding="async"
-                    loading="lazy"
-                    key={step.id}
-                  />
-                );
-              }) : (
-                <img src={caseStudy.image} alt={caseStudy.imageAlt[language]} loading="lazy" />
-              )}
-            </div>
-            <figcaption>
-              <span>{activeMedia?.caption[language] ?? (language === "es" ? "Interfaz actual · captura real" : "Current interface · real capture")}</span>
-              <span>{String(activeStep + 1).padStart(2, "0")} / {String(caseStudy.steps.length).padStart(2, "0")}</span>
-            </figcaption>
-          </figure>
-
-          <ol className="system-trace" aria-label={language === "es" ? "Flujo del sistema" : "System flow"}>
-            {caseStudy.traceLabels[language].map((label, index) => (
-              <li className={activeStep === index ? "is-active" : ""} key={label} aria-current={activeStep === index ? "step" : undefined}>
-                <span>{String(index + 1).padStart(2, "0")}</span>{label}
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        <div className="case-study__steps">
-          {caseStudy.steps.map((step, index) => (
-            <article className={`story-step${activeStep === index ? " is-active" : ""}`} data-story-step={index} key={step.id}>
-              <div className="story-step__mobile-visual">
-                <img
-                  src={step.media?.src ?? caseStudy.image}
-                  width={step.media?.width}
-                  height={step.media?.height}
-                  alt={step.media?.alt[language] ?? caseStudy.imageAlt[language]}
-                  decoding="async"
-                  loading="lazy"
-                />
-                <span>{String(index + 1).padStart(2, "0")} / {String(caseStudy.steps.length).padStart(2, "0")}</span>
-              </div>
-              <p className="story-step__label">{String(index + 1).padStart(2, "0")} · {step.label[language]}</p>
-              <h3>{step.title[language]}</h3>
-              <p className="story-step__body">{step.body[language]}</p>
-              <p className="story-step__evidence">{step.evidence[language]}</p>
-            </article>
+      <div className="project-gallery page-shell">
+        <div className="project-gallery__choices" role="group" aria-label={language === "es" ? "Explorar pantallas" : "Explore screens"}>
+          {views.map((view, index) => (
+            <button type="button" key={view.image} aria-pressed={activeStep === index} aria-controls={`${caseStudy.slug}-screen`} onClick={() => setActiveStep(index)}>
+              {view.title[language]}
+            </button>
           ))}
         </div>
+        <div className="project-gallery__view" id={`${caseStudy.slug}-screen`}>
+          <figure>
+            <a href={activeView.image} target="_blank" rel="noreferrer" aria-label={language === "es" ? "Abrir captura a tamaño completo" : "Open full-size screenshot"}>
+              <img key={activeView.image} src={activeView.image} alt={activeView.alt[language]} width="1440" height="900" loading="lazy" />
+              <span className="project-gallery__zoom" aria-hidden="true">↗</span>
+            </a>
+            <figcaption>{language === "es" ? "Captura real · ampliar ↗" : "Real screenshot · enlarge ↗"}</figcaption>
+          </figure>
+          <div className="project-gallery__description" aria-live="polite">
+            <h3>{activeView.title[language]}</h3>
+            <p>{activeView.description[language]}</p>
+          </div>
+        </div>
+        <details className="project-decisions">
+          <summary>{language === "es" ? "Decisiones técnicas y mi aportación" : "Technical decisions and my contribution"}</summary>
+          <div className="project-decisions__list">
+            {caseStudy.steps.map(step => <article key={step.id}><h3>{step.title[language]}</h3><p>{step.body[language]}</p></article>)}
+          </div>
+        </details>
       </div>
 
       <div className="case-study__stack page-shell" aria-label={language === "es" ? "Tecnologías principales" : "Core technologies"}>

@@ -18,8 +18,8 @@ viven sus decisiones técnicas importantes.
 - Lee el sitio como un único documento nativo, sin interceptar rueda ni gestos.
 - Cambia entre español e inglés con detección del navegador y preferencia manual
   persistida.
-- Sigue las decisiones de cada proyecto mediante una historia lineal mobile-first
-  o una evidencia sticky en pantallas grandes.
+- Explora cada proyecto con una galería manual de capturas, explicaciones breves
+  del producto y detalles técnicos desplegables.
 - Revisa casos verificados de
   [wikiLoL](https://github.com/kevin0018/wikiLoL),
   [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes) y
@@ -39,7 +39,7 @@ flowchart LR
   visitor["Visitante"] --> app["Aplicación React"]
   app --> shell["Shell localizado del portfolio"]
   app --> cases["Datos tipados de casos"]
-  cases --> story["Sección narrativa reutilizable"]
+  cases --> story["Galería manual de proyectos"]
   observer["IntersectionObserver"] --> story
   tokens["Tokens de diseño portables"] --> shell
   tokens --> story
@@ -49,16 +49,15 @@ flowchart LR
 
 El modelo de contenido está separado de la presentación. Cada proyecto aporta
 su narrativa localizada, enlaces, stack, etiquetas del flujo y evidencia visual
-a un único componente reutilizable. JavaScript gestiona el selector de proyectos, el movimiento y el paso activo;
+a un único componente reutilizable. JavaScript gestiona el selector de proyectos, el movimiento y la captura seleccionada;
 el documento no depende de control del scroll ni de animaciones.
 
 ### Decisiones que merece la pena revisar
 
 - El scroll nativo sustituye el anterior cambio de vista disparado por la rueda.
-- En móvil cada captura permanece junto a su explicación; el sticky aparece solo
-  cuando existe suficiente espacio horizontal.
-- `IntersectionObserver` actualiza la traza activa sin manejar eventos de rueda,
-  toque o teclado.
+- Las galerías emparejan capturas reales con explicaciones breves. El visitante
+  elige la pantalla y puede desplegar las decisiones técnicas.
+- `IntersectionObserver` anima las entradas de sección sin controlar el scroll.
 - URLs y recursos locales respetan `BASE_URL`, manteniendo consistentes el entorno
   local y el despliegue de GitHub Pages bajo `/portfolio/`.
 - El idioma parte del navegador y guarda únicamente la preferencia explícita

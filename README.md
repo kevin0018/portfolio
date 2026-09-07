@@ -18,8 +18,8 @@ important technical decisions live.
 - Read the site as one native document without wheel or touch interception.
 - Switch between English and Spanish with browser detection and a persisted
   manual preference.
-- Follow project decisions through a mobile-first linear story or a sticky
-  evidence view on larger screens.
+- Explore each project through a manual screenshot gallery, short product
+  descriptions, and optional technical details.
 - Inspect verified case studies for
   [wikiLoL](https://github.com/kevin0018/wikiLoL),
   [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes), and
@@ -38,7 +38,7 @@ flowchart LR
   visitor["Visitor"] --> app["React application"]
   app --> shell["Localized portfolio shell"]
   app --> cases["Typed case-study data"]
-  cases --> story["Reusable scrollytelling section"]
+  cases --> story["Manual project gallery"]
   observer["IntersectionObserver"] --> story
   tokens["Portable design tokens"] --> shell
   tokens --> story
@@ -48,16 +48,15 @@ flowchart LR
 
 The content model is separate from presentation. Each project supplies its own
 localized narrative, links, stack, trace labels, and visual evidence to one
-reusable case-study component. JavaScript manages the project selector, decorative motion, and active story step;
+reusable case-study component. JavaScript manages the project selector, decorative motion, and the selected screenshot;
 the document remains usable without scroll control or animation.
 
 ### Decisions worth reviewing
 
 - Native document scroll replaces the previous wheel-triggered view switch.
-- The mobile layout keeps each screenshot beside its explanation; sticky media
-  is introduced only when the viewport has enough horizontal space.
-- `IntersectionObserver` updates the active architecture trace without handling
-  wheel, touch, or keyboard events.
+- Project galleries pair real screenshots with short explanations. Visitors choose
+  the screen; technical details are available in a native disclosure.
+- `IntersectionObserver` animates section entrances without controlling scroll.
 - Project URLs and local assets respect Vite's `BASE_URL`, keeping development
   and the `/portfolio/` GitHub Pages deployment consistent.
 - Language detection falls back to the browser and stores only the explicit

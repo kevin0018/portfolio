@@ -55,9 +55,9 @@ Content remains visible if decorative observers are unavailable.
 ## Responsive behaviour
 
 - 320–767px: stacked introduction and project deck; a single-column work index;
-  each case-study decision has inline visual evidence.
+  manual galleries pair each selected screenshot with a short product explanation.
 - 768–1099px: split hero and staggered three-project index.
-- 1100px and above: sticky case-study captures beside their explanations.
+- 1100px and above: manual galleries place the selected capture beside its explanation.
 
 ## Component rules
 
@@ -124,3 +124,11 @@ The canonical implementation is [`tokens.css`](./tokens.css).
   --radius: var(--radius-control);
 }
 ```
+
+## Project exploration
+
+Scroll-driven case-study sequences have been replaced by manual galleries. Each
+project offers three named screens and full-size image links, with technical
+decisions in a native disclosure. Huellas frames come from the repository tour
+at 1:18, 1:34, and 1:52. The hero name has no trailing punctuation and the role
+roller completes its cycle in four seconds.

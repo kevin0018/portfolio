@@ -8,7 +8,7 @@ const copy = {
   es: {
     kicker: "Full Stack Developer · Barcelona",
     title: ["Kevin", "Hernández"],
-    titleLabel: "Kevin Hernández.",
+    titleLabel: "Kevin Hernández",
     currentLabel: "Actualmente",
     current: "Inmatic · julio de 2024 — presente",
     roles: ["Backend", "Frontend"],
@@ -22,7 +22,7 @@ const copy = {
   en: {
     kicker: "Full Stack Developer · Barcelona",
     title: ["Kevin", "Hernández"],
-    titleLabel: "Kevin Hernández.",
+    titleLabel: "Kevin Hernández",
     currentLabel: "Currently",
     current: "Inmatic · July 2024 — present",
     roles: ["Backend", "Frontend"],
@@ -46,7 +46,7 @@ export function HeroSection({language}: HeroSectionProps) {
             <h1 id="hero-title" aria-label={text.titleLabel}>
               {text.title.map((line, index) => (
                 <span className={`hero-title__mask hero-title__mask--${index + 1}`} key={line} aria-hidden="true">
-                  <span>{line}{index === 1 && <span className="hero-title__stop">.</span>}</span>
+                  <span>{line}</span>
                 </span>
               ))}
             </h1>
