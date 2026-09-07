@@ -10,40 +10,21 @@ enough evidence to inspect the decisions behind each project.
 
 ## Visual thesis
 
-**Blue-grey paper, engineering ink, visible evidence.** The site uses an
-editorial layout with a restrained technical trace that connects product claims
-to their implementation. The paper surface is deliberately darker than a
-standard white screen to reduce glare without becoming a dark portfolio. The
-interface avoids dashboard cards, fake browser chrome, ambient gradients, and
-scroll hijacking.
+**Working software on a kinetic blue stage.** The opening pairs Kevin's name
+with real screenshots of all three featured projects. A selectable deck moves
+in perspective with the pointer; its active screenshot links into the case study.
+The existing Barlow Condensed / IBM Plex identity remains recognizable.
 
-- **Audience:** recruiters, engineering managers, and senior developers.
-- **Primary action:** understand Kevin's professional profile and continue into
-  his experience or selected work.
-- **Voice:** direct, specific, bilingual, and defensible.
-- **Macrostructure:** feature stack with one continuous native document scroll.
-- **Navigation:** compact edge-aligned identity, language control, and contact.
-- **Signature element:** a full-height identity hero pairing Kevin's original
-  monochrome illustration with one mechanical word roller for his two primary
-  areas of work: backend and frontend.
+- Audience: recruiters, engineering managers, and technical interviewers.
+- Macrostructure: Marquee Hero adapted around an interactive evidence deck.
+- Navigation: N5 floating navigation with work, experience, language, and motion controls.
+- Footer: Ft8 kinetic contact marquee with direct email and social links.
 
-## Composition
-
-The first viewport belongs entirely to Kevin's identity: name, role, current
-company, primary stack, contact, and CV. His original halftone illustration is
-treated as an editorial image rather than a circular avatar on larger screens;
-mobile removes it to protect the reading hierarchy. A clipped word roller
-cycles continuously in one direction through backend, frontend, and an
-invisible backend duplicate that closes the loop without a visual jump.
-A clear control at the bottom uses native smooth scrolling to move to the next document section.
-Projects then become full-width editorial chapters. On larger screens, each
-chapter pairs sticky visual evidence with scrolling technical decisions. On
-small screens, evidence and explanation stay in the same linear reading flow.
-
-Only the hero uses a viewport-relative minimum height. One downward wheel gesture
-from the document top hands off to the next section; scrolling remains native
-everywhere else. Touch and keyboard events are never intercepted. The footer
-closes with a direct collaboration statement rather than a second sitemap.
+The visual work index precedes the three case studies; professional experience
+follows them and remains directly accessible from the desktop navigation.
+Scroll remains native for mouse, touch, and keyboard. Project previews use real
+captures without invented browser chrome. Huellas carries visible team attribution
+and links to its recorded tour instead of an undocumented public demo.
 
 ## Typography
 
@@ -57,28 +38,26 @@ possible.
 
 ## Colour and material
 
-The base is a medium-light blue-grey technical paper rather than white.
-Blue-black ink replaces pure black. Verification blue is the only site-wide
-accent. Each case study may add one scoped project accent; wikiLoL uses archive
-gold. Colour is never the sole carrier of state.
+The hero and contact stage use deep blue, pale blue type, and slate-blue rules.
+The project index and experience use the original cool paper. Case studies
+carry scoped accents: gold for wikiLoL, warm travel paper, and botanical green
+for Huellas. All values live in `tokens.css`; state also uses labels and shape.
 
 ## Motion and interaction
 
-Motion is concentrated in the role statement: backend and frontend circulate
-continuously through a clipped vertical word roller. A small centred downward
-arrow supplies the navigation cue. Links shift by a few pixels and visual framing
-follows the active story step. All transitions use opacity and transform.
-`prefers-reduced-motion` presents the complete hero immediately and removes
-smooth scrolling. Touch targets are at least 44px, focus is visible, and no
-essential affordance depends on hover.
+The opening combines typography entrances with a pointer-responsive project deck.
+Project switching animates depth and rotation; section introductions enter once
+with the Web Animations API. The footer marquee pauses on hover and focus.
+A header toggle pauses CSS motion and cancels active entrance animations.
+Reduced-motion preferences disable spatial transitions and smooth scrolling.
+Content remains visible if decorative observers are unavailable.
 
 ## Responsive behaviour
 
-- **320–767px:** single-column hero without the portrait; each decision carries
-  its own nearby screenshot; no sticky project media; header contact remains
-  available through the document.
-- **768–1099px:** wider editorial rhythm; hero trace becomes more explicit.
-- **1100px and above:** sticky case-study evidence beside scrolling decisions.
+- 320–767px: stacked introduction and project deck; a single-column work index;
+  each case-study decision has inline visual evidence.
+- 768–1099px: split hero and staggered three-project index.
+- 1100px and above: sticky case-study captures beside their explanations.
 
 ## Component rules
 

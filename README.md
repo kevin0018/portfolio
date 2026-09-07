@@ -21,10 +21,13 @@ important technical decisions live.
 - Follow project decisions through a mobile-first linear story or a sticky
   evidence view on larger screens.
 - Inspect verified case studies for
-  [wikiLoL](https://github.com/kevin0018/wikiLoL) and
-  [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes).
-- Open each live product, source repository, résumé, and contact route directly
-  from the page.
+  [wikiLoL](https://github.com/kevin0018/wikiLoL),
+  [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes), and
+  [Huellas](https://github.com/kevin0018/Huellas).
+- Explore an interactive project deck with pointer-driven depth, a visual work
+  index, scroll entrances, and a moving contact marquee. Pause motion from the header.
+- Open live demos for wikiLoL and Blog de Viajes, and the recorded tour for Huellas.
+  Source repositories, résumé, and contact routes remain directly accessible.
 - Use the interface with visible focus, 44px minimum targets, and a dedicated
   reduced-motion mode.
 
@@ -45,7 +48,7 @@ flowchart LR
 
 The content model is separate from presentation. Each project supplies its own
 localized narrative, links, stack, trace labels, and visual evidence to one
-reusable case-study component. JavaScript only identifies the active story step;
+reusable case-study component. JavaScript manages the project selector, decorative motion, and active story step;
 the document remains usable without scroll control or animation.
 
 ### Decisions worth reviewing
@@ -131,7 +134,11 @@ The repository must use **GitHub Actions** as its Pages source. The manual
 
 ## Attribution
 
-The portfolio preview contains captures from projects I have built. League of
+The portfolio preview contains captures from personal and team projects. Huellas
+was built with Adriana Elias, Aroa Granja, and Fernanda Montalvan. My contribution
+covers architecture, testing, backend, and subsequent modernization; Aroa created
+the original design and branding. Huellas links to a recorded tour, with no claim
+of a public full-stack deployment. League of
 Legends imagery shown inside the wikiLoL capture belongs to Riot Games. wikiLoL
 is a non-commercial educational project and is not affiliated with, endorsed
 by, or sponsored by Riot Games.

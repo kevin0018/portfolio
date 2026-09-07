@@ -21,9 +21,14 @@ viven sus decisiones técnicas importantes.
 - Sigue las decisiones de cada proyecto mediante una historia lineal mobile-first
   o una evidencia sticky en pantallas grandes.
 - Revisa casos verificados de
-  [wikiLoL](https://github.com/kevin0018/wikiLoL) y
-  [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes).
-- Abre cada producto, repositorio, CV y vía de contacto desde la página.
+  [wikiLoL](https://github.com/kevin0018/wikiLoL),
+  [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes) y
+  [Huellas](https://github.com/kevin0018/Huellas).
+- Explora una composición interactiva de capturas con profundidad al mover el
+  cursor, un índice visual, entradas al hacer scroll y una banda de contacto animada.
+  Las animaciones se pueden pausar desde la cabecera.
+- Abre las demos de wikiLoL y Blog de Viajes, el vídeo de Huellas, los repositorios,
+  el CV y las vías de contacto desde la página.
 - Usa la interfaz con foco visible, objetivos mínimos de 44px y un modo específico
   de movimiento reducido.
 
@@ -44,7 +49,7 @@ flowchart LR
 
 El modelo de contenido está separado de la presentación. Cada proyecto aporta
 su narrativa localizada, enlaces, stack, etiquetas del flujo y evidencia visual
-a un único componente reutilizable. JavaScript solo identifica el paso activo;
+a un único componente reutilizable. JavaScript gestiona el selector de proyectos, el movimiento y el paso activo;
 el documento no depende de control del scroll ni de animaciones.
 
 ### Decisiones que merece la pena revisar
@@ -134,3 +139,8 @@ La vista previa contiene capturas de proyectos que he desarrollado. Las
 imágenes de League of Legends que aparecen dentro de wikiLoL pertenecen a Riot
 Games. wikiLoL es un proyecto educativo no comercial y no está afiliado,
 respaldado ni patrocinado por Riot Games.
+
+Huellas es un proyecto con Adriana Elias, Aroa Granja y Fernanda Montalvan. Mi
+aportación abarca arquitectura, pruebas, backend y modernización posterior. El
+diseño y branding originales son de Aroa. Se enlaza el vídeo del proyecto, sin
+presentarlo como un despliegue full stack público.

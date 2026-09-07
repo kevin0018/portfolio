@@ -86,3 +86,21 @@
   --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
+
+/* Hallmark · Marquee Hero · kinetic portfolio · existing blue identity · N5 / Ft8
+ * Audience: recruiters and engineering teams. Signature: interactive project deck.
+ * Pre-emit critique: P4 H4 E4 S5 R3 V4. */
+:root {
+  --color-stage: #102960;
+  --color-stage-deep: #0c1d42;
+  --color-stage-ink: #eff4ff;
+  --color-stage-muted: #b7c8e9;
+  --color-stage-rule: #3e5889;
+  --color-stage-accent: #b7d1ff;
+  --color-huellas-paper: #e9f0e8;
+  --color-huellas-accent: #325744;
+  --color-huellas-rule: #b3c8b5;
+  --color-huellas-muted: #526656;
+  --shadow-deck: 0 30px 65px -20px #030e2a99;
+  --shadow-nav: 0 8px 25px -12px #030e2a66;
+}

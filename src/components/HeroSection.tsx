@@ -1,5 +1,5 @@
-import {useEffect, useRef} from "react";
 import type {Language} from "../data/caseStudies";
+import {ProjectStage} from "./ProjectStage";
 import {HeroOpeningSequence} from "./HeroOpeningSequence";
 
 type HeroSectionProps = {language: Language};
@@ -17,7 +17,7 @@ const copy = {
     portraitAlt: "Ilustración en blanco y negro de Kevin Hernández",
     contact: "Contactar",
     cv: "Descargar CV",
-    next: "Ver experiencia",
+    next: "Ver proyectos",
   },
   en: {
     kicker: "Full Stack Developer · Barcelona",
@@ -31,52 +31,14 @@ const copy = {
     portraitAlt: "Black and white illustration of Kevin Hernández",
     contact: "Contact me",
     cv: "Download CV",
-    next: "View experience",
+    next: "View projects",
   },
 } as const;
 
 export function HeroSection({language}: HeroSectionProps) {
   const text = copy[language];
-  const heroRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    let isNavigating = false;
-    let unlockTimer: number | undefined;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    const handleWheel = (event: WheelEvent) => {
-      if (
-        !heroRef.current ||
-        isNavigating ||
-        event.ctrlKey ||
-        event.deltaY <= 12 ||
-        Math.abs(event.deltaY) <= Math.abs(event.deltaX) ||
-        window.scrollY > 2
-      ) return;
-
-      const nextSection = document.getElementById("experiencia");
-      if (!nextSection) return;
-
-      event.preventDefault();
-      isNavigating = true;
-      nextSection.scrollIntoView({
-        behavior: reducedMotion.matches ? "auto" : "smooth",
-        block: "start",
-      });
-      unlockTimer = window.setTimeout(() => {
-        isNavigating = false;
-      }, reducedMotion.matches ? 100 : 900);
-    };
-
-    window.addEventListener("wheel", handleWheel, {passive: false});
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      if (unlockTimer) window.clearTimeout(unlockTimer);
-    };
-  }, []);
-
   return (
-    <section ref={heroRef} className="hero" id="inicio" aria-labelledby="hero-title">
+    <section className="hero" id="inicio" aria-labelledby="hero-title">
       <div className="hero__inner">
         <div className="hero__stage">
           <div className="hero__mast">
@@ -112,16 +74,10 @@ export function HeroSection({language}: HeroSectionProps) {
             </div>
           </div>
 
-          <figure className="hero__portrait">
-            <img
-              src={`${import.meta.env.BASE_URL}assets/images/avatar.jpg`}
-              alt={text.portraitAlt}
-            />
-            <figcaption aria-hidden="true">KH / 01</figcaption>
-          </figure>
+          <ProjectStage language={language} />
         </div>
 
-        <a className="hero__scroll" href="#experiencia" aria-label={text.next}>
+        <a className="hero__scroll" href="#proyectos" aria-label={text.next}>
           <span className="hero__scroll-arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="m6 9 6 6 6-6" />
