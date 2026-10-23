@@ -75,7 +75,11 @@ button:active, .solid-link:active, .outline-link:active { transform: scale(.97);
 .practice-item > button { display: flex; justify-content: space-between; align-items: center; width: 100%; background: transparent; border: 0; text-align: left; padding: 1.3rem 0; font-size: clamp(1.1rem, 1.7vw, 1.5rem); }
 .practice-item > button span { font-size: 1.3rem; color: var(--muted); }
 .practice-item--active > button { color: var(--accent); }
-.practice-item__body p { padding-bottom: 1.6rem; color: var(--muted); line-height: 1.7; max-width: 40rem; animation: intro-in .45s var(--ease-out); }
+.practice-item > button { transition: color .35s ease; }
+.practice-item__body { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .6s cubic-bezier(.4, 0, .2, 1), opacity .4s ease; }
+.practice-item--active .practice-item__body { grid-template-rows: 1fr; opacity: 1; }
+.practice-item__content { min-height: 0; overflow: hidden; }
+.practice-item__body p { padding-bottom: 1.6rem; color: var(--muted); line-height: 1.7; max-width: 40rem; }
 .education-section { margin-top: var(--section-gap); }
 .education-records { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3.5rem; }
 .education-records article { padding: 2rem 0; border-top: 1px solid var(--edge); }

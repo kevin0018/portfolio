@@ -49,8 +49,8 @@ export function ProfessionalJourney({ language }: { language: Language }) {
               src={`${import.meta.env.BASE_URL}assets/images/avatar.jpg`}
               alt={
                 language === "es"
-                  ? "Retrato de Kevin Hernández"
-                  : "Portrait of Kevin Hernández"
+                  ? "Mi avatar ilustrado"
+                  : "My illustrated avatar"
               }
               width="800"
               height="800"
@@ -58,8 +58,8 @@ export function ProfessionalJourney({ language }: { language: Language }) {
             />
             <p>
               {language === "es"
-                ? "Detrás de la pantalla"
-                : "Behind the screen"}
+                ? "Mi versión ilustrada"
+                : "My illustrated self"}
             </p>
           </div>
           <div className="practice__list">
@@ -77,9 +77,6 @@ export function ProfessionalJourney({ language }: { language: Language }) {
                   aria-expanded={active === index}
                   aria-controls={`practice-${index}`}
                   onClick={() => setActive(index)}
-                  onPointerEnter={(event) => {
-                    if (event.pointerType === "mouse") setActive(index);
-                  }}
                 >
                   {item.area[language]}
                   <span aria-hidden="true">{active === index ? "−" : "+"}</span>
@@ -87,9 +84,12 @@ export function ProfessionalJourney({ language }: { language: Language }) {
                 <div
                   id={`practice-${index}`}
                   className="practice-item__body"
-                  hidden={active !== index}
+                  aria-hidden={active !== index}
+                  inert={active !== index}
                 >
-                  <p>{item.detail[language]}</p>
+                  <div className="practice-item__content">
+                    <p>{item.detail[language]}</p>
+                  </div>
                 </div>
               </div>
             ))}
