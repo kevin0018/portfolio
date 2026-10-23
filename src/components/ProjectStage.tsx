@@ -1,63 +1,135 @@
-import {useRef, useState, type PointerEvent} from "react";
-import {featuredCaseStudies, type Language} from "../data/caseStudies";
+import { useRef, type CSSProperties } from "react";
+import { featuredCaseStudies, type Language } from "../data/caseStudies";
+import { projectGallery } from "../data/projectGallery";
 
-const projects = featuredCaseStudies;
+export function SelectedWork({ language }: { language: Language }) {
+  const scene = useRef<HTMLElement>(null);
 
-export function ProjectStage({language}: {language: Language}) {
-  const [selected, setSelected] = useState(projects.length - 1);
-  const stageRef = useRef<HTMLDivElement>(null);
-
-  function move(event: PointerEvent<HTMLDivElement>) {
-    if (event.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    event.currentTarget.style.setProperty("--tilt-x", `${(event.clientX - rect.left - rect.width / 2) / rect.width * 12}deg`);
-    event.currentTarget.style.setProperty("--tilt-y", `${-(event.clientY - rect.top - rect.height / 2) / rect.height * 10}deg`);
-  }
-
-  function reset() {
-    stageRef.current?.style.setProperty("--tilt-x", "0deg");
-    stageRef.current?.style.setProperty("--tilt-y", "0deg");
+  function select(index: number) {
+    const root = scene.current;
+    if (!root) return;
+    if (document.documentElement.dataset.motionReduced === "true") {
+      const poster = root.querySelectorAll(".project-poster").item(index);
+      poster?.scrollIntoView({ behavior: "instant", block: "center" });
+      return;
+    }
+    const travel = root.offsetHeight - window.innerHeight;
+    window.scrollTo({
+      top:
+        root.getBoundingClientRect().top +
+        scrollY +
+        travel * (index / 4 + 0.08),
+      behavior: "smooth",
+    });
   }
 
   return (
-    <div className="project-stage" ref={stageRef} onPointerMove={move} onPointerLeave={reset}>
-      <div className="project-stage__orbit" aria-hidden="true"><span>FRONTEND</span><span>BACKEND</span></div>
-      <div className="project-stage__deck">
-        {projects.map((project, index) => {
-          const active = selected === index;
-          const className = `project-stage__screen project-stage__screen--${(index - selected + projects.length) % projects.length}`;
-          const content = <>
-            <img src={project.image} alt={project.imageAlt[language]} width="1440" height="900" />
-            <span className="project-stage__caption"><strong>{project.name}</strong><span>{active ? (language === "es" ? "Explorar proyecto" : "Explore project") : (language === "es" ? "Ver proyecto" : "Preview project")} ↗</span></span>
-          </>;
-          return active ? (
-            <a href={`#${project.slug}`} className={className} key={project.slug} aria-label={`${language === "es" ? "Explorar" : "Explore"} ${project.name}`}>
-              {content}
-            </a>
-          ) : (
-            <button type="button" className={className} key={project.slug} onClick={() => setSelected(index)} aria-label={`${language === "es" ? "Mostrar" : "Show"} ${project.name}`}>
-              {content}
+    <section
+      ref={scene}
+      className="work-posters scene"
+      id="proyectos"
+      data-scene="project-seam"
+      aria-labelledby="work-heading"
+    >
+      <div className="work-posters__stage">
+        <div className="work-posters__mast">
+          <h2 id="work-heading">
+            {language === "es" ? "Proyectos" : "Projects"}
+          </h2>
+          <p>
+            {language === "es"
+              ? "Del producto a sus decisiones."
+              : "From the product to its decisions."}
+          </p>
+        </div>
+        <div className="project-posters">
+          {featuredCaseStudies.map((project, index) => {
+            const second = projectGallery[project.slug]?.[1];
+            const name =
+              project.slug === "blog-de-viajes" ? (
+                <>
+                  Blog de
+                  <br />
+                  Viajes
+                </>
+              ) : (
+                project.name
+              );
+            return (
+              <article
+                className={`project-poster project-poster--${project.slug}`}
+                key={project.slug}
+                data-project-index={index}
+                style={{ "--project-index": index } as CSSProperties}
+              >
+                <div className="project-poster__pane project-poster__pane--left">
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt[language]}
+                    width="1440"
+                    height="900"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="project-poster__pane project-poster__pane--right">
+                  <img
+                    src={second?.image ?? project.image}
+                    alt={second?.alt[language] ?? project.imageAlt[language]}
+                    width="1440"
+                    height="900"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="project-poster__center">
+                  <h3>
+                    <span className="seam-title seam-title--left">{name}</span>
+                    <span
+                      className="seam-title seam-title--right"
+                      aria-hidden="true"
+                    >
+                      {name}
+                    </span>
+                  </h3>
+                  <p>{project.descriptor[language]}</p>
+                  <a className="solid-link" href={`#${project.slug}`}>
+                    {language === "es"
+                      ? "Explorar proyecto"
+                      : "Explore project"}
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+                <div className="project-poster__foot">
+                  <p>{project.summary[language]}</p>
+                  <span>{project.stack.slice(0, 3).join(" · ")}</span>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+        <div
+          className="work-switcher"
+          role="group"
+          aria-label={language === "es" ? "Ir al proyecto" : "Go to project"}
+        >
+          {featuredCaseStudies.map((project, index) => (
+            <button
+              type="button"
+              key={project.slug}
+              data-switch-index={index}
+              onClick={() => select(index)}
+              aria-label={`${language === "es" ? "Ver" : "View"} ${project.name}`}
+              aria-pressed={index === 0}
+            >
+              {project.name}
             </button>
-          );
-        })}
-      </div>
-      <div className="project-stage__selector" role="group" aria-label={language === "es" ? "Vista previa del proyecto" : "Project preview"}>
-        {projects.map((project, index) => <button type="button" key={project.slug} aria-pressed={selected === index} onClick={() => setSelected(index)}>{project.name}</button>)}
-      </div>
-    </div>
-  );
-}
-
-export function SelectedWork({language}: {language: Language}) {
-  return (
-    <section className="selected-work page-shell" id="proyectos" aria-labelledby="selected-work-title">
-      <div className="selected-work__heading"><h2 id="selected-work-title">{language === "es" ? "Ideas llevadas a la práctica." : "Ideas brought to life."}</h2><span>{language === "es" ? "Cuatro proyectos, por dentro" : "Inside four projects"} ↙</span></div>
-      <div className="selected-work__list">
-        {projects.map(project => <a className={`work-link work-link--${project.slug}`} href={`#${project.slug}`} key={project.slug}>
-          <figure><img src={project.image} alt={project.imageAlt[language]} loading="lazy" width="1440" height="900" /></figure>
-          <div><span className="work-link__descriptor">{project.descriptor[language]}</span><h3>{project.name}<span aria-hidden="true">↗</span></h3><p>{project.stack.slice(0, 3).join(" / ")}</p></div>
-        </a>)}
+          ))}
+        </div>
       </div>
     </section>
   );
+}
+
+// Retained for the earlier standalone hero while the current shell uses the poster.
+export function ProjectStage({ language }: { language: Language }) {
+  return <SelectedWork language={language} />;
 }

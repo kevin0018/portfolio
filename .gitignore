@@ -150,3 +150,6 @@ export/
 
 *.tmp
 ~$*
+
+# Local Taste Skill directions, screenshots and working notes
+.taste-skill/

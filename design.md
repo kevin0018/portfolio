@@ -1,135 +1,113 @@
-<!-- hallmark: portfolio-redesign-v1 -->
-# Portfolio design direction
+# Portfolio design system
 
-## Intent
+## Direction
 
-This portfolio is a recruiter-facing professional introduction, not a gallery
-of technology logos. It should let a hiring manager understand Kevin's role,
-current experience, and primary stack quickly, then give a technical reviewer
-enough evidence to inspect the decisions behind each project.
+**The pinned poster**, generated with Taste Skill (`design-taste-frontend`),
+seed **1261000740**. This is the implemented visual system, not a roadmap.
 
-## Visual thesis
+Kevin's real software is the material. His name holds opposite corners of the
+opening while the work passes between them. Projects are split into two views
+of the same product. Opposing motion separates the title at that boundary and
+reassembles it as the project centres. The visitor can turn an actual product
+capture over to see its verified architecture.
 
-**Working software on a kinetic blue stage.** The opening pairs Kevin's name
-with real screenshots of all four featured projects. A selectable deck moves
-in perspective with the pointer; clicking a rear card brings it forward, just like
-the selector buttons; its active screenshot links into the case study.
-The existing Barlow Condensed / IBM Plex identity remains recognizable.
+The site presents a developer's work through moving posters, rather than a
+chronology. Professional experience and education have distinct factual records.
+No fabricated clients, testimonials, awards, counters or outcome metrics.
 
-- Audience: recruiters, engineering managers, and technical interviewers.
-- Macrostructure: Marquee Hero adapted around an interactive evidence deck.
-- Navigation: N5 floating navigation with work, experience, language, and motion controls.
-- Footer: Ft8 kinetic contact marquee with direct email and social links.
+## Palette
 
-The visual work index precedes the four case studies; professional experience
-follows them and remains directly accessible from the desktop navigation.
-Scroll remains native for mouse, touch, and keyboard. Project previews use real
-captures without invented browser chrome. Huellas carries visible team attribution
-and links to its demo at https://huellas-frontend.vercel.app/ and recorded tour.
+The dealt palette is **Cobalt on sand**:
+
+| Token                | Value     | Role                                     |
+| -------------------- | --------- | ---------------------------------------- |
+| `--bg`               | `#e6dbc7` | Main sand ground                         |
+| `--surface`          | `#ddd0b9` | Open disclosures and supporting surfaces |
+| `--ink` / `--accent` | `#062b8a` | Type and primary actions                 |
+| `--muted`            | `#3a5aa8` | Secondary factual labels                 |
+| `--field`            | `#c7d3e8` | Work and archive ground                  |
+| `--field-deep`       | `#b6c7e4` | Inactive project controls                |
+
+All interface colour and font roles are defined in `tokens.css`. Product captures
+retain their real colours. There are no decorative gradients, floating card
+shadows, fake browser frames or decorative index numbers.
 
 ## Typography
 
-- **Display:** Barlow Condensed, 700–800. Compact, assertive project headlines.
-- **Body:** IBM Plex Sans, 400–600. Clear long-form technical explanations.
-- **Code/metadata:** IBM Plex Mono, 400–500. Architecture labels and evidence.
+- **Unbounded 800:** monumental name, project titles and section headings.
+- **Onest 400/500:** explanatory copy, links, controls and professional records.
+- Display leading: 0.95–1.12; tracking: -0.03 to -0.065em.
+- Body: 17–19px, with 18px first-screen supporting copy.
+- Long qualifications are preserved as body text beneath concise field headings.
 
-System fallbacks preserve the layout if web fonts are unavailable. Display
-headlines use balanced wrapping and body copy stays within 66 characters where
-possible.
+The normal desktop frame uses equal responsive gutters of 16–32px. Real image
+captures are unframed and square-cornered. Buttons use one solid rectangular
+shape; secondary actions are text links.
 
-## Colour and material
+## Composition
 
-The hero and contact stage use deep blue, pale blue type, and slate-blue rules.
-The project index and experience use the original cool paper. Case studies
-carry scoped accents: gold for wikiLoL, warm travel paper, and botanical green
-for Huellas. All values live in `tokens.css`; state also uses labels and shape.
+1. **Pinned opening:** Kevin at the upper-left, Hernández at the lower-right;
+   product capture and professional introduction fill the middle. The four
+   product controls change both sides of the interactive product/architecture flip.
+2. **Torn-seam work:** two opposing screenshot panes and two clipped halves of
+   a project title. Native scroll advances all four real projects in a three-screen
+   stage; direct project controls move to each phase. The readable title phase
+   dominates, with stronger tearing restricted to its entry and exit.
+3. **Experience:** current employment facts beside a wide introduction, then a
+   real portrait beside an interactive list of responsibilities.
+4. **Education:** two records, with complete qualification, institution, period
+   and description. DevOps certifications retain their individual titles.
+5. **Archive:** a large project preview responds to hover, focus and selection
+   of a list of additional projects.
+6. **Contact:** a solid contact sheet over a moving real product capture, followed
+   by the surname at monumental scale.
 
-## Motion and interaction
+## Motion
 
-The opening combines typography entrances with a pointer-responsive project deck.
-Project switching animates depth and rotation; section introductions enter once
-with the Web Animations API. The footer marquee continues on hover and pauses on keyboard focus.
-A header toggle pauses CSS motion and cancels active entrance animations.
-Reduced-motion preferences disable spatial transitions and smooth scrolling.
-Content remains visible if decorative observers are unavailable.
+The two held stages use native document scroll and `position: sticky`.
+`MotionEffects` owns their progress, title displacement, pane movement, active
+project semantics and reduced composition. No wheel/touch interception or loading
+screen. The hero picture rotates and grows with scroll; its two faces turn in
+perspective when selected. Image replacement opens with a horizontal wipe.
 
-## Responsive behaviour
+Section parts enter independently with the Web Animations API. Buttons move in
+response to hover, disclosures open to their real content, the case-study dialog
+enters from below, and the footer capture drifts slowly. Motion tokens live beside
+the colour tokens. A pause control and reduced-motion preference expose every
+project as a normal flowing section and keep all content reachable.
 
-- 320–767px: stacked introduction and project deck; a single-column work index;
-  manual galleries pair each selected screenshot with a short product explanation.
-- 768–1099px: split hero and staggered four-project index.
-- 1100px and above: manual galleries place the selected capture beside its explanation.
+The title tear uses a fourth-power envelope: the two halves align for most of the
+project's phase and separate near its boundaries. It does not cover the action.
 
-## Component rules
+## Product exploration
 
-- Buttons use sentence case and never wrap.
-- Screenshots are real interface captures without decorative browser shells.
-- Architecture diagrams are semantic HTML/CSS, not illustrative filler.
-- Numbering is reserved for genuine narrative sequences.
-- Rounded containers are limited to controls and media, never used as a default
-  page grammar.
+The four featured projects open a native modal dialog through stable hashes:
+`#wikilol`, `#blog-de-viajes`, `#huellas`, `#pokeshop`. Each includes a three-screen
+gallery, full-size image links, live demo, source, complete technical decisions,
+and attribution. Escape closes it, scroll position is retained and focus returns
+to the opening link. Direct hashes and browser history work with the same dialog.
 
-## Exports
+Huellas retains the contribution of Kevin Hernández, Adriana Elias, Aroa Granja,
+and Fernanda Montalvan; original design and branding belong to Aroa Granja.
+PokeShop remains a fictional educational shop with no payments or real orders.
 
-### CSS
+## Phone composition
 
-The canonical implementation is [`tokens.css`](./tokens.css).
+The actual capture comes before the professional introduction; the name remains
+split between the corners. Project navigation wraps into a two-by-two selector.
+The split-screen project scene retains its opposing panes with a shorter title
+excursion. Employment facts follow the introduction, education records stack,
+and archive preview becomes a full-width image above the list. The contact sheet
+fills the available width. The case-study dialog uses the entire phone viewport.
 
-### Tailwind v4
+## References and scope
 
-```css
-@theme {
-  --color-paper: var(--color-paper);
-  --color-ink: var(--color-ink);
-  --color-muted: var(--color-ink-muted);
-  --color-accent: var(--color-accent);
-  --color-project: var(--color-project-accent);
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
-  --font-mono: var(--font-mono);
-}
-```
+Taste Skill supplied the direction, type, palette and section geometry. Its
+portrait-parade about section was exchanged for the side-facts blueprint because
+this portfolio introduces one developer. Actual project captures replace the
+photograph slots. No stock pictures were introduced. Existing React, TypeScript,
+Vite and Tailwind tooling are retained.
 
-### DTCG tokens.json
-
-```json
-{
-  "color": {
-    "$type": "color",
-    "paper": {"$value": "oklch(0.935 0.014 235)"},
-    "ink": {"$value": "oklch(0.19 0.025 245)"},
-    "accent": {"$value": "oklch(0.55 0.18 245)"},
-    "projectAccent": {"$value": "oklch(0.78 0.15 80)"}
-  },
-  "space": {
-    "$type": "dimension",
-    "1": {"$value": {"value": 0.25, "unit": "rem"}},
-    "4": {"$value": {"value": 1, "unit": "rem"}},
-    "8": {"$value": {"value": 2, "unit": "rem"}}
-  }
-}
-```
-
-### shadcn/ui variables
-
-```css
-:root {
-  --background: var(--color-paper);
-  --foreground: var(--color-ink);
-  --primary: var(--color-ink);
-  --primary-foreground: var(--color-paper-raised);
-  --muted: var(--color-paper-deep);
-  --muted-foreground: var(--color-ink-muted);
-  --accent: var(--color-accent);
-  --border: var(--color-rule);
-  --radius: var(--radius-control);
-}
-```
-
-## Project exploration
-
-Scroll-driven case-study sequences have been replaced by manual galleries. Each
-project offers three named screens and full-size image links, with technical
-decisions in a native disclosure. Huellas frames come from the repository tour
-at 1:18, 1:34, and 1:52. The hero name has no trailing punctuation and the role
-roller completes its cycle in three seconds.
+`design.md` is a versioned design specification. Generated direction sheets,
+implementation notes, measurement reports, scene captures and critique rounds
+remain local under ignored `.taste-skill/`.

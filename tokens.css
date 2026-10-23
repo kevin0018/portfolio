@@ -1,106 +1,28 @@
-/* Hallmark · macrostructure: Feature Stack · tone: editorial-technical · anchor hue: verification blue · theme: custom · vibe: cold-paper engineering trace · axes: cold-paper / condensed-display / blue-accent */
-/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · contrast: pass (40–41) · nav: N9 · footer: Ft5 · mobile: pass (34, 49, 50–57) */
+/* Taste Skill · The pinned poster · seed 1261000740 · Cobalt on sand */
 :root {
   color-scheme: light;
-
-  --color-paper: oklch(0.935 0.014 235);
-  --color-paper-deep: oklch(0.885 0.02 235);
-  --color-paper-raised: oklch(0.965 0.01 235);
-  --color-ink: oklch(0.19 0.025 245);
-  --color-ink-soft: oklch(0.27 0.026 245);
-  --color-ink-muted: oklch(0.47 0.024 245);
-  --color-rule: oklch(0.76 0.025 235);
-  --color-rule-dark: oklch(0.38 0.025 245);
-  --color-accent: oklch(0.55 0.18 245);
-  --color-accent-ink: oklch(0.985 0.006 235);
-  --color-accent-hover: oklch(0.48 0.18 245);
-  --color-accent-soft: oklch(0.84 0.055 245);
-  --color-project-accent: oklch(0.78 0.15 80);
-  --color-project-accent-soft: oklch(0.9 0.07 80);
-  --color-project-ink: oklch(0.955 0.012 235);
-  --color-travel-paper: oklch(0.95 0.025 92);
-  --color-travel-accent: oklch(0.68 0.16 86);
-  --color-travel-accent-soft: oklch(0.88 0.09 90);
-  --color-travel-rule: oklch(0.78 0.035 92);
-  --color-error: oklch(0.53 0.2 28);
-  --color-success: oklch(0.52 0.13 150);
-
-  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
-  --font-body: "IBM Plex Sans", Arial, sans-serif;
-  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
-
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-  --space-32: 8rem;
-
-  --size-content: 76rem;
-  --size-copy: 42rem;
-  --size-header: 4.5rem;
-  --size-touch: 2.75rem;
-  --size-trace-dot: 0.6rem;
-  --size-trace-signal: 0.5rem;
-  --size-trace-offset: 0.25rem;
-  --size-trace-travel: 10rem;
-  --size-hero: calc(100svh - var(--size-header));
-  --radius-control: 0.25rem;
-  --radius-media: 0.5rem;
-  --rule: 1px solid var(--color-rule);
-  --rule-dark: 1px solid var(--color-rule-dark);
-  --shadow-focus: 0 0 0 3px var(--color-accent-soft);
-  --shadow-media: 0 1.5rem 4rem oklch(0.08 0.025 245 / 0.2);
-
-  --text-display: clamp(4rem, 18vw, 11.5rem);
-  --text-hero-name: clamp(4rem, 11vw, 8.75rem);
-  --text-hero-role: clamp(2rem, 6vw, 4rem);
-  --text-display-project: clamp(4.4rem, 17vw, 9rem);
-  --text-record-display: clamp(4rem, 10vw, 7.5rem);
-  --text-section: clamp(2.5rem, 9vw, 4.5rem);
-  --text-archive-title: clamp(2rem, 5vw, 3.25rem);
-  --text-body-lg: clamp(1.05rem, 2vw, 1.25rem);
-  --text-case-body: clamp(1.05rem, 2vw, 1.2rem);
-  --text-footer: clamp(3rem, 12vw, 6.5rem);
-  --dur-fast: 140ms;
-  --dur-base: 220ms;
-  --dur-intro: 760ms;
-  --dur-trace: 1800ms;
-  --dur-role-roll: 1500ms;
-  --dur-scroll-cue: 1100ms;
-  --delay-role-roll: 440ms;
-  --delay-hero-start: 0ms;
-  --delay-intro-1: 80ms;
-  --delay-intro-2: 180ms;
-  --delay-intro-3: 360ms;
-  --delay-intro-4: 500ms;
-  --delay-intro-5: 640ms;
+  --bg: #e6dbc7;
+  --surface: #ddd0b9;
+  --ink: #062b8a;
+  --muted: #3a5aa8;
+  --accent: #062b8a;
+  --accent-ink: #e6dbc7;
+  --field: #c7d3e8;
+  --field-deep: #b6c7e4;
+  --backdrop: #062b8acc;
+  --font-display: "Unbounded", "Arial Black", sans-serif;
+  --font-body: "Onest", Arial, sans-serif;
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2rem, 1.3rem + 3.2vw, 4rem);
+  --step-display: clamp(3rem, 9.15vw, 10rem);
+  --gutter: clamp(1rem, 2.2vw, 2rem);
+  --section-gap: clamp(7.5rem, 12vw, 12rem);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-/* Hallmark · Marquee Hero · kinetic portfolio · existing blue identity · N5 / Ft8
- * Audience: recruiters and engineering teams. Signature: interactive project deck.
- * Pre-emit critique: P4 H4 E4 S5 R3 V4. */
-:root {
-  --color-stage: #102960;
-  --color-stage-deep: #0c1d42;
-  --color-stage-ink: #eff4ff;
-  --color-stage-muted: #b7c8e9;
-  --color-stage-rule: #3e5889;
-  --color-stage-accent: #b7d1ff;
-  --color-huellas-paper: #e9f0e8;
-  --color-huellas-accent: #325744;
-  --color-huellas-rule: #b3c8b5;
-  --color-huellas-muted: #526656;
-  --shadow-deck: 0 30px 65px -20px #030e2a99;
-  --shadow-nav: 0 8px 25px -12px #030e2a66;
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --t-hover: 200ms;
+  --t-ui: 400ms;
+  --t-reveal: 850ms;
 }

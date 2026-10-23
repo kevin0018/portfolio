@@ -1,94 +1,144 @@
-import type {Language} from "../data/caseStudies";
-import {certifications, currentExperience, education} from "../data/professionalJourney";
+import { useState } from "react";
+import {
+  currentExperience,
+  education,
+  certifications,
+} from "../data/professionalJourney";
+import type { Language } from "../data/caseStudies";
 
-type ProfessionalJourneyProps = {language: Language};
-
-const copy = {
-  es: {
-    title: "Experiencia y formación",
-    introduction: "Construyo software de producto combinando backend, frontend e integraciones, con una base técnica que sigo ampliando.",
-    workLabel: "Experiencia actual",
-    workDetail: "Responsabilidades principales",
-    education: "Formación",
-    certifications: "Certificaciones DevOps",
-    certificationIssuer: "University of California, Davis",
-  },
-  en: {
-    title: "Experience and education",
-    introduction: "I build product software across backend, frontend, and integrations while continuing to deepen my engineering foundations.",
-    workLabel: "Current experience",
-    workDetail: "Core responsibilities",
-    education: "Education",
-    certifications: "DevOps certifications",
-    certificationIssuer: "University of California, Davis",
-  },
-} as const;
-
-export function ProfessionalJourney({language}: ProfessionalJourneyProps) {
-  const text = copy[language];
-
+export function ProfessionalJourney({ language }: { language: Language }) {
+  const [active, setActive] = useState(0);
   return (
-    <section className="professional-record" id="experiencia" aria-labelledby="professional-record-title">
-      <div className="page-shell professional-record__inner">
-        <header className="professional-record__header">
-          <h2 id="professional-record-title">{text.title}</h2>
-          <p>{text.introduction}</p>
-        </header>
-
-        <article className="employment" aria-labelledby="employment-title">
-          <div className="employment__meta">
-            <p>{text.workLabel}</p>
-            <time dateTime="2024-07">{currentExperience.period[language]}</time>
-            <span>{currentExperience.location[language]}</span>
-          </div>
-
-          <div className="employment__body">
-            <header className="employment__heading">
-              <p>{currentExperience.company}</p>
-              <h3 id="employment-title">{currentExperience.role}</h3>
-              <p className="employment__introduction">{currentExperience.introduction[language]}</p>
-            </header>
-
-            <div className="employment__responsibilities">
-              <p className="employment__responsibilities-label">{text.workDetail}</p>
-              <dl>
-                {currentExperience.responsibilities.map((responsibility) => (
-                  <div key={responsibility.area.en}>
-                    <dt>{responsibility.area[language]}</dt>
-                    <dd>{responsibility.detail[language]}</dd>
-                  </div>
-                ))}
-              </dl>
+    <>
+      <section
+        className="experience-section page-gutter"
+        id="experiencia"
+        aria-labelledby="experience-heading"
+      >
+        <h2 className="section-heading" id="experience-heading" data-reveal>
+          {language === "es" ? "Experiencia" : "Experience"}
+        </h2>
+        <div className="experience-overview">
+          <dl data-reveal>
+            <div>
+              <dt>{language === "es" ? "Actualmente" : "Currently"}</dt>
+              <dd>{currentExperience.company}</dd>
             </div>
+            <div>
+              <dt>{language === "es" ? "Desde" : "Since"}</dt>
+              <dd>{currentExperience.period[language]}</dd>
+            </div>
+            <div>
+              <dt>{language === "es" ? "Dónde" : "Where"}</dt>
+              <dd>{currentExperience.location[language]}</dd>
+            </div>
+          </dl>
+          <div className="experience-statement" data-reveal>
+            <h3>{currentExperience.role}</h3>
+            <p>{currentExperience.introduction[language]}</p>
+            <p>
+              {language === "es"
+                ? "Mi día a día combina Python, Django, Vue y TypeScript con integraciones en C# y PostgreSQL. Me interesa entender lo que pasa a ambos lados de una interfaz."
+                : "My daily work combines Python, Django, Vue, and TypeScript with C# integrations and PostgreSQL. I want to understand what happens on both sides of an interface."}
+            </p>
           </div>
-        </article>
-
-        <section className="education-record" aria-labelledby="education-title">
-          <h3 id="education-title">{text.education}</h3>
-          <div className="education-record__list">
-            {education.map((item) => (
-              <article key={item.institution}>
-                <time>{item.period[language]}</time>
-                <div>
-                  <h4>{item.qualification[language]}</h4>
-                  <p className="education-record__institution">{item.institution}</p>
+        </div>
+        <div className="practice">
+          <div className="practice__visual" data-reveal>
+            <img
+              src={`${import.meta.env.BASE_URL}assets/images/avatar.jpg`}
+              alt={
+                language === "es"
+                  ? "Retrato de Kevin Hernández"
+                  : "Portrait of Kevin Hernández"
+              }
+              width="800"
+              height="800"
+              loading="lazy"
+            />
+            <p>
+              {language === "es"
+                ? "Detrás de la pantalla"
+                : "Behind the screen"}
+            </p>
+          </div>
+          <div className="practice__list">
+            <h3 data-reveal>
+              {language === "es" ? "De extremo a extremo" : "From end to end"}
+            </h3>
+            {currentExperience.responsibilities.map((item, index) => (
+              <div
+                className={`practice-item ${active === index ? "practice-item--active" : ""}`}
+                key={item.area.en}
+                data-reveal
+              >
+                <button
+                  type="button"
+                  aria-expanded={active === index}
+                  aria-controls={`practice-${index}`}
+                  onClick={() => setActive(index)}
+                  onPointerEnter={(event) => {
+                    if (event.pointerType === "mouse") setActive(index);
+                  }}
+                >
+                  {item.area[language]}
+                  <span aria-hidden="true">{active === index ? "−" : "+"}</span>
+                </button>
+                <div
+                  id={`practice-${index}`}
+                  className="practice-item__body"
+                  hidden={active !== index}
+                >
                   <p>{item.detail[language]}</p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <section
+          className="education-section"
+          id="formacion"
+          aria-labelledby="education-heading"
+        >
+          <h2 className="section-heading" id="education-heading" data-reveal>
+            {language === "es" ? "Formación" : "Education"}
+          </h2>
+          <div className="education-records">
+            {education.map((item) => (
+              <article key={item.institution} data-reveal>
+                <p>{item.period[language]}</p>
+                <h3>
+                  {item.institution.includes("Oberta")
+                    ? language === "es"
+                      ? "Ingeniería Informática"
+                      : "Computer Engineering"
+                    : language === "es"
+                      ? "Desarrollo web"
+                      : "Web Development"}
+                </h3>
+                <p>{item.qualification[language]}</p>
+                <strong>{item.institution}</strong>
+                <p>{item.detail[language]}</p>
               </article>
             ))}
           </div>
-        </section>
-
-        <aside className="certification-record" aria-labelledby="certification-title">
-          <div>
-            <h3 id="certification-title">{text.certifications}</h3>
-            <p>{text.certificationIssuer}</p>
+          <div className="certification-line" data-reveal>
+            <h3>
+              {language === "es"
+                ? "Certificaciones DevOps"
+                : "DevOps certifications"}
+            </h3>
+            <div>
+              <p>University of California, Davis</p>
+              <ul>
+                {certifications.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <ul>
-            {certifications.map((certification) => <li key={certification}>{certification}</li>)}
-          </ul>
-        </aside>
-      </div>
-    </section>
+        </section>
+      </section>
+    </>
   );
 }

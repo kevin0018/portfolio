@@ -4,9 +4,10 @@
 
 [![Desplegar portfolio](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml)
 
-Un portfolio basado en evidencias que presenta proyectos full-stack como casos
-de ingeniería: qué resuelve el producto, qué fronteras lo sostienen y dónde
-viven sus decisiones técnicas importantes.
+Mi portfolio full stack interactivo: productos reales presentados como pósteres
+en movimiento, una portada con mi nombre dividido, un giro de producto a
+arquitectura y títulos que se separan y se alinean al hacer scroll. Diseñado
+con Taste Skill.
 
 [Ver portfolio](https://kevin0018.github.io/portfolio/) ·
 [Descargar CV](./public/assets/files/CV_Kevin_Hernandez_Deras.pdf)
@@ -15,57 +16,59 @@ viven sus decisiones técnicas importantes.
 
 ## Puntos destacados
 
-- Lee el sitio como un único documento nativo, sin interceptar rueda ni gestos.
-- Cambia entre español e inglés con detección del navegador y preferencia manual
-  persistida.
-- Explora cada proyecto con una galería manual de capturas, explicaciones breves
-  del producto y detalles técnicos desplegables.
-- Revisa casos verificados de
-  [wikiLoL](https://github.com/kevin0018/wikiLoL),
-  [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes) y
+- Explora cuatro productos reales en un escenario de pósteres animados con scroll.
+- Gira cada captura de la portada para descubrir su frontend, la frontera de
+  aplicación, el backend y las fuentes de datos verificadas.
+- Abre casos bilingües de [wikiLoL](https://github.com/kevin0018/wikiLoL),
+  [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes),
   [Huellas](https://github.com/kevin0018/Huellas) y
-  [PokeShop](https://github.com/kevin0018/PokeShop).
-- Explora una composición interactiva de capturas con profundidad al mover el
-  cursor, un índice visual, entradas al hacer scroll y una banda de contacto animada.
-  Las animaciones se pueden pausar desde la cabecera.
-- Abre las demos de los cuatro proyectos, el vídeo de Huellas, los repositorios,
-  el CV y las vías de contacto desde la página.
-- Usa la interfaz con foco visible, objetivos mínimos de 44px y un modo específico
-  de movimiento reducido.
+  [PokeShop](https://github.com/kevin0018/PokeShop), con galerías de pantallas,
+  imágenes a tamaño completo, decisiones técnicas, demos y repositorios.
+- Consulta mi trabajo actual en Inmatic, mi formación y mis certificaciones DevOps.
+- Descubre otros proyectos con un archivo visual interactivo.
+- Cambia entre español e inglés con preferencia persistida. Pausa el movimiento
+  desde la cabecera.
+- Accede a cada caso mediante su hash. Escape cierra el diálogo y el foco vuelve
+  al control que lo abrió.
 
 ## Arquitectura
 
 ```mermaid
 flowchart LR
-  visitor["Visitante"] --> app["Aplicación React"]
-  app --> shell["Shell localizado del portfolio"]
-  app --> cases["Datos tipados de casos"]
-  cases --> story["Galería manual de proyectos"]
-  observer["IntersectionObserver"] --> story
-  tokens["Tokens de diseño portables"] --> shell
-  tokens --> story
-  vite["Build de Vite"] --> dist["Salida estática /dist"]
-  dist --> pages["GitHub Pages"]
+  visitor["Visitante"] --> app["Shell React bilingüe"]
+  app --> hero["Giro producto / arquitectura"]
+  app --> work["Pósteres de proyectos"]
+  work --> cases["Diálogo enlazado por hash"]
+  content["Contenido tipado verificado"] --> hero
+  content --> work
+  content --> cases
+  scroll["Scroll nativo + requestAnimationFrame"] --> work
+  observer["IntersectionObserver + Web Animations"] --> app
+  tokens["Tokens arena / cobalto"] --> app
+  vite["Build Vite"] --> pages["GitHub Pages"]
 ```
 
-El modelo de contenido está separado de la presentación. Cada proyecto aporta
-su narrativa localizada, enlaces, stack, etiquetas del flujo y evidencia visual
-a un único componente reutilizable. JavaScript gestiona el selector de proyectos, el movimiento y la captura seleccionada;
-el documento no depende de control del scroll ni de animaciones.
+El contenido está separado de la presentación en módulos TypeScript bilingües.
+Los cuatro productos comparten un componente de galería y decisiones técnicas.
+Las vistas de arquitectura describen la implementación real de cada producto;
+no son interfaces de aplicación inventadas.
 
 ### Decisiones que merece la pena revisar
 
-- El scroll nativo sustituye el anterior cambio de vista disparado por la rueda.
-- Las galerías emparejan capturas reales con explicaciones breves. El visitante
-  elige la pantalla y puede desplegar las decisiones técnicas.
-- `IntersectionObserver` anima las entradas de sección sin controlar el scroll.
-- URLs y recursos locales respetan `BASE_URL`, manteniendo consistentes el entorno
-  local y el despliegue de GitHub Pages bajo `/portfolio/`.
-- El idioma parte del navegador y guarda únicamente la preferencia explícita
-  `es` o `en` en local storage.
-- Una capa portable de tokens OKLCH define color, tipografía, espacio, tiempos,
-  reglas y tipografía responsive al margen de las utilidades de Tailwind.
-- `prefers-reduced-motion` elimina el scroll suave y las transiciones espaciales.
+- El scroll nativo dirige dos escenas breves con elementos sticky sin interceptar
+  la rueda ni los gestos táctiles.
+- Las imágenes se desplazan en sentidos opuestos. La separación del título está
+  acotada para mantener la acción del proyecto libre de solapamientos.
+- `MotionEffects` agrupa las actualizaciones con `requestAnimationFrame` y anima
+  las entradas de las partes de cada sección con Web Animations.
+- Pausar el movimiento o solicitar movimiento reducido muestra los cuatro
+  proyectos en el flujo normal. El estado interactivo sigue al estado visual.
+- Los diálogos nativos admiten Escape, restauración del foco, hashes e historial.
+- Capturas y CV respetan `BASE_URL` para el despliegue en GitHub Pages.
+- `tokens.css` define la paleta de Taste Skill, las fuentes Unbounded/Onest y los
+  tiempos de movimiento.
+- Las propuestas generadas, críticas y capturas quedan en `.taste-skill/`, ignorado
+  por Git. El sistema de diseño implementado se versiona en `design.md`.
 
 ## Stack
 
@@ -73,7 +76,8 @@ el documento no depende de control del scroll ni de animaciones.
 - **Build:** Vite 8
 - **Interfaz:** Tailwind CSS 4 y sistema CSS propio basado en tokens
 - **Contenido:** módulos tipados y bilingües de casos de estudio
-- **Interacción:** anclas nativas e `IntersectionObserver`
+- **Interacción:** scroll, anclas y diálogos nativos, `requestAnimationFrame`,
+  `IntersectionObserver` y Web Animations
 - **Entrega:** pnpm 11, GitHub Actions y GitHub Pages
 
 ## Estructura del proyecto
@@ -81,18 +85,19 @@ el documento no depende de control del scroll ni de animaciones.
 ```text
 portfolio/
 ├── .github/workflows/        # Despliegue verificado a Pages
-├── docs/                     # Planificación y preview del repositorio
+├── docs/                     # Vista previa real del repositorio
 ├── public/assets/            # CV y capturas reales de proyectos
 ├── src/components/           # Shell y secciones narrativas reutilizables
 ├── src/data/                 # Casos tipados y bilingües
-├── design.md                 # Dirección visual y de interacción bloqueada
+├── design.md                 # Sistema visual e interacciones implementadas
 ├── tokens.css                # Tokens de diseño portables
 ├── package.json
 └── vite.config.ts
 ```
 
-Los componentes anteriores permanecen en el repositorio mientras termina el
-rediseño, pero la entrada activa ya utiliza el nuevo shell de casos de estudio.
+La aplicación activa utiliza los pósteres, los registros profesionales y los
+casos de estudio en diálogo. Los componentes independientes anteriores se
+conservan en el árbol de fuentes.
 
 ## Desarrollo local
 

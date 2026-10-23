@@ -1,76 +1,186 @@
-import {useState} from "react";
-import {projectGallery} from "../data/projectGallery";
-import type {CaseStudy, Language} from "../data/caseStudies";
+import { useEffect, useRef, useState } from "react";
+import type { CaseStudy, Language } from "../data/caseStudies";
+import { projectGallery } from "../data/projectGallery";
 
-type CaseStudySectionProps = {
-  caseStudy: CaseStudy;
-  language: Language;
-};
+type Props = { caseStudy: CaseStudy; language: Language; onClose: () => void };
 
-export function CaseStudySection({caseStudy, language}: CaseStudySectionProps) {
-  const [activeStep, setActiveStep] = useState(0);
-  const views = projectGallery[caseStudy.slug];
-  const activeView = views[activeStep];
+export function CaseStudyDialog({
+  caseStudy: project,
+  language,
+  onClose,
+}: Props) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const [selected, setSelected] = useState(0);
+  const gallery = projectGallery[project.slug] ?? [];
+  const view = gallery[selected];
+
+  useEffect(() => {
+    const node = dialog.current;
+    const previous =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+    node?.showModal();
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      node?.close();
+      document.body.style.overflow = overflow;
+      previous?.focus({ preventScroll: true });
+    };
+  }, []);
 
   return (
-    <section className={`case-study case-study--${caseStudy.slug}`} id={caseStudy.slug} aria-labelledby={`${caseStudy.slug}-title`}>
-      <div className="case-study__intro page-shell">
-        <div className="case-study__marker">
-          <span>{caseStudy.index}</span>
-          <span>{caseStudy.descriptor[language]}</span>
+    <dialog
+      ref={dialog}
+      className="case-dialog"
+      aria-labelledby="case-title"
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <div className="case-dialog__sheet">
+        <div className="case-dialog__bar">
+          <span>{project.descriptor[language]}</span>
+          <button
+            className="close-case"
+            type="button"
+            onClick={onClose}
+            autoFocus
+          >
+            {language === "es" ? "Cerrar" : "Close"}
+            <span aria-hidden="true">×</span>
+          </button>
         </div>
-        <div className="case-study__heading">
-          <h2 id={`${caseStudy.slug}-title`}>{caseStudy.name}</h2>
-          <p>{caseStudy.summary[language]}</p>
-        </div>
-        {caseStudy.contribution && <p className="case-study__contribution">{caseStudy.contribution[language]}</p>}
-        <div className="case-study__links">
-          <a className="button button--project" href={caseStudy.demoUrl ?? caseStudy.videoUrl} target="_blank" rel="noreferrer">
-            {!caseStudy.demoUrl && caseStudy.videoUrl ? (language === "es" ? "Ver vídeo · 3:10" : "Watch tour · 3:10") : (language === "es" ? "Abrir demo" : "Open demo")}<span aria-hidden="true">↗</span>
-          </a>
-          {caseStudy.demoUrl && caseStudy.videoUrl && (
-            <a className="button button--project-text" href={caseStudy.videoUrl} target="_blank" rel="noreferrer">
-              {language === "es" ? "Ver vídeo · 3:10" : "Watch tour · 3:10"}<span aria-hidden="true">↗</span>
+        <h2 id="case-title">{project.name}</h2>
+        <div className="case-intro">
+          <p>{project.summary[language]}</p>
+          <div className="case-links">
+            {project.demoUrl && (
+              <a
+                className="solid-link"
+                href={project.demoUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {language === "es" ? "Abrir demo" : "Open demo"}
+                <span aria-hidden="true">↗</span>
+              </a>
+            )}
+            <a href={project.repositoryUrl} target="_blank" rel="noreferrer">
+              {language === "es" ? "Ver código" : "View source"}
             </a>
-          )}
-          <a className="button button--project-text" href={caseStudy.repositoryUrl} target="_blank" rel="noreferrer">
-            {language === "es" ? "Ver código" : "View code"}<span aria-hidden="true">↗</span>
-          </a>
+            {project.videoUrl && (
+              <a href={project.videoUrl} target="_blank" rel="noreferrer">
+                {language === "es" ? "Ver vídeo" : "Watch tour"}
+              </a>
+            )}
+          </div>
         </div>
-      </div>
-
-      <div className="project-gallery page-shell">
-        <div className="project-gallery__choices" role="group" aria-label={language === "es" ? "Explorar pantallas" : "Explore screens"}>
-          {views.map((view, index) => (
-            <button type="button" key={view.image} aria-pressed={activeStep === index} aria-controls={`${caseStudy.slug}-screen`} onClick={() => setActiveStep(index)}>
-              {view.title[language]}
-            </button>
+        <div className="case-stack">
+          {project.stack.map((item) => (
+            <span key={item}>{item}</span>
           ))}
         </div>
-        <div className="project-gallery__view" id={`${caseStudy.slug}-screen`}>
-          <figure>
-            <a href={activeView.image} target="_blank" rel="noreferrer" aria-label={language === "es" ? "Abrir captura a tamaño completo" : "Open full-size screenshot"}>
-              <img key={activeView.image} src={activeView.image} alt={activeView.alt[language]} width="1440" height="900" loading="lazy" />
-              <span className="project-gallery__zoom" aria-hidden="true">↗</span>
+        {view && (
+          <div className="case-gallery">
+            <div
+              className="case-gallery__tabs"
+              role="group"
+              aria-label={
+                language === "es" ? "Pantallas del proyecto" : "Project screens"
+              }
+            >
+              {gallery.map((item, index) => (
+                <button
+                  type="button"
+                  key={item.image}
+                  onClick={() => setSelected(index)}
+                  aria-pressed={selected === index}
+                >
+                  {item.title[language]}
+                </button>
+              ))}
+            </div>
+            <a
+              className="case-gallery__image"
+              href={view.image}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={
+                language === "es"
+                  ? "Abrir captura a tamaño completo"
+                  : "Open full-size screenshot"
+              }
+            >
+              <img
+                key={view.image}
+                src={view.image}
+                alt={view.alt[language]}
+                width="1440"
+                height="900"
+              />
             </a>
-            <figcaption>{language === "es" ? "Captura real · ampliar ↗" : "Real screenshot · enlarge ↗"}</figcaption>
-          </figure>
-          <div className="project-gallery__description" aria-live="polite">
-            <h3>{activeView.title[language]}</h3>
-            <p>{activeView.description[language]}</p>
+            <p className="case-gallery__caption" aria-live="polite">
+              {view.description[language]}
+            </p>
           </div>
-        </div>
-        <details className="project-decisions">
-          <summary>{language === "es" ? "Decisiones técnicas y mi aportación" : "Technical decisions and my contribution"}</summary>
-          <div className="project-decisions__list">
-            {caseStudy.steps.map(step => <article key={step.id}><h3>{step.title[language]}</h3><p>{step.body[language]}</p></article>)}
+        )}
+        <section className="case-decisions" aria-labelledby="decisions-heading">
+          <h3 id="decisions-heading">
+            {language === "es" ? "Las decisiones" : "The decisions"}
+          </h3>
+          <div>
+            {project.steps.map((step) => (
+              <details key={step.id}>
+                <summary>
+                  {step.title[language]}
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <p>{step.body[language]}</p>
+                <p className="case-evidence">{step.evidence[language]}</p>
+              </details>
+            ))}
           </div>
-        </details>
+        </section>
+        {project.contribution && (
+          <p className="case-attribution">{project.contribution[language]}</p>
+        )}
+        {project.slug === "wikilol" && (
+          <p className="case-attribution">
+            {language === "es"
+              ? "Proyecto educativo independiente. Las imágenes de League of Legends pertenecen a Riot Games. Sin afiliación ni patrocinio oficial."
+              : "Independent educational project. League of Legends imagery belongs to Riot Games. No official affiliation or sponsorship."}
+          </p>
+        )}
+        <button
+          className="solid-link case-back"
+          type="button"
+          onClick={onClose}
+        >
+          {language === "es" ? "Volver a proyectos" : "Back to projects"}
+          <span aria-hidden="true">↙</span>
+        </button>
       </div>
+    </dialog>
+  );
+}
 
-      <div className="case-study__stack page-shell" aria-label={language === "es" ? "Tecnologías principales" : "Core technologies"}>
-        {caseStudy.stack.map((item) => <span key={item}>{item}</span>)}
-      </div>
-    </section>
+export function CaseStudySection({
+  caseStudy,
+  language,
+}: {
+  caseStudy: CaseStudy;
+  language: Language;
+}) {
+  return (
+    <a href={`#${caseStudy.slug}`}>
+      {caseStudy.name}
+      {language === "es" ? " — explorar" : " — explore"}
+    </a>
   );
 }

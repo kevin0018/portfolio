@@ -1,56 +1,78 @@
-import type {Language} from "../data/caseStudies";
-import {projectArchive} from "../data/projectArchive";
+import { useState } from "react";
+import { projectArchive } from "../data/projectArchive";
+import type { Language } from "../data/caseStudies";
 
-type ProjectArchiveProps = {
-  language: Language;
-};
+const projects = projectArchive.filter((project) => project.slug !== "huellas");
 
-export function ProjectArchive({language}: ProjectArchiveProps) {
+export function ProjectArchive({ language }: { language: Language }) {
+  const [active, setActive] = useState(0);
   return (
-    <section className="project-register" id="archivo" aria-labelledby="project-register-title">
-      <div className="project-register__inner page-shell">
-        <header className="project-register__header">
-          <h2 id="project-register-title">{language === "es" ? "Otros proyectos" : "Other projects"}</h2>
-          <p>
-            {language === "es"
-              ? "Una selección de proyectos anteriores que completa el recorrido."
-              : "A selection of earlier projects that completes the picture."}
-          </p>
-        </header>
-
-        <ol className="project-register__list">
-          {projectArchive.map((project) => (
-            <li className={`project-register__item project-register__item--${project.slug}`} key={project.slug}>
-              <figure className="project-register__preview" aria-hidden="true">
-                <img src={project.image} alt="" loading="lazy" decoding="async" />
-              </figure>
-
-              <div className="project-register__content">
-                <p className="project-register__category">{project.category[language]}</p>
-                <h3>{project.name}</h3>
-                <p className="project-register__summary">{project.summary[language]}</p>
-                <ul className="project-register__stack" aria-label={language === "es" ? "Tecnologías principales" : "Core technologies"}>
-                  {project.stack.map((technology) => <li key={technology}>{technology}</li>)}
-                </ul>
-              </div>
-
-              {(project.demoUrl || project.repositoryUrl) && (
-                <div className="project-register__links">
-                  {project.demoUrl && (
-                    <a href={project.demoUrl} target="_blank" rel="noreferrer">
-                      {language === "es" ? "Abrir" : "Open"}<span aria-hidden="true">↗</span>
+    <section
+      className="archive-section page-gutter"
+      aria-labelledby="archive-heading"
+    >
+      <div className="archive-preview" data-reveal>
+        <img
+          key={projects[active].slug}
+          src={projects[active].image}
+          alt={projects[active].name}
+          width="1200"
+          height="900"
+          loading="lazy"
+        />
+      </div>
+      <div className="archive-list">
+        <h2 className="section-heading" id="archive-heading" data-reveal>
+          {language === "es" ? "Más proyectos" : "More projects"}
+        </h2>
+        {projects.map((project, index) => (
+          <article
+            key={project.slug}
+            className={
+              active === index
+                ? "archive-item archive-item--active"
+                : "archive-item"
+            }
+            data-reveal
+            onMouseEnter={() => setActive(index)}
+            onFocus={() => setActive(index)}
+          >
+            <button
+              type="button"
+              onClick={() => setActive(index)}
+              aria-pressed={active === index}
+            >
+              {project.name}
+              <span aria-hidden="true">{active === index ? "−" : "+"}</span>
+            </button>
+            <div className="archive-item__body" hidden={active !== index}>
+              <div>
+                <p>{project.summary[language]}</p>
+                <p>{project.stack.join(" · ")}</p>
+                <div className="archive-item__links">
+                  {project.repositoryUrl && (
+                    <a
+                      href={project.repositoryUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {language === "es" ? "Código" : "Source"}
                     </a>
                   )}
-                  {project.repositoryUrl && (
-                    <a href={project.repositoryUrl} target="_blank" rel="noreferrer">
-                      {language === "es" ? "Código" : "Code"}<span aria-hidden="true">↗</span>
+                  {project.demoUrl && (
+                    <a href={project.demoUrl} target="_blank" rel="noreferrer">
+                      {project.slug === "liftpath"
+                        ? language === "es"
+                          ? "Descargar app"
+                          : "Download app"
+                        : "Demo"}
                     </a>
                   )}
                 </div>
-              )}
-            </li>
-          ))}
-        </ol>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
