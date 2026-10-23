@@ -5,8 +5,8 @@
 Kevin selected the original third concept, “Mesa de trabajo”, for the hero.
 It replaces the dark cinematic hero with a light paper field, a navigation rail,
 large black typography and overlapping windows containing actual project captures.
-The projects section remains its previous implementation until a separate design
-is chosen for the new identity. No gallery proposal is implemented yet.
+The projects section follows the selected second light-gallery concept: wikiLoL
+is featured beside its description, with three supporting product previews below.
 
 ## Hero and navigation
 
@@ -34,6 +34,16 @@ project annotations. The hero's scoped palette is paper `#faf7f0`, ink `#080d16`
 secondary ink `#5f6474`, yellow `#ffda32`, lavender `#cdb0ff`, green `#34b66d` and
 coral `#ff5147`. Existing lower-section tokens remain in `tokens.css` while those
 sections await redesign. The workbench styles live in `src/workbench.css`.
+
+## Selected projects
+
+`src/projects.css` presents the chosen featured-project gallery. A large wikiLoL
+preview sits beside its factual description, stack, case link and repository.
+Blog de Viajes, Huellas and PokeShop follow in three columns, each with a real
+interface preview, short caption and links. Huellas keeps its team attribution;
+PokeShop is identified as a demo. Small colored backing sheets, browser chrome
+and a handwritten note continue the hero. On phones the feature and supporting
+projects stack vertically. All previews and text remain independent HTML/CSS.
 
 ## Motion and responsive behavior
 

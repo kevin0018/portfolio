@@ -53,8 +53,9 @@ four featured products share one modal gallery and engineering detail component.
 The opening workbench uses HTML/CSS browser frames around real product captures.
 Its backing sheets, marker and doodles are CSS and SVG elements, separate from
 the readable page copy and navigation. No concept image is shipped as a screen.
-The hero has no carousel; the project section keeps the four existing case studies
-and their real product screenshots while its next design is being reviewed.
+The hero has no carousel. The project section features wikiLoL beside its
+description, with Blog de Viajes, Huellas and PokeShop in a supporting gallery.
+Each real screenshot opens the corresponding case study.
 
 ### Decisions worth reviewing
 

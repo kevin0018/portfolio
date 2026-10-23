@@ -54,8 +54,9 @@ Los cuatro productos comparten un componente de galería y decisiones técnicas.
 La portada utiliza marcos HTML/CSS alrededor de capturas reales de los productos.
 Los papeles de color, el marcador y las anotaciones son elementos CSS y SVG,
 separados del texto y la navegación. Ninguna imagen del boceto sustituye una
-pantalla. No hay carrusel; la sección de proyectos mantiene sus cuatro casos
-mientras se revisa un nuevo diseño acorde con la portada.
+pantalla. No hay carrusel. La sección de proyectos destaca wikiLoL y presenta
+Blog de Viajes, Huellas y PokeShop en una galería secundaria. Cada captura real
+abre su caso de estudio.
 
 ### Decisiones que merece la pena revisar
 

@@ -2,4 +2,5 @@
 @import "tailwindcss";
 @import "./portfolio.css";
 @import "./workbench.css";
+@import "./projects.css";
 @custom-variant dark (&:where(.dark, .dark *));
