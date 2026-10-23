@@ -18,9 +18,8 @@
   background: url("/assets/images/stage/cinema-environment.png") center top / 100vw auto no-repeat;
 }
 .masthead__brand { gap: 1.5rem; margin-right: 0; justify-self: start; }
-.masthead__monogram { display: flex; align-items: center; width: 3.8125rem; height: 1.9rem; padding-right: 1.5rem; letter-spacing: normal; flex-shrink: 0; }
+.masthead__monogram { display: flex; align-items: center; width: 2.125rem; height: 1.9rem; padding: 0; border: 0; letter-spacing: normal; flex-shrink: 0; }
 .kevin-monogram { display: block; width: 2.125rem; height: 1.5rem; flex-shrink: 0; }
-.masthead__name { font-size: 1.0625rem; font-weight: 400; }
 .masthead nav { gap: 2.5rem; margin-right: 0; justify-self: center; font-size: 1rem; }
 .masthead nav a { white-space: nowrap; }
 .masthead nav a:first-child { position: relative; color: var(--ink); }
@@ -65,9 +64,8 @@
   .masthead__brand { margin-right: auto; }
   .masthead::before { display: none; }
   .masthead__brand { gap: 1rem; }
-  .masthead__monogram { width: 3rem; padding-right: 1rem; }
+  .masthead__monogram { width: 2rem; padding: 0; }
   .kevin-monogram { width: 2rem; }
-  .masthead__name { font-size: .85rem; }
   .masthead nav { margin-right: 0; gap: 1rem; font-size: .85rem; }
   .masthead nav a:first-child::after { bottom: -1.75rem; }
   .masthead__controls { position: static; }
@@ -85,7 +83,6 @@
 @media(max-width:550px) {
   .masthead { height: 4.5rem; padding-inline: 1.25rem; gap: .65rem; }
   .masthead__monogram { width: 2rem; border: 0; padding: 0; }
-  .masthead__name { display: none; }
   .masthead nav { gap: 1rem; font-size: .8125rem; }
   .masthead nav a:first-child::after { bottom: -1.65rem; }
   .cinema-hero__space { padding-top: 3.5rem; padding-bottom: 1rem; }

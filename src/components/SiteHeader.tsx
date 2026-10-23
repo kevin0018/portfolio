@@ -24,7 +24,7 @@ export function SiteHeader({
         href="#inicio"
         aria-label="Kevin Hernández"
       >
-        <span className="masthead__monogram"><KevinMonogram /></span><span className="masthead__name">Kevin Hernández</span>
+        <span className="masthead__monogram"><KevinMonogram /></span>
       </a>
       <nav aria-label={language === "es" ? "Navegación" : "Navigation"}>
         <a href="#proyectos">{language === "es" ? "Proyectos" : "Projects"}</a>

@@ -18,7 +18,6 @@ h1, h2, h3, p { margin: 0; }
 .masthead { position: relative; z-index: 10; height: 5.5rem; display: flex; align-items: center; padding-inline: var(--gutter); gap: 2rem; border-bottom: 1px solid var(--edge); background: var(--bg); }
 .masthead__brand { display: flex; align-items: center; gap: 1.5rem; margin-right: auto; white-space: nowrap; }
 .masthead__monogram { font-size: 2rem; font-weight: 650; letter-spacing: -.15em; padding-right: 1.5rem; border-right: 1px solid var(--edge); }
-.masthead__name { font-size: 1rem; font-weight: 450; }
 .masthead nav { display: flex; align-items: center; gap: 2.4rem; font-size: .95rem; }
 .masthead nav a { transition: color .2s; }
 .masthead nav a:hover { color: var(--accent); }
@@ -144,7 +143,6 @@ button:active, .solid-link:active, .outline-link:active { transform: scale(.97);
 @media(max-width:800px) {
   .masthead { height: 5rem; gap: 1rem; }
   .masthead__brand { gap: 1rem; } .masthead__monogram { padding-right: 1rem; }
-  .masthead__name { font-size: .85rem; }
   .masthead nav { gap: 1rem; font-size: .85rem; }
   .masthead__controls { gap: .2rem; }
   .selected-projects__heading { display: block; margin-bottom: 3rem; }
@@ -171,7 +169,6 @@ button:active, .solid-link:active, .outline-link:active { transform: scale(.97);
 @media(max-width:550px) {
   .masthead { height: 4.5rem; padding-inline: 1.25rem; gap: .65rem; }
   .masthead__monogram { font-size: 1.7rem; border: 0; padding: 0; }
-  .masthead__name { display: none; }
   .masthead nav { gap: 1rem; font-size: .8125rem; }
   .masthead__controls button { min-width: 1.5rem; font-size: .8125rem; }
   .masthead__controls { gap: .25rem; }
