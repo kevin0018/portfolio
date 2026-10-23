@@ -27,7 +27,9 @@ marker accents, Onest typography and handwritten Caveat annotations.
   [PokeShop](https://github.com/kevin0018/PokeShop), with named screenshot galleries,
   full-size images, technical decisions, live demos and source repositories.
 - Read my current responsibilities at Inmatic, education and DevOps certifications.
-- Switch English/Spanish with a persisted preference. Pause motion from the header.
+- Switch English/Spanish and light/dark themes with persisted preferences.
+  The theme follows the system on the first visit and is applied before React
+  renders. Pause motion from the navigation.
 - Open case studies directly through their URL hashes; Escape closes the dialog
   and focus returns to the opening control.
 
@@ -70,7 +72,7 @@ Each real screenshot opens the corresponding case study.
 - Native dialogs support Escape, focus restoration, direct hash links and history.
 - Screenshots and résumé links respect Vite's `BASE_URL` for GitHub Pages.
 - `workbench.css` scopes the light hero palette and responsive navigation;
-  `tokens.css` retains the current lower-section palette.
+  `tokens.css` defines matching light/dark palettes for the full page.
 - `projectScenes.ts` maps the four real product screenshots to their lighting.
 - The chosen visual reference takes priority over Taste Skill’s default style
   prohibitions; the paper ground, marker highlight and hand-drawn accents

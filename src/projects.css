@@ -43,7 +43,8 @@
 .work-project--huellas .work-preview::before { background: var(--desk-yellow); transform: rotate(2deg); }
 .work-project--pokeshop .work-preview::before { transform: rotate(-3deg); }
 .work-project .work-preview img { aspect-ratio: 1.22; }
-.work-project--blog-de-viajes .work-preview img { object-position: 35% top; }
+.work-project--blog-de-viajes .work-preview img,
+.work-project--huellas .work-preview img { object-position: left top; }
 .work-project h3 { font-size: clamp(1.4rem, 2.1vw, 2.1rem); font-weight: 700; letter-spacing: -.055em; line-height: 1.1; margin: 1.75rem 0 .7rem; }
 .work-project__description { color: var(--desk-muted); font-size: .9375rem; line-height: 1.55; margin-bottom: .4rem; }
 .work-project > div:last-child { margin-top: auto; padding-top: .5rem; }

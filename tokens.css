@@ -1,15 +1,15 @@
-/* Shared content tokens. The light workbench hero has its own scoped palette. */
+/* Shared content tokens; color roles follow the selected theme. */
 :root {
-  color-scheme: dark;
-  --bg: #0a0b10;
-  --surface: #111218;
-  --surface-raised: #191b24;
-  --ink: #f4f3f5;
-  --muted: #a6a6b2;
-  --accent: #ffbe64;
-  --accent-ink: #17110a;
-  --cool: #a475ff;
-  --edge: #ffffff1c;
+  color-scheme: light;
+  --bg: #faf7f0;
+  --surface: #f0ece4;
+  --surface-raised: #e7e2d8;
+  --ink: #080d16;
+  --muted: #5f6474;
+  --accent: #806000;
+  --accent-ink: #fff9e8;
+  --cool: #9474b7;
+  --edge: #080d1624;
   --font-display: "Onest", Arial, sans-serif;
   --font-body: "Onest", Arial, sans-serif;
   --step-small: 0.875rem;
@@ -21,4 +21,17 @@
   --section-gap: clamp(6rem, 10vw, 10rem);
   --ease-out: cubic-bezier(.22, 1, .36, 1);
   --ease-expo: cubic-bezier(.16, 1, .3, 1);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #17191f;
+  --surface: #20232b;
+  --surface-raised: #2b2e38;
+  --ink: #f6f3eb;
+  --muted: #b9bac7;
+  --accent: #ffda66;
+  --accent-ink: #17110a;
+  --cool: #bc9deb;
+  --edge: #f6f3eb26;
 }

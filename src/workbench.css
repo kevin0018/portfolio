@@ -1,6 +1,6 @@
 /* Concept 3: a paper workbench, with independent real product windows. */
 .portfolio { --desk-paper: #faf7f0; --desk-ink: #080d16; --desk-muted: #5f6474; --desk-yellow: #ffda32; --desk-purple: #cdb0ff; --desk-green: #34b66d; --desk-rail: clamp(6.5rem, 10vw, 10rem); padding-left: var(--desk-rail); }
-.masthead { position: fixed; inset: 0 auto 0 0; z-index: 50; width: var(--desk-rail); height: 100svh; padding: 3rem 1.5rem 2rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0; background: var(--desk-paper); color: var(--desk-ink); border: 0; border-right: 1px solid #080d161f; }
+.masthead { position: fixed; inset: 0 auto 0 0; z-index: 50; width: var(--desk-rail); height: 100svh; padding: 3rem 1.5rem 2rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0; background: var(--desk-paper); color: var(--desk-ink); border: 0; border-right: 1px solid var(--edge); }
 .masthead__brand { margin: 0; gap: 0; }
 .masthead__monogram { display: block; width: 3rem; height: 2.3rem; padding: 0; border: 0; }
 .kevin-monogram { width: 3rem; height: 2.1rem; display: block; }
@@ -67,7 +67,7 @@
 @media(max-width:1100px) and (min-width:901px) { .masthead { padding-inline: 1.25rem; } .masthead nav { font-size: .8125rem; } .desk-intro { top: 23%; } .desk-intro > p { width: 100%; } .desk-window--wiki { top: 12%; } .desk-window--travel { width: 69%; } .desk-footer { flex-wrap: wrap; } .desk-location { width: 100%; } }
 @media(max-width:900px) {
   .portfolio { padding-left: 0; }
-  .masthead { position: sticky; top: 0; width: 100%; height: 4.5rem; padding: 0 1.25rem; flex-direction: row; align-items: center; gap: 1rem; border: 0; border-bottom: 1px solid #080d161f; }
+  .masthead { position: sticky; top: 0; width: 100%; height: 4.5rem; padding: 0 1.25rem; flex-direction: row; align-items: center; gap: 1rem; border: 0; border-bottom: 1px solid var(--edge); }
   .masthead__monogram { width: 2rem; height: 1.6rem; }
   .kevin-monogram { width: 2rem; height: 1.5rem; }
   .masthead nav { flex-direction: row; gap: 1.5rem; margin: 0 auto; font-size: .875rem; }

@@ -3,7 +3,7 @@
 ## Current direction
 
 Kevin selected the original third concept, “Mesa de trabajo”, for the hero.
-It replaces the dark cinematic hero with a light paper field, a navigation rail,
+It replaces the cinematic hero with a theme-aware paper field, a navigation rail,
 large black typography and overlapping windows containing actual project captures.
 The projects section follows the selected second light-gallery concept: wikiLoL
 is featured beside its description, with three supporting product previews below.
@@ -12,7 +12,7 @@ is featured beside its description, with three supporting product previews below
 
 - Desktop navigation is a fixed left rail. At 900px and below it becomes a sticky
   horizontal header; all section destinations remain visible while scrolling.
-- The KH mark is an independent SVG with a black K and yellow right-hand stroke.
+- The KH mark is an independent SVG with an ink-colored K and yellow right-hand stroke.
   Kevin's full name appears once in the hero identity block.
 - The title is “Así construyo mis proyectos.” with an English equivalent. A yellow
   marker shape sits behind the last word, matching the selected concept. The
@@ -32,8 +32,13 @@ is featured beside its description, with three supporting product previews below
 Onest carries the interface and large title; Caveat is reserved for handwritten
 project annotations. The hero's scoped palette is paper `#faf7f0`, ink `#080d16`,
 secondary ink `#5f6474`, yellow `#ffda32`, lavender `#cdb0ff`, green `#34b66d` and
-coral `#ff5147`. Existing lower-section tokens remain in `tokens.css` while those
-sections await redesign. The workbench styles live in `src/workbench.css`.
+coral `#ff5147`. Dark mode uses charcoal `#17191f`, off-white ink and softened
+secondary text, while retaining the colored sheets and original product captures.
+`tokens.css` supplies matching light/dark colors to the rest of the page and case
+dialogs; `src/theme.css` handles the workbench-specific adjustments. The theme
+control sits in the navigation. Its first value follows a saved choice, otherwise
+the system preference. A small head script applies it before React renders, and
+manual changes persist under `portfolio-theme`, with a storage-blocked fallback.
 
 ## Selected projects
 

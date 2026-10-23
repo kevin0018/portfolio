@@ -3,4 +3,5 @@
 @import "./portfolio.css";
 @import "./workbench.css";
 @import "./projects.css";
+@import "./theme.css";
 @custom-variant dark (&:where(.dark, .dark *));

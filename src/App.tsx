@@ -18,10 +18,22 @@ function initialLanguage(): Language {
 }
 
 function App() {
+  const [theme, setTheme] = useState<"light" | "dark">(() => document.documentElement.dataset.theme === "dark" ? "dark" : "light");
   const [language, setLanguage] = useState<Language>(initialLanguage);
   const [motionPaused, setMotionPaused] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [projectSlug, setProjectSlug] = useState(() => location.hash.slice(1));
   const project = featuredCaseStudies.find((item) => item.slug === projectSlug);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#17191f" : "#faf7f0");
+    try {
+      localStorage.setItem("portfolio-theme", theme);
+    } catch {
+      /* The selected theme remains available when storage is blocked. */
+    }
+  }, [theme]);
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -55,6 +67,8 @@ function App() {
         onLanguageChange={setLanguage}
         motionPaused={motionPaused}
         onMotionChange={() => setMotionPaused((value) => !value)}
+        theme={theme}
+        onThemeChange={() => setTheme((value) => value === "light" ? "dark" : "light")}
       />
       <main id="contenido">
         <HeroSection language={language} paused={motionPaused} />

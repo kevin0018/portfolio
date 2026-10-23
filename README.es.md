@@ -27,8 +27,9 @@ Onest y anotaciones manuscritas con Caveat.
   [PokeShop](https://github.com/kevin0018/PokeShop), con galerías de pantallas,
   imágenes a tamaño completo, decisiones técnicas, demos y repositorios.
 - Consulta mi trabajo actual en Inmatic, mi formación y mis certificaciones DevOps.
-- Cambia entre español e inglés con preferencia persistida. Pausa el movimiento
-  desde la cabecera.
+- Cambia de idioma y entre modo claro y oscuro con preferencias persistidas.
+  En la primera visita el tema sigue al sistema y se aplica antes de renderizar
+  React. Pausa el movimiento desde la navegación.
 - Accede a cada caso mediante su hash. Escape cierra el diálogo y el foco vuelve
   al control que lo abrió.
 
@@ -71,7 +72,7 @@ abre su caso de estudio.
 - Los diálogos nativos admiten Escape, restauración del foco, hashes e historial.
 - Capturas y CV respetan `BASE_URL` para el despliegue en GitHub Pages.
 - `workbench.css` define la paleta clara del hero y la navegación responsive;
-  `tokens.css` mantiene la paleta actual del resto de secciones.
+  `tokens.css` define los colores claros y oscuros de toda la página.
 - `projectScenes.ts` asocia las cuatro capturas reales con sus luces.
 - La referencia visual elegida tiene prioridad sobre las prohibiciones estéticas
   por defecto de Taste Skill: el fondo de papel, el marcador y las anotaciones
