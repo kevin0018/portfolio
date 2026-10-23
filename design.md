@@ -31,6 +31,9 @@ violet, lighting, accent words and thin screen outlines.
 
 The reference canvas is 1536 × 1024: an 80px header, an 832px stage and a 112px
 project-caption band. Smaller screens stack the introduction and project frame.
+Above 1600px, the stage stays centered and its width is limited by the reference
+1536:832 ratio and available height. Typography and the action scale with this
+stage using container units, keeping large and ultrawide displays in proportion.
 
 - Header: a geometric KH monogram drawn as SVG paths, a separate name, navigation,
   language and motion controls. Desktop navigation is centered in the viewport;

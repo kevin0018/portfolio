@@ -56,6 +56,18 @@
 .hero-explore-link:hover { color: var(--accent); }
 @keyframes cinema-suspension { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
 @keyframes cinema-luminance { from { opacity: .1; transform: scale(.92); } to { opacity: .45; transform: scale(1.1); } }
+/* On large displays, scale a reference-shaped stage instead of stretching
+   the artwork across an arbitrarily wide viewport. Copy follows that stage. */
+@media(min-width:1600px) {
+  .cinema-hero__space { width: min(100%, calc(max(32rem, 100svh - 12rem) * 1.846153846)); margin-inline: auto; container-type: inline-size; }
+  .cinema-hero__intro { padding-left: 4.2cqw; }
+  .cinema-hero__intro::before { top: -1.56cqw; width: 4.6875cqw; }
+  .cinema-hero__intro h1 { font-size: 5.5cqw; margin-bottom: 1.67cqw; }
+  .cinema-hero__intro p { max-width: 26cqw; font-size: 1.56cqw; margin-bottom: 2.34cqw; }
+  .cinema-hero__intro .outline-link { min-width: 14.0625cqw; font-size: 1.172cqw; padding: .833cqw 1.98cqw; gap: 1.04cqw; }
+  .cinema-hero__intro .hero-arrow { width: 1.3cqw; height: 1.3cqw; }
+  .portal-environment { mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent); }
+}
 @media(max-width:1100px) and (min-width:801px) {
   .masthead nav { gap: 1.5rem; }
   .cinema-hero__intro h1 { font-size: 5.5vw; }
