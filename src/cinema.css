@@ -43,7 +43,7 @@
 .cinema-light--warm { left: 28%; bottom: 11%; width: 15%; height: 14%; background: radial-gradient(ellipse, #ffb35188, transparent 70%); }
 .cinema-light--cool { right: 0; bottom: 5%; width: 35%; height: 20%; background: radial-gradient(ellipse, #b45cff88, transparent 70%); animation-delay: -3s; }
 .portal-position { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; transform: none; perspective: none; z-index: 2; }
-.portal-camera { height: 100%; transform-style: preserve-3d; transform: perspective(1800px) translateY(calc(var(--hero-progress) * 24px)) rotateX(var(--pointer-y, 0deg)) rotateY(var(--pointer-x, 0deg)); transform-origin: 67% 50%; transition: transform .65s var(--ease-out); }
+.portal-camera { --portal-rest: perspective(120vw) rotateY(-6deg) rotateZ(-1deg) scale(.98); height: 100%; transform-style: preserve-3d; transform: perspective(120vw) translateY(calc(var(--hero-progress) * 24px)) rotateX(var(--pointer-y, 0deg)) rotateY(calc(-6deg + var(--pointer-x, 0deg))) rotateZ(-1deg) scale(.98); transform-origin: 67% 50%; transition: transform .65s var(--ease-out); }
 .portal-float { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; animation: cinema-suspension 8s ease-in-out infinite; }
 /* Include the original bevel and its surrounding light, not a CSS rectangle.
    The same clip also restricts the link's clickable area to the project screen. */
@@ -91,7 +91,7 @@
   .cinema-hero__intro p { max-width: 25rem; font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.5rem; }
   .cinema-backplate { width: 185%; left: -55%; opacity: .8; }
   .portal-position { position: relative; top: auto; left: auto; right: auto; width: 88%; height: auto; aspect-ratio: 1000 / 740; margin: 3rem auto 1.5rem; transform: none; perspective: 1200px; }
-  .portal-camera { transform: rotateX(2deg) rotateY(-7deg) rotateZ(-3deg); }
+  .portal-camera { --portal-rest: rotateX(2deg) rotateY(-7deg) rotateZ(-3deg); transform: var(--portal-rest); }
   .project-portal { clip-path: polygon(4.3% 19.32%, 99.8% .41%, 98.8% 99.86%, .2% 94.59%); }
   .wiki-preview .wiki-preview__desktop { display: none; }
   .wiki-preview .wiki-preview__mobile { display: block; }
