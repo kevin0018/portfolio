@@ -43,7 +43,7 @@ project-caption band. Smaller screens stack the introduction and project frame.
   Desktop SVG coordinates align the fragment to the reference stage. A separate
   mobile viewport reframes the same image. The clip includes a little surrounding
   light so the bevel is not cut off, and restricts the link's clickable area.
-- Caption: one wikiLoL link, with the short underline from the reference.
+- Footer: a right-aligned “Sigue explorando” link with a downward arrow, leading to projects.
 
 Only the project presentation is raster artwork. The portfolio itself remains a
 working interface with separate navigation, copy, SVG graphics, links and dialogs.

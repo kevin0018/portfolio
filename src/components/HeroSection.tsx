@@ -60,7 +60,7 @@ export function HeroSection({ language, paused = false }: { language: Language; 
         </div>
       </div>
       <div className="cinema-hero__footer">
-        <a className="hero-project-caption" href="#wikilol">wikiLoL</a>
+        <a className="hero-explore-link" href="#proyectos">{language === "es" ? "Sigue explorando" : "Keep exploring"}<span aria-hidden="true">↓</span></a>
       </div>
     </section>
   );
