@@ -45,7 +45,7 @@ export function HeroSection({ language, paused = false }: { language: Language; 
           <a className="outline-link" href="#proyectos">{language === "es" ? "Ver proyectos" : "Explore projects"}<NorthEastArrow /></a>
         </div>
         <div className="portal-environment" aria-hidden="true">
-          <svg className="cinema-backplate" viewBox="0 80 1536 832" preserveAspectRatio="none">
+          <svg className="cinema-backplate" viewBox="0 80 1536 832" preserveAspectRatio="xMidYMid slice">
             <image href={`${import.meta.env.BASE_URL}assets/images/stage/cinema-environment.png`} width="1536" height="1024" />
           </svg>
           <div className="cinema-light cinema-light--warm" />

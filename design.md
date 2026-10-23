@@ -31,9 +31,10 @@ violet, lighting, accent words and thin screen outlines.
 
 The reference canvas is 1536 × 1024: an 80px header, an 832px stage and a 112px
 project-caption band. Smaller screens stack the introduction and project frame.
-Above 1600px, the stage stays centered and its width is limited by the reference
-1536:832 ratio and available height. Typography and the action scale with this
-stage using container units, keeping large and ultrawide displays in proportion.
+The stage fills the viewport width at every desktop size. The project frame
+keeps its native 1000:740 aspect ratio and fits the available stage height; the
+background covers the stage independently. Typography scales continuously with
+width and available height, with no alternate large-screen layout at 1600px.
 
 - Header: a geometric KH monogram drawn as SVG paths, a separate name, navigation,
   language and motion controls. Desktop navigation is centered in the viewport;
@@ -44,9 +45,9 @@ stage using container units, keeping large and ultrawide displays in proportion.
   its lighting, columns, floor and plants.
 - Project: the exact approved project fragment includes the Ekko illustration,
   wikiLoL symbol, interface presentation, dark chrome, bevels and glowing edges.
-  Desktop SVG coordinates align the fragment to the reference stage. A separate
-  mobile viewport reframes the same image. The clip includes a little surrounding
-  light so the bevel is not cut off, and restricts the link's clickable area.
+  A standalone image keeps its native aspect ratio in the responsive frame.
+  The clip includes a little surrounding light so the bevel is not cut off, and
+  restricts the link's clickable area.
 - Footer: a right-aligned “Sigue explorando” link with a downward arrow, leading to projects.
 
 Only the project presentation is raster artwork. The portfolio itself remains a
@@ -73,7 +74,7 @@ direct case hashes, focus restoration, CV and contact links remain available.
 - `public/assets/images/stage/wikilol-project-frame.png`: a 1000 × 740 transparent
   crop of the approved second concept containing only its project frame and light.
   Pixels outside the frame polygon are removed from the asset itself. The complete
-  concept is not shipped. SVG coordinates preserve desktop and mobile placement.
+  concept is not shipped. The same proportional image serves desktop and mobile.
 - `HeroGraphics.tsx`: independent vector paths for KH and the projects arrow.
 - Existing actual project screenshots remain in the project section and galleries.
   Team contributions and Riot Games attribution remain in the case-study data.
