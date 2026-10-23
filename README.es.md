@@ -5,8 +5,8 @@
 [![Desplegar portfolio](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml)
 
 Mi portfolio full stack interactivo, con cuatro proyectos terminados, capturas
-completas, un giro de producto a arquitectura y entradas animadas. La identidad
-visual utiliza la tipografía y la paleta propuestas por Taste Skill.
+reales, un escenario inmersivo y casos de estudio animados. La dirección oscura
+combina luz ámbar y violeta, perspectiva y tipografía Onest.
 
 [Ver portfolio](https://kevin0018.github.io/portfolio/) ·
 [Descargar CV](./public/assets/files/CV_Kevin_Hernandez_Deras.pdf)
@@ -17,8 +17,9 @@ visual utiliza la tipografía y la paleta propuestas por Taste Skill.
 
 - Explora cuatro productos terminados con capturas completas y explicaciones
   legibles de cada proyecto.
-- Gira cada captura de la portada para descubrir su frontend, la frontera de
-  aplicación, el backend y las fuentes de datos verificadas.
+- Cambia entre cuatro productos desde la portada. Cada selección cambia la luz
+  del escenario y anima la entrada de su captura. El cursor inclina el escenario;
+  abrir un proyecto acerca la cámara antes de mostrar su caso de estudio.
 - Abre casos bilingües de [wikiLoL](https://github.com/kevin0018/wikiLoL),
   [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes),
   [Huellas](https://github.com/kevin0018/Huellas) y
@@ -35,7 +36,7 @@ visual utiliza la tipografía y la paleta propuestas por Taste Skill.
 ```mermaid
 flowchart LR
   visitor["Visitante"] --> app["Shell React bilingüe"]
-  app --> hero["Giro producto / arquitectura"]
+  app --> hero["Escenario de proyectos interactivo"]
   app --> work["Cuatro proyectos terminados"]
   work --> cases["Diálogo enlazado por hash"]
   content["Contenido tipado verificado"] --> hero
@@ -43,14 +44,15 @@ flowchart LR
   content --> cases
   scroll["Scroll nativo + requestAnimationFrame"] --> hero
   observer["IntersectionObserver + Web Animations"] --> app
-  tokens["Tokens arena / cobalto"] --> app
+  tokens["Tokens grafito / ámbar / violeta"] --> app
   vite["Build Vite"] --> pages["GitHub Pages"]
 ```
 
 El contenido está separado de la presentación en módulos TypeScript bilingües.
 Los cuatro productos comparten un componente de galería y decisiones técnicas.
-Las vistas de arquitectura describen la implementación real de cada producto;
-no son interfaces de aplicación inventadas.
+La portada combina capturas reales con planos arquitectónicos, iluminación y
+un reflejo construidos en CSS. El boceto generado sirve de referencia visual;
+la interfaz funciona con elementos HTML, CSS y React.
 
 ### Decisiones que merece la pena revisar
 
@@ -64,8 +66,11 @@ no son interfaces de aplicación inventadas.
   detiene los efectos decorativos sin cambiar el contenido disponible.
 - Los diálogos nativos admiten Escape, restauración del foco, hashes e historial.
 - Capturas y CV respetan `BASE_URL` para el despliegue en GitHub Pages.
-- `tokens.css` define la paleta de Taste Skill, las fuentes Unbounded/Onest y los
-  tiempos de movimiento.
+- `tokens.css` define la paleta grafito, ámbar y violeta y la tipografía Onest.
+- `projectScenes.ts` asocia las cuatro capturas reales con sus luces.
+- La referencia visual elegida tiene prioridad sobre las prohibiciones estéticas
+  por defecto de Taste Skill: luces, contornos y titular con acento son decisiones
+  deliberadas del diseño.
 - Las propuestas generadas, críticas y capturas quedan en `.taste-skill/`, ignorado
   por Git. El sistema de diseño implementado se versiona en `design.md`.
 

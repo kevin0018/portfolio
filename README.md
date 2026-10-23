@@ -5,8 +5,8 @@
 [![Deploy portfolio](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml)
 
 My interactive full-stack portfolio, featuring four finished projects with
-complete interface previews, a product-to-architecture flip and motion-led
-section entrances. The visual identity uses Taste Skill’s typography and palette.
+an immersive project stage, real interface previews and animated case studies.
+The dark visual direction uses amber and violet lighting, perspective and Onest typography.
 
 [Live portfolio](https://kevin0018.github.io/portfolio/) ·
 [Download résumé](./public/assets/files/CV_Kevin_Hernandez_Deras.pdf)
@@ -17,8 +17,9 @@ section entrances. The visual identity uses Taste Skill’s typography and palet
 
 - Explore four finished products with complete interface previews and readable
   project summaries.
-- Turn each opening capture over to inspect its verified frontend, application
-  boundary, backend and data sources.
+- Switch the hero between four real products. The scene changes its lighting and
+  animates the next interface into place. Pointer movement tilts the stage; opening
+  a project moves the camera toward it before showing its case study.
 - Open bilingual case studies for [wikiLoL](https://github.com/kevin0018/wikiLoL),
   [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes),
   [Huellas](https://github.com/kevin0018/Huellas) and
@@ -34,7 +35,7 @@ section entrances. The visual identity uses Taste Skill’s typography and palet
 ```mermaid
 flowchart LR
   visitor["Visitor"] --> app["Bilingual React shell"]
-  app --> hero["Product / architecture flip"]
+  app --> hero["Interactive cinematic project stage"]
   app --> work["Four finished projects"]
   work --> cases["Hash-linked case-study dialog"]
   content["Verified typed content"] --> hero
@@ -42,14 +43,15 @@ flowchart LR
   content --> cases
   scroll["Native scroll + requestAnimationFrame"] --> hero
   observer["IntersectionObserver + Web Animations"] --> app
-  tokens["Cobalt / sand design tokens"] --> app
+  tokens["Graphite / amber / violet tokens"] --> app
   vite["Vite build"] --> pages["GitHub Pages"]
 ```
 
 Content stays separate from presentation in bilingual TypeScript modules. The
 four featured products share one modal gallery and engineering detail component.
-The opening architecture views describe each project's existing implementation;
-they are not mock application interfaces.
+The opening stage uses real screenshots with CSS architectural planes, lighting
+and a reflected image. The generated concept is a reference, not a background
+image or a replacement for the working interface.
 
 ### Decisions worth reviewing
 
@@ -63,7 +65,10 @@ they are not mock application interfaces.
   movement without changing the layout or which projects can be reached.
 - Native dialogs support Escape, focus restoration, direct hash links and history.
 - Screenshots and résumé links respect Vite's `BASE_URL` for GitHub Pages.
-- `tokens.css` defines the Taste Skill palette, Unbounded/Onest typography and motion.
+- `tokens.css` defines the graphite, amber and violet palette and Onest typography.
+- `projectScenes.ts` maps the four real product screenshots to their lighting.
+- The chosen visual reference takes priority over Taste Skill’s default style
+  prohibitions; lighting, outlines and the accent headline are deliberate.
 - Generated Taste direction sheets, critiques and captures stay in ignored
   `.taste-skill/`; the implemented design system stays in versioned `design.md`.
 

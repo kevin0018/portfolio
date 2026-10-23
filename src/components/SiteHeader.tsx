@@ -23,14 +23,11 @@ export function SiteHeader({
         href="#inicio"
         aria-label="Kevin Hernández"
       >
-        KH
+        <span className="masthead__monogram">KH</span><span className="masthead__name">Kevin Hernández</span>
       </a>
       <nav aria-label={language === "es" ? "Navegación" : "Navigation"}>
         <a href="#proyectos">{language === "es" ? "Proyectos" : "Projects"}</a>
-        <a href="#experiencia">
-          {language === "es" ? "Experiencia" : "Experience"}
-        </a>
-        <a href="#formacion">{language === "es" ? "Formación" : "Education"}</a>
+        <a href="#experiencia">{language === "es" ? "Sobre mí" : "About me"}</a>
         <a href="#contacto">{language === "es" ? "Contacto" : "Contact"}</a>
       </nav>
       <div className="masthead__controls">

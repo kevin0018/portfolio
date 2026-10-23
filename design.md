@@ -1,103 +1,80 @@
-# Portfolio design system
+# Kevin Hernández — implemented design system
 
-## Direction
+## Visual direction
 
-The visual identity originated in Taste Skill’s **The pinned poster** direction,
-seed **1261000740**. The implemented layout retains its palette and typography
-with complete screenshots, intact headings and normal document flow.
+Immersive project cinema, based on the second visual concept selected by Kevin.
+The portfolio presents his actual work as large illuminated interface planes.
+The reference informed the composition; the website itself is built with React,
+CSS and real project screenshots, not a flattened generated image.
 
-Kevin's real software is the material. The opening places his name around a
-complete product capture and an introduction. A visitor can turn each product
-over to see its verified architecture. Project images, titles, summaries and
-actions occupy separate layout tracks and remain available in document flow.
+This replaces the earlier cobalt-and-sand poster direction. The selected reference
+has priority over Taste Skill's default restrictions on violet, gradients,
+shadows, outlines and accent words. Those effects establish the stage's light
+and depth; they are not a new random direction draw.
 
-The portfolio currently shows **only wikiLoL, Blog de Viajes, Huellas and
-PokeShop**. Other project data is retained in source for future work, but its
-archive component is not rendered. Professional experience and education have
-distinct factual records.
+## Tokens and typography
 
-## Palette
+| Role | Value | Use |
+| --- | --- | --- |
+| Ground | `#0a0b10` | Main page |
+| Surface | `#111218` | Experience and dialogs |
+| Raised surface | `#191b24` | Gallery controls |
+| Ink | `#f4f3f5` | Titles and primary text |
+| Secondary ink | `#a6a6b2` | Supporting copy |
+| Accent | `#ffbe64` | Actions and warm lighting |
+| Cool light | `#a475ff` | Architectural depth |
 
-The dealt palette is **Cobalt on sand**:
-
-| Token                | Value     | Role                                     |
-| -------------------- | --------- | ---------------------------------------- |
-| `--bg`               | `#e6dbc7` | Main sand ground                         |
-| `--surface`          | `#ddd0b9` | Open disclosures and supporting surfaces |
-| `--ink` / `--accent` | `#062b8a` | Type and primary actions                 |
-| `--muted`            | `#3a5aa8` | Secondary factual labels                 |
-| `--field`            | `#c7d3e8` | Project section ground                   |
-| `--field-deep`       | `#b6c7e4` | Inactive project controls                |
-
-All interface colour and font roles are defined in `tokens.css`. Product captures
-retain their real colours. There are no decorative gradients, floating card
-shadows, fake browser frames or decorative index numbers.
-
-## Typography
-
-- **Unbounded 800:** monumental name, project titles and section headings.
-- **Onest 400/500:** explanatory copy, links, controls and professional records.
-- Display leading: 0.95–1.12; tracking: -0.03 to -0.065em.
-- Body: 17–19px, with 18px first-screen supporting copy.
-- Long qualifications are preserved as body text beneath concise field headings.
-
-The normal desktop frame uses equal responsive gutters of 16–32px. Real image
-captures are unframed and square-cornered. Buttons use one solid rectangular
-shape; secondary actions are text links.
+Onest is the single font family. Headings use medium weight and tight tracking;
+body text uses regular weight and generous leading. The mobile text floor is
+13px for small controls; running copy stays at 16px or above.
 
 ## Composition
 
-1. **Opening:** Kevin above the introduction and product capture; Hernández below.
-   CSS Grid and normal document flow size the composition to its content. The
-   picture keeps its complete proportions. Product controls sit below its frame.
-2. **Selected work:** four complete project features. A large real capture is
-   paired with the intact name, product summary, stack and case-study action.
-   Desktop alternates the image and copy; phone layouts put the image first.
-   There is no split title, screenshot seam, pinned gallery or hidden project.
-3. **Experience:** current employment facts beside a wide introduction, then a
-   real portrait beside an interactive list of responsibilities.
-4. **Education:** full qualifications, institutions, periods and individual DevOps
-   certification titles.
-5. **Contact:** a solid contact sheet over a moving real product capture, followed
-   by the surname at monumental scale.
+- Header: KH monogram, name, three navigation links, motion and locale controls.
+- Hero: introduction on the left; a large perspective product interface on the
+  right, with architectural planes, amber and violet light, floor and reflection.
+  Four named buttons select the active project. The phone stacks the introduction
+  and stage while keeping all four project controls available.
+- Projects: four complete product previews paired with summaries, stack and case
+  study links. Desktop alternates the image position; the phone uses a single
+  reading column. Screenshots use `object-fit: contain` to preserve their content.
+- Experience: employment details and responsibilities, with a portrait and
+  expandable practice areas. Education and certifications follow in the same
+  section. All content comes from the verified typed modules.
+- Contact: a large invitation and direct contact links; three receding light
+  planes echo the opening stage.
+- Case study: a native dialog with real screenshot galleries, project links,
+  engineering decisions, contribution and attribution notes.
 
-## Motion
+## Motion and interaction
 
-The product-to-architecture flip retains perspective. Screenshot replacements
-open with a horizontal wipe. Section parts enter independently with the Web
-Animations API, images respond to hover and the contact image drifts slowly.
-Scroll adds limited movement to the opening capture without controlling layout
-or hiding content. There are no tall empty scroll holds or split animated titles.
+- Opening: staged introduction, architectural plane entrances and camera arrival.
+- Ambient movement: a floating project frame, breathing light, a traveling floor
+  line, screen reflection and occasional light sweep.
+- Project selection: a new real screenshot enters with depth; its lighting comes
+  from `src/data/projectScenes.ts`.
+- Pointer: small camera rotations on mouse movement; reset on pointer exit.
+- Scroll: the hero introduction and camera travel separately as the hero leaves;
+  later headings, text and images enter individually through Web Animations.
+- Open project: the camera straightens and advances before the hash opens the
+  corresponding dialog. Modified clicks retain native link behavior.
+- Gallery, accordion, links and buttons provide immediate interaction feedback.
+- The header pause control and reduced-motion preference remove movement without
+  hiding content or changing which projects can be reached.
 
-The pause control and reduced-motion preference stop decorative movement without
-changing the document's composition. Motion tokens live in `tokens.css`.
+Native document flow remains in place throughout; there are no pinned sections
+requiring several empty screens of scrolling.
 
-## Product exploration
+## Content and media
 
-The four featured projects open a native modal dialog through stable hashes:
-`#wikilol`, `#blog-de-viajes`, `#huellas`, `#pokeshop`. Each includes a three-screen
-gallery, full-size image links, live demo, source, complete technical decisions,
-and attribution. Escape closes it, scroll position is retained and focus returns
-to the opening link. Direct hashes and browser history work with the same dialog.
+Only wikiLoL, Blog de Viajes, Huellas and PokeShop are shown. Their full case data,
+real galleries and team attribution are retained. Other project data remains
+available in the repository for future work and is not rendered in this shell.
 
-Huellas retains the contribution of Kevin Hernández, Adriana Elias, Aroa Granja,
-and Fernanda Montalvan; original design and branding belong to Aroa Granja.
-PokeShop remains a fictional educational shop with no payments or real orders.
+The site keeps Spanish and English, persisted language preference, direct case
+hashes, native dialog focus handling, CV and contact links. Assets respect Vite's
+`BASE_URL` for GitHub Pages. League of Legends media remains attributed to Riot
+Games inside the wikiLoL case; Huellas retains the team's named contributions.
 
-## Phone composition
-
-The complete product capture precedes the introduction. Controls wrap below the
-picture. The surname follows the content instead of occupying a fixed viewport
-position. Each featured project stacks its screenshot, title, summary and action.
-Employment facts follow the introduction, and education records stack. The contact
-sheet fills the available width. The case-study dialog uses the phone viewport.
-
-## References and scope
-
-Taste Skill supplied the initial direction, Unbounded/Onest typography and
-Cobalt on sand palette. The implemented composition has been adapted to the
-actual screen content: complete products and intact titles take priority over
-split-poster effects. Only the four finished case studies are presented.
-
-`design.md` describes the implemented design. Generated direction sheets,
-implementation notes and screenshots remain local under ignored `.taste-skill/`.
+Concept sketches, working notes, critiques and browser captures stay in ignored
+`.taste-skill/`. This file documents the implemented system, not a work plan.

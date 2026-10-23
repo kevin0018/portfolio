@@ -19,7 +19,7 @@ function initialLanguage(): Language {
 
 function App() {
   const [language, setLanguage] = useState<Language>(initialLanguage);
-  const [motionPaused, setMotionPaused] = useState(false);
+  const [motionPaused, setMotionPaused] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [projectSlug, setProjectSlug] = useState(() => location.hash.slice(1));
   const project = featuredCaseStudies.find((item) => item.slug === projectSlug);
 
@@ -57,22 +57,14 @@ function App() {
         onMotionChange={() => setMotionPaused((value) => !value)}
       />
       <main id="contenido">
-        <HeroSection language={language} />
+        <HeroSection language={language} paused={motionPaused} />
         <SelectedWork language={language} />
         <ProfessionalJourney language={language} />
       </main>
       <footer className="contact-stage" id="contacto">
-        <div className="contact-stage__image" aria-hidden="true">
-          <img
-            src={`${import.meta.env.BASE_URL}assets/images/wikilol/02-champion-archive.png`}
-            alt=""
-            width="1578"
-            height="1253"
-            loading="lazy"
-          />
-        </div>
+        <div className="contact-horizon" aria-hidden="true"><div /><div /><div /></div>
         <div className="contact-sheet" data-reveal>
-          <h2>{language === "es" ? "Hablemos" : "Let’s talk"}</h2>
+          <h2>{language === "es" ? <>La próxima idea.<br />¿La construimos?</> : <>The next idea.<br />Shall we build it?</>}</h2>
           <p>
             {language === "es"
               ? "Si tienes un proyecto o una oportunidad en mente, me gustaría conocerla."
@@ -108,9 +100,6 @@ function App() {
             {language === "es" ? "Escríbeme" : "Email me"}
             <span aria-hidden="true">↗</span>
           </a>
-        </div>
-        <div className="contact-signature" aria-hidden="true">
-          HERNÁNDEZ
         </div>
         <div className="footer-credit">
           <span>Kevin Hernández © {new Date().getFullYear()}</span>

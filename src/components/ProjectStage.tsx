@@ -1,68 +1,35 @@
+import type { CSSProperties } from "react";
 import { featuredCaseStudies, type Language } from "../data/caseStudies";
-import { projectGallery } from "../data/projectGallery";
+import { projectScenes } from "../data/projectScenes";
 
 export function SelectedWork({ language }: { language: Language }) {
   return (
-    <section
-      className="selected-projects page-gutter"
-      id="proyectos"
-      aria-labelledby="work-heading"
-    >
+    <section className="selected-projects page-gutter" id="proyectos" aria-labelledby="work-heading">
       <header className="selected-projects__heading">
-        <h2 className="section-heading" id="work-heading" data-reveal>
-          {language === "es" ? "Proyectos" : "Projects"}
-        </h2>
-        <p data-reveal>
-          {language === "es"
-            ? "El producto. Y cómo lo construí."
-            : "The product. And how I built it."}
-        </p>
+        <h2 className="section-heading" id="work-heading" data-reveal>{language === "es" ? "Del concepto al producto." : "From concept to product."}</h2>
+        <p data-reveal data-delay="80">{language === "es" ? "Cuatro proyectos para explorar por fuera. Y por dentro." : "Four projects to explore on the surface. And under the hood."}</p>
       </header>
       <div className="selected-projects__list">
-        {featuredCaseStudies.map((project) => (
-          <article className="project-feature" key={project.slug}>
-            <a
-              className="project-feature__image"
-              href={`#${project.slug}`}
-              aria-label={`${language === "es" ? "Explorar" : "Explore"} ${project.name}`}
-              data-reveal
-            >
-              <img
-                src={projectGallery[project.slug]?.[0]?.image ?? project.image}
-                alt={
-                  projectGallery[project.slug]?.[0]?.alt[language] ??
-                  project.imageAlt[language]
-                }
-                width="1440"
-                height="900"
-                loading="lazy"
-              />
-              <span className="project-feature__open" aria-hidden="true">
-                ↗
-              </span>
+        {featuredCaseStudies.map(project => {
+          const scene = projectScenes[project.slug];
+          return <article className="project-feature" key={project.slug} style={{ "--scene-light": scene.light, "--scene-secondary": scene.secondary } as CSSProperties}>
+            <a className="project-feature__image" href={`#${project.slug}`} aria-label={`${language === "es" ? "Explorar" : "Explore"} ${project.name}`} data-reveal>
+              <div className="project-feature__frame"><img src={scene.image} alt={scene.alt[language]} width="1583" height="954" loading="lazy" /></div>
+              <span className="project-feature__open" aria-hidden="true">↗</span>
             </a>
             <div className="project-feature__copy">
-              <h3 data-reveal>{project.name}</h3>
-              <p className="project-feature__descriptor" data-reveal>
-                {project.descriptor[language]}
-              </p>
-              <p data-reveal>{project.summary[language]}</p>
-              <p className="project-feature__stack" data-reveal>
-                {project.stack.slice(0, 4).join(" · ")}
-              </p>
-              <a className="solid-link" href={`#${project.slug}`} data-reveal>
-                {language === "es" ? "Explorar proyecto" : "Explore project"}
-                <span aria-hidden="true">↗</span>
-              </a>
+              <p className="project-feature__descriptor" data-reveal>{project.descriptor[language]}</p>
+              <h3 data-reveal data-delay="70">{project.name}</h3>
+              <p data-reveal data-delay="140">{project.summary[language]}</p>
+              <p className="project-feature__stack" data-reveal>{project.stack.slice(0, 4).join(" / ")}</p>
+              <a className="text-link" href={`#${project.slug}`} data-reveal>{language === "es" ? "Explorar proyecto" : "Explore project"}<span aria-hidden="true">↗</span></a>
             </div>
-          </article>
-        ))}
+            <span className="project-feature__ambient" aria-hidden="true" />
+          </article>;
+        })}
       </div>
     </section>
   );
 }
 
-// Compatibility with the earlier standalone hero.
-export function ProjectStage({ language }: { language: Language }) {
-  return <SelectedWork language={language} />;
-}
+export function ProjectStage({ language }: { language: Language }) { return <SelectedWork language={language} />; }

@@ -1,126 +1,77 @@
-import { useState } from "react";
+import { useRef, useState, type CSSProperties, type MouseEvent, type PointerEvent } from "react";
 import { featuredCaseStudies, type Language } from "../data/caseStudies";
-import { projectArchitecture } from "../data/projectArchitecture";
+import { projectScenes } from "../data/projectScenes";
 
-export function HeroSection({ language }: { language: Language }) {
-  const [selected, setSelected] = useState(3);
-  const [inside, setInside] = useState(false);
-  const project = featuredCaseStudies[selected];
-  const system = projectArchitecture[project.slug];
+export function HeroSection({ language, paused = false }: { language: Language; paused?: boolean }) {
+  const [active, setActive] = useState(0);
+  const stage = useRef<HTMLDivElement>(null);
+  const entering = useRef(false);
+  const project = featuredCaseStudies[active];
+  const scene = projectScenes[project.slug];
+
+  function move(event: PointerEvent<HTMLDivElement>) {
+    if (paused || event.pointerType !== "mouse") return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    stage.current?.style.setProperty("--pointer-x", `${((event.clientX - bounds.left) / bounds.width - 0.5) * 9}deg`);
+    stage.current?.style.setProperty("--pointer-y", `${((event.clientY - bounds.top) / bounds.height - 0.5) * -6}deg`);
+  }
+  function reset() {
+    stage.current?.style.setProperty("--pointer-x", "0deg");
+    stage.current?.style.setProperty("--pointer-y", "0deg");
+  }
+
+  function enterProject(event: MouseEvent<HTMLAnchorElement>) {
+    if (paused || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    const camera = stage.current?.firstElementChild;
+    if (!(camera instanceof HTMLElement)) return;
+    event.preventDefault();
+    if (entering.current) return;
+    entering.current = true;
+    const destination = event.currentTarget.hash;
+    const animation = camera.animate([
+      { transform: getComputedStyle(camera).transform },
+      { transform: "translateZ(180px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.08)" },
+    ], { duration: 450, easing: "cubic-bezier(.65,0,.35,1)" });
+    void animation.finished.catch(() => undefined).then(() => {
+      location.hash = destination;
+      entering.current = false;
+    });
+  }
 
   return (
-    <section className="hero-poster" id="inicio" aria-labelledby="hero-name">
-      <div className="hero-poster__stage">
-        <h1 id="hero-name" aria-label="Kevin Hernández">
-          <span className="name-rise">KEVIN</span>
-        </h1>
-        <div className="hero-poster__middle">
-          <div className="hero-poster__intro">
-            <p className="hero-role" data-reveal>
-              Full Stack <br />
-              Developer
-            </p>
-            <p data-reveal>
-              {language === "es"
-                ? "Desarrollo interfaces con Vue, APIs con Django e integraciones entre sistemas. De la primera idea al producto funcionando."
-                : "I build Vue interfaces, Django APIs and integrations between systems, taking products from their first idea to working software."}
-            </p>
-            <a className="solid-link" href="#proyectos" data-reveal>
-              {language === "es" ? "Ver proyectos" : "Explore projects"}
-              <span aria-hidden="true">↘</span>
-            </a>
-            <a
-              className="hero-cv"
-              href={`${import.meta.env.BASE_URL}assets/files/CV_Kevin_Hernandez_Deras.pdf`}
-              target="_blank"
-              rel="noreferrer"
-              data-reveal
-            >
-              {language === "es" ? "Descargar CV" : "Download résumé"}
-            </a>
-          </div>
-          <div className="hero-product" data-reveal>
-            <div
-              className={`product-flip ${inside ? "product-flip--inside" : ""}`}
-            >
-              <div className="product-flip__object">
-                <div className="product-flip__front" aria-hidden={inside}>
-                  <img
-                    key={project.slug}
-                    src={project.image}
-                    alt={project.imageAlt[language]}
-                    width="1440"
-                    height="900"
-                    fetchPriority="high"
-                  />
-                </div>
-                <div className="product-flip__back" aria-hidden={!inside}>
-                  <p>{project.name}</p>
-                  <div className="system-flow">
-                    <strong>{system.front}</strong>
-                    <span aria-hidden="true">↓</span>
-                    <span>{system.contract}</span>
-                    <span aria-hidden="true">↓</span>
-                    <strong>{system.back}</strong>
-                    <span aria-hidden="true">↓</span>
-                    <span>{system.data}</span>
-                  </div>
-                  <span>
-                    {language === "es"
-                      ? "De la interfaz a los datos"
-                      : "From interface to data"}
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="hero-product__controls">
-              <div
-                className="product-picker"
-                role="group"
-                aria-label={
-                  language === "es" ? "Elegir proyecto" : "Choose project"
-                }
-              >
-                {featuredCaseStudies.map((item, index) => (
-                  <button
-                    type="button"
-                    key={item.slug}
-                    onClick={() => setSelected(index)}
-                    aria-pressed={selected === index}
-                  >
-                    {item.name}
-                  </button>
-                ))}
-              </div>
-              <button
-                type="button"
-                className="flip-control"
-                onClick={() => setInside((value) => !value)}
-                aria-pressed={inside}
-              >
-                {inside
-                  ? language === "es"
-                    ? "Ver producto"
-                    : "See product"
-                  : language === "es"
-                    ? "Ver por dentro"
-                    : "Look inside"}{" "}
-                <span aria-hidden="true">⤾</span>
-              </button>
-            </div>
-          </div>
+    <section className="cinema-hero" id="inicio" aria-labelledby="hero-heading" style={{ "--scene-light": scene.light, "--scene-secondary": scene.secondary } as CSSProperties}>
+      <div className="cinema-hero__space" onPointerMove={move} onPointerLeave={reset}>
+        <div className="cinema-hero__intro">
+          <h1 id="hero-heading">{language === "es" ? <>Ideas que<br /><span>cobran vida.</span></> : <>Ideas come<br /><span>to life.</span></>}</h1>
+          <p>{language === "es" ? "Soy Kevin, desarrollador full stack en Barcelona." : "I’m Kevin, a full stack developer in Barcelona."}</p>
+          <a className="outline-link" href="#proyectos">{language === "es" ? "Ver proyectos" : "Explore projects"}<span aria-hidden="true">↗</span></a>
         </div>
-        <p className="hero-surname" aria-hidden="true">
-          HERNÁNDEZ
-        </p>
-        <div className="hero-edge">
-          <span>Barcelona</span>
-          <span>
-            {language === "es"
-              ? "Frontend, backend y lo que los conecta."
-              : "Frontend, backend, and what connects them."}
-          </span>
+        <div className="portal-environment" aria-hidden="true">
+          <div className="ambient-light ambient-light--warm" />
+          <div className="ambient-light ambient-light--cool" />
+          <div className="architecture architecture--one" />
+          <div className="architecture architecture--two" />
+          <div className="architecture architecture--three" />
+          <div className="stage-floor"><div /><div /><div /><div /></div>
         </div>
+        <div className="portal-position" ref={stage}>
+          <div className="portal-camera"><div className="portal-float">
+            <div className="portal-layer portal-layer--back" aria-hidden="true" />
+            <div className="portal-layer portal-layer--middle" aria-hidden="true" />
+            <a className="project-portal" key={project.slug} href={`#${project.slug}`} onClick={enterProject} aria-label={`${language === "es" ? "Explorar" : "Explore"} ${project.name}`}>
+              <img src={scene.image} alt={scene.alt[language]} width="1583" height="954" fetchPriority={active === 0 ? "high" : "auto"} />
+              <span className="project-portal__shine" aria-hidden="true" />
+              <span className="project-portal__open" aria-hidden="true">{language === "es" ? "Entrar en" : "Step into"} {project.name}<span aria-hidden="true">↗</span></span>
+            </a>
+            <div className="portal-reflection" aria-hidden="true" key={`${project.slug}-reflection`}><img src={scene.image} alt="" /></div>
+          </div></div>
+        </div>
+      </div>
+      <div className="cinema-hero__footer">
+        <div className="project-selector" role="group" aria-label={language === "es" ? "Cambiar proyecto en el escenario" : "Change the project on stage"}>
+          {featuredCaseStudies.map((item, index) => <button type="button" key={item.slug} aria-pressed={active === index} onClick={() => setActive(index)}><span>{item.name}</span><span className="project-selector__line" aria-hidden="true" /></button>)}
+        </div>
+        <a className="scroll-invitation" href="#proyectos"><span>{language === "es" ? "Sigue explorando" : "Keep exploring"}</span><span aria-hidden="true">↓</span></a>
       </div>
     </section>
   );
