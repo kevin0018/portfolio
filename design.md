@@ -37,7 +37,8 @@ background covers the stage independently. Typography scales continuously with
 width and available height, with no alternate large-screen layout at 1600px.
 
 - Header: a geometric KH monogram drawn as SVG paths, navigation, language and
-  motion controls. The full name appears in the hero, without repeating it here. Desktop navigation is centered in the viewport;
+  motion controls. It stays sticky at the top while scrolling. The full name
+  appears in the hero, without repeating it here. Desktop navigation is centered in the viewport;
   all header items are vertically centered. Letter spacing cannot distort the monogram.
 - Introduction: Kevin's name in a neutral two-line title, with a bilingual
   first-person description of his role and location and a thin accent line.

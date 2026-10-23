@@ -2,6 +2,9 @@
    Page copy and controls are HTML/SVG; the project artwork is the exact approved
    image, reprojected independently of the architectural environment. */
 .masthead {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   height: 5rem;
   padding: 0 clamp(1.25rem, 3.9vw, 4rem);
   display: grid;
