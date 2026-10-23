@@ -5,8 +5,9 @@
 [![Deploy portfolio](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml)
 
 My interactive full-stack portfolio, featuring four finished projects with
-an immersive project stage, real interface previews and animated case studies.
-The dark visual direction uses amber and violet lighting, perspective and Onest typography.
+a paper workbench hero, real interface previews and animated case studies.
+The opening uses a fixed navigation rail, overlapping product windows, yellow
+marker accents, Onest typography and handwritten Caveat annotations.
 
 [Live portfolio](https://kevin0018.github.io/portfolio/) ·
 [Download résumé](./public/assets/files/CV_Kevin_Hernandez_Deras.pdf)
@@ -17,10 +18,9 @@ The dark visual direction uses amber and violet lighting, perspective and Onest 
 
 - Explore four finished products with complete interface previews and readable
   project summaries.
-- The hero presents wikiLoL as one independent screen, using the exact project
-  artwork and beveled frame from the approved concept. Pointer movement tilts the
-  scene; opening the screen moves the camera toward the real case study. The
-  “Explore projects” action leads to the four existing project studies.
+- The hero shows real wikiLoL and Blog de Viajes interfaces as independently
+  floating browser windows. Pointer movement tilts them; each opens its actual
+  case study. A green arrow and “Keep exploring” link lead to projects.
 - Open bilingual case studies for [wikiLoL](https://github.com/kevin0018/wikiLoL),
   [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes),
   [Huellas](https://github.com/kevin0018/Huellas) and
@@ -36,7 +36,7 @@ The dark visual direction uses amber and violet lighting, perspective and Onest 
 ```mermaid
 flowchart LR
   visitor["Visitor"] --> app["Bilingual React shell"]
-  app --> hero["Interactive cinematic project stage"]
+  app --> hero["Interactive workbench hero"]
   app --> work["Four finished projects"]
   work --> cases["Hash-linked case-study dialog"]
   content["Verified typed content"] --> hero
@@ -44,18 +44,17 @@ flowchart LR
   content --> cases
   scroll["Native scroll + requestAnimationFrame"] --> hero
   observer["IntersectionObserver + Web Animations"] --> app
-  tokens["Graphite / amber / violet tokens"] --> app
+  tokens["Scoped workbench + content tokens"] --> app
   vite["Vite build"] --> pages["GitHub Pages"]
 ```
 
 Content stays separate from presentation in bilingual TypeScript modules. The
 four featured products share one modal gallery and engineering detail component.
-The opening stage combines a generated architectural background with the exact
-wikiLoL project fragment from the approved concept. SVG viewports preserve its
-original illustration, mark and screen bevels without regenerating them. The
-header, monogram, page copy and arrow remain independent HTML/SVG elements. The
-hero has no carousel; the project section keeps the four actual case studies and
-their real product screenshots.
+The opening workbench uses HTML/CSS browser frames around real product captures.
+Its backing sheets, marker and doodles are CSS and SVG elements, separate from
+the readable page copy and navigation. No concept image is shipped as a screen.
+The hero has no carousel; the project section keeps the four existing case studies
+and their real product screenshots while its next design is being reviewed.
 
 ### Decisions worth reviewing
 
@@ -69,10 +68,12 @@ their real product screenshots.
   movement without changing the layout or which projects can be reached.
 - Native dialogs support Escape, focus restoration, direct hash links and history.
 - Screenshots and résumé links respect Vite's `BASE_URL` for GitHub Pages.
-- `tokens.css` defines the graphite, amber and violet palette and Onest typography.
+- `workbench.css` scopes the light hero palette and responsive navigation;
+  `tokens.css` retains the current lower-section palette.
 - `projectScenes.ts` maps the four real product screenshots to their lighting.
 - The chosen visual reference takes priority over Taste Skill’s default style
-  prohibitions; lighting, outlines and the accent headline are deliberate.
+  prohibitions; the paper ground, marker highlight and hand-drawn accents
+  follow the selected third concept.
 - Generated Taste direction sheets, critiques and captures stay in ignored
   `.taste-skill/`; the implemented design system stays in versioned `design.md`.
 

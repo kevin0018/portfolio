@@ -3,7 +3,7 @@ import { useEffect } from "react";
 export function MotionEffects({ paused }: { paused: boolean }) {
   useEffect(() => {
     let frame = 0;
-    const hero = document.querySelector<HTMLElement>(".cinema-hero");
+    const hero = document.querySelector<HTMLElement>(".desk-hero");
     const render = () => {
       frame = 0;
       if (!hero) return;

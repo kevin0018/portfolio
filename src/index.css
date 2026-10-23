@@ -1,5 +1,5 @@
 @import "../tokens.css";
 @import "tailwindcss";
 @import "./portfolio.css";
-@import "./cinema.css";
+@import "./workbench.css";
 @custom-variant dark (&:where(.dark, .dark *));

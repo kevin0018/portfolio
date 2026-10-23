@@ -197,6 +197,5 @@ button:active, .solid-link:active, .outline-link:active { transform: scale(.97);
   .case-stack { margin-bottom: 2rem; }
 }
 [data-motion-paused=true] *, [data-motion-paused=true] *::before, [data-motion-paused=true] *::after { animation: none !important; transition: none !important; }
-[data-motion-paused=true] .portal-camera, [data-motion-paused=true] .cinema-hero__intro { transform: var(--portal-rest, none); }
 html:has([data-motion-paused=true]) { scroll-behavior: auto; }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }

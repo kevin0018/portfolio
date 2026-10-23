@@ -5,8 +5,9 @@
 [![Desplegar portfolio](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml)
 
 Mi portfolio full stack interactivo, con cuatro proyectos terminados, capturas
-reales, un escenario inmersivo y casos de estudio animados. La dirección oscura
-combina luz ámbar y violeta, perspectiva y tipografía Onest.
+reales, una mesa de trabajo y casos de estudio animados. La portada combina
+navegación lateral fija, ventanas superpuestas, marcas amarillas, tipografía
+Onest y anotaciones manuscritas con Caveat.
 
 [Ver portfolio](https://kevin0018.github.io/portfolio/) ·
 [Descargar CV](./public/assets/files/CV_Kevin_Hernandez_Deras.pdf)
@@ -17,10 +18,9 @@ combina luz ámbar y violeta, perspectiva y tipografía Onest.
 
 - Explora cuatro productos terminados con capturas completas y explicaciones
   legibles de cada proyecto.
-- La portada presenta solo wikiLoL, con la ilustración y el marco exactos del
-  boceto aprobado. El cursor inclina el escenario y abrir la pantalla acerca la
-  cámara antes de mostrar el caso real. El botón «Ver proyectos» lleva a los
-  cuatro casos de estudio existentes.
+- La portada muestra las interfaces reales de wikiLoL y Blog de Viajes en dos
+  ventanas flotantes. El cursor las inclina y cada una abre su caso de estudio.
+  La flecha verde y «Sigue explorando» llevan a la sección de proyectos.
 - Abre casos bilingües de [wikiLoL](https://github.com/kevin0018/wikiLoL),
   [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes),
   [Huellas](https://github.com/kevin0018/Huellas) y
@@ -37,7 +37,7 @@ combina luz ámbar y violeta, perspectiva y tipografía Onest.
 ```mermaid
 flowchart LR
   visitor["Visitante"] --> app["Shell React bilingüe"]
-  app --> hero["Escenario de proyectos interactivo"]
+  app --> hero["Mesa de trabajo interactiva"]
   app --> work["Cuatro proyectos terminados"]
   work --> cases["Diálogo enlazado por hash"]
   content["Contenido tipado verificado"] --> hero
@@ -45,17 +45,17 @@ flowchart LR
   content --> cases
   scroll["Scroll nativo + requestAnimationFrame"] --> hero
   observer["IntersectionObserver + Web Animations"] --> app
-  tokens["Tokens grafito / ámbar / violeta"] --> app
+  tokens["Tokens de portada y contenido"] --> app
   vite["Build Vite"] --> pages["GitHub Pages"]
 ```
 
 El contenido está separado de la presentación en módulos TypeScript bilingües.
 Los cuatro productos comparten un componente de galería y decisiones técnicas.
-La portada combina un escenario generado con el fragmento exacto de wikiLoL
-extraído visualmente del boceto aprobado. Los viewports SVG conservan su
-ilustración, símbolo y biseles sin regenerarlos. Cabecera, monograma, texto y
-flecha son elementos HTML/SVG independientes. El hero no tiene carrusel; la
-sección de proyectos conserva los cuatro casos y sus capturas reales.
+La portada utiliza marcos HTML/CSS alrededor de capturas reales de los productos.
+Los papeles de color, el marcador y las anotaciones son elementos CSS y SVG,
+separados del texto y la navegación. Ninguna imagen del boceto sustituye una
+pantalla. No hay carrusel; la sección de proyectos mantiene sus cuatro casos
+mientras se revisa un nuevo diseño acorde con la portada.
 
 ### Decisiones que merece la pena revisar
 
@@ -69,11 +69,12 @@ sección de proyectos conserva los cuatro casos y sus capturas reales.
   detiene los efectos decorativos sin cambiar el contenido disponible.
 - Los diálogos nativos admiten Escape, restauración del foco, hashes e historial.
 - Capturas y CV respetan `BASE_URL` para el despliegue en GitHub Pages.
-- `tokens.css` define la paleta grafito, ámbar y violeta y la tipografía Onest.
+- `workbench.css` define la paleta clara del hero y la navegación responsive;
+  `tokens.css` mantiene la paleta actual del resto de secciones.
 - `projectScenes.ts` asocia las cuatro capturas reales con sus luces.
 - La referencia visual elegida tiene prioridad sobre las prohibiciones estéticas
-  por defecto de Taste Skill: luces, contornos y titular con acento son decisiones
-  deliberadas del diseño.
+  por defecto de Taste Skill: el fondo de papel, el marcador y las anotaciones
+  siguen el tercer boceto elegido.
 - Las propuestas generadas, críticas y capturas quedan en `.taste-skill/`, ignorado
   por Git. El sistema de diseño implementado se versiona en `design.md`.
 

@@ -1,86 +1,63 @@
-# Kevin Hernández — implemented design system
+# Portfolio visual system
 
-## Direction and scope
+## Current direction
 
-The selected direction is the second concept: an immersive graphite stage with
-amber and violet lighting. The hero presents only wikiLoL. The primary “Ver
-proyectos” / “Explore projects” action reaches the existing project section,
-which retains wikiLoL, Blog de Viajes, Huellas and PokeShop.
+Kevin selected the original third concept, “Mesa de trabajo”, for the hero.
+It replaces the dark cinematic hero with a light paper field, a navigation rail,
+large black typography and overlapping windows containing actual project captures.
+The projects section remains its previous implementation until a separate design
+is chosen for the new identity. No gallery proposal is implemented yet.
 
-The hero has no project selector, rotation, autoplay or carousel state. The
-current refinement is scoped to the hero and header; project, experience,
-education and case-study layouts retain their previous implementation.
+## Hero and navigation
 
-## Visual system
+- Desktop navigation is a fixed left rail. At 900px and below it becomes a sticky
+  horizontal header; all section destinations remain visible while scrolling.
+- The KH mark is an independent SVG with a black K and yellow right-hand stroke.
+  Kevin's full name appears once in the hero identity block.
+- The title is “Así construyo mis proyectos.” with an English equivalent. A yellow
+  marker shape sits behind the last word, matching the selected concept. The
+  supporting text describes the work in first person, without a sales slogan.
+- Two actual product captures appear in independently positioned browser windows:
+  wikiLoL above a lavender backing sheet, Blog de Viajes above a yellow sheet.
+  The windows open their real case studies. There is no carousel or automatic
+  project switching. Huellas and PokeShop remain in the projects section.
+- Hand-drawn arrows and graphic accents are inline SVG. The paper texture is an
+  SVG noise filter. Neither the reference mockup nor a generated screen is used
+  as the page interface. Window dimensions retain their image proportions.
+- The bottom row contains the Barcelona location, project links and the existing
+  “Sigue explorando” action. The green arrow is also a real projects link.
 
-| Role | Value |
-| --- | --- |
-| Main background | `#0a0b10` |
-| Section/dialog surface | `#111218` |
-| Raised controls | `#191b24` |
-| Text | `#f4f3f5` |
-| Secondary text | `#a6a6b2` |
-| Warm light and actions | `#ffbe64` |
-| Cool light | `#a475ff` |
+## Type and colour
 
-Onest is the page's font family. The page headline stays on two lines. The
-approved reference takes priority over Taste Skill's default restrictions on
-violet, lighting, accent words and thin screen outlines.
+Onest carries the interface and large title; Caveat is reserved for handwritten
+project annotations. The hero's scoped palette is paper `#faf7f0`, ink `#080d16`,
+secondary ink `#5f6474`, yellow `#ffda32`, lavender `#cdb0ff`, green `#34b66d` and
+coral `#ff5147`. Existing lower-section tokens remain in `tokens.css` while those
+sections await redesign. The workbench styles live in `src/workbench.css`.
 
-## Hero composition
+## Motion and responsive behavior
 
-The reference canvas is 1536 × 1024: an 80px header, an 832px stage and a 112px
-project-caption band. Smaller screens stack the introduction and project frame.
-The stage fills the viewport width at every desktop size. The project frame
-keeps its native 1000:740 aspect ratio and fits the available stage height; the
-background covers the stage independently. Typography scales continuously with
-width and available height, with no alternate large-screen layout at 1600px.
+The browser windows float gently out of phase and tilt with mouse movement.
+Hover lifts the selected window. Scroll moves the introduction slightly and
+triggers the existing staggered content reveals. The exploration arrow keeps
+its continuous small bounce. The pause control and reduced-motion preference
+preserve the static composition and functional links.
 
-- Header: a geometric KH monogram drawn as SVG paths, navigation, language and
-  motion controls. It stays sticky at the top while scrolling. The full name
-  appears in the hero, without repeating it here. Desktop navigation is centered in the viewport;
-  all header items are vertically centered. Letter spacing cannot distort the monogram.
-- Introduction: Kevin's name in a neutral two-line title, with a bilingual
-  first-person description of his role and location and a thin accent line.
-  The projects action uses a fixed SVG arrow rather than a font-dependent glyph.
-- Architecture: the background plate generated from the approved concept retains
-  its lighting, columns, floor and plants.
-- Project: the exact approved project fragment includes the Ekko illustration,
-  wikiLoL symbol, interface presentation, dark chrome, bevels and glowing edges.
-  A standalone image keeps its native aspect ratio in the responsive frame.
-  The clip includes a little surrounding light so the bevel is not cut off, and
-  restricts the link's clickable area.
-- Footer: a right-aligned “Sigue explorando” link with a downward arrow, leading to projects.
-
-Only the project presentation is raster artwork. The portfolio itself remains a
-working interface with separate navigation, copy, SVG graphics, links and dialogs.
-The project image is concept artwork, not presented as a current product capture.
-The case study continues to display the actual wikiLoL screenshot gallery.
-
-## Motion and behavior
-
-The introduction and project plane enter separately. Light breathes, the frame
-floats slightly, and pointer movement tilts it. Opening the project advances the
-camera and navigates to `#wikilol`; modified clicks retain native link behavior.
-Scroll moves the introduction and project plane independently as the hero leaves.
-The pause control and reduced-motion preference preserve a still complete layout.
-
-There are no pinned sections or empty scroll holds. Spanish/English preference,
-direct case hashes, focus restoration, CV and contact links remain available.
+Desktop layers occupy a fluid work area. Tablet and phone move the introduction
+above the windows, which retain their angle and colored backing sheets. The
+navigation and footer reflow for touch. No large-screen breakpoint crops a whole
+mockup or changes the project imagery.
 
 ## Assets and provenance
 
-- `public/assets/images/stage/cinema-environment.png`: generated with the built-in
-  image tool from the approved concept, removing UI layers and reconstructing the
-  architecture. This is a generated reconstruction rather than an exact extraction.
-- `public/assets/images/stage/wikilol-project-frame.png`: a 1000 × 740 transparent
-  crop of the approved second concept containing only its project frame and light.
-  Pixels outside the frame polygon are removed from the asset itself. The complete
-  concept is not shipped. The same proportional image serves desktop and mobile.
-- `HeroGraphics.tsx`: independent vector paths for KH and the projects arrow.
-- Existing actual project screenshots remain in the project section and galleries.
-  Team contributions and Riot Games attribution remain in the case-study data.
+- `public/assets/images/wikilol/01-search.png`: real wikiLoL search interface.
+- `public/assets/images/blog-de-viajes-preview.jpg`: real travel project preview;
+  its hero is cropped by CSS within a proportional browser window.
+- `src/components/HeroGraphics.tsx`: vector KH monogram and navigation arrow.
+- `src/components/HeroSection.tsx`: live HTML, inline SVG annotations and real
+  screenshot references. The original concept stays in ignored `.taste-skill/`.
+- Case-study galleries keep actual product screenshots and team/Riot attribution.
 
-All assets respect Vite's production base path. Generated concept explorations,
-working notes, critiques and browser captures stay in ignored `.taste-skill/`.
-This file documents the implemented visual system, not an implementation plan.
+The unused cinematic background and cropped concept screen have been removed.
+Design explorations, browser captures and working notes remain local and ignored.
+This file describes the implemented system, not a future implementation plan.
