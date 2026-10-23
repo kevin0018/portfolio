@@ -4,10 +4,9 @@
 
 [![Desplegar portfolio](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml)
 
-Mi portfolio full stack interactivo: productos reales presentados como pósteres
-en movimiento, una portada con mi nombre dividido, un giro de producto a
-arquitectura y títulos que se separan y se alinean al hacer scroll. Diseñado
-con Taste Skill.
+Mi portfolio full stack interactivo, con cuatro proyectos terminados, capturas
+completas, un giro de producto a arquitectura y entradas animadas. La identidad
+visual utiliza la tipografía y la paleta propuestas por Taste Skill.
 
 [Ver portfolio](https://kevin0018.github.io/portfolio/) ·
 [Descargar CV](./public/assets/files/CV_Kevin_Hernandez_Deras.pdf)
@@ -16,7 +15,8 @@ con Taste Skill.
 
 ## Puntos destacados
 
-- Explora cuatro productos reales en un escenario de pósteres animados con scroll.
+- Explora cuatro productos terminados con capturas completas y explicaciones
+  legibles de cada proyecto.
 - Gira cada captura de la portada para descubrir su frontend, la frontera de
   aplicación, el backend y las fuentes de datos verificadas.
 - Abre casos bilingües de [wikiLoL](https://github.com/kevin0018/wikiLoL),
@@ -25,7 +25,6 @@ con Taste Skill.
   [PokeShop](https://github.com/kevin0018/PokeShop), con galerías de pantallas,
   imágenes a tamaño completo, decisiones técnicas, demos y repositorios.
 - Consulta mi trabajo actual en Inmatic, mi formación y mis certificaciones DevOps.
-- Descubre otros proyectos con un archivo visual interactivo.
 - Cambia entre español e inglés con preferencia persistida. Pausa el movimiento
   desde la cabecera.
 - Accede a cada caso mediante su hash. Escape cierra el diálogo y el foco vuelve
@@ -37,12 +36,12 @@ con Taste Skill.
 flowchart LR
   visitor["Visitante"] --> app["Shell React bilingüe"]
   app --> hero["Giro producto / arquitectura"]
-  app --> work["Pósteres de proyectos"]
+  app --> work["Cuatro proyectos terminados"]
   work --> cases["Diálogo enlazado por hash"]
   content["Contenido tipado verificado"] --> hero
   content --> work
   content --> cases
-  scroll["Scroll nativo + requestAnimationFrame"] --> work
+  scroll["Scroll nativo + requestAnimationFrame"] --> hero
   observer["IntersectionObserver + Web Animations"] --> app
   tokens["Tokens arena / cobalto"] --> app
   vite["Build Vite"] --> pages["GitHub Pages"]
@@ -55,14 +54,14 @@ no son interfaces de aplicación inventadas.
 
 ### Decisiones que merece la pena revisar
 
-- El scroll nativo dirige dos escenas breves con elementos sticky sin interceptar
-  la rueda ni los gestos táctiles.
-- Las imágenes se desplazan en sentidos opuestos. La separación del título está
-  acotada para mantener la acción del proyecto libre de solapamientos.
+- La portada y los proyectos siguen el flujo del documento. Texto y capturas
+  tienen su propio espacio, sin títulos partidos ni proyectos ocultos por scroll.
+- Las capturas completas conservan sus proporciones. Imagen, explicación y acción
+  permanecen disponibles a la vez en todos los tamaños de pantalla.
 - `MotionEffects` agrupa las actualizaciones con `requestAnimationFrame` y anima
   las entradas de las partes de cada sección con Web Animations.
-- Pausar el movimiento o solicitar movimiento reducido muestra los cuatro
-  proyectos en el flujo normal. El estado interactivo sigue al estado visual.
+- Los cuatro proyectos siempre están en el flujo normal. Pausar el movimiento
+  detiene los efectos decorativos sin cambiar el contenido disponible.
 - Los diálogos nativos admiten Escape, restauración del foco, hashes e historial.
 - Capturas y CV respetan `BASE_URL` para el despliegue en GitHub Pages.
 - `tokens.css` define la paleta de Taste Skill, las fuentes Unbounded/Onest y los
@@ -95,9 +94,9 @@ portfolio/
 └── vite.config.ts
 ```
 
-La aplicación activa utiliza los pósteres, los registros profesionales y los
-casos de estudio en diálogo. Los componentes independientes anteriores se
-conservan en el árbol de fuentes.
+La aplicación activa muestra solo wikiLoL, Blog de Viajes, Huellas y PokeShop.
+Los datos y componentes anteriores se conservan para retomarlos más adelante;
+los proyectos sin terminar no se muestran ni se promocionan en el portfolio.
 
 ## Desarrollo local
 

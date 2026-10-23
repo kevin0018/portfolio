@@ -4,7 +4,6 @@ import { HeroSection } from "./components/HeroSection";
 import { ProfessionalJourney } from "./components/ProfessionalJourney";
 import { MotionEffects } from "./components/MotionEffects";
 import { SelectedWork } from "./components/ProjectStage";
-import { ProjectArchive } from "./components/ProjectArchive";
 import { SiteHeader } from "./components/SiteHeader";
 import { featuredCaseStudies, type Language } from "./data/caseStudies";
 
@@ -61,7 +60,6 @@ function App() {
         <HeroSection language={language} />
         <SelectedWork language={language} />
         <ProfessionalJourney language={language} />
-        <ProjectArchive language={language} />
       </main>
       <footer className="contact-stage" id="contacto">
         <div className="contact-stage__image" aria-hidden="true">

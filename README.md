@@ -4,9 +4,9 @@
 
 [![Deploy portfolio](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/kevin0018/portfolio/actions/workflows/deploy.yml)
 
-My interactive full-stack portfolio: real products presented as moving posters,
-with a split-name opening, a product-to-architecture flip, and project titles
-that separate and realign as you scroll. Designed with Taste Skill.
+My interactive full-stack portfolio, featuring four finished projects with
+complete interface previews, a product-to-architecture flip and motion-led
+section entrances. The visual identity uses Taste Skill’s typography and palette.
 
 [Live portfolio](https://kevin0018.github.io/portfolio/) ·
 [Download résumé](./public/assets/files/CV_Kevin_Hernandez_Deras.pdf)
@@ -15,7 +15,8 @@ that separate and realign as you scroll. Designed with Taste Skill.
 
 ## Highlights
 
-- Explore four real products in a cinematic, scroll-driven poster stage.
+- Explore four finished products with complete interface previews and readable
+  project summaries.
 - Turn each opening capture over to inspect its verified frontend, application
   boundary, backend and data sources.
 - Open bilingual case studies for [wikiLoL](https://github.com/kevin0018/wikiLoL),
@@ -24,7 +25,6 @@ that separate and realign as you scroll. Designed with Taste Skill.
   [PokeShop](https://github.com/kevin0018/PokeShop), with named screenshot galleries,
   full-size images, technical decisions, live demos and source repositories.
 - Read my current responsibilities at Inmatic, education and DevOps certifications.
-- Browse additional projects through an interactive visual archive.
 - Switch English/Spanish with a persisted preference. Pause motion from the header.
 - Open case studies directly through their URL hashes; Escape closes the dialog
   and focus returns to the opening control.
@@ -35,12 +35,12 @@ that separate and realign as you scroll. Designed with Taste Skill.
 flowchart LR
   visitor["Visitor"] --> app["Bilingual React shell"]
   app --> hero["Product / architecture flip"]
-  app --> work["Pinned project posters"]
+  app --> work["Four finished projects"]
   work --> cases["Hash-linked case-study dialog"]
   content["Verified typed content"] --> hero
   content --> work
   content --> cases
-  scroll["Native scroll + requestAnimationFrame"] --> work
+  scroll["Native scroll + requestAnimationFrame"] --> hero
   observer["IntersectionObserver + Web Animations"] --> app
   tokens["Cobalt / sand design tokens"] --> app
   vite["Vite build"] --> pages["GitHub Pages"]
@@ -53,13 +53,14 @@ they are not mock application interfaces.
 
 ### Decisions worth reviewing
 
-- Native scroll drives two short sticky stages without wheel or touch interception.
-- The poster seam uses opposed image movement and a capped title envelope, keeping
-  the project action separate from the moving title.
+- Hero and project sections follow the document flow. Text and screenshots have
+  separate layout tracks, without scroll-controlled visibility or split titles.
+- Complete captures preserve their proportions; the image, summary and action
+  remain available together at every screen size.
 - `MotionEffects` schedules scroll updates through `requestAnimationFrame` and
   gives section parts independent Web Animations entrances.
-- Pausing motion or requesting reduced motion exposes all four projects in normal
-  document flow. Active project semantics follow the visual state.
+- All four projects are always in document flow. Pausing motion stops decorative
+  movement without changing the layout or which projects can be reached.
 - Native dialogs support Escape, focus restoration, direct hash links and history.
 - Screenshots and résumé links respect Vite's `BASE_URL` for GitHub Pages.
 - `tokens.css` defines the Taste Skill palette, Unbounded/Onest typography and motion.
@@ -91,8 +92,9 @@ portfolio/
 └── vite.config.ts
 ```
 
-The active shell uses the poster, professional records and modal case studies.
-Earlier standalone components remain available in the source tree.
+The active shell shows only wikiLoL, Blog de Viajes, Huellas and PokeShop.
+Earlier project data and standalone components are retained for future work,
+but unfinished projects are not rendered or promoted in the portfolio.
 
 ## Local development
 

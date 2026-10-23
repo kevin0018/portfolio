@@ -8,63 +8,18 @@ export function MotionEffects({ paused }: { paused: boolean }) {
     const media = matchMedia("(prefers-reduced-motion: reduce)");
     let frame = 0;
     const hero = document.querySelector<HTMLElement>(".hero-poster");
-    const work = document.querySelector<HTMLElement>(".work-posters");
     const root = document.documentElement;
-    const posters = Array.from(
-      document.querySelectorAll<HTMLElement>(".project-poster"),
-    );
-    const switches = Array.from(
-      document.querySelectorAll<HTMLButtonElement>("[data-switch-index]"),
-    );
     const render = () => {
       frame = 0;
       const reduced = paused || media.matches;
       root.dataset.motionReduced = String(reduced);
-      for (const scene of [hero, work]) {
-        scene?.classList.toggle("is-live", !reduced);
-        scene?.classList.toggle("is-rest", reduced);
-      }
       if (hero) {
+        const bounds = hero.getBoundingClientRect();
         const progress = reduced
           ? 0
-          : clamp(
-              -hero.getBoundingClientRect().top /
-                (hero.offsetHeight - innerHeight),
-            );
-        hero.style.setProperty("--hero-progress", String(progress));
-        hero.style.setProperty("--hero-shift", `${progress * -80}px`);
-        hero.style.setProperty("--hero-rotation", `${progress * -6}deg`);
-        hero.style.setProperty("--hero-scale", String(1 + progress * 0.12));
-      }
-      if (work) {
-        const progress = clamp(
-          -work.getBoundingClientRect().top /
-            Math.max(1, work.offsetHeight - innerHeight),
-        );
-        const active = Math.min(3, Math.floor(progress * 4));
-        posters.forEach((poster, index) => {
-          const local = clamp(progress * 4 - index);
-          const visible = reduced || index === active;
-          poster.style.setProperty(
-            "--seam-travel",
-            `${reduced ? 0 : Math.sign(local - 0.5) * Math.pow(Math.abs(local - 0.5) * 2, 4) * 3}vh`,
-          );
-          poster.style.setProperty(
-            "--pane-travel",
-            `${reduced ? 0 : (local - 0.5) * 9}vh`,
-          );
-          poster.style.setProperty(
-            "--picture-scale",
-            String(reduced ? 1 : 1.09 - local * 0.06),
-          );
-          poster.style.opacity = visible ? "1" : "0";
-          poster.style.visibility = visible ? "visible" : "hidden";
-          poster.inert = !visible;
-        });
-        switches.forEach((button, index) =>
-          button.setAttribute("aria-pressed", String(active === index)),
-        );
-        work.style.setProperty("--work-progress", String(progress));
+          : clamp(-bounds.top / Math.max(1, bounds.height));
+        hero.style.setProperty("--hero-shift", `${progress * -12}px`);
+        hero.style.setProperty("--hero-rotation", `${progress * -1}deg`);
       }
     };
     const schedule = () => {

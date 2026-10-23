@@ -1,135 +1,68 @@
-import { useRef, type CSSProperties } from "react";
 import { featuredCaseStudies, type Language } from "../data/caseStudies";
 import { projectGallery } from "../data/projectGallery";
 
 export function SelectedWork({ language }: { language: Language }) {
-  const scene = useRef<HTMLElement>(null);
-
-  function select(index: number) {
-    const root = scene.current;
-    if (!root) return;
-    if (document.documentElement.dataset.motionReduced === "true") {
-      const poster = root.querySelectorAll(".project-poster").item(index);
-      poster?.scrollIntoView({ behavior: "instant", block: "center" });
-      return;
-    }
-    const travel = root.offsetHeight - window.innerHeight;
-    window.scrollTo({
-      top:
-        root.getBoundingClientRect().top +
-        scrollY +
-        travel * (index / 4 + 0.08),
-      behavior: "smooth",
-    });
-  }
-
   return (
     <section
-      ref={scene}
-      className="work-posters scene"
+      className="selected-projects page-gutter"
       id="proyectos"
-      data-scene="project-seam"
       aria-labelledby="work-heading"
     >
-      <div className="work-posters__stage">
-        <div className="work-posters__mast">
-          <h2 id="work-heading">
-            {language === "es" ? "Proyectos" : "Projects"}
-          </h2>
-          <p>
-            {language === "es"
-              ? "Del producto a sus decisiones."
-              : "From the product to its decisions."}
-          </p>
-        </div>
-        <div className="project-posters">
-          {featuredCaseStudies.map((project, index) => {
-            const second = projectGallery[project.slug]?.[1];
-            const name =
-              project.slug === "blog-de-viajes" ? (
-                <>
-                  Blog de
-                  <br />
-                  Viajes
-                </>
-              ) : (
-                project.name
-              );
-            return (
-              <article
-                className={`project-poster project-poster--${project.slug}`}
-                key={project.slug}
-                data-project-index={index}
-                style={{ "--project-index": index } as CSSProperties}
-              >
-                <div className="project-poster__pane project-poster__pane--left">
-                  <img
-                    src={project.image}
-                    alt={project.imageAlt[language]}
-                    width="1440"
-                    height="900"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="project-poster__pane project-poster__pane--right">
-                  <img
-                    src={second?.image ?? project.image}
-                    alt={second?.alt[language] ?? project.imageAlt[language]}
-                    width="1440"
-                    height="900"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="project-poster__center">
-                  <h3>
-                    <span className="seam-title seam-title--left">{name}</span>
-                    <span
-                      className="seam-title seam-title--right"
-                      aria-hidden="true"
-                    >
-                      {name}
-                    </span>
-                  </h3>
-                  <p>{project.descriptor[language]}</p>
-                  <a className="solid-link" href={`#${project.slug}`}>
-                    {language === "es"
-                      ? "Explorar proyecto"
-                      : "Explore project"}
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                </div>
-                <div className="project-poster__foot">
-                  <p>{project.summary[language]}</p>
-                  <span>{project.stack.slice(0, 3).join(" · ")}</span>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-        <div
-          className="work-switcher"
-          role="group"
-          aria-label={language === "es" ? "Ir al proyecto" : "Go to project"}
-        >
-          {featuredCaseStudies.map((project, index) => (
-            <button
-              type="button"
-              key={project.slug}
-              data-switch-index={index}
-              onClick={() => select(index)}
-              aria-label={`${language === "es" ? "Ver" : "View"} ${project.name}`}
-              aria-pressed={index === 0}
+      <header className="selected-projects__heading">
+        <h2 className="section-heading" id="work-heading" data-reveal>
+          {language === "es" ? "Proyectos" : "Projects"}
+        </h2>
+        <p data-reveal>
+          {language === "es"
+            ? "El producto. Y cómo lo construí."
+            : "The product. And how I built it."}
+        </p>
+      </header>
+      <div className="selected-projects__list">
+        {featuredCaseStudies.map((project) => (
+          <article className="project-feature" key={project.slug}>
+            <a
+              className="project-feature__image"
+              href={`#${project.slug}`}
+              aria-label={`${language === "es" ? "Explorar" : "Explore"} ${project.name}`}
+              data-reveal
             >
-              {project.name}
-            </button>
-          ))}
-        </div>
+              <img
+                src={projectGallery[project.slug]?.[0]?.image ?? project.image}
+                alt={
+                  projectGallery[project.slug]?.[0]?.alt[language] ??
+                  project.imageAlt[language]
+                }
+                width="1440"
+                height="900"
+                loading="lazy"
+              />
+              <span className="project-feature__open" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <div className="project-feature__copy">
+              <h3 data-reveal>{project.name}</h3>
+              <p className="project-feature__descriptor" data-reveal>
+                {project.descriptor[language]}
+              </p>
+              <p data-reveal>{project.summary[language]}</p>
+              <p className="project-feature__stack" data-reveal>
+                {project.stack.slice(0, 4).join(" · ")}
+              </p>
+              <a className="solid-link" href={`#${project.slug}`} data-reveal>
+                {language === "es" ? "Explorar proyecto" : "Explore project"}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
 }
 
-// Retained for the earlier standalone hero while the current shell uses the poster.
+// Compatibility with the earlier standalone hero.
 export function ProjectStage({ language }: { language: Language }) {
   return <SelectedWork language={language} />;
 }

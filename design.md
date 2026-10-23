@@ -2,18 +2,19 @@
 
 ## Direction
 
-**The pinned poster**, generated with Taste Skill (`design-taste-frontend`),
-seed **1261000740**. This is the implemented visual system, not a roadmap.
+The visual identity originated in Taste Skill’s **The pinned poster** direction,
+seed **1261000740**. The implemented layout retains its palette and typography
+with complete screenshots, intact headings and normal document flow.
 
-Kevin's real software is the material. His name holds opposite corners of the
-opening while the work passes between them. Projects are split into two views
-of the same product. Opposing motion separates the title at that boundary and
-reassembles it as the project centres. The visitor can turn an actual product
-capture over to see its verified architecture.
+Kevin's real software is the material. The opening places his name around a
+complete product capture and an introduction. A visitor can turn each product
+over to see its verified architecture. Project images, titles, summaries and
+actions occupy separate layout tracks and remain available in document flow.
 
-The site presents a developer's work through moving posters, rather than a
-chronology. Professional experience and education have distinct factual records.
-No fabricated clients, testimonials, awards, counters or outcome metrics.
+The portfolio currently shows **only wikiLoL, Blog de Viajes, Huellas and
+PokeShop**. Other project data is retained in source for future work, but its
+archive component is not rendered. Professional experience and education have
+distinct factual records.
 
 ## Palette
 
@@ -25,7 +26,7 @@ The dealt palette is **Cobalt on sand**:
 | `--surface`          | `#ddd0b9` | Open disclosures and supporting surfaces |
 | `--ink` / `--accent` | `#062b8a` | Type and primary actions                 |
 | `--muted`            | `#3a5aa8` | Secondary factual labels                 |
-| `--field`            | `#c7d3e8` | Work and archive ground                  |
+| `--field`            | `#c7d3e8` | Project section ground                   |
 | `--field-deep`       | `#b6c7e4` | Inactive project controls                |
 
 All interface colour and font roles are defined in `tokens.css`. Product captures
@@ -46,38 +47,30 @@ shape; secondary actions are text links.
 
 ## Composition
 
-1. **Pinned opening:** Kevin at the upper-left, Hernández at the lower-right;
-   product capture and professional introduction fill the middle. The four
-   product controls change both sides of the interactive product/architecture flip.
-2. **Torn-seam work:** two opposing screenshot panes and two clipped halves of
-   a project title. Native scroll advances all four real projects in a three-screen
-   stage; direct project controls move to each phase. The readable title phase
-   dominates, with stronger tearing restricted to its entry and exit.
+1. **Opening:** Kevin above the introduction and product capture; Hernández below.
+   CSS Grid and normal document flow size the composition to its content. The
+   picture keeps its complete proportions. Product controls sit below its frame.
+2. **Selected work:** four complete project features. A large real capture is
+   paired with the intact name, product summary, stack and case-study action.
+   Desktop alternates the image and copy; phone layouts put the image first.
+   There is no split title, screenshot seam, pinned gallery or hidden project.
 3. **Experience:** current employment facts beside a wide introduction, then a
    real portrait beside an interactive list of responsibilities.
-4. **Education:** two records, with complete qualification, institution, period
-   and description. DevOps certifications retain their individual titles.
-5. **Archive:** a large project preview responds to hover, focus and selection
-   of a list of additional projects.
-6. **Contact:** a solid contact sheet over a moving real product capture, followed
+4. **Education:** full qualifications, institutions, periods and individual DevOps
+   certification titles.
+5. **Contact:** a solid contact sheet over a moving real product capture, followed
    by the surname at monumental scale.
 
 ## Motion
 
-The two held stages use native document scroll and `position: sticky`.
-`MotionEffects` owns their progress, title displacement, pane movement, active
-project semantics and reduced composition. No wheel/touch interception or loading
-screen. The hero picture rotates and grows with scroll; its two faces turn in
-perspective when selected. Image replacement opens with a horizontal wipe.
+The product-to-architecture flip retains perspective. Screenshot replacements
+open with a horizontal wipe. Section parts enter independently with the Web
+Animations API, images respond to hover and the contact image drifts slowly.
+Scroll adds limited movement to the opening capture without controlling layout
+or hiding content. There are no tall empty scroll holds or split animated titles.
 
-Section parts enter independently with the Web Animations API. Buttons move in
-response to hover, disclosures open to their real content, the case-study dialog
-enters from below, and the footer capture drifts slowly. Motion tokens live beside
-the colour tokens. A pause control and reduced-motion preference expose every
-project as a normal flowing section and keep all content reachable.
-
-The title tear uses a fourth-power envelope: the two halves align for most of the
-project's phase and separate near its boundaries. It does not cover the action.
+The pause control and reduced-motion preference stop decorative movement without
+changing the document's composition. Motion tokens live in `tokens.css`.
 
 ## Product exploration
 
@@ -93,21 +86,18 @@ PokeShop remains a fictional educational shop with no payments or real orders.
 
 ## Phone composition
 
-The actual capture comes before the professional introduction; the name remains
-split between the corners. Project navigation wraps into a two-by-two selector.
-The split-screen project scene retains its opposing panes with a shorter title
-excursion. Employment facts follow the introduction, education records stack,
-and archive preview becomes a full-width image above the list. The contact sheet
-fills the available width. The case-study dialog uses the entire phone viewport.
+The complete product capture precedes the introduction. Controls wrap below the
+picture. The surname follows the content instead of occupying a fixed viewport
+position. Each featured project stacks its screenshot, title, summary and action.
+Employment facts follow the introduction, and education records stack. The contact
+sheet fills the available width. The case-study dialog uses the phone viewport.
 
 ## References and scope
 
-Taste Skill supplied the direction, type, palette and section geometry. Its
-portrait-parade about section was exchanged for the side-facts blueprint because
-this portfolio introduces one developer. Actual project captures replace the
-photograph slots. No stock pictures were introduced. Existing React, TypeScript,
-Vite and Tailwind tooling are retained.
+Taste Skill supplied the initial direction, Unbounded/Onest typography and
+Cobalt on sand palette. The implemented composition has been adapted to the
+actual screen content: complete products and intact titles take priority over
+split-poster effects. Only the four finished case studies are presented.
 
-`design.md` is a versioned design specification. Generated direction sheets,
-implementation notes, measurement reports, scene captures and critique rounds
-remain local under ignored `.taste-skill/`.
+`design.md` describes the implemented design. Generated direction sheets,
+implementation notes and screenshots remain local under ignored `.taste-skill/`.

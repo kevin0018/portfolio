@@ -2,7 +2,6 @@ import { useState } from "react";
 import { featuredCaseStudies, type Language } from "../data/caseStudies";
 import { projectArchitecture } from "../data/projectArchitecture";
 
-
 export function HeroSection({ language }: { language: Language }) {
   const [selected, setSelected] = useState(3);
   const [inside, setInside] = useState(false);
@@ -10,12 +9,7 @@ export function HeroSection({ language }: { language: Language }) {
   const system = projectArchitecture[project.slug];
 
   return (
-    <section
-      className="hero-poster scene"
-      id="inicio"
-      data-scene="name-poster"
-      aria-labelledby="hero-name"
-    >
+    <section className="hero-poster" id="inicio" aria-labelledby="hero-name">
       <div className="hero-poster__stage">
         <h1 id="hero-name" aria-label="Kevin Hernández">
           <span className="name-rise">KEVIN</span>
