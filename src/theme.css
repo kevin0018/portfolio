@@ -10,7 +10,10 @@
 :root[data-theme="dark"] .work-selection__heading h2 > span { color: #080d16; }
 :root[data-theme="dark"] .desk-intro h1 span::before { height: .94em; }
 :root[data-theme="dark"] .work-selection__heading h2 > span::after { inset: .18em -.04em .1em; height: auto; }
-@media(min-width:901px) { .masthead__controls { flex-direction: column; align-items: flex-start; gap: .25rem; } }
+@media(min-width:901px) {
+  .masthead__controls { flex-direction: column; align-items: center; align-self: center; gap: .25rem; }
+  .masthead__controls button { display: grid; place-items: center; width: 2.25rem; min-height: 2.5rem; }
+}
 @media(max-width:900px) { .masthead__controls { flex-direction: row; gap: .25rem; } }
 @media(max-width:360px) {
   .masthead { padding-inline: .75rem; gap: .4rem; }
