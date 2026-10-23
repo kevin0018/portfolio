@@ -7,6 +7,10 @@ It replaces the cinematic hero with a theme-aware paper field, a navigation rail
 large black typography and overlapping windows containing actual project captures.
 The projects section follows the selected second light-gallery concept: wikiLoL
 is featured beside its description, with three supporting product previews below.
+Case-study dialogs extend the same workbench language: paper surfaces, heavy
+marker titles, handwritten notes and lavender-backed product windows. Their
+window bar stays visible while scrolling. All scrollable surfaces use thin,
+theme-aware scrollbars with transparent tracks.
 
 ## Hero and navigation
 

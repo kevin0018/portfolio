@@ -43,20 +43,22 @@ export function CaseStudyDialog({
         if (event.target === event.currentTarget) onClose();
       }}
     >
+      <div className="case-dialog__bar">
+        <span className="case-window-dots" aria-hidden="true"><i /><i /><i /></span>
+        <span>{project.descriptor[language]}</span>
+        <button
+          className="close-case"
+          type="button"
+          onClick={onClose}
+          autoFocus
+        >
+          {language === "es" ? "Cerrar" : "Close"}
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
       <div className="case-dialog__sheet">
-        <div className="case-dialog__bar">
-          <span>{project.descriptor[language]}</span>
-          <button
-            className="close-case"
-            type="button"
-            onClick={onClose}
-            autoFocus
-          >
-            {language === "es" ? "Cerrar" : "Close"}
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <h2 id="case-title">{project.name}</h2>
+        <p className="case-handnote">{language === "es" ? "Mis notas del proyecto" : "My project notes"}</p>
+        <h2 id="case-title"><span>{project.name}</span></h2>
         <div className="case-intro">
           <p>{project.summary[language]}</p>
           <div className="case-links">
@@ -106,25 +108,28 @@ export function CaseStudyDialog({
                 </button>
               ))}
             </div>
-            <a
-              className="case-gallery__image"
-              href={view.image}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={
-                language === "es"
-                  ? "Abrir captura a tamaño completo"
-                  : "Open full-size screenshot"
-              }
-            >
-              <img
-                key={view.image}
-                src={view.image}
-                alt={view.alt[language]}
-                width="1440"
-                height="900"
-              />
-            </a>
+            <div className="case-gallery__frame">
+              <div className="case-gallery__chrome" aria-hidden="true"><span className="case-window-dots"><i /><i /><i /></span></div>
+              <a
+                className="case-gallery__image"
+                href={view.image}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={
+                  language === "es"
+                    ? "Abrir captura a tamaño completo"
+                    : "Open full-size screenshot"
+                }
+              >
+                <img
+                  key={view.image}
+                  src={view.image}
+                  alt={view.alt[language]}
+                  width="1440"
+                  height="900"
+                />
+              </a>
+            </div>
             <p className="case-gallery__caption" aria-live="polite">
               {view.description[language]}
             </p>
