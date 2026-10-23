@@ -8,16 +8,15 @@
 .work-selection__heading > p { font-size: 1.0625rem; color: var(--desk-muted); }
 .work-highlight { display: grid; grid-template-columns: minmax(0, 2.45fr) minmax(0, 1fr); gap: clamp(2rem, 3vw, 4rem); align-items: center; margin-bottom: clamp(4rem, 5vw, 6rem); }
 .work-highlight__visual { min-width: 0; }
-.work-preview { position: relative; display: block; isolation: isolate; transform: rotate(1deg); transition: transform .45s var(--ease-out); }
+.work-preview { position: relative; display: block; isolation: isolate; transform: rotate(var(--preview-turn, 1deg)); transition: transform .45s var(--ease-out); }
 .work-preview::before { content: ""; position: absolute; inset: -.6rem -.6rem -.6rem .2rem; background: var(--desk-purple); transform: rotate(-3deg); border-radius: .5rem; z-index: -1; }
-.work-preview:hover { transform: translateY(-6px) rotate(0); }
+.work-preview:hover, .work-preview:focus-visible { transform: translateY(-6px) rotate(0); }
 .work-preview__browser { overflow: hidden; border-radius: .45rem; background: #0b111b; }
 .work-preview__bar { height: clamp(1.25rem, 1.7vw, 1.8rem); display: flex; align-items: center; gap: .35rem; padding-inline: .8rem; }
 .work-preview__bar i { width: .55rem; height: .55rem; border-radius: 50%; background: #ff7769; }
 .work-preview__bar i:nth-child(2) { background: #ffcf43; }
 .work-preview__bar i:nth-child(3) { background: #36bc6c; }
 .work-preview img { width: 100%; height: auto; aspect-ratio: 1.55; object-fit: cover; object-position: top; }
-.work-highlight__visual .work-preview { transform: rotate(1deg); }
 .work-highlight__visual .work-preview img { aspect-ratio: 1.62; }
 .work-highlight__visual .work-preview__browser { animation: desk-float 8s ease-in-out infinite; }
 .work-highlight__copy { position: relative; padding-top: 1.5rem; }
@@ -39,7 +38,7 @@
 .work-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 2.5vw, 3rem); }
 .work-project { min-width: 0; display: flex; flex-direction: column; }
 .work-project--blog-de-viajes .work-preview::before { background: var(--desk-yellow); transform: rotate(-4deg); }
-.work-project--huellas .work-preview { transform: rotate(-.7deg); }
+.work-project--huellas .work-preview { --preview-turn: -.7deg; }
 .work-project--huellas .work-preview::before { background: var(--desk-yellow); transform: rotate(2deg); }
 .work-project--pokeshop .work-preview::before { transform: rotate(-3deg); }
 .work-project .work-preview img { aspect-ratio: 1.22; }
