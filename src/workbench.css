@@ -42,7 +42,7 @@
 .desk-window--travel img { aspect-ratio: 2.25; }
 .desk-note { position: absolute; z-index: 4; font-family: "Caveat", cursive; font-size: clamp(1.5rem, 2.2vw, 2.6rem); font-weight: 700; line-height: .95; pointer-events: none; }
 .desk-note--wiki { right: 1.5%; top: 29%; transform: rotate(-15deg); }
-.desk-note--wiki .desk-sketch-arrow { transform: rotate(50deg); width: 4rem; }
+.desk-note--wiki .desk-sketch-arrow { width: 5rem; margin-left: -1.75rem; }
 .desk-note--travel { left: 3%; top: 70%; transform: rotate(-10deg); }
 .desk-note--travel .desk-sketch-arrow { width: 5rem; transform: rotate(-30deg); }
 .desk-star { position: absolute; right: 1.4%; top: 50%; width: 6%; fill: #ff5147; animation: desk-star-turn 10s ease-in-out infinite; }

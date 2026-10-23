@@ -44,7 +44,7 @@ export function HeroSection({ language, paused = false }: { language: Language; 
       <a className="desk-window desk-window--wiki" href="#wikilol" aria-label={es ? "Explorar wikiLoL" : "Explore wikiLoL"}>
         <BrowserPreview project="wikiLoL" image="wikilol/01-search.png" alt={es ? "Interfaz de wikiLoL: búsqueda de jugadores y archivo de campeones" : "wikiLoL interface: player search and champion archive"} />
       </a>
-      <div className="desk-note desk-note--wiki" aria-hidden="true"><span>wikiLoL</span><SketchArrow /></div>
+      <div className="desk-note desk-note--wiki" aria-hidden="true"><span>wikiLoL</span><svg className="desk-sketch-arrow" viewBox="0 0 100 100" fill="none"><path d="M76 12C90 54 58 65 15 73M31 57 15 73l22 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg></div>
       <a className="desk-window desk-window--travel" href="#blog-de-viajes" aria-label={es ? "Explorar Blog de Viajes" : "Explore Blog de Viajes"}>
         <BrowserPreview project="Blog de Viajes" image="blog-de-viajes-preview.jpg" alt={es ? "Blog de Viajes: descubre destinos y crea itinerarios compartibles" : "Blog de Viajes: discover destinations and create shareable itineraries"} />
       </a>
