@@ -19,7 +19,7 @@
 }
 .masthead__brand { gap: 1.5rem; margin-right: 0; justify-self: start; }
 .masthead__monogram { display: flex; align-items: center; width: 3.8125rem; height: 1.9rem; padding-right: 1.5rem; letter-spacing: normal; flex-shrink: 0; }
-.kevin-monogram { display: block; width: 2.25rem; height: 1.75rem; flex-shrink: 0; }
+.kevin-monogram { display: block; width: 2.125rem; height: 1.5rem; flex-shrink: 0; }
 .masthead__name { font-size: 1.0625rem; font-weight: 400; }
 .masthead nav { gap: 2.5rem; margin-right: 0; justify-self: center; font-size: 1rem; }
 .masthead nav a { white-space: nowrap; }
