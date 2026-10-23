@@ -11,6 +11,10 @@ Case-study dialogs extend the same workbench language: paper surfaces, heavy
 marker titles, handwritten notes and lavender-backed product windows. Their
 window bar stays visible while scrolling. All scrollable surfaces use thin,
 theme-aware scrollbars with transparent tracks.
+The red, yellow and green window controls close, minimize to a restore tab,
+and toggle the expanded size. Minimizing preserves the gallery selection,
+open decisions and reading position. Decision panels share the experience
+accordion's smooth height and opacity transitions.
 
 ## Hero and navigation
 

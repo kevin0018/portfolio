@@ -221,3 +221,22 @@ button:active, .solid-link:active, .outline-link:active { transform: scale(.97);
 [data-motion-paused=true] *, [data-motion-paused=true] *::before, [data-motion-paused=true] *::after { animation: none !important; transition: none !important; }
 html:has([data-motion-paused=true]) { scroll-behavior: auto; }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+/* Working window controls and a single minimized project tab. */
+.case-window-controls { display: flex; gap: .3rem; flex-shrink: 0; }
+.case-window-control { display: grid; place-items: center; width: 1.15rem; height: 1.15rem; padding: 0; border: 0; border-radius: 50%; color: #080d16; font-size: .9rem; line-height: 1; }
+.case-window-control--close { background: #ff7769; }
+.case-window-control--minimize { background: #ffcf43; }
+.case-window-control--expand { background: #36bc6c; }
+.case-window-control span { opacity: 0; transition: opacity .2s ease; }
+.case-window-controls:hover span, .case-window-control:focus-visible span { opacity: 1; }
+.case-dialog__bar > span { min-width: 0; }
+.case-dialog--expanded { width: calc(100% - 1rem); max-height: calc(100svh - 1rem); height: calc(100svh - 1rem); }
+.case-dock { position: fixed; z-index: 60; bottom: 1.5rem; right: 1.5rem; display: flex; align-items: center; gap: 1rem; padding: .9rem 1.25rem; border: 1px solid var(--edge); border-radius: .4rem; background: var(--bg); color: var(--ink); box-shadow: .3rem .3rem 0 var(--desk-purple); font-weight: 600; }
+.case-dock__dot { width: .6rem; height: .6rem; border-radius: 50%; background: #ffcf43; }
+@media(max-width:550px) {
+  .case-window-controls { gap: .2rem; }
+  .case-window-control { width: 1rem; height: 1rem; }
+  .case-window-control span { opacity: 1; }
+  .case-dialog__bar { gap: .65rem; }
+  .case-dock { bottom: 1rem; right: 1rem; }
+}

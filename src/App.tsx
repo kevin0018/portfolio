@@ -22,7 +22,10 @@ function App() {
   const [language, setLanguage] = useState<Language>(initialLanguage);
   const [motionPaused, setMotionPaused] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [projectSlug, setProjectSlug] = useState(() => location.hash.slice(1));
-  const project = featuredCaseStudies.find((item) => item.slug === projectSlug);
+  const [minimizedSlug, setMinimizedSlug] = useState<string | null>(null);
+  const activeProject = featuredCaseStudies.find((item) => item.slug === projectSlug);
+  const project = activeProject ?? featuredCaseStudies.find((item) => item.slug === minimizedSlug);
+  const minimized = !activeProject && Boolean(project);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -45,12 +48,21 @@ function App() {
   }, [language]);
 
   useEffect(() => {
-    const sync = () => setProjectSlug(location.hash.slice(1));
+    const sync = () => {
+      const slug = location.hash.slice(1);
+      setProjectSlug(slug);
+      if (featuredCaseStudies.some((item) => item.slug === slug)) setMinimizedSlug(null);
+    };
     window.addEventListener("hashchange", sync);
     return () => window.removeEventListener("hashchange", sync);
   }, []);
 
   function closeProject() {
+    setMinimizedSlug(null);
+    hideProject();
+  }
+
+  function hideProject() {
     history.replaceState(
       null,
       "",
@@ -128,7 +140,17 @@ function App() {
           caseStudy={project}
           language={language}
           onClose={closeProject}
+          minimized={minimized}
+          onMinimize={() => { setMinimizedSlug(project.slug); hideProject(); }}
         />
+      )}
+      {minimized && project && (
+        <button className="case-dock" type="button"
+          aria-label={`${language === "es" ? "Restaurar" : "Restore"} ${project.name}`}
+          onClick={() => { location.hash = project.slug; }}>
+          <span className="case-dock__dot" aria-hidden="true" />
+          {project.name}<span aria-hidden="true">↗</span>
+        </button>
       )}
     </div>
   );

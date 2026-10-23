@@ -2,39 +2,46 @@ import { useEffect, useRef, useState } from "react";
 import type { CaseStudy, Language } from "../data/caseStudies";
 import { projectGallery } from "../data/projectGallery";
 
-type Props = { caseStudy: CaseStudy; language: Language; onClose: () => void };
+type Props = { caseStudy: CaseStudy; language: Language; onClose: () => void; minimized: boolean; onMinimize: () => void };
 
 export function CaseStudyDialog({
   caseStudy: project,
   language,
   onClose,
+  minimized,
+  onMinimize,
 }: Props) {
   const dialog = useRef<HTMLDialogElement>(null);
+  const scrollPosition = useRef(0);
+  const [expanded, setExpanded] = useState(false);
   const [selected, setSelected] = useState(0);
   const [openDecisions, setOpenDecisions] = useState<string[]>([]);
   const gallery = projectGallery[project.slug] ?? [];
   const view = gallery[selected];
 
   useEffect(() => {
+    if (minimized) return;
     const node = dialog.current;
     const previous =
       document.activeElement instanceof HTMLElement
         ? document.activeElement
         : null;
     node?.showModal();
+    if (node) node.scrollTop = scrollPosition.current;
     const overflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
+      if (node) scrollPosition.current = node.scrollTop;
       node?.close();
       document.body.style.overflow = overflow;
       previous?.focus({ preventScroll: true });
     };
-  }, []);
+  }, [minimized]);
 
   return (
     <dialog
       ref={dialog}
-      className="case-dialog"
+      className={`case-dialog${expanded ? " case-dialog--expanded" : ""}`}
       aria-labelledby="case-title"
       onCancel={(event) => {
         event.preventDefault();
@@ -45,7 +52,14 @@ export function CaseStudyDialog({
       }}
     >
       <div className="case-dialog__bar">
-        <span className="case-window-dots" aria-hidden="true"><i /><i /><i /></span>
+        <div className="case-window-controls">
+          <button type="button" className="case-window-control case-window-control--close" onClick={onClose}
+            aria-label={language === "es" ? "Cerrar ventana" : "Close window"} title={language === "es" ? "Cerrar" : "Close"}><span aria-hidden="true">×</span></button>
+          <button type="button" className="case-window-control case-window-control--minimize" onClick={onMinimize}
+            aria-label={language === "es" ? "Minimizar ventana" : "Minimize window"} title={language === "es" ? "Minimizar" : "Minimize"}><span aria-hidden="true">−</span></button>
+          <button type="button" className="case-window-control case-window-control--expand" onClick={() => setExpanded((value) => !value)} aria-pressed={expanded}
+            aria-label={language === "es" ? (expanded ? "Restaurar tamaño" : "Ampliar ventana") : (expanded ? "Restore size" : "Expand window")} title={language === "es" ? (expanded ? "Restaurar tamaño" : "Ampliar") : (expanded ? "Restore size" : "Expand")}><span aria-hidden="true">{expanded ? "↙" : "↗"}</span></button>
+        </div>
         <span>{project.descriptor[language]}</span>
         <button
           className="close-case"
