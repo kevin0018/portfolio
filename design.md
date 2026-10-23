@@ -39,7 +39,8 @@ width and available height, with no alternate large-screen layout at 1600px.
 - Header: a geometric KH monogram drawn as SVG paths, a separate name, navigation,
   language and motion controls. Desktop navigation is centered in the viewport;
   all header items are vertically centered. Letter spacing cannot distort the monogram.
-- Introduction: live bilingual HTML, with an accent line and the two-line title.
+- Introduction: Kevin's name in a neutral two-line title, with a bilingual
+  first-person description of his role and location and a thin accent line.
   The projects action uses a fixed SVG arrow rather than a font-dependent glyph.
 - Architecture: the background plate generated from the approved concept retains
   its lighting, columns, floor and plants.

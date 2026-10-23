@@ -40,8 +40,8 @@ export function HeroSection({ language, paused = false }: { language: Language; 
     <section className="cinema-hero" id="inicio" aria-labelledby="hero-heading">
       <div className="cinema-hero__space" onPointerMove={move} onPointerLeave={reset}>
         <div className="cinema-hero__intro">
-          <h1 id="hero-heading">{language === "es" ? <>Ideas que<br /><span>cobran vida.</span></> : <>Ideas come<br /><span>to life.</span></>}</h1>
-          <p>{language === "es" ? "Soy Kevin, desarrollador full stack en Barcelona." : "I’m Kevin, a full stack developer in Barcelona."}</p>
+          <h1 id="hero-heading">Kevin<br />Hernández.</h1>
+          <p>{language === "es" ? "Soy desarrollador full stack en Barcelona." : "I’m a full stack developer in Barcelona."}</p>
           <a className="outline-link" href="#proyectos">{language === "es" ? "Ver proyectos" : "Explore projects"}<NorthEastArrow /></a>
         </div>
         <div className="portal-environment" aria-hidden="true">
