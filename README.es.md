@@ -17,9 +17,10 @@ combina luz ámbar y violeta, perspectiva y tipografía Onest.
 
 - Explora cuatro productos terminados con capturas completas y explicaciones
   legibles de cada proyecto.
-- Cambia entre cuatro productos desde la portada. Cada selección cambia la luz
-  del escenario y anima la entrada de su captura. El cursor inclina el escenario;
-  abrir un proyecto acerca la cámara antes de mostrar su caso de estudio.
+- La portada presenta solo wikiLoL, con la ilustración y el marco exactos del
+  boceto aprobado. El cursor inclina el escenario y abrir la pantalla acerca la
+  cámara antes de mostrar el caso real. El botón «Ver proyectos» lleva a los
+  cuatro casos de estudio existentes.
 - Abre casos bilingües de [wikiLoL](https://github.com/kevin0018/wikiLoL),
   [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes),
   [Huellas](https://github.com/kevin0018/Huellas) y
@@ -50,10 +51,11 @@ flowchart LR
 
 El contenido está separado de la presentación en módulos TypeScript bilingües.
 Los cuatro productos comparten un componente de galería y decisiones técnicas.
-La portada combina un escenario generado a partir del boceto aprobado con un
-plano HTML proyectado sobre sus cuatro esquinas. wikiLoL utiliza su ilustración
-y textos originales en un recorte de la interfaz; los otros proyectos muestran
-sus capturas reales. Navegación, selector y fichas funcionan con React.
+La portada combina un escenario generado con el fragmento exacto de wikiLoL
+extraído visualmente del boceto aprobado. Los viewports SVG conservan su
+ilustración, símbolo y biseles sin regenerarlos. Cabecera, monograma, texto y
+flecha son elementos HTML/SVG independientes. El hero no tiene carrusel; la
+sección de proyectos conserva los cuatro casos y sus capturas reales.
 
 ### Decisiones que merece la pena revisar
 

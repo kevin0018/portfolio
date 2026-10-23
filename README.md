@@ -17,9 +17,10 @@ The dark visual direction uses amber and violet lighting, perspective and Onest 
 
 - Explore four finished products with complete interface previews and readable
   project summaries.
-- Switch the hero between four real products. The scene changes its lighting and
-  animates the next interface into place. Pointer movement tilts the stage; opening
-  a project moves the camera toward it before showing its case study.
+- The hero presents wikiLoL as one independent screen, using the exact project
+  artwork and beveled frame from the approved concept. Pointer movement tilts the
+  scene; opening the screen moves the camera toward the real case study. The
+  “Explore projects” action leads to the four existing project studies.
 - Open bilingual case studies for [wikiLoL](https://github.com/kevin0018/wikiLoL),
   [Blog de Viajes](https://github.com/kevin0018/Blog-de-Viajes),
   [Huellas](https://github.com/kevin0018/Huellas) and
@@ -49,11 +50,12 @@ flowchart LR
 
 Content stays separate from presentation in bilingual TypeScript modules. The
 four featured products share one modal gallery and engineering detail component.
-The opening stage combines an architectural background generated from the approved
-concept with a live HTML project plane. Its four corners are projected to the
-reference composition. wikiLoL uses its original artwork and interface copy in
-a close-up excerpt; the other projects use their real screenshots. Navigation,
-project selection and case studies remain working React elements.
+The opening stage combines a generated architectural background with the exact
+wikiLoL project fragment from the approved concept. SVG viewports preserve its
+original illustration, mark and screen bevels without regenerating them. The
+header, monogram, page copy and arrow remain independent HTML/SVG elements. The
+hero has no carousel; the project section keeps the four actual case studies and
+their real product screenshots.
 
 ### Decisions worth reviewing
 
