@@ -53,7 +53,7 @@ export function CaseStudyDialog({
     >
       <div className="case-dialog__bar">
         <div className="case-window-controls">
-          <button type="button" className="case-window-control case-window-control--close" onClick={onClose}
+          <button type="button" className="case-window-control case-window-control--close" onClick={onClose} autoFocus
             aria-label={language === "es" ? "Cerrar ventana" : "Close window"} title={language === "es" ? "Cerrar" : "Close"}><span aria-hidden="true">×</span></button>
           <button type="button" className="case-window-control case-window-control--minimize" onClick={onMinimize}
             aria-label={language === "es" ? "Minimizar ventana" : "Minimize window"} title={language === "es" ? "Minimizar" : "Minimize"}><span aria-hidden="true">−</span></button>
@@ -61,15 +61,6 @@ export function CaseStudyDialog({
             aria-label={language === "es" ? (expanded ? "Restaurar tamaño" : "Ampliar ventana") : (expanded ? "Restore size" : "Expand window")} title={language === "es" ? (expanded ? "Restaurar tamaño" : "Ampliar") : (expanded ? "Restore size" : "Expand")}><span aria-hidden="true">{expanded ? "↙" : "↗"}</span></button>
         </div>
         <span>{project.descriptor[language]}</span>
-        <button
-          className="close-case"
-          type="button"
-          onClick={onClose}
-          autoFocus
-        >
-          {language === "es" ? "Cerrar" : "Close"}
-          <span aria-hidden="true">×</span>
-        </button>
       </div>
       <div className="case-dialog__sheet">
         <p className="case-handnote">{language === "es" ? "Mis notas del proyecto" : "My project notes"}</p>

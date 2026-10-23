@@ -118,8 +118,6 @@ button:active, .solid-link:active, .outline-link:active { transform: scale(.97);
 .case-window-dots i { width: .55rem; height: .55rem; border-radius: 50%; background: #ff7769; }
 .case-window-dots i:nth-child(2) { background: #ffcf43; }
 .case-window-dots i:nth-child(3) { background: #36bc6c; }
-.close-case { display: flex; align-items: center; gap: .75rem; margin-left: auto; flex-shrink: 0; background: transparent; border: 0; padding: .35rem 0 .35rem .6rem; color: var(--ink); }
-.close-case span { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--surface-raised); font-size: 1.5rem; line-height: 1; }
 .case-handnote { font: 700 clamp(1.5rem, 2.3vw, 2rem)/1.1 "Caveat", cursive; color: var(--muted); margin-bottom: 1.5rem; transform: rotate(-3deg); transform-origin: left center; }
 .case-dialog h2 { font-size: clamp(2.5rem,6vw,5.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -.065em; }
 .case-dialog h2 > span { position: relative; isolation: isolate; }
@@ -210,8 +208,6 @@ button:active, .solid-link:active, .outline-link:active { transform: scale(.97);
   .footer-credit { font-size: .8125rem; margin-top: 4rem; }
   .case-dialog { width: calc(100% - 1rem); max-height: calc(100svh - 1rem); border-radius: .4rem; }
   .case-dialog__bar { font-size: .8125rem; gap: .75rem; padding: .75rem 1rem; }
-  .case-dialog__bar > span:nth-child(2) { max-width: 12rem; }
-  .case-dialog__bar > .case-window-dots { display: none; }
   .case-dialog h2 { font-size: 2.4rem; }
   .case-links { gap: 1rem; }
   .case-gallery__tabs { gap: .4rem; }
