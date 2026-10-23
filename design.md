@@ -33,7 +33,8 @@ The reference canvas is 1536 × 1024: an 80px header, an 832px stage and a 112px
 project-caption band. Smaller screens stack the introduction and project frame.
 
 - Header: a geometric KH monogram drawn as SVG paths, a separate name, navigation,
-  language and motion controls. Letter spacing cannot distort the monogram.
+  language and motion controls. Desktop navigation is centered in the viewport;
+  all header items are vertically centered. Letter spacing cannot distort the monogram.
 - Introduction: live bilingual HTML, with an accent line and the two-line title.
   The projects action uses a fixed SVG arrow rather than a font-dependent glyph.
 - Architecture: the background plate generated from the approved concept retains
@@ -66,10 +67,10 @@ direct case hashes, focus restoration, CV and contact links remain available.
 - `public/assets/images/stage/cinema-environment.png`: generated with the built-in
   image tool from the approved concept, removing UI layers and reconstructing the
   architecture. This is a generated reconstruction rather than an exact extraction.
-- `public/assets/images/stage/wikilol-concept-source.png`: an unchanged copy of
-  the approved second concept. `WikiLolPreview.tsx` uses SVG viewports and CSS
-  clipping to show only its project frame. Its exact pixels are reused, rather
-  than substituting the original product illustration or generating another one.
+- `public/assets/images/stage/wikilol-project-frame.png`: a 1000 × 740 transparent
+  crop of the approved second concept containing only its project frame and light.
+  Pixels outside the frame polygon are removed from the asset itself. The complete
+  concept is not shipped. SVG coordinates preserve desktop and mobile placement.
 - `HeroGraphics.tsx`: independent vector paths for KH and the projects arrow.
 - Existing actual project screenshots remain in the project section and galleries.
   Team contributions and Riot Games attribution remain in the case-study data.

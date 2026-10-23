@@ -3,7 +3,10 @@
    image, reprojected independently of the architectural environment. */
 .masthead {
   height: 5rem;
-  padding: 1.5rem clamp(1.25rem, 3.9vw, 4rem) 0;
+  padding: 0 clamp(1.25rem, 3.9vw, 4rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 1rem;
   background: #090c14;
   isolation: isolate;
 }
@@ -14,15 +17,15 @@
   z-index: -1;
   background: url("/assets/images/stage/cinema-environment.png") center top / 100vw auto no-repeat;
 }
-.masthead__brand { gap: 1.5rem; }
+.masthead__brand { gap: 1.5rem; margin-right: 0; justify-self: start; }
 .masthead__monogram { display: flex; align-items: center; width: 3.8125rem; height: 1.9rem; padding-right: 1.5rem; letter-spacing: normal; flex-shrink: 0; }
 .kevin-monogram { display: block; width: 2.25rem; height: 1.75rem; flex-shrink: 0; }
 .masthead__name { font-size: 1.0625rem; font-weight: 400; }
-.masthead nav { gap: 2.5rem; margin-right: 2rem; font-size: 1rem; }
+.masthead nav { gap: 2.5rem; margin-right: 0; justify-self: center; font-size: 1rem; }
 .masthead nav a { white-space: nowrap; }
 .masthead nav a:first-child { position: relative; color: var(--ink); }
 .masthead nav a:first-child::after { content: ""; position: absolute; left: 0; right: 0; height: 2px; background: var(--accent); bottom: -.875rem; }
-.masthead__controls { position: absolute; right: .75rem; bottom: .75rem; gap: .2rem; }
+.masthead__controls { position: static; justify-self: end; gap: .2rem; }
 .masthead__controls button { font-size: .8125rem; min-width: 1.5rem; padding: .5rem .15rem; }
 .cinema-hero { --hero-progress: 0; --scene-light: #ffbe64; --scene-secondary: #a475ff; position: relative; isolation: isolate; background: #090a10; }
 .cinema-hero__space { position: relative; height: calc(100svh - 12rem); min-height: 32rem; max-height: none; }
@@ -59,7 +62,8 @@
   .cinema-hero__intro p { max-width: 28vw; font-size: 1.125rem; }
 }
 @media(max-width:800px) {
-  .masthead { height: 5rem; padding-top: 0; gap: 1rem; }
+  .masthead { height: 5rem; padding-top: 0; gap: 1rem; display: flex; }
+  .masthead__brand { margin-right: auto; }
   .masthead::before { display: none; }
   .masthead__brand { gap: 1rem; }
   .masthead__monogram { width: 3rem; padding-right: 1rem; }
