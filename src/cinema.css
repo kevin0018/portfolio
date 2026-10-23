@@ -54,6 +54,8 @@
 .cinema-hero__footer { position: relative; z-index: 5; min-height: 7rem; padding: 1.75rem var(--gutter) 1.5rem; display: flex; align-items: flex-start; border-top: 1px solid var(--edge); background: #090c13; }
 .hero-explore-link { margin-left: auto; display: inline-flex; align-items: center; gap: 1rem; color: var(--muted); font-size: .875rem; line-height: 1.5; }
 .hero-explore-link:hover { color: var(--accent); }
+.hero-explore-link > span { display: inline-block; animation: explore-arrow-bounce 1.8s ease-in-out infinite; }
+@keyframes explore-arrow-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 @keyframes cinema-suspension { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
 @keyframes cinema-luminance { from { opacity: .1; transform: scale(.92); } to { opacity: .45; transform: scale(1.1); } }
 /* On large displays, scale a reference-shaped stage instead of stretching
