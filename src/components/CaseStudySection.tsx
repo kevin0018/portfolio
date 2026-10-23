@@ -11,6 +11,7 @@ export function CaseStudyDialog({
 }: Props) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [selected, setSelected] = useState(0);
+  const [openDecisions, setOpenDecisions] = useState<string[]>([]);
   const gallery = projectGallery[project.slug] ?? [];
   const view = gallery[selected];
 
@@ -140,16 +141,23 @@ export function CaseStudyDialog({
             {language === "es" ? "Las decisiones" : "The decisions"}
           </h3>
           <div>
-            {project.steps.map((step) => (
-              <details key={step.id}>
-                <summary>
+            {project.steps.map((step) => {
+              const open = openDecisions.includes(step.id);
+              const panelId = `case-decision-${project.slug}-${step.id}`;
+              return <div className={`case-decision${open ? " case-decision--open" : ""}`} key={step.id}>
+                <button type="button" aria-expanded={open} aria-controls={panelId}
+                  onClick={() => setOpenDecisions((current) => open ? current.filter((id) => id !== step.id) : [...current, step.id])}>
                   {step.title[language]}
                   <span aria-hidden="true">+</span>
-                </summary>
-                <p>{step.body[language]}</p>
-                <p className="case-evidence">{step.evidence[language]}</p>
-              </details>
-            ))}
+                </button>
+                <div className="case-decision__body" id={panelId} aria-hidden={!open} inert={!open}>
+                  <div className="case-decision__content">
+                    <p>{step.body[language]}</p>
+                    <p className="case-evidence">{step.evidence[language]}</p>
+                  </div>
+                </div>
+              </div>;
+            })}
           </div>
         </section>
         {project.contribution && (
