@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import type { Language } from "../data/caseStudies";
 import { KevinMonogram } from "./HeroGraphics";
 
@@ -18,6 +19,37 @@ export function SiteHeader({
   theme,
   onThemeChange,
 }: Props) {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  useEffect(() => {
+    const sections = ["proyectos", "experiencia", "contacto"]
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null);
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const readingLine = Math.max(100, Math.min(240, innerHeight * .25));
+      let current: string | null = null;
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= readingLine) current = section.id;
+      }
+      if (scrollY + innerHeight >= document.documentElement.scrollHeight - 2) current = "contacto";
+      setActiveSection(current);
+    };
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+    const observer = new ResizeObserver(schedule);
+    sections.forEach((section) => observer.observe(section));
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    schedule();
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+    };
+  }, []);
+
   return (
     <header className="masthead">
       <a className="skip-link" href="#contenido">
@@ -31,9 +63,9 @@ export function SiteHeader({
         <span className="masthead__monogram"><KevinMonogram /></span>
       </a>
       <nav aria-label={language === "es" ? "Navegación" : "Navigation"}>
-        <a href="#proyectos">{language === "es" ? "Proyectos" : "Projects"}</a>
-        <a href="#experiencia">{language === "es" ? "Sobre mí" : "About me"}</a>
-        <a href="#contacto">{language === "es" ? "Contacto" : "Contact"}</a>
+        <a href="#proyectos" aria-current={activeSection === "proyectos" ? "location" : undefined}>{language === "es" ? "Proyectos" : "Projects"}</a>
+        <a href="#experiencia" aria-current={activeSection === "experiencia" ? "location" : undefined}>{language === "es" ? "Sobre mí" : "About me"}</a>
+        <a href="#contacto" aria-current={activeSection === "contacto" ? "location" : undefined}>{language === "es" ? "Contacto" : "Contact"}</a>
       </nav>
       <div className="masthead__controls">
         <button className="theme-control" type="button" onClick={onThemeChange} aria-pressed={theme === "dark"}

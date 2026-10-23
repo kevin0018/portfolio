@@ -7,8 +7,8 @@
 .kevin-monogram path:last-child { fill: #ffbc00; }
 .masthead nav { display: flex; flex-direction: column; align-items: flex-start; gap: 1.8rem; margin-top: 6rem; font-size: .9375rem; }
 .masthead nav a { position: relative; white-space: nowrap; color: var(--desk-muted); }
-.masthead nav a:first-child { color: var(--desk-ink); }
-.masthead nav a:first-child::before { content: ""; position: absolute; top: .55em; left: -1rem; width: .5rem; height: .5rem; border-radius: 50%; background: var(--desk-ink); }
+.masthead nav a[aria-current="location"] { color: var(--desk-ink); }
+.masthead nav a[aria-current="location"]::before { content: ""; position: absolute; top: .55em; left: -1rem; width: .5rem; height: .5rem; border-radius: 50%; background: var(--desk-ink); }
 .masthead nav a:hover { color: var(--desk-ink); }
 .masthead__controls { display: flex; margin-top: auto; gap: .75rem; }
 .masthead__controls button { color: var(--desk-muted); padding: .65rem .25rem; font-size: .8125rem; }
@@ -71,7 +71,7 @@
   .masthead__monogram { width: 2rem; height: 1.6rem; }
   .kevin-monogram { width: 2rem; height: 1.5rem; }
   .masthead nav { flex-direction: row; gap: 1.5rem; margin: 0 auto; font-size: .875rem; }
-  .masthead nav a:first-child::before { display: none; }
+  .masthead nav a[aria-current="location"]::before { display: none; }
   .masthead__controls { margin: 0; gap: .5rem; }
   .desk-stage { height: 58rem; min-height: 0; }
   .desk-identity { top: 4%; left: 6%; }
