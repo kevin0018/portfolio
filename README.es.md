@@ -50,9 +50,10 @@ flowchart LR
 
 El contenido está separado de la presentación en módulos TypeScript bilingües.
 Los cuatro productos comparten un componente de galería y decisiones técnicas.
-La portada combina capturas reales con planos arquitectónicos, iluminación y
-un reflejo construidos en CSS. El boceto generado sirve de referencia visual;
-la interfaz funciona con elementos HTML, CSS y React.
+La portada combina un escenario generado a partir del boceto aprobado con un
+plano HTML proyectado sobre sus cuatro esquinas. wikiLoL utiliza su ilustración
+y textos originales en un recorte de la interfaz; los otros proyectos muestran
+sus capturas reales. Navegación, selector y fichas funcionan con React.
 
 ### Decisiones que merece la pena revisar
 

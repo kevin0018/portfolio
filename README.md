@@ -49,9 +49,11 @@ flowchart LR
 
 Content stays separate from presentation in bilingual TypeScript modules. The
 four featured products share one modal gallery and engineering detail component.
-The opening stage uses real screenshots with CSS architectural planes, lighting
-and a reflected image. The generated concept is a reference, not a background
-image or a replacement for the working interface.
+The opening stage combines an architectural background generated from the approved
+concept with a live HTML project plane. Its four corners are projected to the
+reference composition. wikiLoL uses its original artwork and interface copy in
+a close-up excerpt; the other projects use their real screenshots. Navigation,
+project selection and case studies remain working React elements.
 
 ### Decisions worth reviewing
 

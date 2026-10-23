@@ -4,8 +4,9 @@
 
 Immersive project cinema, based on the second visual concept selected by Kevin.
 The portfolio presents his actual work as large illuminated interface planes.
-The reference informed the composition; the website itself is built with React,
-CSS and real project screenshots, not a flattened generated image.
+The reference supplies a generated architectural background plate. React and CSS
+render the text, navigation, project selector and a separate live HTML project
+plane, projected to the four measured corners of the approved composition.
 
 This replaces the earlier cobalt-and-sand poster direction. The selected reference
 has priority over Taste Skill's default restrictions on violet, gradients,
@@ -32,7 +33,8 @@ body text uses regular weight and generous leading. The mobile text floor is
 
 - Header: KH monogram, name, three navigation links, motion and locale controls.
 - Hero: introduction on the left; a large perspective product interface on the
-  right, with architectural planes, amber and violet light, floor and reflection.
+  right, over the generated architectural environment with amber and violet light,
+  reflective floor and foreground plants.
   Four named buttons select the active project. The phone stacks the introduction
   and stage while keeping all four project controls available.
 - Projects: four complete product previews paired with summaries, stack and case
@@ -49,8 +51,8 @@ body text uses regular weight and generous leading. The mobile text floor is
 ## Motion and interaction
 
 - Opening: staged introduction, architectural plane entrances and camera arrival.
-- Ambient movement: a floating project frame, breathing light, a traveling floor
-  line, screen reflection and occasional light sweep.
+- Ambient movement: a floating project frame, breathing light and an occasional screen light sweep.
+  The background plate preserves the reference materials and floor reflections.
 - Project selection: a new real screenshot enters with depth; its lighting comes
   from `src/data/projectScenes.ts`.
 - Pointer: small camera rotations on mouse movement; reset on pointer exit.
@@ -78,3 +80,27 @@ Games inside the wikiLoL case; Huellas retains the team's named contributions.
 
 Concept sketches, working notes, critiques and browser captures stay in ignored
 `.taste-skill/`. This file documents the implemented system, not a work plan.
+
+## Visual assets and framing
+
+- `public/assets/images/stage/cinema-environment.png`: generated with the built-in
+  image tool from the approved concept. The generation request removed UI text
+  and the foreground project screen while preserving the camera, columns,
+  amber/violet lighting, reflective floor and plants. The output is a background
+  asset; no flattened text or navigation is used.
+- `public/assets/images/wikilol/ekko-hero.jpg`: wikiLoL's existing original hero
+  artwork, copied from its local source. Riot Games attribution remains in the
+  wikiLoL case study.
+- `WikiLolPreview.tsx`: a static visual excerpt made from the product's original
+  copy and artwork. Its surrounding link opens the real project case; depicted
+  product controls are not separate interactive controls. Full original captures
+  remain available in the case gallery.
+- `cinema.css`: reference geometry and responsive staging. At 1536 × 1024 the
+  header is 80px and the selector is 112px. The intervening stage is 832px.
+- `portalProjection()` maps the 1000 × 720 HTML plane onto normalized corners
+  measured from the approved sketch. ResizeObserver recomputes the projection;
+  the mobile layout uses its own stacked stage.
+
+The implementation aims to match the reference composition and material richness.
+It is not pixel-identical: the backplate is a generated reconstruction, and the
+wikiLoL artwork is its original image rather than the model's reinterpretation.
