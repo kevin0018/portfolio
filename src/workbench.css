@@ -79,7 +79,7 @@
   .desk-intro { top: 17%; left: 6%; width: 75%; }
   .desk-intro h1 { font-size: clamp(3rem, 7.3vw, 4.5rem); margin-bottom: 1.25rem; }
   .desk-intro > p { max-width: 25rem; font-size: 1.0625rem; }
-  .desk-intro__arrow { right: 7%; bottom: -3rem; width: 4rem; }
+  .desk-intro__arrow { right: 7%; bottom: -3rem; width: 4rem; height: 4rem; transform: rotate(65deg); }
   .desk-window--wiki { top: 43%; width: 66%; right: 6%; }
   .desk-window--travel { top: 72%; bottom: auto; width: 70%; left: 7%; }
   .desk-note { display: none; }
@@ -89,6 +89,8 @@
   .desk-dashes { top: 40%; }
   .desk-scribble { top: 84%; right: 3%; width: 20%; }
   .desk-explore { top: 91%; right: 4%; width: 4.5rem; }
+  .desk-explore svg { transform: rotate(90deg); }
+  .desk-explore:hover { transform: scale(1.06); }
   .desk-footer { padding: 2rem 6%; flex-wrap: wrap; gap: 1.25rem; }
   .desk-location { width: 100%; }
   .desk-footer__project { display: none; }
@@ -107,7 +109,7 @@
   .desk-intro { top: 17%; width: 88%; }
   .desk-intro h1 { font-size: clamp(2.5rem, 10vw, 3.4rem); }
   .desk-intro > p { width: 90%; font-size: 1rem; }
-  .desk-intro__arrow { right: 0; bottom: -1rem; width: 3rem; }
+  .desk-intro__arrow { right: .75rem; bottom: -1rem; width: 3rem; height: 3rem; }
   .desk-window--wiki { top: 45%; width: 80%; right: 6%; }
   .desk-window--travel { top: 72%; width: 80%; left: 6%; }
   .desk-note--wiki { top: 46%; right: 1%; font-size: 1.1rem; }
